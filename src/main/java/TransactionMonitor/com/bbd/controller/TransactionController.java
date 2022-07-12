@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
+
 @RestController
 @RequestMapping("/api")
 public class TransactionController {
@@ -18,6 +20,10 @@ public class TransactionController {
     {
         System.out.println(record);
         service.saveTransaction(record);
-        return "Saved";
+//        Date init_date = record.getInit_date();
+//        int month = init_date.getMonth();
+//        int year = init_date.getYear();
+//        return "init_date = "+(month+1) + "year = "+(year+1900);
+        return "Successfully inserted";
     }
 }
