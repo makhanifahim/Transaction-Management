@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -16,14 +17,19 @@ public class TransactionController {
     @Autowired
     private SaveRecordService service;
     @PostMapping("/save")
-    public String saveTransaction(@RequestBody Record record)
+    public String saveTransaction(@RequestBody List<Record> record)
     {
-        System.out.println(record);
-        service.saveTransaction(record);
+        try{
+            service.saveTransaction(record);
+            return "Successfully inserted";
+        }
+        catch (Exception ex){
+            return ex+"";
+        }
 //        Date init_date = record.getInit_date();
 //        int month = init_date.getMonth();
 //        int year = init_date.getYear();
 //        return "init_date = "+(month+1) + "year = "+(year+1900);
-        return "Successfully inserted";
+
     }
 }
