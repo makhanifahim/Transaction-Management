@@ -35,7 +35,7 @@ public class SaveRecordService {
                         quarter=4;
                         break;
                 }
-                File file= new File("C:\\Users\\bbdnet10191\\Desktop\\Books\\Data\\"+year+"\\"+quarter);
+                File file= new File(".\\Data\\"+year+"\\"+quarter);
     //          String Header[] = {"init_date", "conclusion_date", "product_id", "value"};
                 file.mkdirs();
                 CSVWriter writer = new CSVWriter(new FileWriter(file+"\\"+date+"-"+month+"-"+year+".csv",true));
