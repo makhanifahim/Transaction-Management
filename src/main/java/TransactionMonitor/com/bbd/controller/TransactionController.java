@@ -3,12 +3,11 @@ package TransactionMonitor.com.bbd.controller;
 import TransactionMonitor.com.bbd.model.Record;
 import TransactionMonitor.com.bbd.service.SaveRecordService;
 import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvException;
 import com.opencsv.exceptions.CsvValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,7 +15,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -58,7 +56,7 @@ public class TransactionController {
         }
         //for shorting date vise if not but it already includes that
         //st=  st.stream().sorted((s1,s2)-> s1[0].compareTo(s2[0])).collect(Collectors.toList());
-        return st.get(0);
+        return st.get(1);
     }
 
     @GetMapping("/newest")
@@ -67,7 +65,6 @@ public class TransactionController {
         Collections.sort(listYear, Collections.reverseOrder());
         List listQuaFiles = Files.list(Paths.get(listYear.get(0).toString())).collect(Collectors.toList());
         Collections.sort(listQuaFiles, Collections.reverseOrder());
-        System.out.println(listQuaFiles.get(0).toString());
         List listDalyFiles = Files.list(Paths.get(listQuaFiles.get(0).toString())).collect(Collectors.toList());
         Collections.sort(listDalyFiles, Collections.reverseOrder());
         CSVReader reader = new CSVReader(new FileReader(listDalyFiles.get(0).toString()));
@@ -77,7 +74,7 @@ public class TransactionController {
         while ((datalist = reader.readNext()) != null) {
             st.add(datalist);
         }
-        st=  st.stream().sorted((s1,s2)-> s1[0].compareTo(s2[0])).collect(Collectors.toList());
+        //st=  st.stream().sorted((s1,s2)-> s1[0].compareTo(s2[0])).collect(Collectors.toList());
 
         //Counting totel number of transaction present in that file
         long RowsCount = Files.lines(Path.of(listDalyFiles.get(0).toString())).count();
@@ -86,9 +83,9 @@ public class TransactionController {
     }
 
     @GetMapping("/mean")
-    public int meanOfTransaction() throws IOException {
+    public String meanOfTransaction() throws IOException, CsvException {
         List listYears = Files.list(Paths.get(".\\Data")).collect(Collectors.toList());
-        int TotelAmount = 0;
+        float TotalAmount = 0;
         int TotalDays=0;
         //System.out.println(listYears.stream().count());
         for(int year=0;year<listYears.stream().count();year++){
@@ -97,24 +94,35 @@ public class TransactionController {
                 //System.out.println(listQua.get(quater));
                 List listDaylyFile = Files.list(Paths.get(listQua.get(quater).toString())).collect(Collectors.toList());
                 for(int fday=0;fday<listDaylyFile.stream().count();fday++){
-                    TotalDays++;
                     //System.out.println(listDaylyFile.get(fday));
+                    CSVReader readfile = new CSVReader(new FileReader(listDaylyFile.get(fday).toString()));
+                    //for Removing header
+                    readfile.readNext();
+                    List<String[]> rows=readfile.readAll();
 
+                    for (String[] row : rows) {
+                        TotalDays++;
+                        TotalAmount= Float.parseFloat(row[3])+TotalAmount;
+                    }
                 }
             }
         }
-        return 1;
+        return "mean="+TotalAmount+"/"+TotalDays+"="+(TotalAmount/TotalDays);
     }
+
     @GetMapping("/try")
-    public int total() throws IOException, CsvValidationException {
-        //fetching amount from csv file
-        //for try
-        String datalist[];
-        CSVReader reader = new CSVReader(new FileReader(".\\Data\\2022\\1\\1-3-2022.csv"));
-        List<String[]> st = new ArrayList<>();
-        while ((datalist = reader.readNext()) != null) {
-            st.add(datalist);
+    public int total() throws IOException, CsvException {
+        float total=0;
+        CSVReader readfile = new CSVReader(new FileReader("Data//2002//1//1-1-2002.csv"));
+        //for Removing header
+        readfile.readNext();
+        List<String[]> rows=readfile.readAll();
+
+        for (String[] row : rows) {
+            System.out.println(row[0] + "," + row[1] + "," + row[2] + "," + row[3]);
+            total= Float.parseFloat(row[3])+total;
         }
-        return 0;
+        System.out.println("total:"+total);
+        return 1;
     }
 }
