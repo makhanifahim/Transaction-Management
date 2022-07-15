@@ -13,9 +13,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController
@@ -83,7 +81,7 @@ public class TransactionController {
     }
 
     @GetMapping("/mean")
-    public String meanOfTransaction() throws IOException, CsvException {
+    public float meanOfTransaction() throws IOException, CsvException {
         List listYears = Files.list(Paths.get(".\\Data")).collect(Collectors.toList());
         float TotalAmount = 0;
         int TotalDays=0;
@@ -107,22 +105,197 @@ public class TransactionController {
                 }
             }
         }
-        return "mean="+TotalAmount+"/"+TotalDays+"="+(TotalAmount/TotalDays);
+        return (TotalAmount/TotalDays);
     }
+    @GetMapping("/mode")
+    public String modeOfTransaction() throws IOException, CsvException {
+        int c=0;
+        int j=0;
+        String[][] values = new String[100][2];
+        List listYears = Files.list(Paths.get(".\\Data")).collect(Collectors.toList());
+        //System.out.println(listYears.stream().count());
+        for(int year=0;year<listYears.stream().count();year++){
+            List listQua = Files.list(Paths.get(listYears.get(year).toString())).collect(Collectors.toList());
+            for(int quater=0;quater<listQua.stream().count();quater++){
+                //System.out.println(listQua.get(quater));
+                List listDaylyFile = Files.list(Paths.get(listQua.get(quater).toString())).collect(Collectors.toList());
+                for(int fday=0;fday<listDaylyFile.stream().count();fday++){
+                    //System.out.println(listDaylyFile.get(fday));
+                    CSVReader readfile = new CSVReader(new FileReader(listDaylyFile.get(fday).toString()));
+                    //for Removing header
+                    readfile.readNext();
+                    List<String[]> rows=readfile.readAll();
+                    int present=0;
+                    for (String[] row : rows) {
+                        //  System.out.println(row[0] + "," + row[1] + "," + row[2] + "," + row[3]);
+                        present=0;
+                        for(int i=0;i<values.length;i++){
+                            if(values[i][0]!=null) {
+                                if(values[i][0].toString().equals(row[3].toString())){
+                                    present=1;
+                                    values[i][1]= String.valueOf(Integer.parseInt(values[i][1])+1);
+                                }
+                            }
+                        }
+                        if(present==0) {
+                            values[c][0] = row[3];
+                            values[c][1] = String.valueOf(0);
+                            c++;
+                        }
+                    }
 
-    @GetMapping("/try")
-    public int total() throws IOException, CsvException {
-        float total=0;
-        CSVReader readfile = new CSVReader(new FileReader("Data//2002//1//1-1-2002.csv"));
-        //for Removing header
-        readfile.readNext();
-        List<String[]> rows=readfile.readAll();
-
-        for (String[] row : rows) {
-            System.out.println(row[0] + "," + row[1] + "," + row[2] + "," + row[3]);
-            total= Float.parseFloat(row[3])+total;
+                }
+            }
         }
-        System.out.println("total:"+total);
-        return 1;
+        int count=0;
+        String mode="";
+        for(int i=0;i<values.length;i++){
+            if(values[i][0]!=null) {
+                if(Integer.parseInt(values[i][1])>count){
+                    count=Integer.parseInt(values[i][1])+1;
+                    mode=values[i][0];
+                }
+            }
+        }
+        return "Mode (Amount) = "+mode+" with count="+count;
+    }
+    @GetMapping("/standardDeviation")
+    public String SDOfTransaction() throws IOException, CsvException {
+        List listYears = Files.list(Paths.get(".\\Data")).collect(Collectors.toList());
+        float TotalAmount = 0;
+        int TotalDays=0;
+        //System.out.println(listYears.stream().count());
+        for(int year=0;year<listYears.stream().count();year++){
+            List listQua = Files.list(Paths.get(listYears.get(year).toString())).collect(Collectors.toList());
+            for(int quater=0;quater<listQua.stream().count();quater++){
+                //System.out.println(listQua.get(quater));
+                List listDaylyFile = Files.list(Paths.get(listQua.get(quater).toString())).collect(Collectors.toList());
+                for(int fday=0;fday<listDaylyFile.stream().count();fday++){
+                    //System.out.println(listDaylyFile.get(fday));
+                    CSVReader readfile = new CSVReader(new FileReader(listDaylyFile.get(fday).toString()));
+                    //for Removing header
+                    readfile.readNext();
+                    List<String[]> rows=readfile.readAll();
+
+                    for (String[] row : rows) {
+                        TotalDays++;
+                        TotalAmount= Float.parseFloat(row[3])+TotalAmount;
+                    }
+                }
+            }
+        }
+        return "Standard Deviation="+Math.sqrt(TotalAmount/TotalDays);
+    }
+    @GetMapping("/variance")
+    public float VarianceOfTransaction() throws IOException, CsvException {
+        float mean=meanOfTransaction();
+        List listYears = Files.list(Paths.get(".\\Data")).collect(Collectors.toList());
+        float XSeq = 0;
+        float TotalXX = 0;
+        int TotalDays=0;
+        //System.out.println(listYears.stream().count());
+        for(int year=0;year<listYears.stream().count();year++){
+            List listQua = Files.list(Paths.get(listYears.get(year).toString())).collect(Collectors.toList());
+            for(int quater=0;quater<listQua.stream().count();quater++){
+                //System.out.println(listQua.get(quater));
+                List listDaylyFile = Files.list(Paths.get(listQua.get(quater).toString())).collect(Collectors.toList());
+                for(int fday=0;fday<listDaylyFile.stream().count();fday++){
+                    //System.out.println(listDaylyFile.get(fday));
+                    CSVReader readfile = new CSVReader(new FileReader(listDaylyFile.get(fday).toString()));
+                    //for Removing header
+                    readfile.readNext();
+                    List<String[]> rows=readfile.readAll();
+
+                    for (String[] row : rows) {
+                        TotalDays++;
+                        XSeq=Float.parseFloat(row[3])-mean;
+                        XSeq=XSeq*XSeq;
+                        System.out.println("X-mean="+XSeq+" amount="+Float.parseFloat(row[3]));
+                        TotalXX=TotalXX+XSeq;
+                    }
+                }
+            }
+        }
+        return TotalXX/TotalDays;
+    }
+    @GetMapping("/mostCommonProduct")
+    public String mostCommonProduct() throws IOException, CsvException {
+        String prod="";
+        int c=0;
+        int j=0;
+        String[][] products=listOfCommonProduct();
+        int count=Integer.parseInt(products[0][1]);
+        for(int i=1;i<products.length-1;i++){
+            if(products[i][0]!=null) {
+                //System.out.println(products[i][0]+" "+(Integer.parseInt(products[i][1])+1));
+                if(Integer.parseInt(products[i][1])>count){
+                    count=Integer.parseInt(products[i][1]);
+                    count=count+1;
+                    prod=products[i][0];
+
+                }
+            }
+        }
+        return "most common product is ("+prod+") with repetation of "+count;
+    }
+    @GetMapping("/leastCommonProduct")
+    public String listCommonProduct() throws IOException, CsvException {
+        String prod="";
+        int c=0;
+        int j=0;
+        String[][] products=listOfCommonProduct();
+        int count=Integer.parseInt(products[0][1]);
+        for(int i=1;i<products.length-1;i++){
+            if(products[i][0]!=null) {
+                //System.out.println(products[i][0]+" "+(Integer.parseInt(products[i][1])+1));
+                if(Integer.parseInt(products[i][1])<=count && Integer.parseInt(products[i][1])!=0){
+                    count=Integer.parseInt(products[i][1]);
+                    count=count+1;
+                    prod=products[i][0];
+
+                }
+            }
+        }
+        return "most common product is ("+prod+") with repetation of "+count;
+    }
+    public String[][] listOfCommonProduct() throws IOException, CsvException {
+        int c=0;
+        int j=0;
+        String[][] products = new String[1000][2];
+        List listYears = Files.list(Paths.get(".\\Data")).collect(Collectors.toList());
+        //System.out.println(listYears.stream().count());
+        for(int year=0;year<listYears.stream().count();year++){
+            List listQua = Files.list(Paths.get(listYears.get(year).toString())).collect(Collectors.toList());
+            for(int quater=0;quater<listQua.stream().count();quater++){
+                //System.out.println(listQua.get(quater));
+                List listDaylyFile = Files.list(Paths.get(listQua.get(quater).toString())).collect(Collectors.toList());
+                for(int fday=0;fday<listDaylyFile.stream().count();fday++){
+                    //System.out.println(listDaylyFile.get(fday));
+                    CSVReader readfile = new CSVReader(new FileReader(listDaylyFile.get(fday).toString()));
+                    //for Removing header
+                    readfile.readNext();
+                    List<String[]> rows=readfile.readAll();
+                    for (String[] row : rows) {
+                        int present=0;
+                        //  System.out.println(row[0] + "," + row[1] + "," + row[2] + "," + row[3]);
+                        for(int i=0;i<products.length;i++){
+                            if(products[i][0]!=null) {
+                                if(products[i][0].toString().equals(row[2].toString())){
+                                   present=1;
+                                   products[i][1]=String.valueOf(Integer.parseInt(products[i][1])+1);
+                               }
+                            }
+                        }
+                        if(present==0){
+                            products[c][0] = row[2];
+                            products[c][1] = String.valueOf(0);
+                            c++;
+                        }
+                    }
+
+                }
+            }
+        }
+        return products;
     }
 }
