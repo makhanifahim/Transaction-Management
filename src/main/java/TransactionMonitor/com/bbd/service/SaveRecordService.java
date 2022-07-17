@@ -1,21 +1,13 @@
 package TransactionMonitor.com.bbd.service;
 
 import TransactionMonitor.com.bbd.model.Record;
-import com.opencsv.CSVReader;
-import org.springframework.stereotype.Service;
 import com.opencsv.CSVWriter;
+import org.springframework.stereotype.Service;
 
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 @Service
 public class SaveRecordService {
@@ -44,10 +36,21 @@ public class SaveRecordService {
             records.stream().forEach(record->{
                 try {
                     Date init_date = record.getInit_date();
-                    int date = init_date.getDate();
-                    int month = init_date.getMonth()+1;
+                    int d = init_date.getDate();
+                    String date=d+"";
+                    if(d<10){
+                        date=0+""+d;
+                    }
+                    int m = init_date.getMonth()+1;
+                    String month;
+                    if(m<10){
+                        month=""+0+m;
+                    }
+                    else{
+                        month= m+"";
+                    }
                     int year = init_date.getYear() + 1900;
-                    int quarter=getQuater(month);
+                    int quarter=getQuater(m);
                     File file= new File(".\\Data\\"+year+"\\"+quarter);
                     file.mkdirs();
 
