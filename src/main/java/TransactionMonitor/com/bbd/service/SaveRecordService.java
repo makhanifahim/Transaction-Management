@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -35,7 +36,12 @@ public class SaveRecordService {
 
             records.stream().forEach(record->{
                 try {
-                    Date init_date = record.getInit_date();
+                    Date init_date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX").parse(record.getInit_date());
+                    Date Conclusion_date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX").parse(record.getConclusion_date());
+                    init_date.setHours(init_date.getHours()-5);
+                    init_date.setMinutes(init_date.getMinutes()-30);
+                    Conclusion_date.setHours(Conclusion_date.getHours()-5);
+                    Conclusion_date.setMinutes(Conclusion_date.getMinutes()-30);
                     int d = init_date.getDate();
                     String date=d+"";
                     if(d<10){
@@ -60,7 +66,7 @@ public class SaveRecordService {
 
                     if(checkFilePresent==true){
                         CSVWriter writer = new CSVWriter(new FileWriter(file+"\\"+date+"-"+month+"-"+year+".csv",true));
-                        String line1[] = {record.getInit_date().toString(),record.getConclusion_date().toString() ,record.getProduct_id().toString(), record.getValue().toString()};
+                        String line1[] = {record.getInit_date(),record.getInit_date() ,record.getProduct_id().toString(), record.getValue().toString()};
                         writer.writeNext(line1);
                         writer.flush();
                     }
@@ -69,7 +75,7 @@ public class SaveRecordService {
                         //"init_date", "conclusion_date", "product_id", "value"
                         CSVWriter writer = new CSVWriter(new FileWriter(file+"\\"+date+"-"+month+"-"+year+".csv",true));
                         String line1[] = {"init_date","conclusion_date","product_id","value"};
-                        String line2[] = {record.getInit_date().toString(),record.getConclusion_date().toString() ,record.getProduct_id().toString(), record.getValue().toString()};
+                        String line2[] = {record.getInit_date(), record.getConclusion_date() ,record.getProduct_id().toString(), record.getValue().toString()};
                         writer.writeNext(line1);
                         writer.writeNext(line2);
                         writer.flush();
