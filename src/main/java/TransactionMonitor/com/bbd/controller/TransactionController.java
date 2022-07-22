@@ -270,6 +270,19 @@ public class TransactionController {
         }
         return 0;
     }
+    private boolean dateChecker(@RequestBody datesBetween dates){
+        try {
+            Date init_date = dates.getDateFrom();
+            Date Conclusion_date = dates.getDateTo();
+            if (init_date.compareTo(Conclusion_date) > 0)
+                return false;
+            else
+                return true;
+        }
+        catch (Exception e){
+            return false;
+        }
+    }
     @PostMapping("/save")
     public String saveTransaction(@RequestBody List<Record> record) {
         try{
@@ -303,20 +316,25 @@ public class TransactionController {
 
     @GetMapping("/oldestTInRange")
     public String[] oldTransactionInBetween(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
-        List transaction=allTransactionInBetween(dates);
-        String[] oldestTransaction=new String[4];
-        oldestTransaction= (String[]) transaction.get(0);
-
-        return oldestTransaction;
+        if(dateChecker(dates)) {
+            List transaction = allTransactionInBetween(dates);
+            String[] oldestTransaction = new String[4];
+            oldestTransaction = (String[]) transaction.get(0);
+            return oldestTransaction;
+        }else
+            return null;
     }
 
     @GetMapping("/newestTInRange")
     public String[] newTransactionInBetween(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
-        List transaction=allTransactionInBetween(dates);
-        String[] oldestTransaction=new String[4];
-        int len= transaction.size()-1;
-        oldestTransaction= (String[]) transaction.get(len);
-        return oldestTransaction;
+        if(dateChecker(dates)) {
+            List transaction = allTransactionInBetween(dates);
+            String[] oldestTransaction = new String[4];
+            int len = transaction.size() - 1;
+            oldestTransaction = (String[]) transaction.get(len);
+            return oldestTransaction;
+        }else
+            return null;
     }
 
     @GetMapping("/newest")
@@ -358,16 +376,20 @@ public class TransactionController {
 
     @GetMapping("/meanInRange")
     public float meanInRange(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
-        List allTransaction = allTransactionInBetween(dates);
-        int TotalDays=0;
-        float TotalAmount=0;
-        for (int t=0;t<allTransaction.stream().count();t++){
-            String[] Transaction=new String[4];
-            Transaction= (String[]) allTransaction.get(t);
-            TotalDays++;
-            TotalAmount= Float.parseFloat(Transaction[3])+TotalAmount;
+        if(dateChecker(dates)) {
+            List allTransaction = allTransactionInBetween(dates);
+            int TotalDays = 0;
+            float TotalAmount = 0;
+            for (int t = 0; t < allTransaction.stream().count(); t++) {
+                String[] Transaction = new String[4];
+                Transaction = (String[]) allTransaction.get(t);
+                TotalDays++;
+                TotalAmount = Float.parseFloat(Transaction[3]) + TotalAmount;
+            }
+            return TotalAmount / TotalDays;
         }
-        return TotalAmount/TotalDays;
+        else
+            return 0;
     }
 
     @GetMapping("/mode")
@@ -399,29 +421,33 @@ public class TransactionController {
 
     @GetMapping("modeInRange")
     public String modeInRange(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
-        int c=0;
-        List allTransaction = allTransactionInBetween(dates);
-        String[][] values = new String[allTransaction.size()][2];
-        int present;
-        for (int t=0;t<allTransaction.stream().count();t++){
-            String[] row;
-            row= (String[]) allTransaction.get(t);
-            present=0;
-            for(int i=0;i<values.length;i++){
-                if(values[i][0]!=null) {
-                    if(values[i][0].toString().equals(row[3].toString())){
-                        present=1;
-                        values[i][1]= String.valueOf(Integer.parseInt(values[i][1])+1);
+        if(dateChecker(dates)) {
+            int c = 0;
+            List allTransaction = allTransactionInBetween(dates);
+            String[][] values = new String[allTransaction.size()][2];
+            int present;
+            for (int t = 0; t < allTransaction.stream().count(); t++) {
+                String[] row;
+                row = (String[]) allTransaction.get(t);
+                present = 0;
+                for (int i = 0; i < values.length; i++) {
+                    if (values[i][0] != null) {
+                        if (values[i][0].toString().equals(row[3].toString())) {
+                            present = 1;
+                            values[i][1] = String.valueOf(Integer.parseInt(values[i][1]) + 1);
+                        }
                     }
                 }
+                if (present == 0) {
+                    values[c][0] = row[3];
+                    values[c][1] = String.valueOf(0);
+                    c++;
+                }
             }
-            if(present==0) {
-                values[c][0] = row[3];
-                values[c][1] = String.valueOf(0);
-                c++;
-            }
+            return findmodel(values);
         }
-        return findmodel(values);
+        else
+            return "Wrong Date Range";
     }
 
     @GetMapping("/standardDeviation")
@@ -456,22 +482,26 @@ public class TransactionController {
 
     @GetMapping("/mostCPInRange")
     public String mostCPInBetween(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
-        int c=0;
-        int j=0;
-        String[][] products=listCommonProdInRange(dates);
-        int count=Integer.parseInt(products[0][1]);
-        String prod=products[0][0];
-        for(int i=1;i<products.length-1;i++){
-            if(products[i][0]!=null) {
-                if(Integer.parseInt(products[i][1])>count){
-                    count=Integer.parseInt(products[i][1]);
-                    count=count+1;
-                    prod=products[i][0];
+        if(dateChecker(dates)) {
+            int c = 0;
+            int j = 0;
+            String[][] products = listCommonProdInRange(dates);
+            int count = Integer.parseInt(products[0][1]);
+            String prod = products[0][0];
+            for (int i = 1; i < products.length - 1; i++) {
+                if (products[i][0] != null) {
+                    if (Integer.parseInt(products[i][1]) > count) {
+                        count = Integer.parseInt(products[i][1]);
+                        count = count + 1;
+                        prod = products[i][0];
+                    }
                 }
             }
+            //System.out.println("most common product is ("+prod+") with repetation of "+count);
+            return prod;
         }
-        //System.out.println("most common product is ("+prod+") with repetation of "+count);
-        return prod;
+        else
+            return "Wrong Date Range";
     }
 
     @GetMapping("/variance")
@@ -496,22 +526,26 @@ public class TransactionController {
 
     @GetMapping("/varianceInRange")
     public float varianceInBetween(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
-        float mean=meanOfTransaction();
-        float XSeq = 0;
-        float TotalXX = 0;
-        int TotalTran=0;
-        List allTransaction = allTransactionInBetween(dates);
-        for (int t=0;t<allTransaction.stream().count();t++){
-            String[] row=new String[4];
-            row= (String[]) allTransaction.get(t);
-            TotalTran++;
-            XSeq=Float.parseFloat(row[3])-mean;
-            XSeq=XSeq*XSeq;
-            System.out.println("X-mean="+XSeq+" amount="+Float.parseFloat(row[3]));
-            TotalXX=TotalXX+XSeq;
+        if(dateChecker(dates)) {
+            float mean = meanOfTransaction();
+            float XSeq = 0;
+            float TotalXX = 0;
+            int TotalTran = 0;
+            List allTransaction = allTransactionInBetween(dates);
+            for (int t = 0; t < allTransaction.stream().count(); t++) {
+                String[] row = new String[4];
+                row = (String[]) allTransaction.get(t);
+                TotalTran++;
+                XSeq = Float.parseFloat(row[3]) - mean;
+                XSeq = XSeq * XSeq;
+                System.out.println("X-mean=" + XSeq + " amount=" + Float.parseFloat(row[3]));
+                TotalXX = TotalXX + XSeq;
+            }
+            System.out.println("Squar total = " + TotalXX + " Total transaction" + TotalTran);
+            return TotalXX / TotalTran;
         }
-        System.out.println("Squar total = "+TotalXX +" Total transaction"+TotalTran);
-        return TotalXX/TotalTran;
+        else
+            return 0;
     }
 
     @GetMapping("/leastCommonProduct")
@@ -538,24 +572,28 @@ public class TransactionController {
 
     @GetMapping("/leastCPInRange")
     public String leastCommonProduct(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
-        int c=0;
-        int j=0;
-        String[][] products=listCommonProdInRange(dates);
-        int count=Integer.parseInt(products[0][1]);
-        String prod=products[0][0];
-        for(int i=1;i<products.length-1;i++){
-            if(products[i][0]!=null) {
-                //System.out.println(products[i][0]+" "+(Integer.parseInt(products[i][1])+1));
-                if(Integer.parseInt(products[i][1])<=count && Integer.parseInt(products[i][1])!=0){
-                    count=Integer.parseInt(products[i][1]);
-                    count=count+1;
-                    prod=products[i][0];
+        if(dateChecker(dates)) {
+            int c = 0;
+            int j = 0;
+            String[][] products = listCommonProdInRange(dates);
+            int count = Integer.parseInt(products[0][1]);
+            String prod = products[0][0];
+            for (int i = 1; i < products.length - 1; i++) {
+                if (products[i][0] != null) {
+                    //System.out.println(products[i][0]+" "+(Integer.parseInt(products[i][1])+1));
+                    if (Integer.parseInt(products[i][1]) <= count && Integer.parseInt(products[i][1]) != 0) {
+                        count = Integer.parseInt(products[i][1]);
+                        count = count + 1;
+                        prod = products[i][0];
 
+                    }
                 }
             }
+            //        System.out.println("most common product is ("+prod+") with repetation of "+count);
+            return prod;
         }
-//        System.out.println("most common product is ("+prod+") with repetation of "+count);
-        return prod;
+        else
+            return "Wrong Date Range";
     }
 
     @GetMapping("/getTimeDelta")
@@ -572,7 +610,6 @@ public class TransactionController {
             TotalTransaction++;
             values[t] = TotalProcessMilliSeconds;
         }
-
         return "Mean="+TotalProcessMilliSeconds/TotalTransaction+" Mode="+String.valueOf(mode(values))+" Standard Deviation="+Math.sqrt(TotalProcessMilliSeconds/TotalTransaction);
     }
 
@@ -617,23 +654,27 @@ public class TransactionController {
 
     @GetMapping("/getTimeDeltaInRange/{productId}")
     public String timeDeltaInRangewithProductId(@RequestBody datesBetween dates,@PathVariable String productId) throws IOException, ParseException, CsvException {
-        List transaction=allTransactionInBetween(dates);
-        long TotalProcessMilliSeconds = 0;
-        long TotalTransaction=0;
-        int c=0;
-        long[] values = new long[transaction.size()];
-        for(int t=0;t<transaction.size();t++){
-            String[] row= (String[]) transaction.get(t);
-            if(row[2].equals(productId)){
-                Date dateFrom=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(row[0]);
-                Date dateTo=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(row[1]);
-                TotalProcessMilliSeconds = TotalProcessMilliSeconds+(dateTo.getTime() - dateFrom.getTime());
-                TotalTransaction++;
-                values[c] = TotalProcessMilliSeconds;
-                c++;
+        if(dateChecker(dates)) {
+            List transaction = allTransactionInBetween(dates);
+            long TotalProcessMilliSeconds = 0;
+            long TotalTransaction = 0;
+            int c = 0;
+            long[] values = new long[transaction.size()];
+            for (int t = 0; t < transaction.size(); t++) {
+                String[] row = (String[]) transaction.get(t);
+                if (row[2].equals(productId)) {
+                    Date dateFrom = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(row[0]);
+                    Date dateTo = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(row[1]);
+                    TotalProcessMilliSeconds = TotalProcessMilliSeconds + (dateTo.getTime() - dateFrom.getTime());
+                    TotalTransaction++;
+                    values[c] = TotalProcessMilliSeconds;
+                    c++;
+                }
             }
+            return "Mean=" + TotalProcessMilliSeconds / TotalTransaction + " Standard Deviation=" + Math.sqrt(TotalProcessMilliSeconds / TotalTransaction);
         }
-        return "Mean="+TotalProcessMilliSeconds/TotalTransaction+" Standard Deviation="+Math.sqrt(TotalProcessMilliSeconds/TotalTransaction);
+        else
+            return "Wrong Date Range";
     }
 
 }
