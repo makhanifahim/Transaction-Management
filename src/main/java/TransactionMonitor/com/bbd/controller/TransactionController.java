@@ -26,28 +26,19 @@ public class TransactionController {
     @Autowired
     private SaveRecordService service;
     private int getQuater(int month){
-        int quarter=0;
-        switch (month){
-            case 1,2,3:
-                quarter=1;
-                break;
-            case 4,5,6:
-                quarter=2;
-                break;
-            case 7,8,9:
-                quarter=3;
-                break;
-            case 10,11,12:
-                quarter=4;
-                break;
-        }
-        return quarter;
+        return switch (month) {
+            case 1, 2, 3 -> 1;
+            case 4, 5, 6 -> 2;
+            case 7, 8, 9 -> 3;
+            case 10, 11, 12 -> 4;
+            default -> 0;
+        };
     }
     private String[][] listCommonProd() throws IOException, CsvException {
         int c=0;
         List allTransaction = allTransactionInPresent();
         String[][] products = new String[allTransaction.size()][2];
-        for (int t=0;t<allTransaction.stream().count();t++){
+        for (int t = 0; t< (long) allTransaction.size(); t++){
             String[] row=new String[4];
             row= (String[]) allTransaction.get(t);
             int present=0;
@@ -72,7 +63,7 @@ public class TransactionController {
         int c=0;
         List allTransaction = allTransactionInBetween(dates);
         String[][] products = new String[allTransaction.size()][2];
-        for (int t=0;t<allTransaction.stream().count();t++){
+        for (int t = 0; t< (long) allTransaction.size(); t++){
             String[] row=new String[4];
             row= (String[]) allTransaction.get(t);
             int present=0;
@@ -97,18 +88,17 @@ public class TransactionController {
         SimpleDateFormat fileDate = new SimpleDateFormat("dd-mm-yyyy");
         int indexOfDash = DayPath.indexOf('.');
         String DateFromPath=DayPath.substring(0, indexOfDash);
-        String[] splitDate = DateFromPath.split("-", 0);
-        return splitDate;
+        return DateFromPath.split("-", 0);
     }
     private List<String> allFilesInPresent() throws IOException {
         List<String> paths= new ArrayList<String>();
-        List listYears = Files.list(Paths.get(".\\Data")).collect(Collectors.toList());
-        for(int year=0;year<listYears.stream().count();year++){
-            List listQua = Files.list(Paths.get(listYears.get(year).toString())).collect(Collectors.toList());
-            for(int quater=0;quater<listQua.stream().count();quater++){
+        List listYears = Files.list(Paths.get(".\\Data")).toList();
+        for(int year = 0; year< (long) listYears.size(); year++){
+            List listQua = Files.list(Paths.get(listYears.get(year).toString())).toList();
+            for(int quater = 0; quater< (long) listQua.size(); quater++){
                 //System.out.println(listQua.get(quater));
-                List listDaylyFile = Files.list(Paths.get(listQua.get(quater).toString())).collect(Collectors.toList());
-                for(int fday=0;fday<listDaylyFile.stream().count();fday++){
+                List listDaylyFile = Files.list(Paths.get(listQua.get(quater).toString())).toList();
+                for(int fday = 0; fday< (long) listDaylyFile.size(); fday++){
                     //System.out.println(listDaylyFile.get(fday));
                     paths.add(listDaylyFile.get(fday).toString());
                 }
@@ -134,6 +124,7 @@ public class TransactionController {
         }
         return temp;
     }
+    @GetMapping("/test")
     public List<String> listOfPathsBetweenTwoDates(@RequestBody datesBetween dates) throws IOException, ParseException {
         Date dateFrom = dates.getDateFrom();
         Date dateTo = dates.getDateTo();
@@ -150,7 +141,39 @@ public class TransactionController {
         String yearsPath[] = directoryPathYear.list();
         for (int y=0;y<yearsPath.length;y++){
             if(yearFrom<=Integer.parseInt(String.valueOf(yearsPath[y])) && yearto>=Integer.parseInt(String.valueOf(yearsPath[y]))){
-                if(Integer.parseInt(yearsPath[y])==yearFrom){
+
+                if(yearFrom==yearto){
+                    File directoryPathQua = new File(".//Data//"+yearsPath[y]);
+                    String quaterPath[] = directoryPathQua.list();
+                    for(int q=0;q<directoryPathQua.list().length;q++){
+                        if(quaterFrom<=Integer.parseInt(String.valueOf(quaterPath[q]))){
+                            File directoryPathDay = new File(".//Data//"+yearsPath[y]+"//"+quaterPath[q]);
+                            String DayPath[]=directoryPathDay.list();
+                            for (int d=0;d<directoryPathDay.list().length;d++){
+                                String[] TransacDate =dateFromPath(DayPath[d]);
+
+                                if(monthFrom<Integer.parseInt(TransacDate[1])&&monthto>Integer.parseInt(TransacDate[1])) {
+                                    //System.out.println(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]);
+                                    BetweenFilePath.add(String.valueOf(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
+                                }
+                                if(monthFrom==Integer.parseInt(TransacDate[1])&&yearFrom==Integer.parseInt(TransacDate[2])){
+                                    if(dayFrom<=Integer.parseInt(TransacDate[0])){
+                                        //  System.out.println(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]);
+                                        BetweenFilePath.add(String.valueOf(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
+                                    }
+                                }
+                                if(monthto==Integer.parseInt(TransacDate[1])&&yearto==Integer.parseInt(TransacDate[2])){
+                                    if(dayto>=Integer.parseInt(TransacDate[0])){
+                                        //  System.out.println(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]);
+                                        BetweenFilePath.add(String.valueOf(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
+                                    }
+                                }
+                            }
+                            //System.out.println(".//Data//"+yearsPath[y]+"//"+quaterPath[q]);
+                        }
+                    }
+                }
+                else if(Integer.parseInt(yearsPath[y])==yearFrom){
                     File directoryPathQua = new File(".//Data//"+yearsPath[y]);
                     String quaterPath[] = directoryPathQua.list();
                     for(int q=0;q<directoryPathQua.list().length;q++){
@@ -336,7 +359,7 @@ public class TransactionController {
         }else
             return null;
     }
-
+    //---- change
     @GetMapping("/newest")
     public String[] newerTransaction() throws IOException, CsvValidationException {
         List listYear = Files.list(Paths.get(".\\Data")).collect(Collectors.toList());
@@ -375,8 +398,9 @@ public class TransactionController {
     }
 
     @GetMapping("/meanInRange")
-    public float meanInRange(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
-        if(dateChecker(dates)) {
+    public float meanInRange(@RequestBody(required = false) datesBetween dates) throws IOException, ParseException, CsvException {
+
+        if(dateChecker(dates) || dates.equals(null)) {
             List allTransaction = allTransactionInBetween(dates);
             int TotalDays = 0;
             float TotalAmount = 0;
@@ -390,33 +414,6 @@ public class TransactionController {
         }
         else
             return 0;
-    }
-
-    @GetMapping("/mode")
-    public String modeOfTransaction() throws IOException, CsvException {
-        int c=0;
-        List allTransaction = allTransactionInPresent();
-        String[][] values = new String[allTransaction.size()][2];
-        int present;
-        for (int t=0;t<allTransaction.stream().count();t++){
-            String[] row;
-            row= (String[]) allTransaction.get(t);
-            present=0;
-            for(int i=0;i<values.length;i++){
-                if(values[i][0]!=null) {
-                    if(values[i][0].toString().equals(row[3].toString())){
-                        present=1;
-                        values[i][1]= String.valueOf(Integer.parseInt(values[i][1])+1);
-                    }
-                }
-            }
-            if(present==0) {
-                values[c][0] = row[3];
-                values[c][1] = String.valueOf(0);
-                c++;
-            }
-        }
-        return findmodel(values);
     }
 
     @GetMapping("modeInRange")
@@ -649,7 +646,7 @@ public class TransactionController {
                 c++;
             }
         }
-        return "Mean="+TotalProcessMilliSeconds/TotalTransaction+" Standard Deviation="+Math.sqrt(TotalProcessMilliSeconds/TotalTransaction);
+        return "Mean="+TotalProcessMilliSeconds/TotalTransaction+" mode="+mode(values)+" Standard Deviation="+Math.sqrt(TotalProcessMilliSeconds/TotalTransaction);
     }
 
     @GetMapping("/getTimeDeltaInRange/{productId}")
@@ -671,10 +668,36 @@ public class TransactionController {
                     c++;
                 }
             }
-            return "Mean=" + TotalProcessMilliSeconds / TotalTransaction + " Standard Deviation=" + Math.sqrt(TotalProcessMilliSeconds / TotalTransaction);
+            return "Mean=" + TotalProcessMilliSeconds / TotalTransaction +" mode="+mode(values)+"Standard Deviation=" + Math.sqrt(TotalProcessMilliSeconds / TotalTransaction);
         }
         else
             return "Wrong Date Range";
     }
 
+    @GetMapping("/mode")
+    public String modeOfTransaction() throws IOException, CsvException {
+        int c=0;
+        List allTransaction = allTransactionInPresent();
+        String[][] values = new String[allTransaction.size()][2];
+        int present;
+        for (int t=0;t<allTransaction.stream().count();t++){
+            String[] row;
+            row= (String[]) allTransaction.get(t);
+            present=0;
+            for(int i=0;i<values.length;i++){
+                if(values[i][0]!=null) {
+                    if(values[i][0].toString().equals(row[3].toString())){
+                        present=1;
+                        values[i][1]= String.valueOf(Integer.parseInt(values[i][1])+1);
+                    }
+                }
+            }
+            if(present==0) {
+                values[c][0] = row[3];
+                values[c][1] = String.valueOf(0);
+                c++;
+            }
+        }
+        return findmodel(values);
+    }
 }
