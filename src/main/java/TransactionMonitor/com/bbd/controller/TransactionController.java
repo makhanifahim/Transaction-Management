@@ -319,25 +319,10 @@ public class TransactionController {
         List<String[]> transaction = allTransactionInPresent();
         Date oldestTransactiondate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
         String[] oldestTransaction = new String[4];
+        oldestTransaction=transaction.get(0);
         for(int t=0;t<transaction.size();t++){
             Date dateOftransaction=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(t)[0]);
             if((dateOftransaction.getTime() - oldestTransactiondate.getTime())<0){
-                oldestTransactiondate=dateOftransaction;
-                oldestTransaction=transaction.get(t);
-            }
-            //System.out.println(dateOftransaction.getTime() - oldestTransactiondate.getTime());
-        }
-        return oldestTransaction;
-    }
-
-    @GetMapping("/try")
-    public String[] trying() throws IOException, CsvException, ParseException {
-        List<String[]> transaction = allTransactionInPresent();
-        Date oldestTransactiondate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
-        String[] oldestTransaction = new String[4];
-        for(int t=0;t<transaction.size();t++){
-            Date dateOftransaction=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(t)[0]);
-            if((dateOftransaction.getTime() - oldestTransactiondate.getTime())>0){
                 oldestTransactiondate=dateOftransaction;
                 oldestTransaction=transaction.get(t);
             }
@@ -352,13 +337,15 @@ public class TransactionController {
             List<String[]> transaction = allTransactionInBetween(dates);
             Date oldestTransactiondate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
             String[] oldestTransaction = new String[4];
+            oldestTransaction=transaction.get(0);
             for(int t=0;t<transaction.size();t++){
                 Date dateOftransaction=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(t)[0]);
                 if((dateOftransaction.getTime() - oldestTransactiondate.getTime())<0){
                     oldestTransactiondate=dateOftransaction;
                     oldestTransaction=transaction.get(t);
                 }
-                //System.out.println(dateOftransaction.getTime() - oldestTransactiondate.getTime());
+                System.out.println(dateOftransaction.getTime() - oldestTransactiondate.getTime());
+                System.out.println(transaction.get(t)[0]+" "+transaction.get(t)[1]+" "+transaction.get(t)[2]+" "+transaction.get(t)[3]);
             }
             return oldestTransaction;
         }else
@@ -371,6 +358,7 @@ public class TransactionController {
             List<String[]> transaction = allTransactionInBetween(dates);
             Date newestTransactiondate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
             String[] newestTransaction = new String[4];
+            newestTransaction=transaction.get(0);
             for(int t=1;t<transaction.size();t++){
                 Date dateOftransaction=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(t)[0]);
                 if((dateOftransaction.getTime() - newestTransactiondate.getTime())>0){
@@ -389,6 +377,7 @@ public class TransactionController {
         List<String[]> transaction = allTransactionInPresent();
         Date newestTransactiondate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
         String[] newestTransaction = new String[4];
+        newestTransaction=transaction.get(0);
         for(int t=0;t<transaction.size();t++){
             Date dateOftransaction=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(t)[0]);
             if((dateOftransaction.getTime() - newestTransactiondate.getTime())>0){
