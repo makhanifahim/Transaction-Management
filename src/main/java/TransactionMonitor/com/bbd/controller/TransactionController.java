@@ -5,7 +5,6 @@ import TransactionMonitor.com.bbd.model.datesBetween;
 import TransactionMonitor.com.bbd.service.SaveRecordService;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
-import com.opencsv.exceptions.CsvValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,12 +12,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -124,7 +123,6 @@ public class TransactionController {
         }
         return temp;
     }
-    @GetMapping("/test")
     public List<String> listOfPathsBetweenTwoDates(@RequestBody datesBetween dates) throws IOException, ParseException {
         Date dateFrom = dates.getDateFrom();
         Date dateTo = dates.getDateTo();
@@ -317,32 +315,51 @@ public class TransactionController {
     }
 
     @GetMapping("/oldest")
-    public String[] oldestTransaction() throws IOException, CsvValidationException {
-        List listYear = Files.list(Paths.get(".\\Data")).collect(Collectors.toList());
-
-        List listQuaFiles = Files.list(Paths.get(listYear.get(0).toString())).collect(Collectors.toList());
-        System.out.println(listQuaFiles.get(0).toString());
-
-        List listDalyFiles = Files.list(Paths.get(listQuaFiles.get(0).toString())).collect(Collectors.toList());
-        CSVReader reader = new CSVReader(new FileReader(listDalyFiles.get(0).toString()));
-
-        List<String[]> st = new ArrayList<>();
-
-        String datalist[];
-        while ((datalist = reader.readNext()) != null) {
-            st.add(datalist);
+    public String[] oldestTransaction() throws IOException, CsvException, ParseException {
+        List<String[]> transaction = allTransactionInPresent();
+        Date oldestTransactiondate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
+        String[] oldestTransaction = new String[4];
+        for(int t=0;t<transaction.size();t++){
+            Date dateOftransaction=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(t)[0]);
+            if((dateOftransaction.getTime() - oldestTransactiondate.getTime())<0){
+                oldestTransactiondate=dateOftransaction;
+                oldestTransaction=transaction.get(t);
+            }
+            //System.out.println(dateOftransaction.getTime() - oldestTransactiondate.getTime());
         }
-        //for shorting date vise if not but it already includes that
-        //st=  st.stream().sorted((s1,s2)-> s1[0].compareTo(s2[0])).collect(Collectors.toList());
-        return st.get(1);
+        return oldestTransaction;
+    }
+
+    @GetMapping("/try")
+    public String[] trying() throws IOException, CsvException, ParseException {
+        List<String[]> transaction = allTransactionInPresent();
+        Date oldestTransactiondate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
+        String[] oldestTransaction = new String[4];
+        for(int t=0;t<transaction.size();t++){
+            Date dateOftransaction=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(t)[0]);
+            if((dateOftransaction.getTime() - oldestTransactiondate.getTime())>0){
+                oldestTransactiondate=dateOftransaction;
+                oldestTransaction=transaction.get(t);
+            }
+            //System.out.println(dateOftransaction.getTime() - oldestTransactiondate.getTime());
+        }
+        return oldestTransaction;
     }
 
     @GetMapping("/oldestTInRange")
     public String[] oldTransactionInBetween(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
         if(dateChecker(dates)) {
-            List transaction = allTransactionInBetween(dates);
+            List<String[]> transaction = allTransactionInBetween(dates);
+            Date oldestTransactiondate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
             String[] oldestTransaction = new String[4];
-            oldestTransaction = (String[]) transaction.get(0);
+            for(int t=0;t<transaction.size();t++){
+                Date dateOftransaction=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(t)[0]);
+                if((dateOftransaction.getTime() - oldestTransactiondate.getTime())<0){
+                    oldestTransactiondate=dateOftransaction;
+                    oldestTransaction=transaction.get(t);
+                }
+                //System.out.println(dateOftransaction.getTime() - oldestTransactiondate.getTime());
+            }
             return oldestTransaction;
         }else
             return null;
@@ -351,36 +368,36 @@ public class TransactionController {
     @GetMapping("/newestTInRange")
     public String[] newTransactionInBetween(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
         if(dateChecker(dates)) {
-            List transaction = allTransactionInBetween(dates);
-            String[] oldestTransaction = new String[4];
-            int len = transaction.size() - 1;
-            oldestTransaction = (String[]) transaction.get(len);
-            return oldestTransaction;
+            List<String[]> transaction = allTransactionInBetween(dates);
+            Date newestTransactiondate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
+            String[] newestTransaction = new String[4];
+            for(int t=1;t<transaction.size();t++){
+                Date dateOftransaction=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(t)[0]);
+                if((dateOftransaction.getTime() - newestTransactiondate.getTime())>0){
+                    newestTransactiondate=dateOftransaction;
+                    newestTransaction=transaction.get(t);
+                }
+                //System.out.println(dateOftransaction.getTime() - oldestTransactiondate.getTime());
+            }
+            return newestTransaction;
         }else
             return null;
     }
     //---- change
     @GetMapping("/newest")
-    public String[] newerTransaction() throws IOException, CsvValidationException {
-        List listYear = Files.list(Paths.get(".\\Data")).collect(Collectors.toList());
-        Collections.sort(listYear, Collections.reverseOrder());
-        List listQuaFiles = Files.list(Paths.get(listYear.get(0).toString())).collect(Collectors.toList());
-        Collections.sort(listQuaFiles, Collections.reverseOrder());
-        List listDalyFiles = Files.list(Paths.get(listQuaFiles.get(0).toString())).collect(Collectors.toList());
-        Collections.sort(listDalyFiles, Collections.reverseOrder());
-        CSVReader reader = new CSVReader(new FileReader(listDalyFiles.get(0).toString()));
-        List<String[]> st = new ArrayList<>();
-
-        String datalist[];
-        while ((datalist = reader.readNext()) != null) {
-            st.add(datalist);
+    public String[] newerTransaction() throws IOException, CsvException, ParseException {
+        List<String[]> transaction = allTransactionInPresent();
+        Date newestTransactiondate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
+        String[] newestTransaction = new String[4];
+        for(int t=0;t<transaction.size();t++){
+            Date dateOftransaction=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(t)[0]);
+            if((dateOftransaction.getTime() - newestTransactiondate.getTime())>0){
+                newestTransactiondate=dateOftransaction;
+                newestTransaction=transaction.get(t);
+            }
+            //System.out.println(dateOftransaction.getTime() - oldestTransactiondate.getTime());
         }
-        //st=  st.stream().sorted((s1,s2)-> s1[0].compareTo(s2[0])).collect(Collectors.toList());
-
-        //Counting totel number of transaction present in that file
-        long RowsCount = Files.lines(Path.of(listDalyFiles.get(0).toString())).count();
-        //System.out.println("Number of Rows of transaction in fille "+RowsCount);
-        return st.get((int)RowsCount-1);
+        return newestTransaction;
     }
 
     @GetMapping("/mean")
