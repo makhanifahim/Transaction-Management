@@ -5,6 +5,7 @@ import TransactionMonitor.com.bbd.model.datesBetween;
 import TransactionMonitor.com.bbd.service.SaveRecordService;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,8 +20,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/api")
+@Slf4j
 public class TransactionController {
     @Autowired
     private SaveRecordService service;
@@ -41,7 +44,6 @@ public class TransactionController {
             String[] row=new String[4];
             row= (String[]) allTransaction.get(t);
             int present=0;
-            //  System.out.println(row[0] + "," + row[1] + "," + row[2] + "," + row[3]);
             for(int i=0;i<products.length;i++){
                 if(products[i][0]!=null) {
                     if(products[i][0].toString().equals(row[2].toString())){
@@ -66,7 +68,6 @@ public class TransactionController {
             String[] row=new String[4];
             row= (String[]) allTransaction.get(t);
             int present=0;
-            //  System.out.println(row[0] + "," + row[1] + "," + row[2] + "," + row[3]);
             for(int i=0;i<products.length;i++){
                 if(products[i][0]!=null) {
                     if(products[i][0].toString().equals(row[2].toString())){
@@ -95,10 +96,8 @@ public class TransactionController {
         for(int year = 0; year< (long) listYears.size(); year++){
             List listQua = Files.list(Paths.get(listYears.get(year).toString())).toList();
             for(int quater = 0; quater< (long) listQua.size(); quater++){
-                //System.out.println(listQua.get(quater));
                 List listDaylyFile = Files.list(Paths.get(listQua.get(quater).toString())).toList();
                 for(int fday = 0; fday< (long) listDaylyFile.size(); fday++){
-                    //System.out.println(listDaylyFile.get(fday));
                     paths.add(listDaylyFile.get(fday).toString());
                 }
             }
@@ -151,23 +150,19 @@ public class TransactionController {
                                 String[] TransacDate =dateFromPath(DayPath[d]);
 
                                 if(monthFrom<Integer.parseInt(TransacDate[1])&&monthto>Integer.parseInt(TransacDate[1])) {
-                                    //System.out.println(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]);
                                     BetweenFilePath.add(String.valueOf(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
                                 }
                                 if(monthFrom==Integer.parseInt(TransacDate[1])&&yearFrom==Integer.parseInt(TransacDate[2])){
                                     if(dayFrom<=Integer.parseInt(TransacDate[0])){
-                                        //  System.out.println(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]);
                                         BetweenFilePath.add(String.valueOf(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
                                     }
                                 }
                                 if(monthto==Integer.parseInt(TransacDate[1])&&yearto==Integer.parseInt(TransacDate[2])){
                                     if(dayto>=Integer.parseInt(TransacDate[0])){
-                                        //  System.out.println(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]);
                                         BetweenFilePath.add(String.valueOf(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
                                     }
                                 }
                             }
-                            //System.out.println(".//Data//"+yearsPath[y]+"//"+quaterPath[q]);
                         }
                     }
                 }
@@ -182,17 +177,14 @@ public class TransactionController {
                                 String[] TransacDate =dateFromPath(DayPath[d]);
 
                                 if(monthFrom<Integer.parseInt(TransacDate[1])) {
-                                    //System.out.println(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]);
                                     BetweenFilePath.add(String.valueOf(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
                                 }
                                 if(monthFrom==Integer.parseInt(TransacDate[1])&&yearFrom==Integer.parseInt(TransacDate[2])){
                                     if(dayFrom<=Integer.parseInt(TransacDate[0])){
-                                        //  System.out.println(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]);
                                         BetweenFilePath.add(String.valueOf(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
                                     }
                                 }
                             }
-                            //System.out.println(".//Data//"+yearsPath[y]+"//"+quaterPath[q]);
                         }
                     }
                 }
@@ -206,12 +198,10 @@ public class TransactionController {
                             for (int d=0;d<directoryPathDay.list().length;d++){
                                 String[] TransacDate =dateFromPath(DayPath[d]);
                                 if(monthto>Integer.parseInt(TransacDate[1])) {
-                                    //System.out.println(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]);
                                     BetweenFilePath.add(String.valueOf(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
                                 }
                                 if(monthto==Integer.parseInt(TransacDate[1])&&yearto==Integer.parseInt(TransacDate[2])){
                                     if(dayto>=Integer.parseInt(TransacDate[0])){
-                                        //  System.out.println(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]);
                                         BetweenFilePath.add(String.valueOf(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
                                     }
                                 }
@@ -226,14 +216,12 @@ public class TransactionController {
                         File directoryPathDay = new File(".//Data//"+yearsPath[y]+"//"+quaterPath[q]);
                         String DayPath[]=directoryPathDay.list();
                         for (int d=0;d<directoryPathDay.list().length;d++){
-                            //System.out.println(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]);
                             BetweenFilePath.add(String.valueOf(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
                         }
                     }
                 }
             }
         }
-        //return "month="+monthFrom+",yearfrom="+yearFrom+"monthtoo="+monthto+",yearTo="+yearto;
         return BetweenFilePath;
     }
     public List<String[]> allTransactionInBetween(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
@@ -283,10 +271,9 @@ public class TransactionController {
                     maxCount = count;
                 }
             }
-            System.out.println(array[i]);
         }
         if (maxCount > 1) {
-            System.out.println(maxCount);
+            log.info("Maximum Count is "+maxCount);
             return mode;
         }
         return 0;
@@ -326,8 +313,8 @@ public class TransactionController {
                 oldestTransactiondate=dateOftransaction;
                 oldestTransaction=transaction.get(t);
             }
-            //System.out.println(dateOftransaction.getTime() - oldestTransactiondate.getTime());
         }
+        log.info("User has Requested for oldest Transaction {}",oldestTransaction);
         return oldestTransaction;
     }
 
@@ -344,12 +331,13 @@ public class TransactionController {
                     oldestTransactiondate=dateOftransaction;
                     oldestTransaction=transaction.get(t);
                 }
-                System.out.println(dateOftransaction.getTime() - oldestTransactiondate.getTime());
-                System.out.println(transaction.get(t)[0]+" "+transaction.get(t)[1]+" "+transaction.get(t)[2]+" "+transaction.get(t)[3]);
             }
+            log.info("User has Requested for oldest Transaction in range {} is {}",dates,oldestTransaction);
             return oldestTransaction;
-        }else
+        }else{
+            log.error("User has Requested for oldest Transaction in range {} which is not Proper",dates);
             return null;
+        }
     }
 
     @GetMapping("/newestTInRange")
@@ -365,13 +353,15 @@ public class TransactionController {
                     newestTransactiondate=dateOftransaction;
                     newestTransaction=transaction.get(t);
                 }
-                //System.out.println(dateOftransaction.getTime() - oldestTransactiondate.getTime());
             }
+            log.info("User has Requested for Newest Transaction in range {} is {}",dates,newestTransaction);
             return newestTransaction;
-        }else
+        }else{
+            log.error("User has Requested for Newest Transaction in range {} which is not Proper",dates);
             return null;
+        }
     }
-    //---- change
+
     @GetMapping("/newest")
     public String[] newerTransaction() throws IOException, CsvException, ParseException {
         List<String[]> transaction = allTransactionInPresent();
@@ -384,8 +374,8 @@ public class TransactionController {
                 newestTransactiondate=dateOftransaction;
                 newestTransaction=transaction.get(t);
             }
-            //System.out.println(dateOftransaction.getTime() - oldestTransactiondate.getTime());
         }
+        log.info("User has Requested for newest Transaction {}",newestTransaction);
         return newestTransaction;
     }
 
@@ -400,6 +390,7 @@ public class TransactionController {
             TotalDays++;
             TotalAmount= Float.parseFloat(Transaction[3])+TotalAmount;
         }
+        log.info("User has Requested for Mean which is {}",TotalAmount/TotalDays);
         return TotalAmount/TotalDays;
     }
 
@@ -416,10 +407,41 @@ public class TransactionController {
                 TotalDays++;
                 TotalAmount = Float.parseFloat(Transaction[3]) + TotalAmount;
             }
+            log.info("User has Requested for mean in range {} is {}",dates,TotalAmount/TotalDays);
             return TotalAmount / TotalDays;
         }
-        else
+        else{
+            log.error("User has Requested for mean in range {} which is not Proper",dates);
             return 0;
+        }
+    }
+
+    @GetMapping("/mode")
+    public String modeOfTransaction() throws IOException, CsvException {
+        int c=0;
+        List allTransaction = allTransactionInPresent();
+        String[][] values = new String[allTransaction.size()][2];
+        int present;
+        for (int t=0;t<allTransaction.stream().count();t++){
+            String[] row;
+            row= (String[]) allTransaction.get(t);
+            present=0;
+            for(int i=0;i<values.length;i++){
+                if(values[i][0]!=null) {
+                    if(values[i][0].toString().equals(row[3].toString())){
+                        present=1;
+                        values[i][1]= String.valueOf(Integer.parseInt(values[i][1])+1);
+                    }
+                }
+            }
+            if(present==0) {
+                values[c][0] = row[3];
+                values[c][1] = String.valueOf(0);
+                c++;
+            }
+        }
+        log.info("User has Requested for Mode which is {}",findmodel(values));
+        return findmodel(values);
     }
 
     @GetMapping("modeInRange")
@@ -447,20 +469,31 @@ public class TransactionController {
                     c++;
                 }
             }
+            log.info("User has Requested for Mode in range {} is {}",dates,findmodel(values));
             return findmodel(values);
         }
-        else
+        else {
+            log.error("User has Requested for Mode in range {} which is not Proper",dates);
             return "Wrong Date Range";
+        }
     }
 
     @GetMapping("/standardDeviation")
     public String SDOfTransaction() throws IOException, CsvException {
+        log.info("User has Requested for Standard Deviation which is {}","Standard Deviation="+Math.sqrt(meanOfTransaction()));
         return "Standard Deviation="+Math.sqrt(meanOfTransaction());
     }
 
     @GetMapping("/SDInRange")
     public float sDInRange(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
-        return (float) Math.sqrt(meanInRange(dates));
+        if(dateChecker(dates)) {
+            log.info("User has Requested for Standard Deviation in range {} is {}",dates,Math.sqrt(meanInRange(dates)));
+            return (float) Math.sqrt(meanInRange(dates));
+        }
+        else {
+            log.error("User has Requested for Standard Deviation in range {} which is not Proper",dates);
+            return 0;
+        }
     }
 
     @GetMapping("/mostCommonProduct")
@@ -479,7 +512,7 @@ public class TransactionController {
                 }
             }
         }
-        //System.out.println("most common product is ("+prod+") with repetation of "+count);
+        log.info("User has Requested for Most Common Product {}",prod);
         return prod;
     }
 
@@ -500,11 +533,13 @@ public class TransactionController {
                     }
                 }
             }
-            //System.out.println("most common product is ("+prod+") with repetation of "+count);
+            log.info("User has Requested for Most Common Product in range {} is {}",dates,prod);
             return prod;
         }
-        else
+        else {
+            log.error("User has Requested for Most Common Product in range {} which is not Proper",dates);
             return "Wrong Date Range";
+        }
     }
 
     @GetMapping("/variance")
@@ -520,10 +555,9 @@ public class TransactionController {
             TotalTran++;
             XSeq=Float.parseFloat(row[3])-mean;
             XSeq=XSeq*XSeq;
-            System.out.println("X-mean="+XSeq+" amount="+Float.parseFloat(row[3]));
             TotalXX=TotalXX+XSeq;
         }
-        System.out.println("Squar total = "+TotalXX +" Total transaction"+TotalTran);
+        log.info("User has Requested for Variance {}",TotalXX/TotalTran);
         return TotalXX/TotalTran;
     }
 
@@ -541,14 +575,15 @@ public class TransactionController {
                 TotalTran++;
                 XSeq = Float.parseFloat(row[3]) - mean;
                 XSeq = XSeq * XSeq;
-                System.out.println("X-mean=" + XSeq + " amount=" + Float.parseFloat(row[3]));
                 TotalXX = TotalXX + XSeq;
             }
-            System.out.println("Squar total = " + TotalXX + " Total transaction" + TotalTran);
+            log.info("User has Requested for variance in range {} is {}",dates,TotalXX/TotalTran);
             return TotalXX / TotalTran;
         }
-        else
+        else{
+            log.error("User has Requested for variance in range {} which is not Proper",dates);
             return 0;
+        }
     }
 
     @GetMapping("/leastCommonProduct")
@@ -560,7 +595,6 @@ public class TransactionController {
         String prod=products[0][0];
         for(int i=1;i<products.length-1;i++){
             if(products[i][0]!=null) {
-                //System.out.println(products[i][0]+" "+(Integer.parseInt(products[i][1])+1));
                 if(Integer.parseInt(products[i][1])<=count && Integer.parseInt(products[i][1])!=0){
                     count=Integer.parseInt(products[i][1]);
                     count=count+1;
@@ -569,7 +603,7 @@ public class TransactionController {
                 }
             }
         }
-//        System.out.println("most common product is ("+prod+") with repetation of "+count);
+        log.info("User has Requested for Least Common Product is {}",prod);
         return prod;
     }
 
@@ -583,7 +617,6 @@ public class TransactionController {
             String prod = products[0][0];
             for (int i = 1; i < products.length - 1; i++) {
                 if (products[i][0] != null) {
-                    //System.out.println(products[i][0]+" "+(Integer.parseInt(products[i][1])+1));
                     if (Integer.parseInt(products[i][1]) <= count && Integer.parseInt(products[i][1]) != 0) {
                         count = Integer.parseInt(products[i][1]);
                         count = count + 1;
@@ -592,11 +625,13 @@ public class TransactionController {
                     }
                 }
             }
-            //        System.out.println("most common product is ("+prod+") with repetation of "+count);
+            log.info("User has Requested for Lest Common Product in range {} is {}",dates,prod);
             return prod;
         }
-        else
+        else {
+            log.error("User has Requested for Lest Common Product in range {} which is not Proper",dates);
             return "Wrong Date Range";
+        }
     }
 
     @GetMapping("/getTimeDelta")
@@ -613,6 +648,7 @@ public class TransactionController {
             TotalTransaction++;
             values[t] = TotalProcessMilliSeconds;
         }
+        log.info("User has Requested for TimeDelta details"+"Mean="+TotalProcessMilliSeconds/TotalTransaction+" Mode="+String.valueOf(mode(values))+" Standard Deviation="+Math.sqrt(TotalProcessMilliSeconds/TotalTransaction));
         return "Mean="+TotalProcessMilliSeconds/TotalTransaction+" Mode="+String.valueOf(mode(values))+" Standard Deviation="+Math.sqrt(TotalProcessMilliSeconds/TotalTransaction);
     }
 
@@ -630,7 +666,7 @@ public class TransactionController {
             TotalTransaction++;
             values[t] = TotalProcessMilliSeconds;
         }
-
+        log.info("User has Requested for TimeDelta details in between "+dates+"Mean="+TotalProcessMilliSeconds/TotalTransaction+" Mode="+String.valueOf(mode(values))+" Standard Deviation="+Math.sqrt(TotalProcessMilliSeconds/TotalTransaction));
         return "Mean="+TotalProcessMilliSeconds/TotalTransaction+" Mode="+String.valueOf(mode(values))+" Standard Deviation="+Math.sqrt(TotalProcessMilliSeconds/TotalTransaction);
     }
 
@@ -652,6 +688,7 @@ public class TransactionController {
                 c++;
             }
         }
+        log.info("User has Requested for TimeDelta for Particular Product details"+"Mean="+TotalProcessMilliSeconds/TotalTransaction+" Mode="+String.valueOf(mode(values))+" Standard Deviation="+Math.sqrt(TotalProcessMilliSeconds/TotalTransaction));
         return "Mean="+TotalProcessMilliSeconds/TotalTransaction+" mode="+mode(values)+" Standard Deviation="+Math.sqrt(TotalProcessMilliSeconds/TotalTransaction);
     }
 
@@ -674,36 +711,14 @@ public class TransactionController {
                     c++;
                 }
             }
+            log.info("User has Requested for TimeDelta details for Perticular Product in between "+dates+"Mean="+TotalProcessMilliSeconds/TotalTransaction+" Mode="+String.valueOf(mode(values))+" Standard Deviation="+Math.sqrt(TotalProcessMilliSeconds/TotalTransaction));
             return "Mean=" + TotalProcessMilliSeconds / TotalTransaction +" mode="+mode(values)+"Standard Deviation=" + Math.sqrt(TotalProcessMilliSeconds / TotalTransaction);
+
         }
         else
+
             return "Wrong Date Range";
     }
 
-    @GetMapping("/mode")
-    public String modeOfTransaction() throws IOException, CsvException {
-        int c=0;
-        List allTransaction = allTransactionInPresent();
-        String[][] values = new String[allTransaction.size()][2];
-        int present;
-        for (int t=0;t<allTransaction.stream().count();t++){
-            String[] row;
-            row= (String[]) allTransaction.get(t);
-            present=0;
-            for(int i=0;i<values.length;i++){
-                if(values[i][0]!=null) {
-                    if(values[i][0].toString().equals(row[3].toString())){
-                        present=1;
-                        values[i][1]= String.valueOf(Integer.parseInt(values[i][1])+1);
-                    }
-                }
-            }
-            if(present==0) {
-                values[c][0] = row[3];
-                values[c][1] = String.valueOf(0);
-                c++;
-            }
-        }
-        return findmodel(values);
-    }
+
 }

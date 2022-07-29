@@ -2,6 +2,7 @@ package TransactionMonitor.com.bbd.service;
 
 import TransactionMonitor.com.bbd.model.Record;
 import com.opencsv.CSVWriter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -14,6 +15,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
+@Slf4j
 public class SaveRecordService {
 
     private int getQuater(int month){
@@ -44,16 +46,17 @@ public class SaveRecordService {
                 Date Conclusion_date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX").parse(record.getConclusion_date());
                 if(init_date.compareTo(Conclusion_date)>0){
                     problem.add(records.indexOf(record));
+                    log.error("Tried to add wrong data in which init_date {} is higher the Conclusion_date{}",record.getInit_date(),record.getConclusion_date());
                 }
             }catch (ParseException e) {
                 e.printStackTrace();
+                log.error(e.toString());
             }
         });
         if(problem.size()>0){
             for(int i=0; i<problem.size();i++){
                 System.out.println();
             }
-
             return "Problem with index value : "+ Arrays.toString(problem.toArray());
         }
         else {
@@ -87,13 +90,13 @@ public class SaveRecordService {
                     boolean checkFilePresent = checkfile.exists();
 
                     if (checkFilePresent == true) {
+                        log.info("Saving Transaction starts with {} In present file ",record.getInit_date());
                         CSVWriter writer = new CSVWriter(new FileWriter(file + "\\" + date + "-" + month + "-" + year + ".csv", true));
                         String line1[] = {record.getInit_date(), record.getInit_date(), record.getProduct_id().toString(), record.getValue().toString()};
                         writer.writeNext(line1);
                         writer.flush();
                     } else {
-                        //Csv Header
-                        //"init_date", "conclusion_date", "product_id", "value"
+                        log.info("Saving Transaction starts with {} In new file",record.getInit_date());
                         CSVWriter writer = new CSVWriter(new FileWriter(file + "\\" + date + "-" + month + "-" + year + ".csv", true));
                         String line1[] = {"init_date", "conclusion_date", "product_id", "value"};
                         String line2[] = {record.getInit_date(), record.getConclusion_date(), record.getProduct_id().toString(), record.getValue().toString()};
@@ -104,12 +107,17 @@ public class SaveRecordService {
 
                 } catch (Exception ex) {
                     errorIn.add(records.indexOf(record));
+                    log.error(ex.toString());
                 }
             });
-            if(errorIn.size()>0)
-                return "Problem with index value : "+ Arrays.toString(errorIn.stream().toArray());
-            else
+            if(errorIn.size()>0) {
+                log.error("Problem with index value : " + Arrays.toString(errorIn.stream().toArray()));
+                return "Problem with index value : " + Arrays.toString(errorIn.stream().toArray());
+            }
+                else{
+                log.info("List of Data has been saved");
                 return "Successfully Inserted ";
+            }
         }
     }
 }

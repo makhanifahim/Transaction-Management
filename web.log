@@ -1,0 +1,13 @@
+2022-07-28 17:12:35.033  INFO 23388 --- [restartedMain] T.TransactionMonitorApplication          : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 23388 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-07-28 17:12:35.035  INFO 23388 --- [restartedMain] T.TransactionMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
+2022-07-28 17:12:36.403  INFO 23388 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-28 17:12:36.405  INFO 23388 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-07-28 17:12:36.494  INFO 23388 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-28 17:12:37.061  INFO 23388 --- [restartedMain] T.TransactionMonitorApplication          : Started TransactionMonitorApplication in 2.503 seconds (JVM running for 2.993)
+2022-07-28 17:13:28.016  INFO 23388 --- [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-28 17:13:28.241 ERROR 23388 --- [http-nio-8080-exec-3] T.com.bbd.service.SaveRecordService      : Tried to add wrong data in which init_date 2000-01-04T23:00:00.505Z is higher the Conclusion_date2000-01-01T23:10:00.000Z
+2022-07-28 17:14:37.031  INFO 23388 --- [http-nio-8080-exec-5] T.com.bbd.service.SaveRecordService      : Saving Transaction starts with 2000-01-05T12:00:00.505Z In present file 
+2022-07-28 17:14:37.040  INFO 23388 --- [http-nio-8080-exec-5] T.com.bbd.service.SaveRecordService      : Saving Transaction starts with 2000-01-01T12:00:00.505Z In present file 
+2022-07-28 17:14:37.048  INFO 23388 --- [http-nio-8080-exec-5] T.com.bbd.service.SaveRecordService      : Saving Transaction starts with 2000-01-01T22:00:00.000Z In present file 
+2022-07-28 17:14:37.048  INFO 23388 --- [http-nio-8080-exec-5] T.com.bbd.service.SaveRecordService      : Saving Transaction starts with 2000-01-01T23:00:00.505Z In present file 
+2022-07-28 17:14:37.057  INFO 23388 --- [http-nio-8080-exec-5] T.com.bbd.service.SaveRecordService      : Saving Transaction starts with 2000-01-01T23:00:00.505Z In present file 
