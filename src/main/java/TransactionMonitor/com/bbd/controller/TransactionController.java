@@ -301,7 +301,7 @@ public class TransactionController {
         }
     }
 
-    @GetMapping("/oldest")
+    @PostMapping("/oldest")
     public String[] oldestTransaction() throws IOException, CsvException, ParseException {
         List<String[]> transaction = allTransactionInPresent();
         Date oldestTransactiondate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
@@ -318,7 +318,7 @@ public class TransactionController {
         return oldestTransaction;
     }
 
-    @GetMapping("/oldestTInRange")
+    @PostMapping("/oldestTInRange")
     public String[] oldTransactionInBetween(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
         if(dateChecker(dates)) {
             List<String[]> transaction = allTransactionInBetween(dates);
@@ -340,7 +340,7 @@ public class TransactionController {
         }
     }
 
-    @GetMapping("/newestTInRange")
+    @PostMapping("/newestTInRange")
     public String[] newTransactionInBetween(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
         if(dateChecker(dates)) {
             List<String[]> transaction = allTransactionInBetween(dates);
@@ -362,7 +362,7 @@ public class TransactionController {
         }
     }
 
-    @GetMapping("/newest")
+    @PostMapping("/newest")
     public String[] newerTransaction() throws IOException, CsvException, ParseException {
         List<String[]> transaction = allTransactionInPresent();
         Date newestTransactiondate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
@@ -379,7 +379,7 @@ public class TransactionController {
         return newestTransaction;
     }
 
-    @GetMapping("/mean")
+    @PostMapping("/mean")
     public float meanOfTransaction() throws IOException, CsvException {
         List allTransaction = allTransactionInPresent();
         int TotalDays=0;
@@ -394,9 +394,8 @@ public class TransactionController {
         return TotalAmount/TotalDays;
     }
 
-    @GetMapping("/meanInRange")
-    public float meanInRange(@RequestBody(required = false) datesBetween dates) throws IOException, ParseException, CsvException {
-
+    @PostMapping("/meanInRange")
+    public float meanInRange(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
         if(dateChecker(dates) || dates.equals(null)) {
             List allTransaction = allTransactionInBetween(dates);
             int TotalDays = 0;
@@ -416,7 +415,7 @@ public class TransactionController {
         }
     }
 
-    @GetMapping("/mode")
+    @PostMapping("/mode")
     public String modeOfTransaction() throws IOException, CsvException {
         int c=0;
         List allTransaction = allTransactionInPresent();
@@ -444,7 +443,7 @@ public class TransactionController {
         return findmodel(values);
     }
 
-    @GetMapping("modeInRange")
+    @PostMapping("modeInRange")
     public String modeInRange(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
         if(dateChecker(dates)) {
             int c = 0;
@@ -478,13 +477,13 @@ public class TransactionController {
         }
     }
 
-    @GetMapping("/standardDeviation")
+    @PostMapping("/standardDeviation")
     public String SDOfTransaction() throws IOException, CsvException {
         log.info("User has Requested for Standard Deviation which is {}","Standard Deviation="+Math.sqrt(meanOfTransaction()));
         return "Standard Deviation="+Math.sqrt(meanOfTransaction());
     }
 
-    @GetMapping("/SDInRange")
+    @PostMapping("/SDInRange")
     public float sDInRange(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
         if(dateChecker(dates)) {
             log.info("User has Requested for Standard Deviation in range {} is {}",dates,Math.sqrt(meanInRange(dates)));
@@ -496,7 +495,7 @@ public class TransactionController {
         }
     }
 
-    @GetMapping("/mostCommonProduct")
+    @PostMapping("/mostCommonProduct")
     public String mostCommonProduct() throws IOException, CsvException {
         int c=0;
         int j=0;
@@ -516,7 +515,7 @@ public class TransactionController {
         return prod;
     }
 
-    @GetMapping("/mostCPInRange")
+    @PostMapping("/mostCPInRange")
     public String mostCPInBetween(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
         if(dateChecker(dates)) {
             int c = 0;
@@ -542,7 +541,7 @@ public class TransactionController {
         }
     }
 
-    @GetMapping("/variance")
+    @PostMapping("/variance")
     public float VarianceOfTransaction() throws IOException, CsvException {
         float mean=meanOfTransaction();
         float XSeq = 0;
@@ -561,7 +560,7 @@ public class TransactionController {
         return TotalXX/TotalTran;
     }
 
-    @GetMapping("/varianceInRange")
+    @PostMapping("/varianceInRange")
     public float varianceInBetween(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
         if(dateChecker(dates)) {
             float mean = meanOfTransaction();
@@ -586,7 +585,7 @@ public class TransactionController {
         }
     }
 
-    @GetMapping("/leastCommonProduct")
+    @PostMapping("/leastCommonProduct")
     public String leastCommonProduct() throws IOException, CsvException {
         int c=0;
         int j=0;
@@ -607,7 +606,7 @@ public class TransactionController {
         return prod;
     }
 
-    @GetMapping("/leastCPInRange")
+    @PostMapping("/leastCPInRange")
     public String leastCommonProduct(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
         if(dateChecker(dates)) {
             int c = 0;
@@ -634,7 +633,7 @@ public class TransactionController {
         }
     }
 
-    @GetMapping("/getTimeDelta")
+    @PostMapping("/getTimeDelta")
     public String timeDelta() throws IOException, CsvException, ParseException {
         List transaction=allTransactionInPresent();
         long TotalProcessMilliSeconds = 0;
@@ -652,7 +651,7 @@ public class TransactionController {
         return "Mean="+TotalProcessMilliSeconds/TotalTransaction+" Mode="+String.valueOf(mode(values))+" Standard Deviation="+Math.sqrt(TotalProcessMilliSeconds/TotalTransaction);
     }
 
-    @GetMapping("/getTimeDeltaInRange")
+    @PostMapping("/getTimeDeltaInRange")
     public String timeDeltaInRange(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
         List transaction=allTransactionInBetween(dates);
         long TotalProcessMilliSeconds = 0;
@@ -670,7 +669,7 @@ public class TransactionController {
         return "Mean="+TotalProcessMilliSeconds/TotalTransaction+" Mode="+String.valueOf(mode(values))+" Standard Deviation="+Math.sqrt(TotalProcessMilliSeconds/TotalTransaction);
     }
 
-    @GetMapping("/getTimeDeltaByProduct/{productId}")
+    @PostMapping("/getTimeDeltaByProduct/{productId}")
     public String timeDelta(@PathVariable String productId) throws IOException, CsvException, ParseException {
         List transaction=allTransactionInPresent();
         long TotalProcessMilliSeconds = 0;
@@ -692,7 +691,7 @@ public class TransactionController {
         return "Mean="+TotalProcessMilliSeconds/TotalTransaction+" mode="+mode(values)+" Standard Deviation="+Math.sqrt(TotalProcessMilliSeconds/TotalTransaction);
     }
 
-    @GetMapping("/getTimeDeltaInRange/{productId}")
+    @PostMapping("/getTimeDeltaInRange/{productId}")
     public String timeDeltaInRangewithProductId(@RequestBody datesBetween dates,@PathVariable String productId) throws IOException, ParseException, CsvException {
         if(dateChecker(dates)) {
             List transaction = allTransactionInBetween(dates);
