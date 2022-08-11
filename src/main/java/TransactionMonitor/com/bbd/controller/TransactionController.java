@@ -1,7 +1,7 @@
 package TransactionMonitor.com.bbd.controller;
 
+import TransactionMonitor.com.bbd.model.DatesBetween;
 import TransactionMonitor.com.bbd.model.Record;
-import TransactionMonitor.com.bbd.model.datesBetween;
 import TransactionMonitor.com.bbd.service.SaveRecordService;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
@@ -17,6 +17,7 @@ import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -27,7 +28,7 @@ import java.util.List;
 public class TransactionController {
     @Autowired
     private SaveRecordService service;
-    private int getQuater(int month){
+    private static int getQuater(int month){
         return switch (month) {
             case 1, 2, 3 -> 1;
             case 4, 5, 6 -> 2;
@@ -36,9 +37,9 @@ public class TransactionController {
             default -> 0;
         };
     }
-    private String[][] listCommonProd() throws IOException, CsvException {
+    private static String[][] listCommonProd(String TypeOfData) throws IOException, CsvException {
         int c=0;
-        List allTransaction = allTransactionInPresent();
+        List allTransaction = allTransactionInPresent(TypeOfData);
         String[][] products = new String[allTransaction.size()][2];
         for (int t = 0; t< (long) allTransaction.size(); t++){
             String[] row=new String[4];
@@ -60,9 +61,11 @@ public class TransactionController {
         }
         return products;
     }
-    private String[][] listCommonProdInRange(datesBetween dates) throws IOException, ParseException, CsvException {
+    private static String[][] listCommonProdInRange(DatesBetween dates,String TypeOfData) throws IOException, ParseException, CsvException {
+        if(TypeOfData==""||TypeOfData==null)
+            TypeOfData="Data";
         int c=0;
-        List allTransaction = allTransactionInBetween(dates);
+        List allTransaction = allTransactionInBetween(dates,TypeOfData);
         String[][] products = new String[allTransaction.size()][2];
         for (int t = 0; t< (long) allTransaction.size(); t++){
             String[] row=new String[4];
@@ -84,15 +87,15 @@ public class TransactionController {
         }
         return products;
     }
-    private String[] dateFromPath(String DayPath) throws ParseException {
+    private static String[] dateFromPath(String DayPath){
         SimpleDateFormat fileDate = new SimpleDateFormat("dd-mm-yyyy");
         int indexOfDash = DayPath.indexOf('.');
         String DateFromPath=DayPath.substring(0, indexOfDash);
         return DateFromPath.split("-", 0);
     }
-    private List<String> allFilesInPresent() throws IOException {
+    private static List<String> allFilesInPresent(String TypeOfData) throws IOException {
         List<String> paths= new ArrayList<String>();
-        List listYears = Files.list(Paths.get(".\\Data")).toList();
+        List listYears = Files.list(Paths.get(".\\"+TypeOfData)).toList();
         for(int year = 0; year< (long) listYears.size(); year++){
             List listQua = Files.list(Paths.get(listYears.get(year).toString())).toList();
             for(int quater = 0; quater< (long) listQua.size(); quater++){
@@ -104,8 +107,8 @@ public class TransactionController {
         }
         return paths;
     }
-    private List<String[]> allTransactionInPresent() throws IOException, CsvException {
-        List paths=allFilesInPresent();
+    public static List<String[]> allTransactionInPresent(String TypeOfData) throws IOException, CsvException {
+        List paths=allFilesInPresent(TypeOfData);
         ArrayList<String[]> temp = new ArrayList<>();
         for(int p=0;p<paths.size();p++){
             CSVReader readfile = new CSVReader(new FileReader(paths.get(p).toString()));
@@ -122,7 +125,7 @@ public class TransactionController {
         }
         return temp;
     }
-    public List<String> listOfPathsBetweenTwoDates(@RequestBody datesBetween dates) throws IOException, ParseException {
+    public static List<String> listOfPathsBetweenTwoDates(DatesBetween dates,String TypeOfData){
         Date dateFrom = dates.getDateFrom();
         Date dateTo = dates.getDateTo();
         int monthFrom = dateFrom.getMonth()+1;
@@ -134,32 +137,32 @@ public class TransactionController {
         int yearto = dateTo.getYear()+1900;
         int dayto=dateTo.getDate();
         List<String> BetweenFilePath= new ArrayList<String>();
-        File directoryPathYear = new File(".//Data");
+        File directoryPathYear = new File(".//"+TypeOfData);
         String yearsPath[] = directoryPathYear.list();
         for (int y=0;y<yearsPath.length;y++){
             if(yearFrom<=Integer.parseInt(String.valueOf(yearsPath[y])) && yearto>=Integer.parseInt(String.valueOf(yearsPath[y]))){
 
                 if(yearFrom==yearto){
-                    File directoryPathQua = new File(".//Data//"+yearsPath[y]);
+                    File directoryPathQua = new File(".//"+TypeOfData+"//"+yearsPath[y]);
                     String quaterPath[] = directoryPathQua.list();
                     for(int q=0;q<directoryPathQua.list().length;q++){
                         if(quaterFrom<=Integer.parseInt(String.valueOf(quaterPath[q]))){
-                            File directoryPathDay = new File(".//Data//"+yearsPath[y]+"//"+quaterPath[q]);
+                            File directoryPathDay = new File(".//"+TypeOfData+"//"+yearsPath[y]+"//"+quaterPath[q]);
                             String DayPath[]=directoryPathDay.list();
                             for (int d=0;d<directoryPathDay.list().length;d++){
                                 String[] TransacDate =dateFromPath(DayPath[d]);
 
                                 if(monthFrom<Integer.parseInt(TransacDate[1])&&monthto>Integer.parseInt(TransacDate[1])) {
-                                    BetweenFilePath.add(String.valueOf(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
+                                    BetweenFilePath.add(String.valueOf(".//"+TypeOfData+"//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
                                 }
                                 if(monthFrom==Integer.parseInt(TransacDate[1])&&yearFrom==Integer.parseInt(TransacDate[2])){
                                     if(dayFrom<=Integer.parseInt(TransacDate[0])){
-                                        BetweenFilePath.add(String.valueOf(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
+                                        BetweenFilePath.add(String.valueOf(".//"+TypeOfData+"//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
                                     }
                                 }
                                 if(monthto==Integer.parseInt(TransacDate[1])&&yearto==Integer.parseInt(TransacDate[2])){
                                     if(dayto>=Integer.parseInt(TransacDate[0])){
-                                        BetweenFilePath.add(String.valueOf(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
+                                        BetweenFilePath.add(String.valueOf(".//"+TypeOfData+"//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
                                     }
                                 }
                             }
@@ -167,21 +170,21 @@ public class TransactionController {
                     }
                 }
                 else if(Integer.parseInt(yearsPath[y])==yearFrom){
-                    File directoryPathQua = new File(".//Data//"+yearsPath[y]);
+                    File directoryPathQua = new File(".//"+TypeOfData+"//"+yearsPath[y]);
                     String quaterPath[] = directoryPathQua.list();
                     for(int q=0;q<directoryPathQua.list().length;q++){
                         if(quaterFrom<=Integer.parseInt(String.valueOf(quaterPath[q]))){
-                            File directoryPathDay = new File(".//Data//"+yearsPath[y]+"//"+quaterPath[q]);
+                            File directoryPathDay = new File(".//"+TypeOfData+"//"+yearsPath[y]+"//"+quaterPath[q]);
                             String DayPath[]=directoryPathDay.list();
                             for (int d=0;d<directoryPathDay.list().length;d++){
                                 String[] TransacDate =dateFromPath(DayPath[d]);
 
                                 if(monthFrom<Integer.parseInt(TransacDate[1])) {
-                                    BetweenFilePath.add(String.valueOf(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
+                                    BetweenFilePath.add(String.valueOf(".//"+TypeOfData+"//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
                                 }
                                 if(monthFrom==Integer.parseInt(TransacDate[1])&&yearFrom==Integer.parseInt(TransacDate[2])){
                                     if(dayFrom<=Integer.parseInt(TransacDate[0])){
-                                        BetweenFilePath.add(String.valueOf(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
+                                        BetweenFilePath.add(String.valueOf(".//"+TypeOfData+"//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
                                     }
                                 }
                             }
@@ -189,20 +192,20 @@ public class TransactionController {
                     }
                 }
                 else if(Integer.parseInt(yearsPath[y])==yearto){
-                    File directoryPathQua = new File(".//Data//"+yearsPath[y]);
+                    File directoryPathQua = new File(".//"+TypeOfData+"//"+yearsPath[y]);
                     String quaterPath[] = directoryPathQua.list();
                     for(int q=0;q<directoryPathQua.list().length;q++){
                         if(quaterTo>=Integer.parseInt(String.valueOf(quaterPath[q]))){
-                            File directoryPathDay = new File(".//Data//"+yearsPath[y]+"//"+quaterPath[q]);
+                            File directoryPathDay = new File(".//"+TypeOfData+"//"+yearsPath[y]+"//"+quaterPath[q]);
                             String DayPath[]=directoryPathDay.list();
                             for (int d=0;d<directoryPathDay.list().length;d++){
                                 String[] TransacDate =dateFromPath(DayPath[d]);
                                 if(monthto>Integer.parseInt(TransacDate[1])) {
-                                    BetweenFilePath.add(String.valueOf(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
+                                    BetweenFilePath.add(String.valueOf(".//"+TypeOfData+"//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
                                 }
                                 if(monthto==Integer.parseInt(TransacDate[1])&&yearto==Integer.parseInt(TransacDate[2])){
                                     if(dayto>=Integer.parseInt(TransacDate[0])){
-                                        BetweenFilePath.add(String.valueOf(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
+                                        BetweenFilePath.add(String.valueOf(".//"+TypeOfData+"//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
                                     }
                                 }
                             }
@@ -210,13 +213,13 @@ public class TransactionController {
                     }
                 }
                 else {
-                    File directoryPathQua = new File(".//Data//"+yearsPath[y]);
+                    File directoryPathQua = new File(".//"+TypeOfData+"//"+yearsPath[y]);
                     String quaterPath[] = directoryPathQua.list();
                     for(int q=0;q<directoryPathQua.list().length;q++){
-                        File directoryPathDay = new File(".//Data//"+yearsPath[y]+"//"+quaterPath[q]);
+                        File directoryPathDay = new File(".//"+TypeOfData+"//"+yearsPath[y]+"//"+quaterPath[q]);
                         String DayPath[]=directoryPathDay.list();
                         for (int d=0;d<directoryPathDay.list().length;d++){
-                            BetweenFilePath.add(String.valueOf(".//Data//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
+                            BetweenFilePath.add(String.valueOf(".//"+TypeOfData+"//"+yearsPath[y]+"//"+quaterPath[q]+"//"+DayPath[d]));
                         }
                     }
                 }
@@ -224,10 +227,10 @@ public class TransactionController {
         }
         return BetweenFilePath;
     }
-    public List<String[]> allTransactionInBetween(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
+    public static List<String[]> allTransactionInBetween(DatesBetween dates,String TypeOfData) throws IOException, ParseException, CsvException {
         Date dateFrom = dates.getDateFrom();
         Date dateTo = dates.getDateTo();
-        List paths=listOfPathsBetweenTwoDates(dates);
+        List paths=listOfPathsBetweenTwoDates(dates,TypeOfData);
         ArrayList<String[]> temp = new ArrayList<>();
         for(int p=0;p<paths.size();p++){
             CSVReader readfile = new CSVReader(new FileReader(paths.get(p).toString()));
@@ -245,7 +248,7 @@ public class TransactionController {
         return temp;
 
     }
-    private String findmodel(String[][] values){
+    private static String findmodel(String[][] values){
         int count=0;
         String mode="";
         for(int i=0;i<values.length;i++){
@@ -278,7 +281,7 @@ public class TransactionController {
         }
         return 0;
     }
-    private boolean dateChecker(@RequestBody datesBetween dates){
+    private boolean dateChecker(@RequestBody DatesBetween dates){
         try {
             Date init_date = dates.getDateFrom();
             Date Conclusion_date = dates.getDateTo();
@@ -292,18 +295,34 @@ public class TransactionController {
         }
     }
     @PostMapping("/save")
-    public String saveTransaction(@RequestBody List<Record> record) {
-        try{
-            return service.saveTransaction(record);
-        }
-        catch (Exception ex){
-            return ex+"";
+    public String saveTransaction(@RequestBody List<Record> records) {
+        List problem = new ArrayList(records.size());
+        records.stream().forEach(rec->{
+            try{
+                Date init_date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX").parse(rec.getInit_date());
+                Date Conclusion_date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX").parse(rec.getConclusion_date());
+                if(init_date.compareTo(Conclusion_date)>0){
+                    problem.add(records.indexOf(rec));
+                    log.error("Tried to add wrong data in which init_date {} is higher the Conclusion_date{}",rec.getInit_date(),rec.getConclusion_date());
+                }
+            }catch (ParseException e) {
+                e.printStackTrace();
+                log.error(e.toString());
+            }
+        });
+        if(problem.size()>0){
+            return "Problem with index value : "+ Arrays.toString(problem.toArray());
+        }else
+        {
+            return service.saveTransaction(records, "Data");
         }
     }
 
-    @PostMapping("/oldest")
-    public String[] oldestTransaction() throws IOException, CsvException, ParseException {
-        List<String[]> transaction = allTransactionInPresent();
+    @GetMapping("/oldest")
+    public String[] oldestTransaction(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException, ParseException {
+        if(TypeOfData == "" || TypeOfData==null)
+            TypeOfData="TestData";
+        List<String[]> transaction = allTransactionInPresent(TypeOfData);
         Date oldestTransactiondate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
         String[] oldestTransaction = new String[4];
         oldestTransaction=transaction.get(0);
@@ -319,9 +338,11 @@ public class TransactionController {
     }
 
     @PostMapping("/oldestTInRange")
-    public String[] oldTransactionInBetween(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
+    public String[] oldTransactionInBetween(@RequestBody DatesBetween dates,@PathVariable (required=false) String TypeOfData) throws IOException, ParseException, CsvException {
         if(dateChecker(dates)) {
-            List<String[]> transaction = allTransactionInBetween(dates);
+            if(TypeOfData == "" || TypeOfData==null)
+                TypeOfData="Data";
+            List<String[]> transaction = allTransactionInBetween(dates,TypeOfData);
             Date oldestTransactiondate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
             String[] oldestTransaction = new String[4];
             oldestTransaction=transaction.get(0);
@@ -341,9 +362,11 @@ public class TransactionController {
     }
 
     @PostMapping("/newestTInRange")
-    public String[] newTransactionInBetween(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
+    public String[] newTransactionInBetween(@RequestBody DatesBetween dates,@PathVariable (required=false) String TypeOfData) throws IOException, ParseException, CsvException {
         if(dateChecker(dates)) {
-            List<String[]> transaction = allTransactionInBetween(dates);
+            if(TypeOfData==""||TypeOfData==null)
+                TypeOfData="Data";
+            List<String[]> transaction = allTransactionInBetween(dates,TypeOfData);
             Date newestTransactiondate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
             String[] newestTransaction = new String[4];
             newestTransaction=transaction.get(0);
@@ -362,9 +385,11 @@ public class TransactionController {
         }
     }
 
-    @PostMapping("/newest")
-    public String[] newerTransaction() throws IOException, CsvException, ParseException {
-        List<String[]> transaction = allTransactionInPresent();
+    @GetMapping("/newest")
+    public String[] newerTransaction(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException, ParseException {
+        if(TypeOfData==""||TypeOfData==null)
+            TypeOfData="Data";
+        List<String[]> transaction = allTransactionInPresent(TypeOfData);
         Date newestTransactiondate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
         String[] newestTransaction = new String[4];
         newestTransaction=transaction.get(0);
@@ -379,9 +404,11 @@ public class TransactionController {
         return newestTransaction;
     }
 
-    @PostMapping("/mean")
-    public float meanOfTransaction() throws IOException, CsvException {
-        List allTransaction = allTransactionInPresent();
+    @GetMapping("/mean")
+    public float meanOfTransaction(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException {
+        if(TypeOfData==""||TypeOfData==null)
+            TypeOfData="Data";
+        List allTransaction = allTransactionInPresent(TypeOfData);
         int TotalDays=0;
         float TotalAmount=0;
         for (int t=0;t<allTransaction.stream().count();t++){
@@ -395,9 +422,11 @@ public class TransactionController {
     }
 
     @PostMapping("/meanInRange")
-    public float meanInRange(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
+    public float meanInRange(@RequestBody DatesBetween dates,@PathVariable (required=false) String TypeOfData) throws IOException, ParseException, CsvException {
         if(dateChecker(dates) || dates.equals(null)) {
-            List allTransaction = allTransactionInBetween(dates);
+            if(TypeOfData==""||TypeOfData==null)
+                TypeOfData="Data";
+            List allTransaction = allTransactionInBetween(dates,TypeOfData);
             int TotalDays = 0;
             float TotalAmount = 0;
             for (int t = 0; t < allTransaction.stream().count(); t++) {
@@ -415,10 +444,12 @@ public class TransactionController {
         }
     }
 
-    @PostMapping("/mode")
-    public String modeOfTransaction() throws IOException, CsvException {
+    @GetMapping("/mode")
+    public String modeOfTransaction(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException {
+        if (TypeOfData==""||TypeOfData==null)
+            TypeOfData="Data";
         int c=0;
-        List allTransaction = allTransactionInPresent();
+        List allTransaction = allTransactionInPresent(TypeOfData);
         String[][] values = new String[allTransaction.size()][2];
         int present;
         for (int t=0;t<allTransaction.stream().count();t++){
@@ -444,10 +475,12 @@ public class TransactionController {
     }
 
     @PostMapping("modeInRange")
-    public String modeInRange(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
+    public String modeInRange(@RequestBody DatesBetween dates,@PathVariable (required=false) String TypeOfData) throws IOException, ParseException, CsvException {
         if(dateChecker(dates)) {
+            if(TypeOfData==""||TypeOfData==null)
+                TypeOfData="Data";
             int c = 0;
-            List allTransaction = allTransactionInBetween(dates);
+            List allTransaction = allTransactionInBetween(dates,TypeOfData);
             String[][] values = new String[allTransaction.size()][2];
             int present;
             for (int t = 0; t < allTransaction.stream().count(); t++) {
@@ -477,17 +510,23 @@ public class TransactionController {
         }
     }
 
-    @PostMapping("/standardDeviation")
-    public String SDOfTransaction() throws IOException, CsvException {
-        log.info("User has Requested for Standard Deviation which is {}","Standard Deviation="+Math.sqrt(meanOfTransaction()));
-        return "Standard Deviation="+Math.sqrt(meanOfTransaction());
+    @GetMapping("/standardDeviation")
+    public float sDOfTransaction(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException {
+        if(TypeOfData==""||TypeOfData==null)
+            TypeOfData="Data";
+        log.info("User has Requested for Standard Deviation which is {}","Standard Deviation="+Math.sqrt(meanOfTransaction(TypeOfData)));
+        return (float) Math.sqrt(meanOfTransaction(TypeOfData));
     }
 
     @PostMapping("/SDInRange")
-    public float sDInRange(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
+    public float sDInRange(@RequestBody DatesBetween dates,@PathVariable (required=false) String TypeOfData) throws IOException, ParseException, CsvException {
+        if(TypeOfData==""||TypeOfData==null)
+            TypeOfData="Data";
         if(dateChecker(dates)) {
-            log.info("User has Requested for Standard Deviation in range {} is {}",dates,Math.sqrt(meanInRange(dates)));
-            return (float) Math.sqrt(meanInRange(dates));
+            if(TypeOfData==""||TypeOfData==null)
+                TypeOfData="Data";
+            log.info("User has Requested for Standard Deviation in range {} is {}",dates,Math.sqrt(meanInRange(dates,TypeOfData)));
+            return (float) Math.sqrt(meanInRange(dates,TypeOfData));
         }
         else {
             log.error("User has Requested for Standard Deviation in range {} which is not Proper",dates);
@@ -495,11 +534,13 @@ public class TransactionController {
         }
     }
 
-    @PostMapping("/mostCommonProduct")
-    public String mostCommonProduct() throws IOException, CsvException {
+    @GetMapping("/mostCommonProduct")
+    public String mostCommonProduct(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException {
+        if (TypeOfData==""||TypeOfData==null)
+            TypeOfData="Data";
         int c=0;
         int j=0;
-        String[][] products=listCommonProd();
+        String[][] products=listCommonProd(TypeOfData);
         int count=Integer.parseInt(products[0][1]);
         String prod=products[0][0];
         for(int i=1;i<products.length-1;i++){
@@ -516,11 +557,13 @@ public class TransactionController {
     }
 
     @PostMapping("/mostCPInRange")
-    public String mostCPInBetween(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
+    public String mostCPInBetween(@RequestBody DatesBetween dates,@PathVariable (required=false) String TypeOfData) throws IOException, ParseException, CsvException {
         if(dateChecker(dates)) {
+            if(TypeOfData==""||TypeOfData==null)
+                TypeOfData="Data";
             int c = 0;
             int j = 0;
-            String[][] products = listCommonProdInRange(dates);
+            String[][] products = listCommonProdInRange(dates,TypeOfData);
             int count = Integer.parseInt(products[0][1]);
             String prod = products[0][0];
             for (int i = 1; i < products.length - 1; i++) {
@@ -541,13 +584,15 @@ public class TransactionController {
         }
     }
 
-    @PostMapping("/variance")
-    public float VarianceOfTransaction() throws IOException, CsvException {
-        float mean=meanOfTransaction();
+    @GetMapping("/variance")
+    public float varianceOfTransaction(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException {
+        if(TypeOfData==""||TypeOfData==null)
+            TypeOfData="Data";
+        float mean=meanOfTransaction(TypeOfData);
         float XSeq = 0;
         float TotalXX = 0;
         int TotalTran=0;
-        List allTransaction = allTransactionInPresent();
+        List allTransaction = allTransactionInPresent(TypeOfData);
         for (int t=0;t<allTransaction.stream().count();t++){
             String[] row=new String[4];
             row= (String[]) allTransaction.get(t);
@@ -561,13 +606,15 @@ public class TransactionController {
     }
 
     @PostMapping("/varianceInRange")
-    public float varianceInBetween(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
+    public float varianceInBetween(@RequestBody DatesBetween dates,@PathVariable (required=false) String TypeOfData) throws IOException, ParseException, CsvException {
         if(dateChecker(dates)) {
-            float mean = meanOfTransaction();
+            if(TypeOfData==""||TypeOfData==null)
+                TypeOfData="Data";
+            float mean = meanOfTransaction(TypeOfData);
             float XSeq = 0;
             float TotalXX = 0;
             int TotalTran = 0;
-            List allTransaction = allTransactionInBetween(dates);
+            List allTransaction = allTransactionInBetween(dates,TypeOfData);
             for (int t = 0; t < allTransaction.stream().count(); t++) {
                 String[] row = new String[4];
                 row = (String[]) allTransaction.get(t);
@@ -585,11 +632,13 @@ public class TransactionController {
         }
     }
 
-    @PostMapping("/leastCommonProduct")
-    public String leastCommonProduct() throws IOException, CsvException {
+    @GetMapping("/leastCommonProduct/{TypeOfData}")
+    public String leastCommonProduct(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException {
+        if(TypeOfData==""||TypeOfData==null)
+            TypeOfData="Data";
         int c=0;
         int j=0;
-        String[][] products=listCommonProd();
+        String[][] products=listCommonProd(TypeOfData);
         int count=Integer.parseInt(products[0][1]);
         String prod=products[0][0];
         for(int i=1;i<products.length-1;i++){
@@ -607,11 +656,13 @@ public class TransactionController {
     }
 
     @PostMapping("/leastCPInRange")
-    public String leastCommonProduct(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
+    public String leastCommonProduct(@RequestBody DatesBetween dates,@PathVariable (required=false) String TypeOfData) throws IOException, ParseException, CsvException {
         if(dateChecker(dates)) {
+            if(TypeOfData==""||TypeOfData==null)
+                TypeOfData="Data";
             int c = 0;
             int j = 0;
-            String[][] products = listCommonProdInRange(dates);
+            String[][] products = listCommonProdInRange(dates,TypeOfData);
             int count = Integer.parseInt(products[0][1]);
             String prod = products[0][0];
             for (int i = 1; i < products.length - 1; i++) {
@@ -633,9 +684,11 @@ public class TransactionController {
         }
     }
 
-    @PostMapping("/getTimeDelta")
-    public String timeDelta() throws IOException, CsvException, ParseException {
-        List transaction=allTransactionInPresent();
+    @GetMapping("/getTimeDelta/{TypeOfData}")
+    public String timeDelta(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException, ParseException {
+        if(TypeOfData==""||TypeOfData==null)
+            TypeOfData="Data";
+        List transaction=allTransactionInPresent(TypeOfData);
         long TotalProcessMilliSeconds = 0;
         long TotalTransaction=0;
         long[] values = new long[transaction.size()];
@@ -651,9 +704,11 @@ public class TransactionController {
         return "Mean="+TotalProcessMilliSeconds/TotalTransaction+" Mode="+String.valueOf(mode(values))+" Standard Deviation="+Math.sqrt(TotalProcessMilliSeconds/TotalTransaction);
     }
 
-    @PostMapping("/getTimeDeltaInRange")
-    public String timeDeltaInRange(@RequestBody datesBetween dates) throws IOException, ParseException, CsvException {
-        List transaction=allTransactionInBetween(dates);
+    @PostMapping("/getTimeDeltaInRange/{TypeOfData}")
+    public String timeDeltaInRange(@RequestBody DatesBetween dates,@PathVariable (required=false) String TypeOfData) throws IOException, ParseException, CsvException {
+        if(TypeOfData==""||TypeOfData==null)
+            TypeOfData="Data";
+        List transaction=allTransactionInBetween(dates,TypeOfData);
         long TotalProcessMilliSeconds = 0;
         long TotalTransaction=0;
         long[] values = new long[transaction.size()];
@@ -669,9 +724,11 @@ public class TransactionController {
         return "Mean="+TotalProcessMilliSeconds/TotalTransaction+" Mode="+String.valueOf(mode(values))+" Standard Deviation="+Math.sqrt(TotalProcessMilliSeconds/TotalTransaction);
     }
 
-    @PostMapping("/getTimeDeltaByProduct/{productId}")
-    public String timeDelta(@PathVariable String productId) throws IOException, CsvException, ParseException {
-        List transaction=allTransactionInPresent();
+    @GetMapping("/getTimeDeltaByProduct/{productId}")
+    public String timeDeltaWithProductId(@PathVariable String productId,@PathVariable (required=false) String TypeOfData) throws IOException, CsvException, ParseException {
+        if(TypeOfData==""||TypeOfData==null)
+            TypeOfData="Data";
+        List transaction=allTransactionInPresent(TypeOfData);
         long TotalProcessMilliSeconds = 0;
         long TotalTransaction=0;
         int c=0;
@@ -691,10 +748,12 @@ public class TransactionController {
         return "Mean="+TotalProcessMilliSeconds/TotalTransaction+" mode="+mode(values)+" Standard Deviation="+Math.sqrt(TotalProcessMilliSeconds/TotalTransaction);
     }
 
-    @PostMapping("/getTimeDeltaInRange/{productId}")
-    public String timeDeltaInRangewithProductId(@RequestBody datesBetween dates,@PathVariable String productId) throws IOException, ParseException, CsvException {
+    @PostMapping("/getTimeDeltaInRangeByProduct/{productId}")
+    public String timeDeltaInRangeWithProductId(@RequestBody DatesBetween dates, @PathVariable String productId,@PathVariable (required=false) String TypeOfData) throws IOException, ParseException, CsvException {
         if(dateChecker(dates)) {
-            List transaction = allTransactionInBetween(dates);
+            if(TypeOfData==""||TypeOfData==null)
+                TypeOfData="Data";
+            List transaction = allTransactionInBetween(dates,TypeOfData);
             long TotalProcessMilliSeconds = 0;
             long TotalTransaction = 0;
             int c = 0;
@@ -711,7 +770,7 @@ public class TransactionController {
                 }
             }
             log.info("User has Requested for TimeDelta details for Perticular Product in between "+dates+"Mean="+TotalProcessMilliSeconds/TotalTransaction+" Mode="+String.valueOf(mode(values))+" Standard Deviation="+Math.sqrt(TotalProcessMilliSeconds/TotalTransaction));
-            return "Mean=" + TotalProcessMilliSeconds / TotalTransaction +" mode="+mode(values)+"Standard Deviation=" + Math.sqrt(TotalProcessMilliSeconds / TotalTransaction);
+            return "Mean=" + TotalProcessMilliSeconds / TotalTransaction +" mode="+mode(values)+" Standard Deviation=" + Math.sqrt(TotalProcessMilliSeconds / TotalTransaction);
 
         }
         else
