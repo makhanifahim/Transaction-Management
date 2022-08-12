@@ -632,7 +632,7 @@ public class TransactionController {
         }
     }
 
-    @GetMapping("/leastCommonProduct/{TypeOfData}")
+    @GetMapping("/leastCommonProduct")
     public String leastCommonProduct(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException {
         if(TypeOfData==""||TypeOfData==null)
             TypeOfData="Data";
@@ -684,7 +684,7 @@ public class TransactionController {
         }
     }
 
-    @GetMapping("/getTimeDelta/{TypeOfData}")
+    @GetMapping("/getTimeDelta")
     public String timeDelta(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException, ParseException {
         if(TypeOfData==""||TypeOfData==null)
             TypeOfData="Data";
@@ -704,7 +704,7 @@ public class TransactionController {
         return "Mean="+TotalProcessMilliSeconds/TotalTransaction+" Mode="+String.valueOf(mode(values))+" Standard Deviation="+Math.sqrt(TotalProcessMilliSeconds/TotalTransaction);
     }
 
-    @PostMapping("/getTimeDeltaInRange/{TypeOfData}")
+    @PostMapping("/getTimeDeltaInRange")
     public String timeDeltaInRange(@RequestBody DatesBetween dates,@PathVariable (required=false) String TypeOfData) throws IOException, ParseException, CsvException {
         if(TypeOfData==""||TypeOfData==null)
             TypeOfData="Data";
@@ -777,6 +777,5 @@ public class TransactionController {
 
             return "Wrong Date Range";
     }
-
 
 }
