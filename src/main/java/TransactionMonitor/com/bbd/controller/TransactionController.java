@@ -1,8 +1,8 @@
 package TransactionMonitor.com.bbd.controller;
 
 import TransactionMonitor.com.bbd.model.DatesBetween;
-import TransactionMonitor.com.bbd.model.Record;
-import TransactionMonitor.com.bbd.service.SaveRecordService;
+import TransactionMonitor.com.bbd.model.Transaction;
+import TransactionMonitor.com.bbd.service.TransactionService;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 import lombok.extern.slf4j.Slf4j;
@@ -17,9 +17,9 @@ import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 
 @RestController
@@ -27,8 +27,8 @@ import java.util.List;
 @Slf4j
 public class TransactionController {
     @Autowired
-    private SaveRecordService service;
-    private static int getQuater(int month){
+    private TransactionService service;
+    private static int getQuarter(int month){
         return switch (month) {
             case 1, 2, 3 -> 1;
             case 4, 5, 6 -> 2;
@@ -129,11 +129,11 @@ public class TransactionController {
         Date dateFrom = dates.getDateFrom();
         Date dateTo = dates.getDateTo();
         int monthFrom = dateFrom.getMonth()+1;
-        int quaterFrom = getQuater(monthFrom);
+        int quaterFrom = getQuarter(monthFrom);
         int yearFrom = dateFrom.getYear()+1900;
         int dayFrom=dateFrom.getDate();
         int monthto = dateTo.getMonth()+1;
-        int quaterTo = getQuater(monthto);
+        int quaterTo = getQuarter(monthto);
         int yearto = dateTo.getYear()+1900;
         int dayto=dateTo.getDate();
         List<String> BetweenFilePath= new ArrayList<String>();
@@ -246,9 +246,8 @@ public class TransactionController {
             }
         }
         return temp;
-
     }
-    private static String findmodel(String[][] values){
+    private static String findModel(String[][] values){
         int count=0;
         String mode="";
         for(int i=0;i<values.length;i++){
@@ -294,124 +293,55 @@ public class TransactionController {
             return false;
         }
     }
-    @PostMapping("/save")
-    public String saveTransaction(@RequestBody List<Record> records) {
-        List problem = new ArrayList(records.size());
-        records.stream().forEach(rec->{
-            try{
-                Date init_date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX").parse(rec.getInit_date());
-                Date Conclusion_date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX").parse(rec.getConclusion_date());
-                if(init_date.compareTo(Conclusion_date)>0){
-                    problem.add(records.indexOf(rec));
-                    log.error("Tried to add wrong data in which init_date {} is higher the Conclusion_date{}",rec.getInit_date(),rec.getConclusion_date());
-                }
-            }catch (ParseException e) {
-                e.printStackTrace();
-                log.error(e.toString());
-            }
-        });
-        if(problem.size()>0){
-            return "Problem with index value : "+ Arrays.toString(problem.toArray());
-        }else
-        {
-            return service.saveTransaction(records, "Data");
-        }
+
+    @PostMapping("/transactions")
+    public String saveTransactions(@RequestBody List<Transaction> transactions,@PathVariable (required=false) String typeOfData) {
+        if(Objects.equals(typeOfData, "") ||typeOfData==null)
+            typeOfData="Data";
+        return service.saveTransaction(transactions, typeOfData);
     }
 
-    @GetMapping("/oldest")
-    public String[] oldestTransaction(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException, ParseException {
-        if(TypeOfData == "" || TypeOfData==null)
-            TypeOfData="TestData";
-        List<String[]> transaction = allTransactionInPresent(TypeOfData);
-        Date oldestTransactiondate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
-        String[] oldestTransaction = new String[4];
-        oldestTransaction=transaction.get(0);
-        for(int t=0;t<transaction.size();t++){
-            Date dateOftransaction=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(t)[0]);
-            if((dateOftransaction.getTime() - oldestTransactiondate.getTime())<0){
-                oldestTransactiondate=dateOftransaction;
-                oldestTransaction=transaction.get(t);
-            }
+    @GetMapping("/transactions")
+    public List<String[]> getTransactions(@RequestParam (required = false) String from_date,@RequestParam (required = false) String to_date,@RequestParam (required = false) boolean oldest,@RequestParam (required = false) boolean newest,@RequestParam (required = false) String product_id,@RequestParam (required=false) String typeOfData) throws IOException, ParseException, CsvException {
+        if(Objects.equals(typeOfData, "") ||typeOfData==null)
+            typeOfData="Data";
+        Date from=null,to=null;
+        String p_id=null;
+        if(from_date!=null){from = new SimpleDateFormat("yyyy-MM-dd").parse(from_date);}
+        if(to_date!=null) {to = new SimpleDateFormat("yyyy-MM-dd").parse(to_date);}
+        if(product_id!=null){p_id=product_id;}
+        if(oldest && newest){
+            List<String[]> Transac= new ArrayList();
+            Transac.add(service.oldestTransaction(typeOfData,p_id,from,to));
+            Transac.add(service.newerTransaction(typeOfData,p_id,from,to));
+            return Transac;
         }
-        log.info("User has Requested for oldest Transaction {}",oldestTransaction);
-        return oldestTransaction;
+        else if(oldest){
+            List<String[]> oldestTransac= new ArrayList();
+            oldestTransac.add(service.oldestTransaction(typeOfData,p_id,from,to));
+            return oldestTransac;
+        }
+        else if(newest) {
+            List<String[]> newestTransac = new ArrayList();
+            newestTransac.add(service.newerTransaction(typeOfData,p_id,from,to));
+            return newestTransac;
+        }
+        else{return service.allTransaction(typeOfData, p_id,from, to);}
     }
 
-    @PostMapping("/oldestTInRange")
-    public String[] oldTransactionInBetween(@RequestBody DatesBetween dates,@PathVariable (required=false) String TypeOfData) throws IOException, ParseException, CsvException {
-        if(dateChecker(dates)) {
-            if(TypeOfData == "" || TypeOfData==null)
-                TypeOfData="Data";
-            List<String[]> transaction = allTransactionInBetween(dates,TypeOfData);
-            Date oldestTransactiondate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
-            String[] oldestTransaction = new String[4];
-            oldestTransaction=transaction.get(0);
-            for(int t=0;t<transaction.size();t++){
-                Date dateOftransaction=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(t)[0]);
-                if((dateOftransaction.getTime() - oldestTransactiondate.getTime())<0){
-                    oldestTransactiondate=dateOftransaction;
-                    oldestTransaction=transaction.get(t);
-                }
-            }
-            log.info("User has Requested for oldest Transaction in range {} is {}",dates,oldestTransaction);
-            return oldestTransaction;
-        }else{
-            log.error("User has Requested for oldest Transaction in range {} which is not Proper",dates);
-            return null;
-        }
-    }
-
-    @PostMapping("/newestTInRange")
-    public String[] newTransactionInBetween(@RequestBody DatesBetween dates,@PathVariable (required=false) String TypeOfData) throws IOException, ParseException, CsvException {
-        if(dateChecker(dates)) {
-            if(TypeOfData==""||TypeOfData==null)
-                TypeOfData="Data";
-            List<String[]> transaction = allTransactionInBetween(dates,TypeOfData);
-            Date newestTransactiondate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
-            String[] newestTransaction = new String[4];
-            newestTransaction=transaction.get(0);
-            for(int t=1;t<transaction.size();t++){
-                Date dateOftransaction=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(t)[0]);
-                if((dateOftransaction.getTime() - newestTransactiondate.getTime())>0){
-                    newestTransactiondate=dateOftransaction;
-                    newestTransaction=transaction.get(t);
-                }
-            }
-            log.info("User has Requested for Newest Transaction in range {} is {}",dates,newestTransaction);
-            return newestTransaction;
-        }else{
-            log.error("User has Requested for Newest Transaction in range {} which is not Proper",dates);
-            return null;
-        }
-    }
-
-    @GetMapping("/newest")
-    public String[] newerTransaction(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException, ParseException {
-        if(TypeOfData==""||TypeOfData==null)
-            TypeOfData="Data";
-        List<String[]> transaction = allTransactionInPresent(TypeOfData);
-        Date newestTransactiondate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
-        String[] newestTransaction = new String[4];
-        newestTransaction=transaction.get(0);
-        for(int t=0;t<transaction.size();t++){
-            Date dateOftransaction=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(t)[0]);
-            if((dateOftransaction.getTime() - newestTransactiondate.getTime())>0){
-                newestTransactiondate=dateOftransaction;
-                newestTransaction=transaction.get(t);
-            }
-        }
-        log.info("User has Requested for newest Transaction {}",newestTransaction);
-        return newestTransaction;
+    @GetMapping("/transactions/transaction_value_summary")
+    public String getsummary(){
+        return "";
     }
 
     @GetMapping("/mean")
     public float meanOfTransaction(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException {
-        if(TypeOfData==""||TypeOfData==null)
+        if(Objects.equals(TypeOfData, "") ||TypeOfData==null)
             TypeOfData="Data";
-        List allTransaction = allTransactionInPresent(TypeOfData);
+        List<String[]> allTransaction = allTransactionInPresent(TypeOfData);
         int TotalDays=0;
         float TotalAmount=0;
-        for (int t=0;t<allTransaction.stream().count();t++){
+        for (int t = 0; t< (long) allTransaction.size(); t++){
             String[] Transaction=new String[4];
             Transaction= (String[]) allTransaction.get(t);
             TotalDays++;
@@ -470,8 +400,8 @@ public class TransactionController {
                 c++;
             }
         }
-        log.info("User has Requested for Mode which is {}",findmodel(values));
-        return findmodel(values);
+        log.info("User has Requested for Mode which is {}",findModel(values));
+        return findModel(values);
     }
 
     @PostMapping("modeInRange")
@@ -501,8 +431,8 @@ public class TransactionController {
                     c++;
                 }
             }
-            log.info("User has Requested for Mode in range {} is {}",dates,findmodel(values));
-            return findmodel(values);
+            log.info("User has Requested for Mode in range {} is {}",dates,findModel(values));
+            return findModel(values);
         }
         else {
             log.error("User has Requested for Mode in range {} which is not Proper",dates);
@@ -778,4 +708,11 @@ public class TransactionController {
             return "Wrong Date Range";
     }
 
+    public String oldestFile() throws IOException {
+        return allFilesInPresent("Data").get(0);
+    }
+
+    public String newestFile() throws IOException, CsvException {
+        return allFilesInPresent("Data").get((allFilesInPresent("Data").size()-1));
+    }
 }
