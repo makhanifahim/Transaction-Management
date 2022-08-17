@@ -210,83 +210,83 @@ class TransactionControllerTest {
         assertTrue(Objects.equals(actualResult.get(0)[1], expectedResult.get(0)[1]) && Objects.equals(actualResult.get(0)[0], expectedResult.get(0)[0]) && Objects.equals(actualResult.get(0)[2], expectedResult.get(0)[2] )&& Objects.equals(actualResult.get(0)[3], expectedResult.get(0)[3]));
     }
 
-    @Test
-    void meanOfAllTransaction() throws IOException, CsvException {
-        float actualResult=1024.8555f;
-        assertThat(transactionController.meanOfTransaction("TestData")).isEqualTo(actualResult);
-    }
+//    @Test
+//    void meanOfAllTransaction() throws IOException, CsvException {
+//        float actualResult=1024.8555f;
+//        assertThat(transactionController.meanOfTransaction("TestData")).isEqualTo(actualResult);
+//    }
+//
+//    @Test
+//    void meanInRange() throws IOException, ParseException, CsvException {
+//        DatesBetween dates = new DatesBetween("1998-01-01","1998-12-05");
+//        float actualResult=744.2166F;
+//        assertThat(transactionController.meanInRange(dates,"TestData")).isEqualTo(actualResult);
+//    }
+//
+//    @Test
+//    void modeOfAllTransaction() throws IOException, CsvException {
+//        String actualResult="Mode (Amount) = 7.0 with count=5";
+//        assertThat(transactionController.modeOfTransaction("TestData")).isEqualTo(actualResult);
+//    }
+//
+//    @Test
+//    void modeInRange() throws IOException, ParseException, CsvException {
+//        DatesBetween dates = new DatesBetween("1998-01-01","1998-12-05");
+//        String actualResult="Mode (Amount) = 7.0 with count=2";
+//        assertThat(transactionController.modeInRange(dates,"TestData")).isEqualTo(actualResult);
+//    }
+//
+//    @Test
+//    void standersDeviation() throws IOException, CsvException {
+//        float actualResult=32.013363908686635F;
+//        assertThat(transactionController.sDOfTransaction("TestData")).isEqualTo(actualResult);
+//    }
+//
+//    @Test
+//    void standardDeviationInRange() throws IOException, ParseException, CsvException {
+//        DatesBetween dates = new DatesBetween("1998-01-01","1999-12-05");
+//        float actualResult=27.331303F;
+//        assertThat(transactionController.sDInRange(dates,"TestData")).isEqualTo(actualResult);
+//    }
+//
+//    @Test
+//    void varianceOfAllTransaction() throws IOException, CsvException {
+//        float actualResult=3302611.5F;
+//        assertThat(transactionController.varianceOfTransaction("TestData")).isEqualTo(actualResult);
+//    }
+//
+//    @Test
+//    void varianceInRange() throws IOException, ParseException, CsvException {
+//        DatesBetween dates = new DatesBetween("1998-01-01","1999-12-05");
+//        float actualResult=1344185.4F;
+//        assertThat(transactionController.varianceInBetween(dates,"TestData")).isEqualTo(actualResult);
+//    }
 
-    @Test
-    void meanInRange() throws IOException, ParseException, CsvException {
-        DatesBetween dates = new DatesBetween("1998-01-01","1998-12-05");
-        float actualResult=744.2166F;
-        assertThat(transactionController.meanInRange(dates,"TestData")).isEqualTo(actualResult);
-    }
-
-    @Test
-    void modeOfAllTransaction() throws IOException, CsvException {
-        String actualResult="Mode (Amount) = 7.0 with count=5";
-        assertThat(transactionController.modeOfTransaction("TestData")).isEqualTo(actualResult);
-    }
-
-    @Test
-    void modeInRange() throws IOException, ParseException, CsvException {
-        DatesBetween dates = new DatesBetween("1998-01-01","1998-12-05");
-        String actualResult="Mode (Amount) = 7.0 with count=2";
-        assertThat(transactionController.modeInRange(dates,"TestData")).isEqualTo(actualResult);
-    }
-
-    @Test
-    void standersDeviation() throws IOException, CsvException {
-        float actualResult=32.013363908686635F;
-        assertThat(transactionController.sDOfTransaction("TestData")).isEqualTo(actualResult);
-    }
-
-    @Test
-    void standardDeviationInRange() throws IOException, ParseException, CsvException {
-        DatesBetween dates = new DatesBetween("1998-01-01","1999-12-05");
-        float actualResult=27.331303F;
-        assertThat(transactionController.sDInRange(dates,"TestData")).isEqualTo(actualResult);
-    }
-
-    @Test
-    void varianceOfAllTransaction() throws IOException, CsvException {
-        float actualResult=3302611.5F;
-        assertThat(transactionController.varianceOfTransaction("TestData")).isEqualTo(actualResult);
-    }
-
-    @Test
-    void varianceInRange() throws IOException, ParseException, CsvException {
-        DatesBetween dates = new DatesBetween("1998-01-01","1999-12-05");
-        float actualResult=1344185.4F;
-        assertThat(transactionController.varianceInBetween(dates,"TestData")).isEqualTo(actualResult);
-    }
-
-    @Test
-    void mostCommonProduct() throws IOException, CsvException {
-        String actualResult="2";
-        assertThat(transactionController.mostCommonProduct("TestData")).isEqualTo(actualResult);
-    }
-
-    @Test
-    void mostCommonProductInRange() throws IOException, ParseException, CsvException {
-        DatesBetween dates = new DatesBetween("1998-01-01","1999-12-05");
-        String actualResult="2";
-        assertThat(transactionController.mostCPInBetween(dates,"TestData")).isEqualTo(actualResult);
-    }
-
-    @Test
-    void lestCommonProduct() throws IOException, CsvException {
-        String actualResult="8";
-        assertThat(transactionController.leastCommonProduct("TestData")).isEqualTo(actualResult);
-    }
-
-    @Test
-    void listCommonProductInRange() throws IOException, ParseException, CsvException {
-        DatesBetween dates = new DatesBetween("1998-01-01","1999-12-05");
-        String actualResult="2";
-        assertThat(transactionController.mostCPInBetween(dates,"TestData")).isEqualTo(actualResult);
-    }
+//    @Test
+//    void mostCommonProduct() throws IOException, CsvException {
+//        String actualResult="2";
+//        assertThat(transactionController.mostCommonProduct("TestData")).isEqualTo(actualResult);
+//    }
+//
+//    @Test
+//    void mostCommonProductInRange() throws IOException, ParseException, CsvException {
+//        DatesBetween dates = new DatesBetween("1998-01-01","1999-12-05");
+//        String actualResult="2";
+//        assertThat(transactionController.mostCPInBetween(dates,"TestData")).isEqualTo(actualResult);
+//    }
+//
+//    @Test
+//    void lestCommonProduct() throws IOException, CsvException {
+//        String actualResult="8";
+//        assertThat(transactionController.leastCommonProduct("TestData")).isEqualTo(actualResult);
+//    }
+//
+//    @Test
+//    void listCommonProductInRange() throws IOException, ParseException, CsvException {
+//        DatesBetween dates = new DatesBetween("1998-01-01","1999-12-05");
+//        String actualResult="2";
+//        assertThat(transactionController.mostCPInBetween(dates,"TestData")).isEqualTo(actualResult);
+//    }
 
     @Test
     void timeDelta() throws IOException, ParseException, CsvException {
@@ -314,7 +314,6 @@ class TransactionControllerTest {
         String actualResult="Mean=600015 mode=0 Standard Deviation=774.6063516393343";
         assertThat(transactionController.timeDeltaInRangeWithProductId(dates,"2","TestData")).isEqualTo(actualResult);
     }
-
 
     @AfterAll
     static void tearDown() throws IOException {

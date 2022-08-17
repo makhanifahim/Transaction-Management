@@ -56,6 +56,9 @@ public class TransactionService {
         d.setMinutes(d.getMinutes() - 30);
         return d;
     }
+    public Date StringTODate(String date) throws ParseException {
+        return new SimpleDateFormat("yyyy-MM-dd").parse(date);
+    }
     private static String[] dateFromPath(String DayPath){
         SimpleDateFormat fileDate = new SimpleDateFormat("dd-MM-yyyy");
         int indexOfDash = DayPath.indexOf('.');
@@ -258,19 +261,19 @@ public class TransactionService {
         if(from_date==null && to_date==null)
             paths=allFilesInPresent(TypeOfData);
         else if(from_date==null && to_date!=null) {
-            paths = allFilesInBetween(configDate(oldestTransaction(TypeOfData,product_id,null,null)[0]),to_date,TypeOfData);
+            paths = allFilesInBetween(StringTODate(oldestTransaction(TypeOfData,product_id,null,null)[0]),to_date,TypeOfData);
         }
         else if(from_date!=null && to_date==null){
-            paths = allFilesInBetween(from_date,configDate(newerTransaction(TypeOfData,product_id,null,null)[0]),TypeOfData);
+            paths = allFilesInBetween(from_date,StringTODate(newerTransaction(TypeOfData,product_id,null,null)[0]),TypeOfData);
         }
         else{
             paths = allFilesInBetween(from_date,to_date,TypeOfData);
         }
         ArrayList<String[]> temp = new ArrayList<>();
         for (Object path : paths) {
-            CSVReader readfile = new CSVReader(new FileReader(path.toString()));
-            readfile.readNext();
-            List<String[]> rows = readfile.readAll();
+            CSVReader readFile = new CSVReader(new FileReader(path.toString()));
+            readFile.readNext();
+            List<String[]> rows = readFile.readAll();
             for (String[] row : rows) {
                 if (Objects.equals(row[2], product_id))
                     temp.add(row);

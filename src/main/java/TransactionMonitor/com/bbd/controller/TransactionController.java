@@ -2,7 +2,8 @@ package TransactionMonitor.com.bbd.controller;
 
 import TransactionMonitor.com.bbd.model.DatesBetween;
 import TransactionMonitor.com.bbd.model.Transaction;
-import TransactionMonitor.com.bbd.model.TransactionValueSummary;
+import TransactionMonitor.com.bbd.model.TransactionSummary;
+import TransactionMonitor.com.bbd.service.ProductService;
 import TransactionMonitor.com.bbd.service.TransactionService;
 import TransactionMonitor.com.bbd.service.TransactionValueSummaryService;
 import com.opencsv.CSVReader;
@@ -33,6 +34,9 @@ public class TransactionController {
 
     @Autowired
     private TransactionValueSummaryService valueSummaryService;
+
+    @Autowired
+    private ProductService productService;
 
     private static int getQuarter(int month){
         return switch (month) {
@@ -336,320 +340,34 @@ public class TransactionController {
     }
 
     @GetMapping("/transaction_value_summary")
-    public TransactionValueSummary getSummary(@RequestParam (required = false) String from_date, @RequestParam (required = false) String to_date, @RequestParam (required = false) String product_id, @RequestParam (required=false) String typeOfData) throws IOException, ParseException, CsvException {
+    public TransactionSummary getSummary(@RequestParam (required = false) String from_date, @RequestParam (required = false) String to_date, @RequestParam (required = false) String product_id, @RequestParam (required=false) String typeOfData) throws IOException, ParseException, CsvException {
         if(Objects.equals(typeOfData, "") ||typeOfData==null)
             typeOfData="Data";
         Date from = null,to=null;
         if(from_date!=null){from = new SimpleDateFormat("yyyy-MM-dd").parse(from_date);}
         if(to_date!=null) {to = new SimpleDateFormat("yyyy-MM-dd").parse(to_date);}
-        TransactionValueSummary valueSummary=new TransactionValueSummary(valueSummaryService.meanOfTransaction(from,to,product_id,typeOfData),valueSummaryService.modeOfTransaction(from,to,product_id,typeOfData),valueSummaryService.standardDeviationOfTransaction(from,to,product_id,typeOfData),valueSummaryService.varianceOfTransaction(from,to,product_id,typeOfData));
+        TransactionSummary valueSummary=new TransactionSummary(valueSummaryService.meanOfTransaction(from,to,product_id,typeOfData),valueSummaryService.modeOfTransaction(from,to,product_id,typeOfData),valueSummaryService.standardDeviationOfTransaction(from,to,product_id,typeOfData),valueSummaryService.varianceOfTransaction(from,to,product_id,typeOfData));
         return valueSummary;
     }
 
-    @GetMapping("/transaction_value_summary/{summary_type}")
-    public TransactionValueSummary getPerticularSummary(@PathVariable(required = false) String summary_type,@RequestParam (required = false) String from_date, @RequestParam (required = false) String to_date, @RequestParam (required = false) String product_id, @RequestParam (required=false) String typeOfData) throws IOException, ParseException, CsvException {
+    @GetMapping("/products")
+    public String[][] allProducts(@RequestParam (required = false) String from_date, @RequestParam (required = false) String to_date, @RequestParam (required=false) String typeOfData,@RequestParam (required = false) boolean most_common,@RequestParam (required = false) boolean lest_common) throws IOException, CsvException, ParseException {
         if(Objects.equals(typeOfData, "") ||typeOfData==null)
             typeOfData="Data";
         Date from = null,to=null;
         if(from_date!=null){from = new SimpleDateFormat("yyyy-MM-dd").parse(from_date);}
         if(to_date!=null) {to = new SimpleDateFormat("yyyy-MM-dd").parse(to_date);}
-        float mean = 0,sDevi=0,variance=0;
-        String mode = null;
-        if(Objects.equals(summary_type, "mean") ||summary_type==null)
-            mean= Float.parseFloat(String.valueOf(valueSummaryService.meanOfTransaction(from,to,product_id,typeOfData)));
-        if(Objects.equals(summary_type, "mode") ||summary_type==null)
-            mode=valueSummaryService.modeOfTransaction(from,to,product_id,typeOfData);
-        if(Objects.equals(summary_type, "standard_deviation") ||summary_type==null)
-            sDevi=valueSummaryService.standardDeviationOfTransaction(from,to,product_id,typeOfData);
-        if(Objects.equals(summary_type, "variance") ||summary_type==null)
-            variance=valueSummaryService.varianceOfTransaction(from,to,product_id,typeOfData);
-        if(summary_type!=null)
-            return new TransactionValueSummary(mean,mode,sDevi,variance);
+        if(most_common && lest_common){
+            return productService.CommonProduct(typeOfData,from,to,true,true);
+        }
+        else if(most_common)
+            return productService.CommonProduct(typeOfData,from,to,true,false);
+        else if(lest_common)
+            return productService.CommonProduct(typeOfData,from,to,false,true);
         else
-            return getSummary(from_date,to_date,product_id,typeOfData);
-
+            return productService.listCommonProd(typeOfData,from,to);
     }
 
-
-    @GetMapping("/mean")
-    public float meanOfTransaction(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException {
-        if(Objects.equals(TypeOfData, "") ||TypeOfData==null)
-            TypeOfData="Data";
-        List<String[]> allTransaction = allTransactionInPresent(TypeOfData);
-        int TotalDays=0;
-        float TotalAmount=0;
-        for (int t = 0; t< (long) allTransaction.size(); t++){
-            String[] Transaction=new String[4];
-            Transaction= (String[]) allTransaction.get(t);
-            TotalDays++;
-            TotalAmount= Float.parseFloat(Transaction[3])+TotalAmount;
-        }
-        log.info("User has Requested for Mean which is {}",TotalAmount/TotalDays);
-        return TotalAmount/TotalDays;
-    }
-
-    @PostMapping("/meanInRange")
-    public float meanInRange(@RequestBody DatesBetween dates,@PathVariable (required=false) String TypeOfData) throws IOException, ParseException, CsvException {
-        if(dateChecker(dates) || dates.equals(null)) {
-            if(TypeOfData==""||TypeOfData==null)
-                TypeOfData="Data";
-            List allTransaction = allTransactionInBetween(dates,TypeOfData);
-            int TotalDays = 0;
-            float TotalAmount = 0;
-            for (int t = 0; t < allTransaction.stream().count(); t++) {
-                String[] Transaction = new String[4];
-                Transaction = (String[]) allTransaction.get(t);
-                TotalDays++;
-                TotalAmount = Float.parseFloat(Transaction[3]) + TotalAmount;
-            }
-            log.info("User has Requested for mean in range {} is {}",dates,TotalAmount/TotalDays);
-            return TotalAmount / TotalDays;
-        }
-        else{
-            log.error("User has Requested for mean in range {} which is not Proper",dates);
-            return 0;
-        }
-    }
-
-    @GetMapping("/mode")
-    public String modeOfTransaction(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException {
-        if (TypeOfData==""||TypeOfData==null)
-            TypeOfData="Data";
-        int c=0;
-        List allTransaction = allTransactionInPresent(TypeOfData);
-        String[][] values = new String[allTransaction.size()][2];
-        int present;
-        for (int t=0;t<allTransaction.stream().count();t++){
-            String[] row;
-            row= (String[]) allTransaction.get(t);
-            present=0;
-            for(int i=0;i<values.length;i++){
-                if(values[i][0]!=null) {
-                    if(values[i][0].toString().equals(row[3].toString())){
-                        present=1;
-                        values[i][1]= String.valueOf(Integer.parseInt(values[i][1])+1);
-                    }
-                }
-            }
-            if(present==0) {
-                values[c][0] = row[3];
-                values[c][1] = String.valueOf(0);
-                c++;
-            }
-        }
-        log.info("User has Requested for Mode which is {}",findModel(values));
-        return findModel(values);
-    }
-
-    @PostMapping("modeInRange")
-    public String modeInRange(@RequestBody DatesBetween dates,@PathVariable (required=false) String TypeOfData) throws IOException, ParseException, CsvException {
-        if(dateChecker(dates)) {
-            if(TypeOfData==""||TypeOfData==null)
-                TypeOfData="Data";
-            int c = 0;
-            List allTransaction = allTransactionInBetween(dates,TypeOfData);
-            String[][] values = new String[allTransaction.size()][2];
-            int present;
-            for (int t = 0; t < allTransaction.stream().count(); t++) {
-                String[] row;
-                row = (String[]) allTransaction.get(t);
-                present = 0;
-                for (int i = 0; i < values.length; i++) {
-                    if (values[i][0] != null) {
-                        if (values[i][0].toString().equals(row[3].toString())) {
-                            present = 1;
-                            values[i][1] = String.valueOf(Integer.parseInt(values[i][1]) + 1);
-                        }
-                    }
-                }
-                if (present == 0) {
-                    values[c][0] = row[3];
-                    values[c][1] = String.valueOf(0);
-                    c++;
-                }
-            }
-            log.info("User has Requested for Mode in range {} is {}",dates,findModel(values));
-            return findModel(values);
-        }
-        else {
-            log.error("User has Requested for Mode in range {} which is not Proper",dates);
-            return "Wrong Date Range";
-        }
-    }
-
-    @GetMapping("/standardDeviation")
-    public float sDOfTransaction(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException {
-        if(TypeOfData==""||TypeOfData==null)
-            TypeOfData="Data";
-        log.info("User has Requested for Standard Deviation which is {}","Standard Deviation="+Math.sqrt(meanOfTransaction(TypeOfData)));
-        return (float) Math.sqrt(meanOfTransaction(TypeOfData));
-    }
-
-    @PostMapping("/SDInRange")
-    public float sDInRange(@RequestBody DatesBetween dates,@PathVariable (required=false) String TypeOfData) throws IOException, ParseException, CsvException {
-        if(TypeOfData==""||TypeOfData==null)
-            TypeOfData="Data";
-        if(dateChecker(dates)) {
-            if(TypeOfData==""||TypeOfData==null)
-                TypeOfData="Data";
-            log.info("User has Requested for Standard Deviation in range {} is {}",dates,Math.sqrt(meanInRange(dates,TypeOfData)));
-            return (float) Math.sqrt(meanInRange(dates,TypeOfData));
-        }
-        else {
-            log.error("User has Requested for Standard Deviation in range {} which is not Proper",dates);
-            return 0;
-        }
-    }
-
-    @GetMapping("/mostCommonProduct")
-    public String mostCommonProduct(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException {
-        if (TypeOfData==""||TypeOfData==null)
-            TypeOfData="Data";
-        int c=0;
-        int j=0;
-        String[][] products=listCommonProd(TypeOfData);
-        int count=Integer.parseInt(products[0][1]);
-        String prod=products[0][0];
-        for(int i=1;i<products.length-1;i++){
-            if(products[i][0]!=null) {
-                if(Integer.parseInt(products[i][1])>count){
-                    count=Integer.parseInt(products[i][1]);
-                    count=count+1;
-                    prod=products[i][0];
-                }
-            }
-        }
-        log.info("User has Requested for Most Common Product {}",prod);
-        return prod;
-    }
-
-    @PostMapping("/mostCPInRange")
-    public String mostCPInBetween(@RequestBody DatesBetween dates,@PathVariable (required=false) String TypeOfData) throws IOException, ParseException, CsvException {
-        if(dateChecker(dates)) {
-            if(TypeOfData==""||TypeOfData==null)
-                TypeOfData="Data";
-            int c = 0;
-            int j = 0;
-            String[][] products = listCommonProdInRange(dates,TypeOfData);
-            int count = Integer.parseInt(products[0][1]);
-            String prod = products[0][0];
-            for (int i = 1; i < products.length - 1; i++) {
-                if (products[i][0] != null) {
-                    if (Integer.parseInt(products[i][1]) > count) {
-                        count = Integer.parseInt(products[i][1]);
-                        count = count + 1;
-                        prod = products[i][0];
-                    }
-                }
-            }
-            log.info("User has Requested for Most Common Product in range {} is {}",dates,prod);
-            return prod;
-        }
-        else {
-            log.error("User has Requested for Most Common Product in range {} which is not Proper",dates);
-            return "Wrong Date Range";
-        }
-    }
-
-    @GetMapping("/variance")
-    public float varianceOfTransaction(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException {
-        if(TypeOfData==""||TypeOfData==null)
-            TypeOfData="Data";
-        float mean=meanOfTransaction(TypeOfData);
-        float XSeq = 0;
-        float TotalXX = 0;
-        int TotalTran=0;
-        List allTransaction = allTransactionInPresent(TypeOfData);
-        for (int t=0;t<allTransaction.stream().count();t++){
-            String[] row=new String[4];
-            row= (String[]) allTransaction.get(t);
-            TotalTran++;
-            XSeq=Float.parseFloat(row[3])-mean;
-            XSeq=XSeq*XSeq;
-            TotalXX=TotalXX+XSeq;
-        }
-        log.info("User has Requested for Variance {}",TotalXX/TotalTran);
-        return TotalXX/TotalTran;
-    }
-
-    @PostMapping("/varianceInRange")
-    public float varianceInBetween(@RequestBody DatesBetween dates,@PathVariable (required=false) String TypeOfData) throws IOException, ParseException, CsvException {
-        if(dateChecker(dates)) {
-            if(TypeOfData==""||TypeOfData==null)
-                TypeOfData="Data";
-            float mean = meanOfTransaction(TypeOfData);
-            float XSeq = 0;
-            float TotalXX = 0;
-            int TotalTran = 0;
-            List allTransaction = allTransactionInBetween(dates,TypeOfData);
-            for (int t = 0; t < allTransaction.stream().count(); t++) {
-                String[] row = new String[4];
-                row = (String[]) allTransaction.get(t);
-                TotalTran++;
-                XSeq = Float.parseFloat(row[3]) - mean;
-                XSeq = XSeq * XSeq;
-                TotalXX = TotalXX + XSeq;
-            }
-            log.info("User has Requested for variance in range {} is {}",dates,TotalXX/TotalTran);
-            return TotalXX / TotalTran;
-        }
-        else{
-            log.error("User has Requested for variance in range {} which is not Proper",dates);
-            return 0;
-        }
-    }
-
-    @GetMapping("/leastCommonProduct")
-    public String leastCommonProduct(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException {
-        if(TypeOfData==""||TypeOfData==null)
-            TypeOfData="Data";
-        int c=0;
-        int j=0;
-        String[][] products=listCommonProd(TypeOfData);
-        int count=Integer.parseInt(products[0][1]);
-        String prod=products[0][0];
-        for(int i=1;i<products.length-1;i++){
-            if(products[i][0]!=null) {
-                if(Integer.parseInt(products[i][1])<=count && Integer.parseInt(products[i][1])!=0){
-                    count=Integer.parseInt(products[i][1]);
-                    count=count+1;
-                    prod=products[i][0];
-
-                }
-            }
-        }
-        log.info("User has Requested for Least Common Product is {}",prod);
-        return prod;
-    }
-
-    @PostMapping("/leastCPInRange")
-    public String leastCommonProduct(@RequestBody DatesBetween dates,@PathVariable (required=false) String TypeOfData) throws IOException, ParseException, CsvException {
-        if(dateChecker(dates)) {
-            if(TypeOfData==""||TypeOfData==null)
-                TypeOfData="Data";
-            int c = 0;
-            int j = 0;
-            String[][] products = listCommonProdInRange(dates,TypeOfData);
-            int count = Integer.parseInt(products[0][1]);
-            String prod = products[0][0];
-            for (int i = 1; i < products.length - 1; i++) {
-                if (products[i][0] != null) {
-                    if (Integer.parseInt(products[i][1]) <= count && Integer.parseInt(products[i][1]) != 0) {
-                        count = Integer.parseInt(products[i][1]);
-                        count = count + 1;
-                        prod = products[i][0];
-
-                    }
-                }
-            }
-            log.info("User has Requested for Lest Common Product in range {} is {}",dates,prod);
-            return prod;
-        }
-        else {
-            log.error("User has Requested for Lest Common Product in range {} which is not Proper",dates);
-            return "Wrong Date Range";
-        }
-    }
 
     @GetMapping("/getTimeDelta")
     public String timeDelta(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException, ParseException {
@@ -745,11 +463,4 @@ public class TransactionController {
             return "Wrong Date Range";
     }
 
-    public String oldestFile() throws IOException {
-        return allFilesInPresent("Data").get(0);
-    }
-
-    public String newestFile() throws IOException, CsvException {
-        return allFilesInPresent("Data").get((allFilesInPresent("Data").size()-1));
-    }
 }

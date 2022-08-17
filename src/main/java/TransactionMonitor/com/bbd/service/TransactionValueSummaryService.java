@@ -74,7 +74,7 @@ public class TransactionValueSummaryService {
     }
     public float varianceOfTransaction(Date from_date,Date to_date,String product_id,String TypeOfData) throws IOException, CsvException, ParseException {
         float mean=meanOfTransaction(from_date,to_date,product_id,TypeOfData);
-        float XSeq=0;
+        float XSeq;
         float TotalXX = 0;
         int TotalTran=0;
         List<String[]> allTransaction = transactionService.allTransaction(TypeOfData,product_id,from_date,to_date);
