@@ -2,7 +2,9 @@ package TransactionMonitor.com.bbd.controller;
 
 import TransactionMonitor.com.bbd.model.DatesBetween;
 import TransactionMonitor.com.bbd.model.Transaction;
+import TransactionMonitor.com.bbd.model.TransactionValueSummary;
 import TransactionMonitor.com.bbd.service.TransactionService;
+import TransactionMonitor.com.bbd.service.TransactionValueSummaryService;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 import lombok.extern.slf4j.Slf4j;
@@ -28,6 +30,10 @@ import java.util.Objects;
 public class TransactionController {
     @Autowired
     private TransactionService service;
+
+    @Autowired
+    private TransactionValueSummaryService valueSummaryService;
+
     private static int getQuarter(int month){
         return switch (month) {
             case 1, 2, 3 -> 1;
@@ -249,7 +255,7 @@ public class TransactionController {
     }
     private static String findModel(String[][] values){
         int count=0;
-        String mode="";
+        String mode=values[0][0];
         for(int i=0;i<values.length;i++){
             if(values[i][0]!=null) {
                 if(Integer.parseInt(values[i][1])>count){
@@ -329,10 +335,41 @@ public class TransactionController {
         else{return service.allTransaction(typeOfData, p_id,from, to);}
     }
 
-    @GetMapping("/transactions/transaction_value_summary")
-    public String getsummary(){
-        return "";
+    @GetMapping("/transaction_value_summary")
+    public TransactionValueSummary getSummary(@RequestParam (required = false) String from_date, @RequestParam (required = false) String to_date, @RequestParam (required = false) String product_id, @RequestParam (required=false) String typeOfData) throws IOException, ParseException, CsvException {
+        if(Objects.equals(typeOfData, "") ||typeOfData==null)
+            typeOfData="Data";
+        Date from = null,to=null;
+        if(from_date!=null){from = new SimpleDateFormat("yyyy-MM-dd").parse(from_date);}
+        if(to_date!=null) {to = new SimpleDateFormat("yyyy-MM-dd").parse(to_date);}
+        TransactionValueSummary valueSummary=new TransactionValueSummary(valueSummaryService.meanOfTransaction(from,to,product_id,typeOfData),valueSummaryService.modeOfTransaction(from,to,product_id,typeOfData),valueSummaryService.standardDeviationOfTransaction(from,to,product_id,typeOfData),valueSummaryService.varianceOfTransaction(from,to,product_id,typeOfData));
+        return valueSummary;
     }
+
+    @GetMapping("/transaction_value_summary/{summary_type}")
+    public TransactionValueSummary getPerticularSummary(@PathVariable(required = false) String summary_type,@RequestParam (required = false) String from_date, @RequestParam (required = false) String to_date, @RequestParam (required = false) String product_id, @RequestParam (required=false) String typeOfData) throws IOException, ParseException, CsvException {
+        if(Objects.equals(typeOfData, "") ||typeOfData==null)
+            typeOfData="Data";
+        Date from = null,to=null;
+        if(from_date!=null){from = new SimpleDateFormat("yyyy-MM-dd").parse(from_date);}
+        if(to_date!=null) {to = new SimpleDateFormat("yyyy-MM-dd").parse(to_date);}
+        float mean = 0,sDevi=0,variance=0;
+        String mode = null;
+        if(Objects.equals(summary_type, "mean") ||summary_type==null)
+            mean= Float.parseFloat(String.valueOf(valueSummaryService.meanOfTransaction(from,to,product_id,typeOfData)));
+        if(Objects.equals(summary_type, "mode") ||summary_type==null)
+            mode=valueSummaryService.modeOfTransaction(from,to,product_id,typeOfData);
+        if(Objects.equals(summary_type, "standard_deviation") ||summary_type==null)
+            sDevi=valueSummaryService.standardDeviationOfTransaction(from,to,product_id,typeOfData);
+        if(Objects.equals(summary_type, "variance") ||summary_type==null)
+            variance=valueSummaryService.varianceOfTransaction(from,to,product_id,typeOfData);
+        if(summary_type!=null)
+            return new TransactionValueSummary(mean,mode,sDevi,variance);
+        else
+            return getSummary(from_date,to_date,product_id,typeOfData);
+
+    }
+
 
     @GetMapping("/mean")
     public float meanOfTransaction(@PathVariable (required=false) String TypeOfData) throws IOException, CsvException {

@@ -6,13 +6,13 @@ import lombok.Data;
 public class TransactionValueSummary {
     float mean;
     String mode;
-    float standardDeviation;
+    float standard_deviation;
     float variance;
 
-    public TransactionValueSummary(float mean, String mode, float standardDeviation, float variance) {
+    public TransactionValueSummary(float mean, String mode, float standard_deviation, float variance) {
         this.mean = mean;
         this.mode = mode;
-        this.standardDeviation = standardDeviation;
+        this.standard_deviation = standard_deviation;
         this.variance = variance;
     }
 }
