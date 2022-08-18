@@ -1,120 +1,62 @@
-2022-08-12 00:01:02.385  INFO 19492 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 19492 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-12 00:01:02.385  INFO 19492 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
-2022-08-12 00:01:03.906  INFO 19492 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-12 00:01:04.421  INFO 19492 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-12 00:01:04.452  INFO 19492 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-12 00:01:04.490  INFO 19492 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-12 00:01:04.674  INFO 19492 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: timeDeltaUsingGET_1
-2022-08-12 00:01:04.774  INFO 19492 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 2.684 seconds (JVM running for 3.758)
-2022-08-12 00:01:04.932  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-01-01T13:00:00.505Z In new file
-2022-08-12 00:01:04.948  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-02-02T13:00:00.505Z In new file
-2022-08-12 00:01:04.948  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-03-03T13:00:00.505Z In new file
-2022-08-12 00:01:04.948  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-04-04T13:00:00.505Z In new file
-2022-08-12 00:01:04.948  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-05-01T13:00:00.505Z In new file
-2022-08-12 00:01:04.964  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-06-02T13:00:00.505Z In new file
-2022-08-12 00:01:04.964  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-07-03T13:00:00.505Z In new file
-2022-08-12 00:01:04.964  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-08-04T13:00:00.505Z In new file
-2022-08-12 00:01:04.964  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-09-01T13:00:00.505Z In new file
-2022-08-12 00:01:04.964  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-10-02T13:00:00.505Z In new file
-2022-08-12 00:01:04.970  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-11-03T13:00:00.505Z In new file
-2022-08-12 00:01:04.970  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-12-04T13:00:00.505Z In new file
-2022-08-12 00:01:04.970  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-01-01T13:00:00.505Z In new file
-2022-08-12 00:01:04.974  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-02-02T13:00:00.505Z In new file
-2022-08-12 00:01:04.975  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-03-03T13:00:00.505Z In new file
-2022-08-12 00:01:04.975  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-04-04T13:00:00.505Z In new file
-2022-08-12 00:01:04.975  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-05-01T13:00:00.505Z In new file
-2022-08-12 00:01:04.975  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-06-02T13:00:00.505Z In new file
-2022-08-12 00:01:04.975  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-07-03T13:00:00.505Z In new file
-2022-08-12 00:01:04.981  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-08-04T13:00:00.505Z In new file
-2022-08-12 00:01:04.981  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-09-01T13:00:00.505Z In new file
-2022-08-12 00:01:04.981  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-10-02T13:00:00.505Z In new file
-2022-08-12 00:01:04.981  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-11-03T13:00:00.505Z In new file
-2022-08-12 00:01:04.981  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-12-04T13:00:00.505Z In new file
-2022-08-12 00:01:04.981  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-01-01T13:00:00.505Z In new file
-2022-08-12 00:01:04.981  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-02-02T13:00:00.505Z In new file
-2022-08-12 00:01:04.981  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-03-03T13:00:00.505Z In new file
-2022-08-12 00:01:04.981  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-04-04T13:00:00.505Z In new file
-2022-08-12 00:01:04.993  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-05-01T13:00:00.505Z In new file
-2022-08-12 00:01:04.993  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-06-02T13:00:00.505Z In new file
-2022-08-12 00:01:04.993  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-07-03T13:00:00.505Z In new file
-2022-08-12 00:01:04.993  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-08-04T13:00:00.505Z In new file
-2022-08-12 00:01:04.993  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-09-01T13:00:00.505Z In new file
-2022-08-12 00:01:04.999  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-10-02T13:00:00.505Z In new file
-2022-08-12 00:01:04.999  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-11-03T13:00:00.505Z In new file
-2022-08-12 00:01:04.999  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-12-04T13:00:00.505Z In new file
-2022-08-12 00:01:04.999  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : List of TestData has been saved
-2022-08-12 00:01:05.075  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for oldest Transaction in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-01-05) is [1998-01-01T13:00:00.505Z, 1998-01-01T14:00:00.000Z, 1, 3008.0]
-2022-08-12 00:01:05.091  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 00:01:05.107  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for Variance 3302611.5
-2022-08-12 00:01:05.111 ERROR 19492 --- [main] T.c.b.controller.TransactionController   : Tried to add wrong data in which init_date 1998-01-01T13:00:00.505Z is higher the Conclusion_date1998-01-01T13:00:00.005Z
-2022-08-12 00:01:05.128  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 00:01:05.128  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for variance in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 1344185.4
-2022-08-12 00:01:05.144  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mode which is Mode (Amount) = 7.0 with count=5
-2022-08-12 00:01:05.168  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for Most Common Product in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 2
-2022-08-12 00:01:05.176  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mode in range DatesBetween(dateFrom=1998-01-01, dateTo=1998-12-05) is Mode (Amount) = 7.0 with count=2
-2022-08-12 00:01:05.179  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for Newest Transaction in range DatesBetween(dateFrom=1998-01-01, dateTo=1998-12-05) is [1998-12-04T13:00:00.505Z, 1998-12-04T13:00:00.510Z, 2, 3.8]
-2022-08-12 00:01:05.195  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for Least Common Product is 8
-2022-08-12 00:01:05.211  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for newest Transaction 1999-12-04T13:00:00.505Z
-2022-08-12 00:01:05.211  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for oldest Transaction 1997-01-01T13:00:00.505Z
-2022-08-12 00:01:05.226  INFO 19492 --- [main] T.c.b.controller.TransactionController   : Maximum Count is 8
-2022-08-12 00:01:05.226  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for TimeDelta details for Perticular Product in between DatesBetween(dateFrom=1998-01-01, dateTo=1999-02-05)Mean=600015 Mode=0 Standard Deviation=774.6063516393343
-2022-08-12 00:01:05.226  INFO 19492 --- [main] T.c.b.controller.TransactionController   : Maximum Count is 8
-2022-08-12 00:01:05.258  INFO 19492 --- [main] T.c.b.controller.TransactionController   : Maximum Count is 31
-2022-08-12 00:01:05.269  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for TimeDelta for Particular Product detailsMean=599995 Mode=0 Standard Deviation=774.5934417486376
-2022-08-12 00:01:05.269  INFO 19492 --- [main] T.c.b.controller.TransactionController   : Maximum Count is 31
-2022-08-12 00:01:05.276  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 00:01:05.276  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for Standard Deviation which is Standard Deviation=32.013363908686635
-2022-08-12 00:01:05.286  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 00:01:05.293  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for Most Common Product 2
-2022-08-12 00:01:05.308  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for mean in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 747.00006
-2022-08-12 00:01:05.308  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for Standard Deviation in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 27.33130185401267
-2022-08-12 00:01:05.308  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for mean in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 747.00006
-2022-08-12 00:01:05.329  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for Most Common Product in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 2
-2022-08-12 00:01:05.336 ERROR 19492 --- [main] T.com.bbd.service.SaveRecordService      : java.text.ParseException: Unparseable date: "1998-01-05"
-2022-08-12 00:01:05.336 ERROR 19492 --- [main] T.com.bbd.service.SaveRecordService      : Problem with TestData index value : [0]
-2022-08-12 00:01:05.342  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 00:01:05.342  INFO 19492 --- [main] T.c.b.controller.TransactionController   : User has Requested for mean in range DatesBetween(dateFrom=1998-01-01, dateTo=1998-12-05) is 744.2166
-2022-08-12 00:01:05.357  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving Data Transaction starts with 1998-01-01T13:00:00.505Z In present file 
-2022-08-12 00:01:05.359  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : Saving Data Transaction starts with 1998-01-01T13:10:00.505Z In present file 
-2022-08-12 00:01:05.359  INFO 19492 --- [main] T.com.bbd.service.SaveRecordService      : List of Data has been saved
-2022-08-12 00:03:29.064  INFO 22232 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 22232 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-12 00:03:29.064  INFO 22232 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
-2022-08-12 00:03:30.901  INFO 22232 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-12 00:03:30.903  INFO 22232 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-08-12 00:03:31.002  INFO 22232 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-12 00:03:31.596  INFO 22232 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-12 00:03:32.059  INFO 22232 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-12 00:03:32.075  INFO 22232 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-12 00:03:32.123  INFO 22232 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-12 00:03:32.344  INFO 22232 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: timeDeltaUsingGET_1
-2022-08-12 00:03:32.441  INFO 22232 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 4.06 seconds (JVM running for 4.78)
-2022-08-12 00:03:36.636  INFO 22232 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-08-12 00:03:36.731  INFO 22232 --- [http-nio-8080-exec-2] T.c.b.controller.TransactionController   : User has Requested for TimeDelta detailsMean=1049922 Mode=0 Standard Deviation=1024.6570157862582
-2022-08-12 00:07:46.960  INFO 24324 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 24324 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-12 00:07:46.960  INFO 24324 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
-2022-08-12 00:07:48.226  INFO 24324 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-12 00:07:48.226  INFO 24324 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-08-12 00:07:48.290  INFO 24324 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-12 00:07:48.758  INFO 24324 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-12 00:07:49.112  INFO 24324 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-12 00:07:49.143  INFO 24324 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-12 00:07:49.175  INFO 24324 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-12 00:07:49.479  INFO 24324 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 3.092 seconds (JVM running for 3.588)
-2022-08-12 00:07:54.783  INFO 24324 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-08-12 00:08:00.604 ERROR 24324 --- [http-nio-8080-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalStateException: Ambiguous handler methods mapped for '/api/getTimeDeltaInRange/TestData': {public java.lang.String TransactionMonitor.com.bbd.controller.TransactionController.timeDeltaInRange(TransactionMonitor.com.bbd.model.DatesBetween,java.lang.String) throws java.io.IOException,java.text.ParseException,com.opencsv.exceptions.CsvException, public java.lang.String TransactionMonitor.com.bbd.controller.TransactionController.timeDeltaInRangeWithProductId(TransactionMonitor.com.bbd.model.DatesBetween,java.lang.String,java.lang.String) throws java.io.IOException,java.text.ParseException,com.opencsv.exceptions.CsvException}] with root cause
+2022-08-18 11:56:27.183  INFO 664 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 664 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-18 11:56:27.199  INFO 664 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
+2022-08-18 11:56:36.491  INFO 664 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-18 11:56:36.491  INFO 664 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-08-18 11:56:36.607  INFO 664 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-18 11:56:41.601  INFO 664 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-18 11:56:44.138  INFO 664 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-18 11:56:44.207  INFO 664 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-18 11:56:44.909  INFO 664 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-18 11:56:46.141  INFO 664 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 20.526 seconds (JVM running for 22.147)
+2022-08-18 11:57:17.852  INFO 664 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-18 11:57:18.097  INFO 664 --- [http-nio-8080-exec-2] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 56
+2022-08-18 11:57:18.165  INFO 664 --- [http-nio-8080-exec-2] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for TimeDelta detailsMean=402497301 Mode=6.3327597E10 Standard Deviation=20062.335382502206
+2022-08-18 11:57:18.252  INFO 664 --- [http-nio-8080-exec-2] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for Variance 1.62003486E17
+2022-08-18 11:57:18.253  INFO 664 --- [http-nio-8080-exec-2] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 56
+2022-08-18 11:59:29.243  INFO 664 --- [http-nio-8080-exec-5] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 56
+2022-08-18 11:59:29.243  INFO 664 --- [http-nio-8080-exec-5] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for TimeDelta detailsMean=430394561 Mode=6.3327597E10 Standard Deviation=20745.952882429865
+2022-08-18 11:59:29.272  INFO 664 --- [http-nio-8080-exec-5] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for Variance 1.85238469E17
+2022-08-18 11:59:29.281  INFO 664 --- [http-nio-8080-exec-5] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 56
+2022-08-18 11:59:42.099  INFO 664 --- [http-nio-8080-exec-6] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 56
+2022-08-18 11:59:42.107  INFO 664 --- [http-nio-8080-exec-6] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for TimeDelta detailsMean=624458764 Mode=6.3323996E10 Standard Deviation=24989.172935493483
+2022-08-18 11:59:42.131  INFO 664 --- [http-nio-8080-exec-6] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for Variance 3.89948396E17
+2022-08-18 11:59:42.131  INFO 664 --- [http-nio-8080-exec-6] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 56
+2022-08-18 11:59:52.886  INFO 664 --- [http-nio-8080-exec-7] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 56
+2022-08-18 11:59:52.891  INFO 664 --- [http-nio-8080-exec-7] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for TimeDelta detailsMean=5599949 Mode=1.83598128E8 Standard Deviation=2366.4211374985643
+2022-08-18 11:59:52.909  INFO 664 --- [http-nio-8080-exec-7] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for Variance 3.13556143E13
+2022-08-18 11:59:52.909  INFO 664 --- [http-nio-8080-exec-7] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 56
+2022-08-18 12:04:47.587  INFO 664 --- [http-nio-8080-exec-10] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 17
+2022-08-18 12:04:47.587  INFO 664 --- [http-nio-8080-exec-10] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for TimeDelta detailsMean=8215317 Mode=2.51998384E8 Standard Deviation=2866.2374291045744
+2022-08-18 12:04:47.612  INFO 664 --- [http-nio-8080-exec-10] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for Variance 6.7486926E13
+2022-08-18 12:04:47.612  INFO 664 --- [http-nio-8080-exec-10] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 17
+2022-08-18 12:04:51.415  INFO 664 --- [http-nio-8080-exec-1] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for TimeDelta detailsMean=46799495 Mode=0.0 Standard Deviation=6841.0156409702795
+2022-08-18 12:04:51.439  INFO 664 --- [http-nio-8080-exec-1] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for Variance 2.19016918E15
+2022-08-18 12:04:54.874  INFO 664 --- [http-nio-8080-exec-2] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for TimeDelta detailsMean=40 Mode=0.0 Standard Deviation=6.324555320336759
+2022-08-18 12:04:54.898  INFO 664 --- [http-nio-8080-exec-2] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for Variance 1444.0
+2022-08-18 12:04:58.737  INFO 664 --- [http-nio-8080-exec-3] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 35
+2022-08-18 12:04:58.745  INFO 664 --- [http-nio-8080-exec-3] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for TimeDelta detailsMean=2054979 Mode=7.9199296E7 Standard Deviation=1433.519794073315
+2022-08-18 12:04:58.761  INFO 664 --- [http-nio-8080-exec-3] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for Variance 4.22125188E12
+2022-08-18 12:04:58.761  INFO 664 --- [http-nio-8080-exec-3] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 35
+2022-08-18 12:05:03.372 ERROR 664 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ArithmeticException: / by zero] with root cause
 
-java.lang.IllegalStateException: Ambiguous handler methods mapped for '/api/getTimeDeltaInRange/TestData': {public java.lang.String TransactionMonitor.com.bbd.controller.TransactionController.timeDeltaInRange(TransactionMonitor.com.bbd.model.DatesBetween,java.lang.String) throws java.io.IOException,java.text.ParseException,com.opencsv.exceptions.CsvException, public java.lang.String TransactionMonitor.com.bbd.controller.TransactionController.timeDeltaInRangeWithProductId(TransactionMonitor.com.bbd.model.DatesBetween,java.lang.String,java.lang.String) throws java.io.IOException,java.text.ParseException,com.opencsv.exceptions.CsvException}
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lookupHandlerMethod(AbstractHandlerMethodMapping.java:428) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.getHandlerInternal(AbstractHandlerMethodMapping.java:379) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:125) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:67) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.handler.AbstractHandlerMapping.getHandler(AbstractHandlerMapping.java:498) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.DispatcherServlet.getHandler(DispatcherServlet.java:1258) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.3.9.jar:5.3.9]
+java.lang.ArithmeticException: / by zero
+	at TransactionMonitor.com.bbd.service.TransactionTimeDeltaSummaryService.timeDelta(TransactionTimeDeltaSummaryService.java:74) ~[classes/:na]
+	at TransactionMonitor.com.bbd.controller.TransactionController.getTimeDeltaSummary(TransactionController.java:383) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064) ~[spring-webmvc-5.3.9.jar:5.3.9]
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.9.jar:5.3.9]
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.9.jar:5.3.9]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
@@ -151,365 +93,61 @@ java.lang.IllegalStateException: Ambiguous handler methods mapped for '/api/getT
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
 	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
 
-2022-08-12 00:09:06.287  INFO 6904 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 6904 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-12 00:09:06.287  INFO 6904 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
-2022-08-12 00:09:07.949  INFO 6904 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-12 00:09:07.949  INFO 6904 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-08-12 00:09:08.049  INFO 6904 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-12 00:09:08.650  INFO 6904 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-12 00:09:09.135  INFO 6904 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-12 00:09:09.168  INFO 6904 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-12 00:09:09.200  INFO 6904 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-12 00:09:09.551  INFO 6904 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 3.784 seconds (JVM running for 4.445)
-2022-08-12 00:09:14.086  INFO 6904 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-08-12 00:09:14.369  INFO 6904 --- [http-nio-8080-exec-1] T.c.b.controller.TransactionController   : User has Requested for TimeDelta details in between DatesBetween(dateFrom=1998-01-01, dateTo=1999-02-05)Mean=1157054 Mode=0 Standard Deviation=1075.66444581942
-2022-08-12 00:10:49.563  INFO 27824 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 27824 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-12 00:10:49.563  INFO 27824 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
-2022-08-12 00:10:51.053  INFO 27824 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-12 00:10:51.576  INFO 27824 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-12 00:10:51.606  INFO 27824 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-12 00:10:51.638  INFO 27824 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-12 00:10:51.968  INFO 27824 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 2.72 seconds (JVM running for 3.979)
-2022-08-12 00:10:52.091  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-01-01T13:00:00.505Z In new file
-2022-08-12 00:10:52.107  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-02-02T13:00:00.505Z In new file
-2022-08-12 00:10:52.107  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-03-03T13:00:00.505Z In new file
-2022-08-12 00:10:52.107  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-04-04T13:00:00.505Z In new file
-2022-08-12 00:10:52.107  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-05-01T13:00:00.505Z In new file
-2022-08-12 00:10:52.107  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-06-02T13:00:00.505Z In new file
-2022-08-12 00:10:52.107  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-07-03T13:00:00.505Z In new file
-2022-08-12 00:10:52.118  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-08-04T13:00:00.505Z In new file
-2022-08-12 00:10:52.118  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-09-01T13:00:00.505Z In new file
-2022-08-12 00:10:52.121  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-10-02T13:00:00.505Z In new file
-2022-08-12 00:10:52.121  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-11-03T13:00:00.505Z In new file
-2022-08-12 00:10:52.121  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-12-04T13:00:00.505Z In new file
-2022-08-12 00:10:52.121  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-01-01T13:00:00.505Z In new file
-2022-08-12 00:10:52.121  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-02-02T13:00:00.505Z In new file
-2022-08-12 00:10:52.121  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-03-03T13:00:00.505Z In new file
-2022-08-12 00:10:52.121  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-04-04T13:00:00.505Z In new file
-2022-08-12 00:10:52.129  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-05-01T13:00:00.505Z In new file
-2022-08-12 00:10:52.129  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-06-02T13:00:00.505Z In new file
-2022-08-12 00:10:52.129  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-07-03T13:00:00.505Z In new file
-2022-08-12 00:10:52.134  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-08-04T13:00:00.505Z In new file
-2022-08-12 00:10:52.134  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-09-01T13:00:00.505Z In new file
-2022-08-12 00:10:52.137  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-10-02T13:00:00.505Z In new file
-2022-08-12 00:10:52.138  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-11-03T13:00:00.505Z In new file
-2022-08-12 00:10:52.138  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-12-04T13:00:00.505Z In new file
-2022-08-12 00:10:52.138  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-01-01T13:00:00.505Z In new file
-2022-08-12 00:10:52.138  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-02-02T13:00:00.505Z In new file
-2022-08-12 00:10:52.138  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-03-03T13:00:00.505Z In new file
-2022-08-12 00:10:52.138  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-04-04T13:00:00.505Z In new file
-2022-08-12 00:10:52.138  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-05-01T13:00:00.505Z In new file
-2022-08-12 00:10:52.138  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-06-02T13:00:00.505Z In new file
-2022-08-12 00:10:52.138  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-07-03T13:00:00.505Z In new file
-2022-08-12 00:10:52.138  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-08-04T13:00:00.505Z In new file
-2022-08-12 00:10:52.138  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-09-01T13:00:00.505Z In new file
-2022-08-12 00:10:52.138  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-10-02T13:00:00.505Z In new file
-2022-08-12 00:10:52.138  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-11-03T13:00:00.505Z In new file
-2022-08-12 00:10:52.153  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-12-04T13:00:00.505Z In new file
-2022-08-12 00:10:52.153  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : List of TestData has been saved
-2022-08-12 00:10:52.243  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for oldest Transaction in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-01-05) is [1998-01-01T13:00:00.505Z, 1998-01-01T14:00:00.000Z, 1, 3008.0]
-2022-08-12 00:10:52.256  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 00:10:52.277  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for Variance 3302611.5
-2022-08-12 00:10:52.283 ERROR 27824 --- [main] T.c.b.controller.TransactionController   : Tried to add wrong data in which init_date 1998-01-01T13:00:00.505Z is higher the Conclusion_date1998-01-01T13:00:00.005Z
-2022-08-12 00:10:52.295  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 00:10:52.304  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for variance in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 1344185.4
-2022-08-12 00:10:52.320  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mode which is Mode (Amount) = 7.0 with count=5
-2022-08-12 00:10:52.354  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for TimeDelta detailsMean=1049922 Mode=0 Standard Deviation=1024.6570157862582
-2022-08-12 00:10:52.367  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for Most Common Product in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 2
-2022-08-12 00:10:52.374  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mode in range DatesBetween(dateFrom=1998-01-01, dateTo=1998-12-05) is Mode (Amount) = 7.0 with count=2
-2022-08-12 00:10:52.391  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for Newest Transaction in range DatesBetween(dateFrom=1998-01-01, dateTo=1998-12-05) is [1998-12-04T13:00:00.505Z, 1998-12-04T13:00:00.510Z, 2, 3.8]
-2022-08-12 00:10:52.393  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for Least Common Product is 8
-2022-08-12 00:10:52.408  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for newest Transaction 1999-12-04T13:00:00.505Z
-2022-08-12 00:10:52.424  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for oldest Transaction 1997-01-01T13:00:00.505Z
-2022-08-12 00:10:52.424  INFO 27824 --- [main] T.c.b.controller.TransactionController   : Maximum Count is 8
-2022-08-12 00:10:52.439  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for TimeDelta details for Perticular Product in between DatesBetween(dateFrom=1998-01-01, dateTo=1999-02-05)Mean=600015 Mode=0 Standard Deviation=774.6063516393343
-2022-08-12 00:10:52.439  INFO 27824 --- [main] T.c.b.controller.TransactionController   : Maximum Count is 8
-2022-08-12 00:10:52.450  INFO 27824 --- [main] T.c.b.controller.TransactionController   : Maximum Count is 31
-2022-08-12 00:10:52.450  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for TimeDelta for Particular Product detailsMean=599995 Mode=0 Standard Deviation=774.5934417486376
-2022-08-12 00:10:52.450  INFO 27824 --- [main] T.c.b.controller.TransactionController   : Maximum Count is 31
-2022-08-12 00:10:52.465  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 00:10:52.465  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for Standard Deviation which is Standard Deviation=32.013363908686635
-2022-08-12 00:10:52.465  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 00:10:52.465  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for Most Common Product 2
-2022-08-12 00:10:52.491  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for TimeDelta details in between DatesBetween(dateFrom=1998-01-01, dateTo=1999-02-05)Mean=1157054 Mode=0 Standard Deviation=1075.66444581942
-2022-08-12 00:10:52.508  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for mean in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 747.00006
-2022-08-12 00:10:52.508  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for Standard Deviation in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 27.33130185401267
-2022-08-12 00:10:52.523  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for mean in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 747.00006
-2022-08-12 00:10:52.523  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for Most Common Product in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 2
-2022-08-12 00:10:52.539 ERROR 27824 --- [main] T.com.bbd.service.SaveRecordService      : java.text.ParseException: Unparseable date: "1998-01-05"
-2022-08-12 00:10:52.539 ERROR 27824 --- [main] T.com.bbd.service.SaveRecordService      : Problem with TestData index value : [0]
-2022-08-12 00:10:52.539  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 00:10:52.559  INFO 27824 --- [main] T.c.b.controller.TransactionController   : User has Requested for mean in range DatesBetween(dateFrom=1998-01-01, dateTo=1998-12-05) is 744.2166
-2022-08-12 00:10:52.562  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving Data Transaction starts with 1998-01-01T13:00:00.505Z In present file 
-2022-08-12 00:10:52.562  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : Saving Data Transaction starts with 1998-01-01T13:10:00.505Z In present file 
-2022-08-12 00:10:52.567  INFO 27824 --- [main] T.com.bbd.service.SaveRecordService      : List of Data has been saved
-2022-08-12 00:12:33.203  INFO 17308 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 17308 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-12 00:12:33.205  INFO 17308 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
-2022-08-12 00:12:34.656  INFO 17308 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-12 00:12:35.162  INFO 17308 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-12 00:12:35.177  INFO 17308 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-12 00:12:35.223  INFO 17308 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-12 00:12:35.509  INFO 17308 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 2.723 seconds (JVM running for 3.755)
-2022-08-12 00:12:35.621  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-01-01T13:00:00.505Z In new file
-2022-08-12 00:12:35.621  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-02-02T13:00:00.505Z In new file
-2022-08-12 00:12:35.638  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-03-03T13:00:00.505Z In new file
-2022-08-12 00:12:35.638  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-04-04T13:00:00.505Z In new file
-2022-08-12 00:12:35.638  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-05-01T13:00:00.505Z In new file
-2022-08-12 00:12:35.643  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-06-02T13:00:00.505Z In new file
-2022-08-12 00:12:35.646  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-07-03T13:00:00.505Z In new file
-2022-08-12 00:12:35.646  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-08-04T13:00:00.505Z In new file
-2022-08-12 00:12:35.646  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-09-01T13:00:00.505Z In new file
-2022-08-12 00:12:35.646  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-10-02T13:00:00.505Z In new file
-2022-08-12 00:12:35.646  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-11-03T13:00:00.505Z In new file
-2022-08-12 00:12:35.646  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-12-04T13:00:00.505Z In new file
-2022-08-12 00:12:35.646  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-01-01T13:00:00.505Z In new file
-2022-08-12 00:12:35.646  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-02-02T13:00:00.505Z In new file
-2022-08-12 00:12:35.646  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-03-03T13:00:00.505Z In new file
-2022-08-12 00:12:35.646  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-04-04T13:00:00.505Z In new file
-2022-08-12 00:12:35.662  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-05-01T13:00:00.505Z In new file
-2022-08-12 00:12:35.662  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-06-02T13:00:00.505Z In new file
-2022-08-12 00:12:35.665  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-07-03T13:00:00.505Z In new file
-2022-08-12 00:12:35.665  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-08-04T13:00:00.505Z In new file
-2022-08-12 00:12:35.665  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-09-01T13:00:00.505Z In new file
-2022-08-12 00:12:35.668  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-10-02T13:00:00.505Z In new file
-2022-08-12 00:12:35.668  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-11-03T13:00:00.505Z In new file
-2022-08-12 00:12:35.668  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-12-04T13:00:00.505Z In new file
-2022-08-12 00:12:35.668  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-01-01T13:00:00.505Z In new file
-2022-08-12 00:12:35.668  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-02-02T13:00:00.505Z In new file
-2022-08-12 00:12:35.668  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-03-03T13:00:00.505Z In new file
-2022-08-12 00:12:35.675  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-04-04T13:00:00.505Z In new file
-2022-08-12 00:12:35.675  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-05-01T13:00:00.505Z In new file
-2022-08-12 00:12:35.675  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-06-02T13:00:00.505Z In new file
-2022-08-12 00:12:35.675  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-07-03T13:00:00.505Z In new file
-2022-08-12 00:12:35.675  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-08-04T13:00:00.505Z In new file
-2022-08-12 00:12:35.675  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-09-01T13:00:00.505Z In new file
-2022-08-12 00:12:35.675  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-10-02T13:00:00.505Z In new file
-2022-08-12 00:12:35.675  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-11-03T13:00:00.505Z In new file
-2022-08-12 00:12:35.675  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-12-04T13:00:00.505Z In new file
-2022-08-12 00:12:35.675  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : List of TestData has been saved
-2022-08-12 00:12:35.762  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for oldest Transaction in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-01-05) is [1998-01-01T13:00:00.505Z, 1998-01-01T14:00:00.000Z, 1, 3008.0]
-2022-08-12 00:12:35.793  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 00:12:35.812  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for Variance 3302611.5
-2022-08-12 00:12:35.818 ERROR 17308 --- [main] T.c.b.controller.TransactionController   : Tried to add wrong data in which init_date 1998-01-01T13:00:00.505Z is higher the Conclusion_date1998-01-01T13:00:00.005Z
-2022-08-12 00:12:35.839  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 00:12:35.846  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for variance in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 1344185.4
-2022-08-12 00:12:35.862  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mode which is Mode (Amount) = 7.0 with count=5
-2022-08-12 00:12:35.901  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for TimeDelta detailsMean=1049922 Mode=0 Standard Deviation=1024.6570157862582
-2022-08-12 00:12:35.915  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for Most Common Product in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 2
-2022-08-12 00:12:35.915  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mode in range DatesBetween(dateFrom=1998-01-01, dateTo=1998-12-05) is Mode (Amount) = 7.0 with count=2
-2022-08-12 00:12:35.930  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for Newest Transaction in range DatesBetween(dateFrom=1998-01-01, dateTo=1998-12-05) is [1998-12-04T13:00:00.505Z, 1998-12-04T13:00:00.510Z, 2, 3.8]
-2022-08-12 00:12:35.930  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for Least Common Product is 8
-2022-08-12 00:12:35.947  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for newest Transaction 1999-12-04T13:00:00.505Z
-2022-08-12 00:12:35.963  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for oldest Transaction 1997-01-01T13:00:00.505Z
-2022-08-12 00:12:35.979  INFO 17308 --- [main] T.c.b.controller.TransactionController   : Maximum Count is 8
-2022-08-12 00:12:35.989  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for TimeDelta details for Perticular Product in between DatesBetween(dateFrom=1998-01-01, dateTo=1999-02-05)Mean=600015 Mode=0 Standard Deviation=774.6063516393343
-2022-08-12 00:12:35.989  INFO 17308 --- [main] T.c.b.controller.TransactionController   : Maximum Count is 8
-2022-08-12 00:12:35.998  INFO 17308 --- [main] T.c.b.controller.TransactionController   : Maximum Count is 31
-2022-08-12 00:12:35.998  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for TimeDelta for Particular Product detailsMean=599995 Mode=0 Standard Deviation=774.5934417486376
-2022-08-12 00:12:35.998  INFO 17308 --- [main] T.c.b.controller.TransactionController   : Maximum Count is 31
-2022-08-12 00:12:36.014  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 00:12:36.014  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for Standard Deviation which is Standard Deviation=32.013363908686635
-2022-08-12 00:12:36.014  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 00:12:36.030  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for Most Common Product 2
-2022-08-12 00:12:36.046  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for TimeDelta details in between DatesBetween(dateFrom=1998-01-01, dateTo=1999-02-05)Mean=1157054 Mode=0 Standard Deviation=1075.66444581942
-2022-08-12 00:12:36.050  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for mean in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 747.00006
-2022-08-12 00:12:36.050  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for Standard Deviation in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 27.33130185401267
-2022-08-12 00:12:36.066  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for mean in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 747.00006
-2022-08-12 00:12:36.082  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for Most Common Product in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 2
-2022-08-12 00:12:36.097 ERROR 17308 --- [main] T.com.bbd.service.SaveRecordService      : java.text.ParseException: Unparseable date: "1998-01-05"
-2022-08-12 00:12:36.097 ERROR 17308 --- [main] T.com.bbd.service.SaveRecordService      : Problem with TestData index value : [0]
-2022-08-12 00:12:36.097  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 00:12:36.116  INFO 17308 --- [main] T.c.b.controller.TransactionController   : User has Requested for mean in range DatesBetween(dateFrom=1998-01-01, dateTo=1998-12-05) is 744.2166
-2022-08-12 00:12:36.116  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving Data Transaction starts with 1998-01-01T13:00:00.505Z In present file 
-2022-08-12 00:12:36.116  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : Saving Data Transaction starts with 1998-01-01T13:10:00.505Z In present file 
-2022-08-12 00:12:36.116  INFO 17308 --- [main] T.com.bbd.service.SaveRecordService      : List of Data has been saved
-2022-08-12 00:15:53.971  INFO 4224 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 4224 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-12 00:15:53.987  INFO 4224 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
-2022-08-12 00:15:55.319  INFO 4224 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-12 00:15:55.319  INFO 4224 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-08-12 00:15:55.419  INFO 4224 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-12 00:15:55.888  INFO 4224 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-12 00:15:56.220  INFO 4224 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-12 00:15:56.252  INFO 4224 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-12 00:15:56.304  INFO 4224 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-12 00:15:56.589  INFO 4224 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 3.066 seconds (JVM running for 3.585)
-2022-08-12 00:16:04.240  INFO 4224 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-08-12 00:16:04.436 ERROR 4224 --- [http-nio-8080-exec-2] T.c.b.controller.TransactionController   : Tried to add wrong data in which init_date 2000-01-04T22:00:00.000Z is higher the Conclusion_date2000-01-01T22:00:00.400Z
-2022-08-12 00:16:04.436 ERROR 4224 --- [http-nio-8080-exec-2] T.c.b.controller.TransactionController   : Tried to add wrong data in which init_date 2000-01-01T23:11:00.505Z is higher the Conclusion_date2000-01-01T23:10:00.000Z
-2022-08-12 00:16:22.274 ERROR 4224 --- [http-nio-8080-exec-3] T.c.b.controller.TransactionController   : Tried to add wrong data in which init_date 2000-01-01T23:11:00.505Z is higher the Conclusion_date2000-01-01T23:10:00.600Z
-2022-08-12 00:16:32.902  INFO 4224 --- [http-nio-8080-exec-4] T.com.bbd.service.SaveRecordService      : Saving Data Transaction starts with 2000-01-03T12:00:00.505Z In new file
-2022-08-12 00:16:32.918  INFO 4224 --- [http-nio-8080-exec-4] T.com.bbd.service.SaveRecordService      : Saving Data Transaction starts with 2000-01-01T22:00:00.000Z In new file
-2022-08-12 00:16:32.918  INFO 4224 --- [http-nio-8080-exec-4] T.com.bbd.service.SaveRecordService      : Saving Data Transaction starts with 2000-01-01T23:00:00.505Z In present file 
-2022-08-12 00:16:32.927  INFO 4224 --- [http-nio-8080-exec-4] T.com.bbd.service.SaveRecordService      : Saving Data Transaction starts with 2000-01-01T23:11:00.505Z In present file 
-2022-08-12 00:16:32.927  INFO 4224 --- [http-nio-8080-exec-4] T.com.bbd.service.SaveRecordService      : List of Data has been saved
-2022-08-12 00:25:06.988  INFO 1284 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 1284 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-12 00:25:06.991  INFO 1284 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
-2022-08-12 00:25:09.044  INFO 1284 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-12 00:25:09.613  INFO 1284 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-12 00:25:09.629  INFO 1284 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-12 00:25:09.676  INFO 1284 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-12 00:25:10.044  INFO 1284 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 3.451 seconds (JVM running for 4.605)
-2022-08-12 00:25:10.192  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-01-01T13:00:00.505Z In new file
-2022-08-12 00:25:10.198  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-02-02T13:00:00.505Z In new file
-2022-08-12 00:25:10.200  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-03-03T13:00:00.505Z In new file
-2022-08-12 00:25:10.202  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-04-04T13:00:00.505Z In new file
-2022-08-12 00:25:10.205  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-05-01T13:00:00.505Z In new file
-2022-08-12 00:25:10.207  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-06-02T13:00:00.505Z In new file
-2022-08-12 00:25:10.210  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-07-03T13:00:00.505Z In new file
-2022-08-12 00:25:10.211  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-08-04T13:00:00.505Z In new file
-2022-08-12 00:25:10.213  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-09-01T13:00:00.505Z In new file
-2022-08-12 00:25:10.216  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-10-02T13:00:00.505Z In new file
-2022-08-12 00:25:10.218  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-11-03T13:00:00.505Z In new file
-2022-08-12 00:25:10.220  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-12-04T13:00:00.505Z In new file
-2022-08-12 00:25:10.223  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-01-01T13:00:00.505Z In new file
-2022-08-12 00:25:10.224  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-02-02T13:00:00.505Z In new file
-2022-08-12 00:25:10.226  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-03-03T13:00:00.505Z In new file
-2022-08-12 00:25:10.228  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-04-04T13:00:00.505Z In new file
-2022-08-12 00:25:10.231  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-05-01T13:00:00.505Z In new file
-2022-08-12 00:25:10.232  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-06-02T13:00:00.505Z In new file
-2022-08-12 00:25:10.234  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-07-03T13:00:00.505Z In new file
-2022-08-12 00:25:10.236  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-08-04T13:00:00.505Z In new file
-2022-08-12 00:25:10.238  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-09-01T13:00:00.505Z In new file
-2022-08-12 00:25:10.240  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-10-02T13:00:00.505Z In new file
-2022-08-12 00:25:10.241  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-11-03T13:00:00.505Z In new file
-2022-08-12 00:25:10.243  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-12-04T13:00:00.505Z In new file
-2022-08-12 00:25:10.246  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-01-01T13:00:00.505Z In new file
-2022-08-12 00:25:10.248  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-02-02T13:00:00.505Z In new file
-2022-08-12 00:25:10.250  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-03-03T13:00:00.505Z In new file
-2022-08-12 00:25:10.251  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-04-04T13:00:00.505Z In new file
-2022-08-12 00:25:10.253  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-05-01T13:00:00.505Z In new file
-2022-08-12 00:25:10.254  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-06-02T13:00:00.505Z In new file
-2022-08-12 00:25:10.256  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-07-03T13:00:00.505Z In new file
-2022-08-12 00:25:10.258  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-08-04T13:00:00.505Z In new file
-2022-08-12 00:25:10.259  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-09-01T13:00:00.505Z In new file
-2022-08-12 00:25:10.261  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-10-02T13:00:00.505Z In new file
-2022-08-12 00:25:10.261  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-11-03T13:00:00.505Z In new file
-2022-08-12 00:25:10.262  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-12-04T13:00:00.505Z In new file
-2022-08-12 00:25:10.263  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : List of TestData has been saved
-2022-08-12 00:25:10.363  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for oldest Transaction in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-01-05) is [1998-01-01T13:00:00.505Z, 1998-01-01T14:00:00.000Z, 1, 3008.0]
-2022-08-12 00:25:10.390  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 00:25:10.402  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for Variance 3302611.5
-2022-08-12 00:25:10.410 ERROR 1284 --- [main] T.c.b.controller.TransactionController   : Tried to add wrong data in which init_date 1998-01-01T13:00:00.505Z is higher the Conclusion_date1998-01-01T13:00:00.005Z
-2022-08-12 00:25:10.424  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 00:25:10.439  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for variance in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 1344185.4
-2022-08-12 00:25:10.455  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mode which is Mode (Amount) = 7.0 with count=5
-2022-08-12 00:25:10.485  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for TimeDelta detailsMean=1049922 Mode=0 Standard Deviation=1024.6570157862582
-2022-08-12 00:25:10.504  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for Most Common Product in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 2
-2022-08-12 00:25:10.516  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mode in range DatesBetween(dateFrom=1998-01-01, dateTo=1998-12-05) is Mode (Amount) = 7.0 with count=2
-2022-08-12 00:25:10.534  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for Newest Transaction in range DatesBetween(dateFrom=1998-01-01, dateTo=1998-12-05) is [1998-12-04T13:00:00.505Z, 1998-12-04T13:00:00.510Z, 2, 3.8]
-2022-08-12 00:25:10.549  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for Least Common Product is 8
-2022-08-12 00:25:10.564  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for newest Transaction 1999-12-04T13:00:00.505Z
-2022-08-12 00:25:10.578  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for oldest Transaction 1997-01-01T13:00:00.505Z
-2022-08-12 00:25:10.589  INFO 1284 --- [main] T.c.b.controller.TransactionController   : Maximum Count is 8
-2022-08-12 00:25:10.592  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for TimeDelta details for Perticular Product in between DatesBetween(dateFrom=1998-01-01, dateTo=1999-02-05)Mean=600015 Mode=0 Standard Deviation=774.6063516393343
-2022-08-12 00:25:10.592  INFO 1284 --- [main] T.c.b.controller.TransactionController   : Maximum Count is 8
-2022-08-12 00:25:10.605  INFO 1284 --- [main] T.c.b.controller.TransactionController   : Maximum Count is 31
-2022-08-12 00:25:10.605  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for TimeDelta for Particular Product detailsMean=599995 Mode=0 Standard Deviation=774.5934417486376
-2022-08-12 00:25:10.605  INFO 1284 --- [main] T.c.b.controller.TransactionController   : Maximum Count is 31
-2022-08-12 00:25:10.622  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 00:25:10.623  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for Standard Deviation which is Standard Deviation=32.013363908686635
-2022-08-12 00:25:10.632  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 00:25:10.643  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for Most Common Product 2
-2022-08-12 00:25:10.662  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for TimeDelta details in between DatesBetween(dateFrom=1998-01-01, dateTo=1999-02-05)Mean=1157054 Mode=0 Standard Deviation=1075.66444581942
-2022-08-12 00:25:10.675  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for mean in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 747.00006
-2022-08-12 00:25:10.675  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for Standard Deviation in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 27.33130185401267
-2022-08-12 00:25:10.691  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for mean in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 747.00006
-2022-08-12 00:25:10.707  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for Most Common Product in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 2
-2022-08-12 00:25:10.715 ERROR 1284 --- [main] T.com.bbd.service.SaveRecordService      : java.text.ParseException: Unparseable date: "1998-01-05"
-2022-08-12 00:25:10.715 ERROR 1284 --- [main] T.com.bbd.service.SaveRecordService      : Problem with TestData index value : [0]
-2022-08-12 00:25:10.723  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 00:25:10.723  INFO 1284 --- [main] T.c.b.controller.TransactionController   : User has Requested for mean in range DatesBetween(dateFrom=1998-01-01, dateTo=1998-12-05) is 744.2166
-2022-08-12 00:25:10.740  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving Data Transaction starts with 1998-01-01T13:00:00.505Z In new file
-2022-08-12 00:25:10.740  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : Saving Data Transaction starts with 1998-01-01T13:10:00.505Z In present file 
-2022-08-12 00:25:10.740  INFO 1284 --- [main] T.com.bbd.service.SaveRecordService      : List of Data has been saved
-2022-08-12 11:07:26.466  INFO 12840 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 12840 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-12 11:07:26.471  INFO 12840 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
-2022-08-12 11:07:28.036  INFO 12840 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-12 11:07:28.041  INFO 12840 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-08-12 11:07:28.121  INFO 12840 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-12 11:07:28.656  INFO 12840 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-12 11:07:29.256  INFO 12840 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-12 11:07:29.289  INFO 12840 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-12 11:07:29.336  INFO 12840 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-12 11:07:29.671  INFO 12840 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 3.773 seconds (JVM running for 4.445)
-2022-08-12 11:07:37.196  INFO 12840 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-08-12 11:09:47.931  INFO 15596 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 15596 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-12 11:09:47.935  INFO 15596 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
-2022-08-12 11:09:49.503  INFO 15596 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-12 11:09:50.004  INFO 15596 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-12 11:09:50.025  INFO 15596 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-12 11:09:50.057  INFO 15596 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-12 11:09:50.374  INFO 15596 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 2.772 seconds (JVM running for 3.711)
-2022-08-12 11:09:50.511  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-01-01T13:00:00.505Z In new file
-2022-08-12 11:09:50.511  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-02-02T13:00:00.505Z In new file
-2022-08-12 11:09:50.511  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-03-03T13:00:00.505Z In new file
-2022-08-12 11:09:50.527  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-04-04T13:00:00.505Z In new file
-2022-08-12 11:09:50.527  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-05-01T13:00:00.505Z In new file
-2022-08-12 11:09:50.530  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-06-02T13:00:00.505Z In new file
-2022-08-12 11:09:50.530  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-07-03T13:00:00.505Z In new file
-2022-08-12 11:09:50.530  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-08-04T13:00:00.505Z In new file
-2022-08-12 11:09:50.530  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-09-01T13:00:00.505Z In new file
-2022-08-12 11:09:50.535  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-10-02T13:00:00.505Z In new file
-2022-08-12 11:09:50.535  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-11-03T13:00:00.505Z In new file
-2022-08-12 11:09:50.535  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1998-12-04T13:00:00.505Z In new file
-2022-08-12 11:09:50.540  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-01-01T13:00:00.505Z In new file
-2022-08-12 11:09:50.540  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-02-02T13:00:00.505Z In new file
-2022-08-12 11:09:50.540  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-03-03T13:00:00.505Z In new file
-2022-08-12 11:09:50.540  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-04-04T13:00:00.505Z In new file
-2022-08-12 11:09:50.544  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-05-01T13:00:00.505Z In new file
-2022-08-12 11:09:50.544  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-06-02T13:00:00.505Z In new file
-2022-08-12 11:09:50.544  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-07-03T13:00:00.505Z In new file
-2022-08-12 11:09:50.547  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-08-04T13:00:00.505Z In new file
-2022-08-12 11:09:50.547  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-09-01T13:00:00.505Z In new file
-2022-08-12 11:09:50.547  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-10-02T13:00:00.505Z In new file
-2022-08-12 11:09:50.551  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-11-03T13:00:00.505Z In new file
-2022-08-12 11:09:50.551  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1999-12-04T13:00:00.505Z In new file
-2022-08-12 11:09:50.551  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-01-01T13:00:00.505Z In new file
-2022-08-12 11:09:50.551  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-02-02T13:00:00.505Z In new file
-2022-08-12 11:09:50.551  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-03-03T13:00:00.505Z In new file
-2022-08-12 11:09:50.551  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-04-04T13:00:00.505Z In new file
-2022-08-12 11:09:50.551  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-05-01T13:00:00.505Z In new file
-2022-08-12 11:09:50.551  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-06-02T13:00:00.505Z In new file
-2022-08-12 11:09:50.551  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-07-03T13:00:00.505Z In new file
-2022-08-12 11:09:50.551  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-08-04T13:00:00.505Z In new file
-2022-08-12 11:09:50.551  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-09-01T13:00:00.505Z In new file
-2022-08-12 11:09:50.551  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-10-02T13:00:00.505Z In new file
-2022-08-12 11:09:50.551  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-11-03T13:00:00.505Z In new file
-2022-08-12 11:09:50.551  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving TestData Transaction starts with 1997-12-04T13:00:00.505Z In new file
-2022-08-12 11:09:50.551  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : List of TestData has been saved
-2022-08-12 11:09:50.701  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for oldest Transaction in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-01-05) is [1998-01-01T13:00:00.505Z, 1998-01-01T14:00:00.000Z, 1, 3008.0]
-2022-08-12 11:09:50.758  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 11:09:50.758  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for Variance 3302611.5
-2022-08-12 11:09:50.773 ERROR 15596 --- [main] T.c.b.controller.TransactionController   : Tried to add wrong data in which init_date 1998-01-01T13:00:00.505Z is higher the Conclusion_date1998-01-01T13:00:00.005Z
-2022-08-12 11:09:50.773  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 11:09:50.789  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for variance in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 1344185.4
-2022-08-12 11:09:50.798  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mode which is Mode (Amount) = 7.0 with count=5
-2022-08-12 11:09:50.827  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for TimeDelta detailsMean=1049922 Mode=0 Standard Deviation=1024.6570157862582
-2022-08-12 11:09:50.848  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for Most Common Product in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 2
-2022-08-12 11:09:50.848  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mode in range DatesBetween(dateFrom=1998-01-01, dateTo=1998-12-05) is Mode (Amount) = 7.0 with count=2
-2022-08-12 11:09:50.864  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for Newest Transaction in range DatesBetween(dateFrom=1998-01-01, dateTo=1998-12-05) is [1998-12-04T13:00:00.505Z, 1998-12-04T13:00:00.510Z, 2, 3.8]
-2022-08-12 11:09:50.872  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for Least Common Product is 8
-2022-08-12 11:09:50.894  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for newest Transaction 1999-12-04T13:00:00.505Z
-2022-08-12 11:09:50.898  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for oldest Transaction 1997-01-01T13:00:00.505Z
-2022-08-12 11:09:50.907  INFO 15596 --- [main] T.c.b.controller.TransactionController   : Maximum Count is 8
-2022-08-12 11:09:50.927  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for TimeDelta details for Perticular Product in between DatesBetween(dateFrom=1998-01-01, dateTo=1999-02-05)Mean=600015 Mode=0 Standard Deviation=774.6063516393343
-2022-08-12 11:09:50.927  INFO 15596 --- [main] T.c.b.controller.TransactionController   : Maximum Count is 8
-2022-08-12 11:09:50.942  INFO 15596 --- [main] T.c.b.controller.TransactionController   : Maximum Count is 31
-2022-08-12 11:09:50.942  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for TimeDelta for Particular Product detailsMean=599995 Mode=0 Standard Deviation=774.5934417486376
-2022-08-12 11:09:50.942  INFO 15596 --- [main] T.c.b.controller.TransactionController   : Maximum Count is 31
-2022-08-12 11:09:50.957  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 11:09:50.957  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for Standard Deviation which is Standard Deviation=32.013363908686635
-2022-08-12 11:09:50.957  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 11:09:50.974  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for Most Common Product 2
-2022-08-12 11:09:50.982  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for TimeDelta details in between DatesBetween(dateFrom=1998-01-01, dateTo=1999-02-05)Mean=1157054 Mode=0 Standard Deviation=1075.66444581942
-2022-08-12 11:09:50.982  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for mean in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 747.00006
-2022-08-12 11:09:50.982  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for Standard Deviation in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 27.33130185401267
-2022-08-12 11:09:50.997  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for mean in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 747.00006
-2022-08-12 11:09:51.009  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for Most Common Product in range DatesBetween(dateFrom=1998-01-01, dateTo=1999-12-05) is 2
-2022-08-12 11:09:51.017 ERROR 15596 --- [main] T.com.bbd.service.SaveRecordService      : java.text.ParseException: Unparseable date: "1998-01-05"
-2022-08-12 11:09:51.017 ERROR 15596 --- [main] T.com.bbd.service.SaveRecordService      : Problem with TestData index value : [0]
-2022-08-12 11:09:51.017  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for Mean which is 1024.8555
-2022-08-12 11:09:51.030  INFO 15596 --- [main] T.c.b.controller.TransactionController   : User has Requested for mean in range DatesBetween(dateFrom=1998-01-01, dateTo=1998-12-05) is 744.2166
-2022-08-12 11:09:51.030  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving Data Transaction starts with 1998-01-01T13:00:00.505Z In present file 
-2022-08-12 11:09:51.030  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : Saving Data Transaction starts with 1998-01-01T13:10:00.505Z In present file 
-2022-08-12 11:09:51.030  INFO 15596 --- [main] T.com.bbd.service.SaveRecordService      : List of Data has been saved
+2022-08-18 12:05:11.333 ERROR 664 --- [http-nio-8080-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ArithmeticException: / by zero] with root cause
+
+java.lang.ArithmeticException: / by zero
+	at TransactionMonitor.com.bbd.service.TransactionTimeDeltaSummaryService.timeDelta(TransactionTimeDeltaSummaryService.java:74) ~[classes/:na]
+	at TransactionMonitor.com.bbd.controller.TransactionController.getTimeDeltaSummary(TransactionController.java:383) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2022-08-18 12:05:14.452  INFO 664 --- [http-nio-8080-exec-8] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for TimeDelta detailsMean=40 Mode=0.0 Standard Deviation=6.324555320336759
+2022-08-18 12:05:14.468  INFO 664 --- [http-nio-8080-exec-8] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for Variance 1444.0
