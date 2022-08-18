@@ -1,137 +1,47 @@
-2022-08-17 07:02:50.976  INFO 24584 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 24584 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-17 07:02:50.984  INFO 24584 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
-2022-08-17 07:02:52.126  INFO 24584 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-17 07:02:52.126  INFO 24584 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-08-17 07:02:52.195  INFO 24584 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-17 07:02:52.611  INFO 24584 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-17 07:02:52.912  INFO 24584 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-17 07:02:52.928  INFO 24584 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-17 07:02:52.981  INFO 24584 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-17 07:02:53.182  INFO 24584 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 2.538 seconds (JVM running for 2.93)
-2022-08-17 07:03:11.856  INFO 24584 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-08-17 07:03:12.001  INFO 24584 --- [http-nio-8080-exec-1] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 1076.526
-2022-08-17 07:03:12.022  INFO 24584 --- [http-nio-8080-exec-1] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mode which is 432.0
-2022-08-17 07:03:12.041  INFO 24584 --- [http-nio-8080-exec-1] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 1076.526
-2022-08-17 07:03:12.043  INFO 24584 --- [http-nio-8080-exec-1] T.c.b.s.TransactionValueSummaryService   : User has Requested for Standard Deviation which is Standard Deviation=32.81045566548204
-2022-08-17 07:03:12.060  INFO 24584 --- [http-nio-8080-exec-1] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 1076.526
-2022-08-17 07:03:12.076  INFO 24584 --- [http-nio-8080-exec-1] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 1076.526
-2022-08-17 07:03:12.094  INFO 24584 --- [http-nio-8080-exec-1] T.c.b.s.TransactionValueSummaryService   : User has Requested for Variance 1457118.8
-2022-08-17 07:05:10.665  INFO 24584 --- [http-nio-8080-exec-5] T.com.bbd.service.TransactionService     : User has Requested for newest Transaction 2021-01-05T12:00:00.505Z
-2022-08-17 07:05:10.675  INFO 24584 --- [http-nio-8080-exec-5] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 2021.0
-2022-08-17 07:05:10.693  INFO 24584 --- [http-nio-8080-exec-5] T.com.bbd.service.TransactionService     : User has Requested for newest Transaction 2021-01-05T12:00:00.505Z
-2022-08-17 07:05:10.695  INFO 24584 --- [http-nio-8080-exec-5] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mode which is 
-2022-08-17 07:05:10.710  INFO 24584 --- [http-nio-8080-exec-5] T.com.bbd.service.TransactionService     : User has Requested for newest Transaction 2021-01-05T12:00:00.505Z
-2022-08-17 07:05:10.712  INFO 24584 --- [http-nio-8080-exec-5] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 2021.0
-2022-08-17 07:05:10.712  INFO 24584 --- [http-nio-8080-exec-5] T.c.b.s.TransactionValueSummaryService   : User has Requested for Standard Deviation which is Standard Deviation=44.955533585978046
-2022-08-17 07:05:10.725  INFO 24584 --- [http-nio-8080-exec-5] T.com.bbd.service.TransactionService     : User has Requested for newest Transaction 2021-01-05T12:00:00.505Z
-2022-08-17 07:05:10.727  INFO 24584 --- [http-nio-8080-exec-5] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 2021.0
-2022-08-17 07:05:10.737  INFO 24584 --- [http-nio-8080-exec-5] T.com.bbd.service.TransactionService     : User has Requested for newest Transaction 2021-01-05T12:00:00.505Z
-2022-08-17 07:05:10.738  INFO 24584 --- [http-nio-8080-exec-5] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 2021.0
-2022-08-17 07:05:10.750  INFO 24584 --- [http-nio-8080-exec-5] T.com.bbd.service.TransactionService     : User has Requested for newest Transaction 2021-01-05T12:00:00.505Z
-2022-08-17 07:05:10.751  INFO 24584 --- [http-nio-8080-exec-5] T.c.b.s.TransactionValueSummaryService   : User has Requested for Variance 0.0
-2022-08-17 07:07:24.889  INFO 24584 --- [http-nio-8080-exec-8] T.com.bbd.service.TransactionService     : User has Requested for newest Transaction 2021-01-05T12:00:00.505Z
-2022-08-17 07:07:24.890  INFO 24584 --- [http-nio-8080-exec-8] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 2021.0
-2022-08-17 07:07:24.904  INFO 24584 --- [http-nio-8080-exec-8] T.com.bbd.service.TransactionService     : User has Requested for newest Transaction 2021-01-05T12:00:00.505Z
-2022-08-17 07:07:24.906  INFO 24584 --- [http-nio-8080-exec-8] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mode which is 
-2022-08-17 07:07:24.919  INFO 24584 --- [http-nio-8080-exec-8] T.com.bbd.service.TransactionService     : User has Requested for newest Transaction 2021-01-05T12:00:00.505Z
-2022-08-17 07:07:24.920  INFO 24584 --- [http-nio-8080-exec-8] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 2021.0
-2022-08-17 07:07:24.921  INFO 24584 --- [http-nio-8080-exec-8] T.c.b.s.TransactionValueSummaryService   : User has Requested for Standard Deviation which is Standard Deviation=44.955533585978046
-2022-08-17 07:07:24.933  INFO 24584 --- [http-nio-8080-exec-8] T.com.bbd.service.TransactionService     : User has Requested for newest Transaction 2021-01-05T12:00:00.505Z
-2022-08-17 07:07:24.935  INFO 24584 --- [http-nio-8080-exec-8] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 2021.0
-2022-08-17 07:07:24.946  INFO 24584 --- [http-nio-8080-exec-8] T.com.bbd.service.TransactionService     : User has Requested for newest Transaction 2021-01-05T12:00:00.505Z
-2022-08-17 07:07:24.949  INFO 24584 --- [http-nio-8080-exec-8] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 2021.0
-2022-08-17 07:07:24.961  INFO 24584 --- [http-nio-8080-exec-8] T.com.bbd.service.TransactionService     : User has Requested for newest Transaction 2021-01-05T12:00:00.505Z
-2022-08-17 07:07:24.963  INFO 24584 --- [http-nio-8080-exec-8] T.c.b.s.TransactionValueSummaryService   : User has Requested for Variance 0.0
-2022-08-17 07:07:29.786  INFO 24584 --- [http-nio-8080-exec-9] T.com.bbd.service.TransactionService     : User has Requested for newest Transaction 2021-01-05T12:00:00.505Z
-2022-08-17 07:07:29.792  INFO 24584 --- [http-nio-8080-exec-9] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 354.42
-2022-08-17 07:07:29.804  INFO 24584 --- [http-nio-8080-exec-9] T.com.bbd.service.TransactionService     : User has Requested for newest Transaction 2021-01-05T12:00:00.505Z
-2022-08-17 07:07:29.810  INFO 24584 --- [http-nio-8080-exec-9] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mode which is 432.0
-2022-08-17 07:07:29.823  INFO 24584 --- [http-nio-8080-exec-9] T.com.bbd.service.TransactionService     : User has Requested for newest Transaction 2021-01-05T12:00:00.505Z
-2022-08-17 07:07:29.829  INFO 24584 --- [http-nio-8080-exec-9] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 354.42
-2022-08-17 07:07:29.830  INFO 24584 --- [http-nio-8080-exec-9] T.c.b.s.TransactionValueSummaryService   : User has Requested for Standard Deviation which is Standard Deviation=18.826046144311196
-2022-08-17 07:07:29.840  INFO 24584 --- [http-nio-8080-exec-9] T.com.bbd.service.TransactionService     : User has Requested for newest Transaction 2021-01-05T12:00:00.505Z
-2022-08-17 07:07:29.844  INFO 24584 --- [http-nio-8080-exec-9] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 354.42
-2022-08-17 07:07:29.855  INFO 24584 --- [http-nio-8080-exec-9] T.com.bbd.service.TransactionService     : User has Requested for newest Transaction 2021-01-05T12:00:00.505Z
-2022-08-17 07:07:29.860  INFO 24584 --- [http-nio-8080-exec-9] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 354.42
-2022-08-17 07:07:29.870  INFO 24584 --- [http-nio-8080-exec-9] T.com.bbd.service.TransactionService     : User has Requested for newest Transaction 2021-01-05T12:00:00.505Z
-2022-08-17 07:07:29.874  INFO 24584 --- [http-nio-8080-exec-9] T.c.b.s.TransactionValueSummaryService   : User has Requested for Variance 314114.53
-2022-08-17 07:07:40.033  INFO 24584 --- [http-nio-8080-exec-10] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-01-01T13:00:00.505Z
-2022-08-17 07:07:40.043  INFO 24584 --- [http-nio-8080-exec-10] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 1130.1959
-2022-08-17 07:07:40.055  INFO 24584 --- [http-nio-8080-exec-10] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-01-01T13:00:00.505Z
-2022-08-17 07:07:40.065  INFO 24584 --- [http-nio-8080-exec-10] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mode which is 432.0
-2022-08-17 07:07:40.076  INFO 24584 --- [http-nio-8080-exec-10] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-01-01T13:00:00.505Z
-2022-08-17 07:07:40.085  INFO 24584 --- [http-nio-8080-exec-10] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 1130.1959
-2022-08-17 07:07:40.085  INFO 24584 --- [http-nio-8080-exec-10] T.c.b.s.TransactionValueSummaryService   : User has Requested for Standard Deviation which is Standard Deviation=33.61838667829797
-2022-08-17 07:07:40.095  INFO 24584 --- [http-nio-8080-exec-10] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-01-01T13:00:00.505Z
-2022-08-17 07:07:40.105  INFO 24584 --- [http-nio-8080-exec-10] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 1130.1959
-2022-08-17 07:07:40.118  INFO 24584 --- [http-nio-8080-exec-10] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-01-01T13:00:00.505Z
-2022-08-17 07:07:40.126  INFO 24584 --- [http-nio-8080-exec-10] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 1130.1959
-2022-08-17 07:07:40.137  INFO 24584 --- [http-nio-8080-exec-10] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-01-01T13:00:00.505Z
-2022-08-17 07:07:40.145  INFO 24584 --- [http-nio-8080-exec-10] T.c.b.s.TransactionValueSummaryService   : User has Requested for Variance 1500434.2
-2022-08-17 07:07:55.431  INFO 24584 --- [http-nio-8080-exec-2] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-02-05T12:00:00.000Z
-2022-08-17 07:07:55.439  INFO 24584 --- [http-nio-8080-exec-2] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 270.11627
-2022-08-17 07:07:55.455  INFO 24584 --- [http-nio-8080-exec-2] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-02-05T12:00:00.000Z
-2022-08-17 07:07:55.464  INFO 24584 --- [http-nio-8080-exec-2] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mode which is 432.0
-2022-08-17 07:07:55.473  INFO 24584 --- [http-nio-8080-exec-2] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-02-05T12:00:00.000Z
-2022-08-17 07:07:55.481  INFO 24584 --- [http-nio-8080-exec-2] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 270.11627
-2022-08-17 07:07:55.482  INFO 24584 --- [http-nio-8080-exec-2] T.c.b.s.TransactionValueSummaryService   : User has Requested for Standard Deviation which is Standard Deviation=16.43521438779112
-2022-08-17 07:07:55.489  INFO 24584 --- [http-nio-8080-exec-2] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-02-05T12:00:00.000Z
-2022-08-17 07:07:55.495  INFO 24584 --- [http-nio-8080-exec-2] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 270.11627
-2022-08-17 07:07:55.502  INFO 24584 --- [http-nio-8080-exec-2] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-02-05T12:00:00.000Z
-2022-08-17 07:07:55.508  INFO 24584 --- [http-nio-8080-exec-2] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 270.11627
-2022-08-17 07:07:55.516  INFO 24584 --- [http-nio-8080-exec-2] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-02-05T12:00:00.000Z
-2022-08-17 07:07:55.522  INFO 24584 --- [http-nio-8080-exec-2] T.c.b.s.TransactionValueSummaryService   : User has Requested for Variance 36472.395
-2022-08-17 07:07:57.923  INFO 24584 --- [http-nio-8080-exec-1] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-01-01T13:00:00.505Z
-2022-08-17 07:07:57.938  INFO 24584 --- [http-nio-8080-exec-1] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 2939.9333
-2022-08-17 07:07:57.950  INFO 24584 --- [http-nio-8080-exec-1] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-01-01T13:00:00.505Z
-2022-08-17 07:07:57.960  INFO 24584 --- [http-nio-8080-exec-1] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mode which is 3001.0
-2022-08-17 07:07:57.972  INFO 24584 --- [http-nio-8080-exec-1] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-01-01T13:00:00.505Z
-2022-08-17 07:07:57.980  INFO 24584 --- [http-nio-8080-exec-1] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 2939.9333
-2022-08-17 07:07:57.981  INFO 24584 --- [http-nio-8080-exec-1] T.c.b.s.TransactionValueSummaryService   : User has Requested for Standard Deviation which is Standard Deviation=54.22115223424687
-2022-08-17 07:07:57.990  INFO 24584 --- [http-nio-8080-exec-1] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-01-01T13:00:00.505Z
-2022-08-17 07:07:57.998  INFO 24584 --- [http-nio-8080-exec-1] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 2939.9333
-2022-08-17 07:07:58.006  INFO 24584 --- [http-nio-8080-exec-1] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-01-01T13:00:00.505Z
-2022-08-17 07:07:58.013  INFO 24584 --- [http-nio-8080-exec-1] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 2939.9333
-2022-08-17 07:07:58.022  INFO 24584 --- [http-nio-8080-exec-1] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-01-01T13:00:00.505Z
-2022-08-17 07:07:58.029  INFO 24584 --- [http-nio-8080-exec-1] T.c.b.s.TransactionValueSummaryService   : User has Requested for Variance 164082.06
-2022-08-17 07:08:01.326  INFO 24584 --- [http-nio-8080-exec-3] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 2001-01-02T23:00:00.505Z
-2022-08-17 07:08:01.327  INFO 24584 --- [http-nio-8080-exec-3] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is NaN
-2022-08-17 07:08:01.337  INFO 24584 --- [http-nio-8080-exec-3] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 2001-01-02T23:00:00.505Z
-2022-08-17 07:08:01.337  INFO 24584 --- [http-nio-8080-exec-3] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mode which is 
-2022-08-17 07:08:01.345  INFO 24584 --- [http-nio-8080-exec-3] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 2001-01-02T23:00:00.505Z
-2022-08-17 07:08:01.346  INFO 24584 --- [http-nio-8080-exec-3] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is NaN
-2022-08-17 07:08:01.346  INFO 24584 --- [http-nio-8080-exec-3] T.c.b.s.TransactionValueSummaryService   : User has Requested for Standard Deviation which is Standard Deviation=NaN
-2022-08-17 07:08:01.355  INFO 24584 --- [http-nio-8080-exec-3] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 2001-01-02T23:00:00.505Z
-2022-08-17 07:08:01.356  INFO 24584 --- [http-nio-8080-exec-3] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is NaN
-2022-08-17 07:08:01.364  INFO 24584 --- [http-nio-8080-exec-3] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 2001-01-02T23:00:00.505Z
-2022-08-17 07:08:01.364  INFO 24584 --- [http-nio-8080-exec-3] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is NaN
-2022-08-17 07:08:01.372  INFO 24584 --- [http-nio-8080-exec-3] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 2001-01-02T23:00:00.505Z
-2022-08-17 07:08:01.372  INFO 24584 --- [http-nio-8080-exec-3] T.c.b.s.TransactionValueSummaryService   : User has Requested for Variance NaN
-2022-08-17 07:08:05.413  INFO 24584 --- [http-nio-8080-exec-4] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 2000-01-01T23:00:00.505Z
-2022-08-17 07:08:05.422  INFO 24584 --- [http-nio-8080-exec-4] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 2.0
-2022-08-17 07:08:05.432  INFO 24584 --- [http-nio-8080-exec-4] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 2000-01-01T23:00:00.505Z
-2022-08-17 07:08:05.439  INFO 24584 --- [http-nio-8080-exec-4] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mode which is 
-2022-08-17 07:08:05.449  INFO 24584 --- [http-nio-8080-exec-4] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 2000-01-01T23:00:00.505Z
-2022-08-17 07:08:05.455  INFO 24584 --- [http-nio-8080-exec-4] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 2.0
-2022-08-17 07:08:05.455  INFO 24584 --- [http-nio-8080-exec-4] T.c.b.s.TransactionValueSummaryService   : User has Requested for Standard Deviation which is Standard Deviation=1.4142135623730951
-2022-08-17 07:08:05.463  INFO 24584 --- [http-nio-8080-exec-4] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 2000-01-01T23:00:00.505Z
-2022-08-17 07:08:05.468  INFO 24584 --- [http-nio-8080-exec-4] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 2.0
-2022-08-17 07:08:05.475  INFO 24584 --- [http-nio-8080-exec-4] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 2000-01-01T23:00:00.505Z
-2022-08-17 07:08:05.480  INFO 24584 --- [http-nio-8080-exec-4] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 2.0
-2022-08-17 07:08:05.490  INFO 24584 --- [http-nio-8080-exec-4] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 2000-01-01T23:00:00.505Z
-2022-08-17 07:08:05.496  INFO 24584 --- [http-nio-8080-exec-4] T.c.b.s.TransactionValueSummaryService   : User has Requested for Variance 0.0
-2022-08-17 07:08:08.739 ERROR 24584 --- [http-nio-8080-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0] with root cause
+2022-08-18 11:56:27.183  INFO 664 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 664 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-18 11:56:27.199  INFO 664 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
+2022-08-18 11:56:36.491  INFO 664 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-18 11:56:36.491  INFO 664 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-08-18 11:56:36.607  INFO 664 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-18 11:56:41.601  INFO 664 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-18 11:56:44.138  INFO 664 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-18 11:56:44.207  INFO 664 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-18 11:56:44.909  INFO 664 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-18 11:56:46.141  INFO 664 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 20.526 seconds (JVM running for 22.147)
+2022-08-18 11:57:17.852  INFO 664 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-18 11:57:18.097  INFO 664 --- [http-nio-8080-exec-2] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 56
+2022-08-18 11:57:18.165  INFO 664 --- [http-nio-8080-exec-2] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for TimeDelta detailsMean=402497301 Mode=6.3327597E10 Standard Deviation=20062.335382502206
+2022-08-18 11:57:18.252  INFO 664 --- [http-nio-8080-exec-2] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for Variance 1.62003486E17
+2022-08-18 11:57:18.253  INFO 664 --- [http-nio-8080-exec-2] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 56
+2022-08-18 11:59:29.243  INFO 664 --- [http-nio-8080-exec-5] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 56
+2022-08-18 11:59:29.243  INFO 664 --- [http-nio-8080-exec-5] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for TimeDelta detailsMean=430394561 Mode=6.3327597E10 Standard Deviation=20745.952882429865
+2022-08-18 11:59:29.272  INFO 664 --- [http-nio-8080-exec-5] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for Variance 1.85238469E17
+2022-08-18 11:59:29.281  INFO 664 --- [http-nio-8080-exec-5] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 56
+2022-08-18 11:59:42.099  INFO 664 --- [http-nio-8080-exec-6] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 56
+2022-08-18 11:59:42.107  INFO 664 --- [http-nio-8080-exec-6] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for TimeDelta detailsMean=624458764 Mode=6.3323996E10 Standard Deviation=24989.172935493483
+2022-08-18 11:59:42.131  INFO 664 --- [http-nio-8080-exec-6] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for Variance 3.89948396E17
+2022-08-18 11:59:42.131  INFO 664 --- [http-nio-8080-exec-6] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 56
+2022-08-18 11:59:52.886  INFO 664 --- [http-nio-8080-exec-7] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 56
+2022-08-18 11:59:52.891  INFO 664 --- [http-nio-8080-exec-7] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for TimeDelta detailsMean=5599949 Mode=1.83598128E8 Standard Deviation=2366.4211374985643
+2022-08-18 11:59:52.909  INFO 664 --- [http-nio-8080-exec-7] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for Variance 3.13556143E13
+2022-08-18 11:59:52.909  INFO 664 --- [http-nio-8080-exec-7] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 56
+2022-08-18 12:04:47.587  INFO 664 --- [http-nio-8080-exec-10] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 17
+2022-08-18 12:04:47.587  INFO 664 --- [http-nio-8080-exec-10] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for TimeDelta detailsMean=8215317 Mode=2.51998384E8 Standard Deviation=2866.2374291045744
+2022-08-18 12:04:47.612  INFO 664 --- [http-nio-8080-exec-10] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for Variance 6.7486926E13
+2022-08-18 12:04:47.612  INFO 664 --- [http-nio-8080-exec-10] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 17
+2022-08-18 12:04:51.415  INFO 664 --- [http-nio-8080-exec-1] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for TimeDelta detailsMean=46799495 Mode=0.0 Standard Deviation=6841.0156409702795
+2022-08-18 12:04:51.439  INFO 664 --- [http-nio-8080-exec-1] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for Variance 2.19016918E15
+2022-08-18 12:04:54.874  INFO 664 --- [http-nio-8080-exec-2] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for TimeDelta detailsMean=40 Mode=0.0 Standard Deviation=6.324555320336759
+2022-08-18 12:04:54.898  INFO 664 --- [http-nio-8080-exec-2] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for Variance 1444.0
+2022-08-18 12:04:58.737  INFO 664 --- [http-nio-8080-exec-3] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 35
+2022-08-18 12:04:58.745  INFO 664 --- [http-nio-8080-exec-3] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for TimeDelta detailsMean=2054979 Mode=7.9199296E7 Standard Deviation=1433.519794073315
+2022-08-18 12:04:58.761  INFO 664 --- [http-nio-8080-exec-3] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for Variance 4.22125188E12
+2022-08-18 12:04:58.761  INFO 664 --- [http-nio-8080-exec-3] c.b.s.TransactionTimeDeltaSummaryService : Maximum Count is 35
+2022-08-18 12:05:03.372 ERROR 664 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ArithmeticException: / by zero] with root cause
 
-java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64) ~[na:na]
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70) ~[na:na]
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266) ~[na:na]
-	at java.base/java.util.Objects.checkIndex(Objects.java:359) ~[na:na]
-	at java.base/java.util.ArrayList.get(ArrayList.java:427) ~[na:na]
-	at TransactionMonitor.com.bbd.service.TransactionService.oldestTransaction(TransactionService.java:288) ~[classes/:na]
-	at TransactionMonitor.com.bbd.service.TransactionService.allTransaction(TransactionService.java:261) ~[classes/:na]
-	at TransactionMonitor.com.bbd.service.TransactionValueSummaryService.meanOfTransaction(TransactionValueSummaryService.java:32) ~[classes/:na]
-	at TransactionMonitor.com.bbd.controller.TransactionController.getSummary(TransactionController.java:345) ~[classes/:na]
+java.lang.ArithmeticException: / by zero
+	at TransactionMonitor.com.bbd.service.TransactionTimeDeltaSummaryService.timeDelta(TransactionTimeDeltaSummaryService.java:74) ~[classes/:na]
+	at TransactionMonitor.com.bbd.controller.TransactionController.getTimeDeltaSummary(TransactionController.java:383) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
@@ -183,115 +93,11 @@ java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
 	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
 
-2022-08-17 07:08:12.852  INFO 24584 --- [http-nio-8080-exec-7] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-03-05T13:00:00.000Z
-2022-08-17 07:08:12.860  INFO 24584 --- [http-nio-8080-exec-7] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 411.09756
-2022-08-17 07:08:12.872  INFO 24584 --- [http-nio-8080-exec-7] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-03-05T13:00:00.000Z
-2022-08-17 07:08:12.879  INFO 24584 --- [http-nio-8080-exec-7] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mode which is 432.0
-2022-08-17 07:08:12.890  INFO 24584 --- [http-nio-8080-exec-7] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-03-05T13:00:00.000Z
-2022-08-17 07:08:12.896  INFO 24584 --- [http-nio-8080-exec-7] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 411.09756
-2022-08-17 07:08:12.896  INFO 24584 --- [http-nio-8080-exec-7] T.c.b.s.TransactionValueSummaryService   : User has Requested for Standard Deviation which is Standard Deviation=20.275541045734528
-2022-08-17 07:08:12.904  INFO 24584 --- [http-nio-8080-exec-7] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-03-05T13:00:00.000Z
-2022-08-17 07:08:12.910  INFO 24584 --- [http-nio-8080-exec-7] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 411.09756
-2022-08-17 07:08:12.919  INFO 24584 --- [http-nio-8080-exec-7] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-03-05T13:00:00.000Z
-2022-08-17 07:08:12.925  INFO 24584 --- [http-nio-8080-exec-7] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 411.09756
-2022-08-17 07:08:12.933  INFO 24584 --- [http-nio-8080-exec-7] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-03-05T13:00:00.000Z
-2022-08-17 07:08:12.939  INFO 24584 --- [http-nio-8080-exec-7] T.c.b.s.TransactionValueSummaryService   : User has Requested for Variance 8519.79
-2022-08-17 07:35:45.088  INFO 16796 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 16796 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-17 07:35:45.088  INFO 16796 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
-2022-08-17 07:35:45.979  INFO 16796 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-17 07:35:45.979  INFO 16796 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-08-17 07:35:46.032  INFO 16796 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-17 07:35:46.364  INFO 16796 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-17 07:35:46.602  INFO 16796 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-17 07:35:46.618  INFO 16796 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-17 07:35:46.649  INFO 16796 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-17 07:35:46.818  INFO 16796 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 1.983 seconds (JVM running for 2.266)
-2022-08-17 07:36:18.934  INFO 16796 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-08-17 07:36:19.219  INFO 16796 --- [http-nio-8080-exec-2] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-03-05T13:00:00.000Z
-2022-08-17 07:36:19.268  INFO 16796 --- [http-nio-8080-exec-2] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 411.09756
-2022-08-17 07:36:19.311  INFO 16796 --- [http-nio-8080-exec-2] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-03-05T13:00:00.000Z
-2022-08-17 07:36:19.346  INFO 16796 --- [http-nio-8080-exec-2] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mode which is 432.0
-2022-08-17 07:36:19.385  INFO 16796 --- [http-nio-8080-exec-2] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-03-05T13:00:00.000Z
-2022-08-17 07:36:19.413  INFO 16796 --- [http-nio-8080-exec-2] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 411.09756
-2022-08-17 07:36:19.421  INFO 16796 --- [http-nio-8080-exec-2] T.c.b.s.TransactionValueSummaryService   : User has Requested for Standard Deviation which is Standard Deviation=20.275541045734528
-2022-08-17 07:36:19.451  INFO 16796 --- [http-nio-8080-exec-2] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-03-05T13:00:00.000Z
-2022-08-17 07:36:19.476  INFO 16796 --- [http-nio-8080-exec-2] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 411.09756
-2022-08-17 07:36:19.510  INFO 16796 --- [http-nio-8080-exec-2] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-03-05T13:00:00.000Z
-2022-08-17 07:36:19.529  INFO 16796 --- [http-nio-8080-exec-2] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 411.09756
-2022-08-17 07:36:19.562  INFO 16796 --- [http-nio-8080-exec-2] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-03-05T13:00:00.000Z
-2022-08-17 07:36:19.584  INFO 16796 --- [http-nio-8080-exec-2] T.c.b.s.TransactionValueSummaryService   : User has Requested for Variance 8519.79
-2022-08-17 07:36:34.942  INFO 16796 --- [http-nio-8080-exec-3] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 1076.526
-2022-08-17 07:36:39.752  INFO 16796 --- [http-nio-8080-exec-4] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-03-05T13:00:00.000Z
-2022-08-17 07:36:39.769  INFO 16796 --- [http-nio-8080-exec-4] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 411.09756
-2022-08-17 07:36:53.618  INFO 16796 --- [http-nio-8080-exec-5] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-03-05T13:00:00.000Z
-2022-08-17 07:36:53.634  INFO 16796 --- [http-nio-8080-exec-5] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mode which is 432.0
-2022-08-17 07:37:19.123  INFO 16796 --- [http-nio-8080-exec-8] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-03-05T13:00:00.000Z
-2022-08-17 07:37:19.140  INFO 16796 --- [http-nio-8080-exec-8] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 411.09756
-2022-08-17 07:37:19.140  INFO 16796 --- [http-nio-8080-exec-8] T.c.b.s.TransactionValueSummaryService   : User has Requested for Standard Deviation which is Standard Deviation=20.275541045734528
-2022-08-17 07:37:19.156  INFO 16796 --- [http-nio-8080-exec-8] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-03-05T13:00:00.000Z
-2022-08-17 07:37:19.172  INFO 16796 --- [http-nio-8080-exec-8] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 411.09756
-2022-08-17 10:15:38.689  INFO 16796 --- [http-nio-8080-exec-1] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-01-01T13:00:00.505Z
-2022-08-17 10:15:38.729  INFO 16796 --- [http-nio-8080-exec-1] T.com.bbd.service.TransactionService     : User has Requested for newest Transaction 2021-01-05T12:00:00.505Z
-2022-08-17 12:10:04.171  INFO 33328 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 33328 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-17 12:10:04.171  INFO 33328 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
-2022-08-17 12:10:05.089  INFO 33328 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-17 12:10:05.089  INFO 33328 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-08-17 12:10:05.140  INFO 33328 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-17 12:10:05.456  INFO 33328 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-17 12:10:05.720  INFO 33328 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-17 12:10:05.742  INFO 33328 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-17 12:10:05.773  INFO 33328 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-17 12:10:05.958  INFO 33328 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 2.072 seconds (JVM running for 2.399)
-2022-08-17 12:10:16.693  INFO 33328 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-08-17 12:10:16.752  INFO 33328 --- [http-nio-8080-exec-2] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-03-05T13:00:00.000Z
-2022-08-17 12:10:16.806  INFO 33328 --- [http-nio-8080-exec-2] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 411.09756
-2022-08-17 12:10:16.809  INFO 33328 --- [http-nio-8080-exec-2] T.c.b.s.TransactionValueSummaryService   : User has Requested for Standard Deviation which is Standard Deviation=20.275541045734528
-2022-08-17 12:10:16.827  INFO 33328 --- [http-nio-8080-exec-2] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-03-05T13:00:00.000Z
-2022-08-17 12:10:16.837  INFO 33328 --- [http-nio-8080-exec-2] T.c.b.s.TransactionValueSummaryService   : User has Requested for Mean which is 411.09756
-2022-08-17 12:45:37.873 ERROR 33328 --- [http-nio-8080-exec-10] T.com.bbd.service.TransactionService     : Tried to add wrong data in which init_date 2000-01-04T23:00:00.505Z is higher the Conclusion_date2000-01-01T23:10:00.000Z
-2022-08-17 12:45:37.873 ERROR 33328 --- [http-nio-8080-exec-10] T.com.bbd.service.TransactionService     : Tried to add wrong data in which init_date 2000-01-04T23:00:00.505Z is higher the Conclusion_date2000-01-01T23:10:00.000Z
-2022-08-17 12:46:03.949 ERROR 33328 --- [http-nio-8080-exec-2] T.com.bbd.service.TransactionService     : Tried to add wrong data in which init_date 2000-01-04T23:00:00.505Z is higher the Conclusion_date2000-01-01T23:10:00.000Z
-2022-08-17 12:46:03.949 ERROR 33328 --- [http-nio-8080-exec-2] T.com.bbd.service.TransactionService     : Tried to add wrong data in which init_date 2000-01-04T23:00:00.505Z is higher the Conclusion_date2000-01-01T23:10:00.000Z
-2022-08-17 12:46:29.801  INFO 33328 --- [http-nio-8080-exec-3] T.com.bbd.service.TransactionService     : User has Requested for oldest Transaction 1998-01-01T13:00:00.505Z
-2022-08-17 12:46:29.847  INFO 33328 --- [http-nio-8080-exec-3] T.com.bbd.service.TransactionService     : User has Requested for newest Transaction 2021-01-05T12:00:00.505Z
-2022-08-17 21:52:14.280  INFO 22420 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 22420 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-17 21:52:14.283  INFO 22420 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
-2022-08-17 21:52:16.354  INFO 22420 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-17 21:52:16.355  INFO 22420 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-08-17 21:52:16.482  INFO 22420 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-17 21:52:17.045  INFO 22420 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-17 21:52:17.459  INFO 22420 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-17 21:52:17.491  INFO 22420 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-17 21:52:17.585  INFO 22420 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-17 21:52:17.862  INFO 22420 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 4.208 seconds (JVM running for 4.861)
-2022-08-17 21:52:29.387  INFO 22420 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-08-17 21:59:59.763  INFO 22936 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 22936 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-17 21:59:59.763  INFO 22936 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
-2022-08-17 22:00:01.604  INFO 22936 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-17 22:00:01.604  INFO 22936 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-08-17 22:00:01.712  INFO 22936 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-17 22:00:02.497  INFO 22936 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-17 22:00:02.944  INFO 22936 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-17 22:00:02.960  INFO 22936 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-17 22:00:03.028  INFO 22936 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-17 22:00:03.397  INFO 22936 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 4.164 seconds (JVM running for 4.716)
-2022-08-17 22:00:07.272  INFO 22936 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-08-17 22:09:10.796  INFO 14348 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 14348 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-17 22:09:10.796  INFO 14348 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
-2022-08-17 22:09:12.706  INFO 14348 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-17 22:09:12.706  INFO 14348 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-08-17 22:09:12.797  INFO 14348 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-17 22:09:13.486  INFO 14348 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-17 22:09:13.963  INFO 14348 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-17 22:09:13.995  INFO 14348 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-17 22:09:14.064  INFO 14348 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-17 22:09:14.428  INFO 14348 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 4.217 seconds (JVM running for 4.808)
-2022-08-17 22:09:17.109  INFO 14348 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-08-17 22:09:17.317 ERROR 14348 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot store to object array because "productsList[p]" is null] with root cause
+2022-08-18 12:05:11.333 ERROR 664 --- [http-nio-8080-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ArithmeticException: / by zero] with root cause
 
-java.lang.NullPointerException: Cannot store to object array because "productsList[p]" is null
-	at TransactionMonitor.com.bbd.service.ProductService.listCommonProd(ProductService.java:45) ~[classes/:na]
-	at TransactionMonitor.com.bbd.controller.TransactionController.allProducts(TransactionController.java:360) ~[classes/:na]
+java.lang.ArithmeticException: / by zero
+	at TransactionMonitor.com.bbd.service.TransactionTimeDeltaSummaryService.timeDelta(TransactionTimeDeltaSummaryService.java:74) ~[classes/:na]
+	at TransactionMonitor.com.bbd.controller.TransactionController.getTimeDeltaSummary(TransactionController.java:383) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
@@ -343,252 +149,5 @@ java.lang.NullPointerException: Cannot store to object array because "productsLi
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
 	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
 
-2022-08-17 22:09:59.959 ERROR 14348 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot store to object array because "productsList[p]" is null] with root cause
-
-java.lang.NullPointerException: Cannot store to object array because "productsList[p]" is null
-	at TransactionMonitor.com.bbd.service.ProductService.listCommonProd(ProductService.java:45) ~[classes/:na]
-	at TransactionMonitor.com.bbd.controller.TransactionController.allProducts(TransactionController.java:360) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
-
-2022-08-17 22:10:17.512 ERROR 14348 --- [http-nio-8080-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot store to object array because "productsList[p]" is null] with root cause
-
-java.lang.NullPointerException: Cannot store to object array because "productsList[p]" is null
-	at TransactionMonitor.com.bbd.service.ProductService.listCommonProd(ProductService.java:45) ~[classes/:na]
-	at TransactionMonitor.com.bbd.controller.TransactionController.allProducts(TransactionController.java:360) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
-
-2022-08-17 22:10:27.726  INFO 6420 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 6420 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-17 22:10:27.726  INFO 6420 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
-2022-08-17 22:10:30.281  INFO 6420 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-17 22:10:30.281  INFO 6420 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-08-17 22:10:30.476  INFO 6420 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-17 22:10:31.430  INFO 6420 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-17 22:10:31.864  INFO 6420 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-17 22:10:31.918  INFO 6420 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-17 22:10:31.996  INFO 6420 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-17 22:10:32.365  INFO 6420 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 5.225 seconds (JVM running for 5.846)
-2022-08-17 22:10:32.991  INFO 6420 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-08-17 22:13:18.809  INFO 17908 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 17908 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-17 22:13:18.813  INFO 17908 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
-2022-08-17 22:13:20.603  INFO 17908 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-17 22:13:20.605  INFO 17908 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-08-17 22:13:20.793  INFO 17908 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-17 22:13:21.961  INFO 17908 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-17 22:13:22.722  INFO 17908 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-17 22:13:22.753  INFO 17908 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-17 22:13:22.879  INFO 17908 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-17 22:13:23.455  INFO 17908 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 5.128 seconds (JVM running for 5.873)
-2022-08-17 22:13:44.744  INFO 17908 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-08-17 22:16:16.165  INFO 32396 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 32396 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-17 22:16:16.181  INFO 32396 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
-2022-08-17 22:16:17.954  INFO 32396 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-17 22:16:17.954  INFO 32396 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-08-17 22:16:18.055  INFO 32396 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-17 22:16:18.671  INFO 32396 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-17 22:16:19.139  INFO 32396 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-17 22:16:19.170  INFO 32396 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-17 22:16:19.219  INFO 32396 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-17 22:16:19.572  INFO 32396 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 4.006 seconds (JVM running for 4.644)
-2022-08-17 22:16:25.757  INFO 32396 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-08-17 22:44:18.298  INFO 10764 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 10764 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-17 22:44:18.298  INFO 10764 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
-2022-08-17 22:44:19.978  INFO 10764 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-17 22:44:19.978  INFO 10764 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-08-17 22:44:20.082  INFO 10764 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-17 22:44:20.747  INFO 10764 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-17 22:44:21.149  INFO 10764 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-17 22:44:21.196  INFO 10764 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-17 22:44:21.281  INFO 10764 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-17 22:44:21.582  INFO 10764 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 3.868 seconds (JVM running for 4.496)
-2022-08-17 22:44:29.109  INFO 10764 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-08-17 22:44:56.357 ERROR 10764 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1] with root cause
-
-java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
-	at TransactionMonitor.com.bbd.service.ProductService.CommonProduct(ProductService.java:86) ~[classes/:na]
-	at TransactionMonitor.com.bbd.controller.TransactionController.allProducts(TransactionController.java:364) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.9.jar:5.3.9]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
-	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
-
-2022-08-17 22:46:52.075  INFO 8936 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 8936 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-17 22:46:52.075  INFO 8936 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
-2022-08-17 22:46:53.802  INFO 8936 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-17 22:46:53.802  INFO 8936 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-08-17 22:46:53.903  INFO 8936 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-17 22:46:54.789  INFO 8936 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-17 22:46:55.207  INFO 8936 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-17 22:46:55.222  INFO 8936 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-17 22:46:55.318  INFO 8936 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-17 22:46:55.638  INFO 8936 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 4.092 seconds (JVM running for 4.705)
-2022-08-17 22:46:58.974  INFO 8936 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-08-17 22:46:59.271  INFO 8936 --- [http-nio-8080-exec-2] T.com.bbd.service.ProductService         : User has Requested for Most Common Product 11 with count 47
-2022-08-17 22:47:18.714  INFO 21076 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 21076 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-17 22:47:18.714  INFO 21076 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
-2022-08-17 22:47:20.618  INFO 21076 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-17 22:47:20.622  INFO 21076 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-08-17 22:47:20.730  INFO 21076 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-17 22:47:21.412  INFO 21076 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-17 22:47:21.863  INFO 21076 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-17 22:47:21.881  INFO 21076 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-17 22:47:21.949  INFO 21076 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-17 22:47:22.275  INFO 21076 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 4.126 seconds (JVM running for 4.74)
-2022-08-17 22:47:28.571  INFO 22160 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 22160 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-17 22:47:28.586  INFO 22160 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
-2022-08-17 22:47:30.445  INFO 22160 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-17 22:47:30.445  INFO 22160 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-08-17 22:47:30.530  INFO 22160 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-17 22:47:31.262  INFO 22160 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-17 22:47:31.715  INFO 22160 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-17 22:47:31.731  INFO 22160 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-17 22:47:31.799  INFO 22160 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-17 22:47:32.078  INFO 22160 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 4.132 seconds (JVM running for 4.783)
-2022-08-17 22:47:35.157  INFO 22160 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-08-17 22:47:35.466  INFO 22160 --- [http-nio-8080-exec-2] T.com.bbd.service.ProductService         : User has Requested for Most Common Product 11 with count 47
-2022-08-17 23:43:59.804  INFO 22160 --- [http-nio-8080-exec-5] T.com.bbd.service.ProductService         : User has Requested for Most Common Product 12 with count 2
-2022-08-17 23:45:46.018  INFO 22160 --- [http-nio-8080-exec-9] T.com.bbd.service.ProductService         : User has Requested for Most Common Product 1 with count 44
-2022-08-17 23:45:55.905  INFO 22160 --- [http-nio-8080-exec-10] T.com.bbd.service.ProductService         : User has Requested for Most Common Product 12 with count 1
+2022-08-18 12:05:14.452  INFO 664 --- [http-nio-8080-exec-8] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for TimeDelta detailsMean=40 Mode=0.0 Standard Deviation=6.324555320336759
+2022-08-18 12:05:14.468  INFO 664 --- [http-nio-8080-exec-8] c.b.s.TransactionTimeDeltaSummaryService : User has Requested for Variance 1444.0

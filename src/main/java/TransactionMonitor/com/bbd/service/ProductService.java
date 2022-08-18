@@ -16,7 +16,7 @@ import java.util.Objects;
 public class ProductService {
 
     @Autowired
-    TransactionService transactionService = new TransactionService();
+    TransactionService transactionService;
 
     private String[][] trimArray(String[][] products){
         int k=0;

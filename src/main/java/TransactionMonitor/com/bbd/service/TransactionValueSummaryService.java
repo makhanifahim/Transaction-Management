@@ -13,7 +13,7 @@ import java.util.List;
 @Slf4j
 public class TransactionValueSummaryService {
     @Autowired
-    TransactionService transactionService = new TransactionService();
+    TransactionService transactionService;
 
     private static String findModel(String[][] values){
         int count=0;
@@ -68,7 +68,6 @@ public class TransactionValueSummaryService {
         return findModel(values);
     }
     public float standardDeviationOfTransaction(Date from_date,Date to_date,String product_id,String TypeOfData) throws IOException, CsvException, ParseException {
-
         log.info("User has Requested for Standard Deviation which is {}","Standard Deviation="+Math.sqrt(meanOfTransaction(from_date,to_date,product_id,TypeOfData)));
         return (float) Math.sqrt(meanOfTransaction(from_date,to_date,product_id,TypeOfData));
     }
