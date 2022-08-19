@@ -16,7 +16,7 @@ import java.util.Collections;
 @EnableSwagger2
 @Configuration
 @Slf4j
-public class swaggerConfig {
+public class SwaggerConfig {
     @Bean
     public Docket createDocket() {
         return  new Docket(DocumentationType.SWAGGER_2)  //UI screen type

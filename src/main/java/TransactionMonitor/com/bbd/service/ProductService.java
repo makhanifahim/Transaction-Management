@@ -83,7 +83,6 @@ public class ProductService {
         }
         CommonProduct[0][0]= prod;
         CommonProduct[0][1]= String.valueOf(count);
-        log.info("User has Requested for Most Common Product {} with count {}",prod,count);
         return CommonProduct;
     }
 }

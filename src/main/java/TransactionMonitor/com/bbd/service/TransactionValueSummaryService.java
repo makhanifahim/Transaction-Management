@@ -38,7 +38,6 @@ public class TransactionValueSummaryService {
             TotalDays++;
             TotalAmount= Float.parseFloat(Transaction[3])+TotalAmount;
         }
-        log.info("User has Requested for Mean which is {}",TotalAmount/TotalDays);
         return TotalAmount/TotalDays;
     }
     public String modeOfTransaction(Date from_date,Date to_date,String product_id,String TypeOfData) throws IOException, CsvException, ParseException {
@@ -64,11 +63,9 @@ public class TransactionValueSummaryService {
                 c++;
             }
         }
-        log.info("User has Requested for Mode which is {}",findModel(values));
         return findModel(values);
     }
     public float standardDeviationOfTransaction(Date from_date,Date to_date,String product_id,String TypeOfData) throws IOException, CsvException, ParseException {
-        log.info("User has Requested for Standard Deviation which is {}","Standard Deviation="+Math.sqrt(meanOfTransaction(from_date,to_date,product_id,TypeOfData)));
         return (float) Math.sqrt(meanOfTransaction(from_date,to_date,product_id,TypeOfData));
     }
     public float varianceOfTransaction(Date from_date,Date to_date,String product_id,String TypeOfData) throws IOException, CsvException, ParseException {
@@ -85,7 +82,6 @@ public class TransactionValueSummaryService {
             XSeq=XSeq*XSeq;
             TotalXX=TotalXX+XSeq;
         }
-        log.info("User has Requested for Variance {}",TotalXX/TotalTran);
         return TotalXX/TotalTran;
     }
 }

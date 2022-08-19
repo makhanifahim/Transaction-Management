@@ -1,5 +1,6 @@
 package TransactionMonitor.com.bbd.service;
 
+import TransactionMonitor.com.bbd.config.Logges;
 import TransactionMonitor.com.bbd.model.Transaction;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
@@ -20,6 +21,9 @@ import java.util.*;
 @Service
 @Slf4j
 public class TransactionService {
+
+    private final Logges logges = new Logges();
+    String error="error";
 
     private static int getQuarter(int month){
         return switch (month) {
@@ -73,11 +77,9 @@ public class TransactionService {
                 Date Conclusion_date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX").parse(rec.getConclusion_date());
                 if(init_date.compareTo(Conclusion_date)>0){
                     problem.add(transactions.indexOf(rec));
-                    log.error("Tried to add wrong data in which init_date {} is higher the Conclusion_date{}",rec.getInit_date(),rec.getConclusion_date());
                 }
             }catch (ParseException e) {
                 e.printStackTrace();
-                log.error(e.toString());
             }
         });
         return problem;
@@ -95,7 +97,6 @@ public class TransactionService {
         String month=conMonth(init_date);
         int year = conYear(init_date);
         int quarter = getQuarter(Integer.parseInt(month));
-        log.info("Saving "+typeOfData+" Transaction starts with {}-{}-{}.csv In file ",date,month,year);
         CSVWriter writer = new CSVWriter(new FileWriter(".\\"+typeOfData+"\\" + year + "\\" + quarter + "\\" + date + "-" + month + "-" + year + ".csv", true));
         if(isFileNew) {
             String[] line1 = {"init_date", "conclusion_date", "product_id", "value"};
@@ -225,6 +226,7 @@ public class TransactionService {
     public String saveTransaction(List<Transaction> transactions, String typeOfData){
         List<Integer> errorIn = new ArrayList(transactions.size());
         if(checkPassedData(transactions).size()>0){
+            logges.addInfoLog("Data passed in body was not valid",error);
             return "Problem with index value : "+ Arrays.toString(checkPassedData(transactions).toArray());
         }
         else{
@@ -241,18 +243,15 @@ public class TransactionService {
 
                 }
                 catch (Exception ex) {
+                    logges.addInfoLog("Data passed in body was not valid :"+ex.toString(),error);
                     errorIn.add(transactions.indexOf(transaction));
-                    log.error(ex.toString());
                 }
             });
             if(errorIn.size()>0) {
-                log.error("Problem with "+typeOfData+" index value : " + Arrays.toString(errorIn.toArray()));
+                logges.addInfoLog("Data passed in body was not valid index with error is :"+Arrays.toString(errorIn.toArray()),error);
                 return "Problem with index value : " + Arrays.toString(errorIn.toArray());
-            }
-            else{
-                log.info("List of "+typeOfData+" has been saved");
+            }else
                 return "Successfully Inserted";
-            }
         }
     }
     //All Transaction
@@ -298,7 +297,6 @@ public class TransactionService {
                 oldestTransaction = transac;
             }
         }
-        log.info("User has Requested for oldest Transaction {}",oldestTransaction);
         return oldestTransaction;
     }
     //Newest Transaction
@@ -316,7 +314,6 @@ public class TransactionService {
                 newestTransaction = strings;
             }
         }
-        log.info("User has Requested for newest Transaction {}",newestTransaction);
         return newestTransaction;
     }
 
