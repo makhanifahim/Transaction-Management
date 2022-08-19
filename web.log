@@ -4,6 +4,7 @@
 2022-08-18 15:27:30.526  INFO 25728 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
 2022-08-18 15:27:30.648  INFO 25728 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
 2022-08-18 15:27:31.497  INFO 25728 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-18 15:27:31.848  INFO 25728 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
 2022-08-18 15:27:31.864  INFO 25728 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
 2022-08-18 15:27:31.924  INFO 25728 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
 2022-08-18 15:27:32.057  INFO 25728 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveTransactionsUsingPOST_1
