@@ -1,5 +1,6 @@
 package TransactionMonitor.com.bbd.controller;
 
+import TransactionMonitor.com.bbd.config.Logges;
 import TransactionMonitor.com.bbd.model.Transaction;
 import TransactionMonitor.com.bbd.model.TransactionSummary;
 import TransactionMonitor.com.bbd.service.ProductService;
@@ -34,10 +35,14 @@ public class RpcTransactionController {
     @Autowired
     private final ProductService productService=new ProductService();
 
+    private final Logges logges = new Logges();
+    String info="INFO";
+
     @PostMapping("/create_transactions")
     public String createTransactions(@RequestBody List<Transaction> transactions, @PathVariable(required=false) String typeOfData) {
         if(Objects.equals(typeOfData, "") ||typeOfData==null)
             typeOfData="Data";
+        logges.addInfoLog("RPC - POST in create_transaction is been fired",info);
         return service.saveTransaction(transactions, typeOfData);
     }
 
@@ -52,6 +57,7 @@ public class RpcTransactionController {
         if(product_id!=null){p_id=product_id;}
         List<String[]> oldestTransact= new ArrayList();
         oldestTransact.add(service.oldestTransaction(typeOfData,p_id,from,to));
+        logges.addInfoLog("RPC - GET in oldest_transaction with from="+from+" and to="+to+" with product id="+product_id,info);
         return oldestTransact;
     }
 
@@ -66,6 +72,7 @@ public class RpcTransactionController {
         if(product_id!=null){p_id=product_id;}
         List<String[]> newestTransact= new ArrayList();
         newestTransact.add(service.newerTransaction(typeOfData,p_id,from,to));
+        logges.addInfoLog("RPC - GET in newest_transaction with from="+from+" and to="+to+" with product id="+product_id,info);
         return newestTransact;
     }
 
@@ -78,6 +85,7 @@ public class RpcTransactionController {
         if(from_date!=null){from = new SimpleDateFormat("yyyy-MM-dd").parse(from_date);}
         if(to_date!=null) {to = new SimpleDateFormat("yyyy-MM-dd").parse(to_date);}
         if(product_id!=null){p_id=product_id;}
+        logges.addInfoLog("RPC - GET in mean with from="+from+" and to="+to+" with product id="+product_id,info);
         return valueSummaryService.meanOfTransaction(from,to,p_id,typeOfData);
     }
 
@@ -90,6 +98,7 @@ public class RpcTransactionController {
         if(from_date!=null){from = new SimpleDateFormat("yyyy-MM-dd").parse(from_date);}
         if(to_date!=null) {to = new SimpleDateFormat("yyyy-MM-dd").parse(to_date);}
         if(product_id!=null){p_id=product_id;}
+        logges.addInfoLog("RPC - GET in mode with from="+from+" and to="+to+" with product id="+product_id,info);
         return valueSummaryService.modeOfTransaction(from,to,p_id,typeOfData);
     }
 
@@ -102,6 +111,7 @@ public class RpcTransactionController {
         if(from_date!=null){from = new SimpleDateFormat("yyyy-MM-dd").parse(from_date);}
         if(to_date!=null) {to = new SimpleDateFormat("yyyy-MM-dd").parse(to_date);}
         if(product_id!=null){p_id=product_id;}
+        logges.addInfoLog("RPC - GET in standard deviation with from="+from+" and to="+to+" with product id="+product_id,info);
         return valueSummaryService.standardDeviationOfTransaction(from,to,p_id,typeOfData);
     }
 
@@ -114,6 +124,7 @@ public class RpcTransactionController {
         if(from_date!=null){from = new SimpleDateFormat("yyyy-MM-dd").parse(from_date);}
         if(to_date!=null) {to = new SimpleDateFormat("yyyy-MM-dd").parse(to_date);}
         if(product_id!=null){p_id=product_id;}
+        logges.addInfoLog("RPC - GET in variance with from="+from+" and to="+to+" with product id="+product_id,info);
         return valueSummaryService.varianceOfTransaction(from,to,p_id,typeOfData);
     }
 
@@ -124,6 +135,7 @@ public class RpcTransactionController {
         Date from=null,to=null;
         if(from_date!=null){from = new SimpleDateFormat("yyyy-MM-dd").parse(from_date);}
         if(to_date!=null) {to = new SimpleDateFormat("yyyy-MM-dd").parse(to_date);}
+        logges.addInfoLog("RPC - GET in most common product with from="+from+" and to="+to,info);
         return productService.CommonProduct(typeOfData,from,to,true,false);
     }
 
@@ -134,6 +146,7 @@ public class RpcTransactionController {
         Date from=null,to=null;
         if(from_date!=null){from = new SimpleDateFormat("yyyy-MM-dd").parse(from_date);}
         if(to_date!=null) {to = new SimpleDateFormat("yyyy-MM-dd").parse(to_date);}
+        logges.addInfoLog("RPC - GET in lest common product with from="+from+" and to="+to,info);
         return productService.CommonProduct(typeOfData,from,to,false,true);
     }
 
@@ -144,7 +157,7 @@ public class RpcTransactionController {
         Date from = null,to=null;
         if(from_date!=null){from = new SimpleDateFormat("yyyy-MM-dd").parse(from_date);}
         if(to_date!=null) {to = new SimpleDateFormat("yyyy-MM-dd").parse(to_date);}
+        logges.addInfoLog("RPC - GET in time_delta with from="+from+" and to="+to+" with product id="+product_id,info);
         return timeDeltaSummaryService.timeDelta(typeOfData,product_id,from,to);
     }
-
 }

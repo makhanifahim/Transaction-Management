@@ -1,5 +1,6 @@
 package TransactionMonitor.com.bbd.controller;
 
+import TransactionMonitor.com.bbd.config.Logges;
 import TransactionMonitor.com.bbd.model.Transaction;
 import TransactionMonitor.com.bbd.model.TransactionSummary;
 import TransactionMonitor.com.bbd.service.ProductService;
@@ -23,6 +24,7 @@ import java.util.Objects;
 @RequestMapping("/rest_api")
 @Slf4j
 public class RestTransactionController {
+
     @Autowired
     private final TransactionService service=new TransactionService();
     @Autowired
@@ -32,10 +34,14 @@ public class RestTransactionController {
     @Autowired
     private final ProductService productService=new ProductService();
 
+    private final Logges logges = new Logges();
+    String info="INFO";
+
     @PostMapping("/transactions")
     public String saveTransactions(@RequestBody List<Transaction> transactions,@PathVariable (required=false) String typeOfData) {
         if(Objects.equals(typeOfData, "") ||typeOfData==null)
             typeOfData="Data";
+        logges.addInfoLog("POST in Transaction is been fired",info);
         return service.saveTransaction(transactions, typeOfData);
     }
 
@@ -52,19 +58,25 @@ public class RestTransactionController {
             List<String[]> Transact= new ArrayList();
             Transact.add(service.oldestTransaction(typeOfData,p_id,from,to));
             Transact.add(service.newerTransaction(typeOfData,p_id,from,to));
+            logges.addInfoLog("GET in Transaction is been fired with oldest && newest = true",info);
             return Transact;
         }
         else if(oldest){
             List<String[]> oldestTransact= new ArrayList();
             oldestTransact.add(service.oldestTransaction(typeOfData,p_id,from,to));
+            logges.addInfoLog("GET in Transaction is been fired with oldest=true",info);
             return oldestTransact;
         }
         else if(newest) {
             List<String[]> newestTransact = new ArrayList();
             newestTransact.add(service.newerTransaction(typeOfData,p_id,from,to));
+            logges.addInfoLog("GET in Transaction is been fired with newest=true",info);
             return newestTransact;
         }
-        else{return service.allTransaction(typeOfData, p_id,from, to);}
+        else{
+            logges.addInfoLog("GET in Transaction is been fired for all transaction",info);
+            return service.allTransaction(typeOfData, p_id,from, to);
+        }
     }
 
     @GetMapping("/transaction_value_summary")
@@ -74,6 +86,7 @@ public class RestTransactionController {
         Date from = null,to=null;
         if(from_date!=null){from = new SimpleDateFormat("yyyy-MM-dd").parse(from_date);}
         if(to_date!=null) {to = new SimpleDateFormat("yyyy-MM-dd").parse(to_date);}
+        logges.addInfoLog("GET in Transaction Value Summary is been fired with from="+from+" and to="+to+" with product id="+product_id,info);
         return new TransactionSummary(valueSummaryService.meanOfTransaction(from,to,product_id,typeOfData),valueSummaryService.modeOfTransaction(from,to,product_id,typeOfData),valueSummaryService.standardDeviationOfTransaction(from,to,product_id,typeOfData),valueSummaryService.varianceOfTransaction(from,to,product_id,typeOfData));
     }
 
@@ -85,14 +98,19 @@ public class RestTransactionController {
         if(from_date!=null){from = new SimpleDateFormat("yyyy-MM-dd").parse(from_date);}
         if(to_date!=null) {to = new SimpleDateFormat("yyyy-MM-dd").parse(to_date);}
         if(most_common && lest_common){
+            logges.addInfoLog("GET in Products for Most common product and list common product with from=\"+from+\" and to=\"+to+\" with product id=\"+product_id,info",info);
             return productService.CommonProduct(typeOfData,from,to,true,true);
         }
-        else if(most_common)
-            return productService.CommonProduct(typeOfData,from,to,true,false);
-        else if(lest_common)
-            return productService.CommonProduct(typeOfData,from,to,false,true);
-        else
-            return productService.listCommonProd(typeOfData,from,to);
+        else if(most_common) {
+            logges.addInfoLog("GET in Products for Most common product with from=\"+from+\" and to=\"+to+\" with product id=\"+product_id,info",info);
+            return productService.CommonProduct(typeOfData, from, to, true, false);
+        }else if(lest_common) {
+            logges.addInfoLog("GET in Products for list common product with from=\"+from+\" and to=\"+to+\" with product id=\"+product_id,info",info);
+            return productService.CommonProduct(typeOfData, from, to, false, true);
+        }else {
+            logges.addInfoLog("GET in Products list Common products with from=\"+from+\" and to=\"+to+\" with product id=\"+product_id,info",info);
+            return productService.listCommonProd(typeOfData, from, to);
+        }
     }
 
     @GetMapping("/transaction_time_delta_summary")
@@ -102,6 +120,7 @@ public class RestTransactionController {
         Date from = null,to=null;
         if(from_date!=null){from = new SimpleDateFormat("yyyy-MM-dd").parse(from_date);}
         if(to_date!=null) {to = new SimpleDateFormat("yyyy-MM-dd").parse(to_date);}
+        logges.addInfoLog("GET in transaction_time_delta_summary with from=\"+from+\" and to=\"+to+\" with product id=\"+product_id,info",info);
         return timeDeltaSummaryService.timeDelta(typeOfData,product_id,from,to);
     }
 }

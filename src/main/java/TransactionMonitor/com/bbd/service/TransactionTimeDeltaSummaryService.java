@@ -33,7 +33,6 @@ public class TransactionTimeDeltaSummaryService {
             }
         }
         if (maxCount > 1) {
-            log.info("Maximum Count is "+maxCount);
             return mode;
         }
         return 0;
@@ -49,7 +48,6 @@ public class TransactionTimeDeltaSummaryService {
             XSeq=XSeq*XSeq;
             TotalXX=TotalXX+XSeq;
         }
-        log.info("User has Requested for Variance {}",TotalXX/TotalTran);
         return TotalXX/TotalTran;
 
     }
@@ -68,7 +66,6 @@ public class TransactionTimeDeltaSummaryService {
             TotalTransaction++;
             values[t] = TotalProcessMilliSeconds;
         }
-        log.info("User has Requested for TimeDelta details"+"Mean="+TotalProcessMilliSeconds/TotalTransaction+" Mode="+String.valueOf(mode(values))+" Standard Deviation="+Math.sqrt((float)TotalProcessMilliSeconds/TotalTransaction));
         float variance = variance(values,TotalProcessMilliSeconds/TotalTransaction,TypeOfData,product_id,from_date,to_date);
         return new TransactionSummary((float) TotalProcessMilliSeconds/TotalTransaction,String.valueOf(mode(values)),(float) TotalProcessMilliSeconds/TotalTransaction, variance);
     }
