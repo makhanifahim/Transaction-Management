@@ -20,9 +20,9 @@ import java.util.List;
 import java.util.Objects;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/rest_api")
 @Slf4j
-public class TransactionController {
+public class RestTransactionController {
     @Autowired
     private final TransactionService service=new TransactionService();
     @Autowired

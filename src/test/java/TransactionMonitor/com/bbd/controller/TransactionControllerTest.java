@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class TransactionControllerTest {
 
     @Autowired
-    private TransactionController transactionController;
+    private RestTransactionController transactionController;
 
     @Autowired
     private TransactionService service;
