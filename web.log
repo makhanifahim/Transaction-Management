@@ -1,0 +1,57 @@
+2022-08-18 15:27:29.066  INFO 25728 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 25728 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-18 15:27:29.066  INFO 25728 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
+2022-08-18 15:27:30.526  INFO 25728 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-18 15:27:30.526  INFO 25728 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-08-18 15:27:30.648  INFO 25728 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-18 15:27:31.497  INFO 25728 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-18 15:27:31.864  INFO 25728 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-18 15:27:31.924  INFO 25728 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-18 15:27:32.057  INFO 25728 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveTransactionsUsingPOST_1
+2022-08-18 15:27:32.073  INFO 25728 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 3.652 seconds (JVM running for 4.23)
+2022-08-18 15:27:41.849  INFO 25728 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-18 15:28:00.369 ERROR 25728 --- [http-nio-8080-exec-4] T.com.bbd.service.TransactionService     : Tried to add wrong data in which init_date 2000-01-04T23:00:00.505Z is higher the Conclusion_date2000-01-01T23:10:00.000Z
+2022-08-18 15:28:00.377 ERROR 25728 --- [http-nio-8080-exec-4] T.com.bbd.service.TransactionService     : Tried to add wrong data in which init_date 2000-01-04T23:00:00.505Z is higher the Conclusion_date2000-01-01T23:10:00.000Z
+2022-08-18 15:28:29.144 ERROR 25728 --- [http-nio-8080-exec-5] T.com.bbd.service.TransactionService     : Tried to add wrong data in which init_date 2000-01-04T23:00:00.505Z is higher the Conclusion_date2000-01-01T23:10:00.000Z
+2022-08-18 15:28:29.144 ERROR 25728 --- [http-nio-8080-exec-5] T.com.bbd.service.TransactionService     : Tried to add wrong data in which init_date 2000-01-04T23:00:00.505Z is higher the Conclusion_date2000-01-01T23:10:00.000Z
+2022-08-18 15:29:30.619  INFO 31356 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 31356 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-18 15:29:30.619  INFO 31356 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
+2022-08-18 15:29:32.054  INFO 31356 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-18 15:29:32.054  INFO 31356 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-08-18 15:29:32.152  INFO 31356 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-18 15:29:32.667  INFO 31356 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-18 15:29:32.990  INFO 31356 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-18 15:29:33.006  INFO 31356 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-18 15:29:33.053  INFO 31356 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-18 15:29:33.223  INFO 31356 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveTransactionsUsingPOST_1
+2022-08-18 15:29:33.244  INFO 31356 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 3.047 seconds (JVM running for 3.539)
+2022-08-18 15:29:45.760  INFO 31356 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-18 15:29:46.039 ERROR 31356 --- [http-nio-8080-exec-1] T.com.bbd.service.TransactionService     : Tried to add wrong data in which init_date 2000-01-04T23:00:00.505Z is higher the Conclusion_date2000-01-01T23:10:00.000Z
+2022-08-18 15:29:46.047 ERROR 31356 --- [http-nio-8080-exec-1] T.com.bbd.service.TransactionService     : Tried to add wrong data in which init_date 2000-01-04T23:00:00.505Z is higher the Conclusion_date2000-01-01T23:10:00.000Z
+2022-08-18 15:29:52.101  INFO 13664 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 13664 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-18 15:29:52.101  INFO 13664 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
+2022-08-18 15:29:53.406  INFO 13664 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-18 15:29:53.407  INFO 13664 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-08-18 15:29:53.464  INFO 13664 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-18 15:29:53.963  INFO 13664 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-18 15:29:54.253  INFO 13664 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-18 15:29:54.270  INFO 13664 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-18 15:29:54.363  INFO 13664 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-18 15:29:54.565  INFO 13664 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveTransactionsUsingPOST_1
+2022-08-18 15:29:54.580  INFO 13664 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 2.875 seconds (JVM running for 3.353)
+2022-08-18 15:30:02.999  INFO 13664 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-18 15:30:03.072 ERROR 13664 --- [http-nio-8080-exec-1] T.com.bbd.service.TransactionService     : Tried to add wrong data in which init_date 2000-01-04T23:00:00.505Z is higher the Conclusion_date2000-01-01T23:10:00.000Z
+2022-08-18 15:30:03.072 ERROR 13664 --- [http-nio-8080-exec-1] T.com.bbd.service.TransactionService     : Tried to add wrong data in which init_date 2000-01-04T23:00:00.505Z is higher the Conclusion_date2000-01-01T23:10:00.000Z
+2022-08-18 15:30:36.876  INFO 11228 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 11228 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-18 15:30:36.876  INFO 11228 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
+2022-08-18 15:30:38.065  INFO 11228 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-18 15:30:38.065  INFO 11228 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-08-18 15:30:38.125  INFO 11228 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-18 15:30:38.541  INFO 11228 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-18 15:30:38.817  INFO 11228 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-18 15:30:38.832  INFO 11228 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-18 15:30:38.894  INFO 11228 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-18 15:30:39.027  INFO 11228 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveTransactionsUsingPOST_1
+2022-08-18 15:30:39.043  INFO 11228 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 2.571 seconds (JVM running for 3.085)
+2022-08-18 15:30:48.062  INFO 11228 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-18 15:30:48.241 ERROR 11228 --- [http-nio-8080-exec-2] T.com.bbd.service.TransactionService     : Tried to add wrong data in which init_date 2000-01-04T23:00:00.505Z is higher the Conclusion_date2000-01-01T23:10:00.000Z
+2022-08-18 15:30:48.250 ERROR 11228 --- [http-nio-8080-exec-2] T.com.bbd.service.TransactionService     : Tried to add wrong data in which init_date 2000-01-04T23:00:00.505Z is higher the Conclusion_date2000-01-01T23:10:00.000Z
