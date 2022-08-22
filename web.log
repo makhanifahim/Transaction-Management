@@ -333,3 +333,170 @@
 2022-08-22 09:40:08.928  INFO 15500 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
 2022-08-22 09:40:09.042  INFO 15500 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 3.56 seconds (JVM running for 4.825)
 2022-08-22 09:40:09.196 ERROR 15500 --- [main] T.com.bbd.config.Logges                  : GET in transaction_time_delta_summary with from="+from+" and to="+to+" with product id="+product_id,info
+2022-08-22 10:16:16.529  INFO 13872 --- [main] T.c.b.c.RestTransactionControllerTest    : Starting RestTransactionControllerTest using Java 17.0.2 on FahimM with PID 13872 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 10:16:16.529  INFO 13872 --- [main] T.c.b.c.RestTransactionControllerTest    : No active profile set, falling back to default profiles: default
+2022-08-22 10:16:18.468  INFO 13872 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 10:16:19.106  INFO 13872 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 10:16:19.138  INFO 13872 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 10:16:19.191  INFO 13872 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 10:16:19.423  INFO 13872 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 10:16:19.507  INFO 13872 --- [main] T.c.b.c.RestTransactionControllerTest    : Started RestTransactionControllerTest in 3.315 seconds (JVM running for 4.659)
+2022-08-22 10:16:19.770 ERROR 13872 --- [main] T.com.bbd.config.Logges                  : GET in Transaction is been fired with newest=true
+2022-08-22 10:16:30.007  INFO 21332 --- [main] T.c.b.c.RestTransactionControllerTest    : Starting RestTransactionControllerTest using Java 17.0.2 on FahimM with PID 21332 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 10:16:30.007  INFO 21332 --- [main] T.c.b.c.RestTransactionControllerTest    : No active profile set, falling back to default profiles: default
+2022-08-22 10:16:32.056  INFO 21332 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 10:16:32.899  INFO 21332 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 10:16:32.931  INFO 21332 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 10:16:32.996  INFO 21332 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 10:16:33.247  INFO 21332 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 10:16:33.318  INFO 21332 --- [main] T.c.b.c.RestTransactionControllerTest    : Started RestTransactionControllerTest in 3.683 seconds (JVM running for 4.824)
+2022-08-22 10:16:33.545 ERROR 21332 --- [main] T.com.bbd.config.Logges                  : GET in Transaction is been fired with newest=true
+2022-08-22 10:22:49.219  INFO 21764 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 21764 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 10:22:49.219  INFO 21764 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
+2022-08-22 10:22:50.978  INFO 21764 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-22 10:22:50.978  INFO 21764 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-08-22 10:22:51.078  INFO 21764 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-22 10:22:51.662  INFO 21764 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 10:22:52.044  INFO 21764 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 10:22:52.079  INFO 21764 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 10:22:52.145  INFO 21764 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 10:22:52.363  INFO 21764 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 10:22:52.442  INFO 21764 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 3.762 seconds (JVM running for 4.349)
+2022-08-22 10:24:03.616  INFO 21764 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-22 10:25:33.601 ERROR 21764 --- [http-nio-8080-exec-6] T.com.bbd.config.Logges                  : RPC - GET in most common product with from=null and to=null
+2022-08-22 10:26:49.328 ERROR 21764 --- [http-nio-8080-exec-9] T.com.bbd.config.Logges                  : RPC - GET in most common product with from=null and to=null
+2022-08-22 10:57:04.908  INFO 32176 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 32176 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 10:57:04.908  INFO 32176 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
+2022-08-22 10:57:06.515  INFO 32176 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-22 10:57:06.515  INFO 32176 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-08-22 10:57:06.616  INFO 32176 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-22 10:57:07.269  INFO 32176 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 10:57:07.741  INFO 32176 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 10:57:07.754  INFO 32176 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 10:57:07.817  INFO 32176 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 10:57:08.017  INFO 32176 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 10:57:08.109  INFO 32176 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 3.733 seconds (JVM running for 4.325)
+2022-08-22 10:57:14.948  INFO 32176 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-22 10:57:15.012 ERROR 32176 --- [http-nio-8080-exec-2] T.com.bbd.config.Logges                  : RPC - GET in mean with from=null and to=null with product id=null
+2022-08-22 10:57:30.769 ERROR 32176 --- [http-nio-8080-exec-3] T.com.bbd.config.Logges                  : RPC - GET in mean with from=null and to=null with product id=null
+2022-08-22 10:57:41.377 ERROR 32176 --- [http-nio-8080-exec-4] T.com.bbd.config.Logges                  : RPC - GET in mean with from=null and to=null with product id=null
+2022-08-22 10:59:38.229 ERROR 32176 --- [http-nio-8080-exec-7] T.com.bbd.config.Logges                  : RPC - GET in mode with from=null and to=null with product id=null
+2022-08-22 11:01:07.298 ERROR 32176 --- [http-nio-8080-exec-10] T.com.bbd.config.Logges                  : RPC - GET in standard deviation with from=null and to=null with product id=null
+2022-08-22 11:01:26.244 ERROR 32176 --- [http-nio-8080-exec-1] T.com.bbd.config.Logges                  : RPC - GET in standard deviation with from=null and to=null with product id=null
+2022-08-22 11:01:35.487 ERROR 32176 --- [http-nio-8080-exec-2] T.com.bbd.config.Logges                  : RPC - GET in standard deviation with from=null and to=null with product id=null
+2022-08-22 11:01:37.727 ERROR 32176 --- [http-nio-8080-exec-3] T.com.bbd.config.Logges                  : RPC - GET in standard deviation with from=null and to=null with product id=null
+2022-08-22 11:03:22.771 ERROR 32176 --- [http-nio-8080-exec-6] T.com.bbd.config.Logges                  : RPC - GET in variance with from=null and to=null with product id=null
+2022-08-22 11:03:36.879 ERROR 32176 --- [http-nio-8080-exec-7] T.com.bbd.config.Logges                  : RPC - GET in variance with from=null and to=null with product id=null
+2022-08-22 11:03:46.801 ERROR 32176 --- [http-nio-8080-exec-8] T.com.bbd.config.Logges                  : RPC - GET in variance with from=null and to=null with product id=null
+2022-08-22 11:07:53.351  INFO 32344 --- [main] T.c.b.c.RpcTransactionControllerTest     : Starting RpcTransactionControllerTest using Java 17.0.2 on FahimM with PID 32344 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 11:07:53.351  INFO 32344 --- [main] T.c.b.c.RpcTransactionControllerTest     : No active profile set, falling back to default profiles: default
+2022-08-22 11:07:55.183  INFO 32344 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 11:07:55.869  INFO 32344 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 11:07:55.883  INFO 32344 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 11:07:55.931  INFO 32344 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 11:07:56.199  INFO 32344 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 11:07:56.283  INFO 32344 --- [main] T.c.b.c.RpcTransactionControllerTest     : Started RpcTransactionControllerTest in 3.297 seconds (JVM running for 4.554)
+2022-08-22 11:07:56.399 ERROR 32344 --- [main] T.com.bbd.config.Logges                  : RPC - GET in variance with from=null and to=null with product id=null
+2022-08-22 11:10:57.218  INFO 17920 --- [main] T.c.b.c.RpcTransactionControllerTest     : Starting RpcTransactionControllerTest using Java 17.0.2 on FahimM with PID 17920 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 11:10:57.234  INFO 17920 --- [main] T.c.b.c.RpcTransactionControllerTest     : No active profile set, falling back to default profiles: default
+2022-08-22 11:10:59.083  INFO 17920 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 11:10:59.583  INFO 17920 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 11:10:59.599  INFO 17920 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 11:10:59.647  INFO 17920 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 11:10:59.832  INFO 17920 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 11:10:59.952  INFO 17920 --- [main] T.c.b.c.RpcTransactionControllerTest     : Started RpcTransactionControllerTest in 3.251 seconds (JVM running for 4.451)
+2022-08-22 11:11:00.084 ERROR 17920 --- [main] T.com.bbd.config.Logges                  : RPC - GET in lest common product with from=null and to=null
+2022-08-22 11:11:11.087  INFO 27992 --- [main] T.c.b.c.RpcTransactionControllerTest     : Starting RpcTransactionControllerTest using Java 17.0.2 on FahimM with PID 27992 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 11:11:11.087  INFO 27992 --- [main] T.c.b.c.RpcTransactionControllerTest     : No active profile set, falling back to default profiles: default
+2022-08-22 11:11:13.106  INFO 27992 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 11:11:13.671  INFO 27992 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 11:11:13.702  INFO 27992 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 11:11:13.765  INFO 27992 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 11:11:13.971  INFO 27992 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 11:11:14.071  INFO 27992 --- [main] T.c.b.c.RpcTransactionControllerTest     : Started RpcTransactionControllerTest in 3.417 seconds (JVM running for 4.664)
+2022-08-22 11:11:14.219 ERROR 27992 --- [main] T.com.bbd.config.Logges                  : RPC - GET in lest common product with from=null and to=null
+2022-08-22 11:11:28.179  INFO 7204 --- [main] T.c.b.c.RpcTransactionControllerTest     : Starting RpcTransactionControllerTest using Java 17.0.2 on FahimM with PID 7204 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 11:11:28.183  INFO 7204 --- [main] T.c.b.c.RpcTransactionControllerTest     : No active profile set, falling back to default profiles: default
+2022-08-22 11:11:30.327  INFO 7204 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 11:11:30.959  INFO 7204 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 11:11:30.991  INFO 7204 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 11:11:31.144  INFO 7204 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 11:11:31.376  INFO 7204 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 11:11:31.444  INFO 7204 --- [main] T.c.b.c.RpcTransactionControllerTest     : Started RpcTransactionControllerTest in 3.766 seconds (JVM running for 4.97)
+2022-08-22 11:11:31.828 ERROR 7204 --- [main] T.com.bbd.config.Logges                  : RPC - GET in oldest_transaction with from=Thu Jan 01 00:00:00 IST 1998 and to=Fri Jan 01 00:00:00 IST 1999 with product id=null
+2022-08-22 11:11:31.891 ERROR 7204 --- [main] T.com.bbd.config.Logges                  : RPC - POST in create_transaction is been fired
+2022-08-22 11:11:31.891 ERROR 7204 --- [main] T.com.bbd.config.Logges                  : Data passed in body was not valid
+2022-08-22 11:11:31.907 ERROR 7204 --- [main] T.com.bbd.config.Logges                  : RPC - GET in standard deviation with from=null and to=null with product id=null
+2022-08-22 11:11:31.955 ERROR 7204 --- [main] T.com.bbd.config.Logges                  : RPC - GET in most common product with from=null and to=null
+2022-08-22 11:11:32.005 ERROR 7204 --- [main] T.com.bbd.config.Logges                  : RPC - GET in newest_transaction with from=Thu Jan 01 00:00:00 IST 1998 and to=Sat Dec 05 00:00:00 IST 1998 with product id=null
+2022-08-22 11:11:32.021 ERROR 7204 --- [main] T.com.bbd.config.Logges                  : RPC - GET in mean with from=null and to=null with product id=null
+2022-08-22 11:11:32.061 ERROR 7204 --- [main] T.com.bbd.config.Logges                  : RPC - GET in mode with from=null and to=null with product id=null
+2022-08-22 11:11:32.122 ERROR 7204 --- [main] T.com.bbd.config.Logges                  : RPC - GET in lest common product with from=null and to=null
+2022-08-22 11:11:32.211 ERROR 7204 --- [main] T.com.bbd.config.Logges                  : RPC - GET in newest_transaction with from=null and to=null with product id=null
+2022-08-22 11:11:32.252 ERROR 7204 --- [main] T.com.bbd.config.Logges                  : RPC - GET in oldest_transaction with from=null and to=null with product id=null
+2022-08-22 11:11:32.254 ERROR 7204 --- [main] T.com.bbd.config.Logges                  : RPC - GET in most common product with from=null and to=null
+2022-08-22 11:11:32.288 ERROR 7204 --- [main] T.com.bbd.config.Logges                  : RPC - GET in variance with from=null and to=null with product id=null
+2022-08-22 11:11:32.355 ERROR 7204 --- [main] T.com.bbd.config.Logges                  : RPC - GET in lest common product with from=null and to=null
+2022-08-22 11:11:32.386 ERROR 7204 --- [main] T.com.bbd.config.Logges                  : RPC - POST in create_transaction is been fired
+2022-08-22 11:11:32.386 ERROR 7204 --- [main] T.com.bbd.config.Logges                  : Data passed in body was not valid :java.text.ParseException: Unparseable date: "1998-01-05"
+2022-08-22 11:11:32.386 ERROR 7204 --- [main] T.com.bbd.config.Logges                  : Data passed in body was not valid index with error is :[0]
+2022-08-22 11:11:51.250  INFO 22584 --- [main] T.c.b.c.RpcTransactionControllerTest     : Starting RpcTransactionControllerTest using Java 17.0.2 on FahimM with PID 22584 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 11:11:51.250  INFO 22584 --- [main] T.c.b.c.RpcTransactionControllerTest     : No active profile set, falling back to default profiles: default
+2022-08-22 11:11:53.329  INFO 22584 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 11:11:54.029  INFO 22584 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 11:11:54.062  INFO 22584 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 11:11:54.112  INFO 22584 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 11:11:54.310  INFO 22584 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 11:11:54.447  INFO 22584 --- [main] T.c.b.c.RpcTransactionControllerTest     : Started RpcTransactionControllerTest in 3.594 seconds (JVM running for 4.992)
+2022-08-22 11:11:54.587 ERROR 22584 --- [main] T.com.bbd.config.Logges                  : RPC - GET in mode with from=null and to=null with product id=null
+2022-08-22 11:12:27.873  INFO 31520 --- [main] T.c.b.c.RpcTransactionControllerTest     : Starting RpcTransactionControllerTest using Java 17.0.2 on FahimM with PID 31520 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 11:12:27.873  INFO 31520 --- [main] T.c.b.c.RpcTransactionControllerTest     : No active profile set, falling back to default profiles: default
+2022-08-22 11:12:29.862  INFO 31520 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 11:12:30.494  INFO 31520 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 11:12:30.526  INFO 31520 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 11:12:30.586  INFO 31520 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 11:12:30.842  INFO 31520 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 11:12:30.963  INFO 31520 --- [main] T.c.b.c.RpcTransactionControllerTest     : Started RpcTransactionControllerTest in 3.449 seconds (JVM running for 4.957)
+2022-08-22 11:13:32.158  INFO 16424 --- [main] T.c.b.c.RpcTransactionControllerTest     : Starting RpcTransactionControllerTest using Java 17.0.2 on FahimM with PID 16424 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 11:13:32.158  INFO 16424 --- [main] T.c.b.c.RpcTransactionControllerTest     : No active profile set, falling back to default profiles: default
+2022-08-22 11:13:34.170  INFO 16424 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 11:13:34.784  INFO 16424 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 11:13:34.831  INFO 16424 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 11:13:34.884  INFO 16424 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 11:13:35.168  INFO 16424 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 11:13:35.284  INFO 16424 --- [main] T.c.b.c.RpcTransactionControllerTest     : Started RpcTransactionControllerTest in 3.46 seconds (JVM running for 4.723)
+2022-08-22 11:27:13.604  INFO 19532 --- [main] T.c.b.c.RpcTransactionControllerTest     : Starting RpcTransactionControllerTest using Java 17.0.2 on FahimM with PID 19532 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 11:27:13.604  INFO 19532 --- [main] T.c.b.c.RpcTransactionControllerTest     : No active profile set, falling back to default profiles: default
+2022-08-22 11:27:15.268  INFO 19532 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 11:27:15.858  INFO 19532 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 11:27:15.890  INFO 19532 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 11:27:15.943  INFO 19532 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 11:27:16.190  INFO 19532 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 11:27:16.275  INFO 19532 --- [main] T.c.b.c.RpcTransactionControllerTest     : Started RpcTransactionControllerTest in 2.986 seconds (JVM running for 4.083)
+2022-08-22 11:27:16.576 ERROR 19532 --- [main] T.com.bbd.config.Logges                  : RPC - POST in create_transaction is been fired
+2022-08-22 11:27:16.729 ERROR 19532 --- [main] T.com.bbd.config.Logges                  : RPC - GET in oldest_transaction with from=Thu Jan 01 00:00:00 IST 1998 and to=Fri Jan 01 00:00:00 IST 1999 with product id=null
+2022-08-22 11:27:16.729 ERROR 19532 --- [main] T.com.bbd.config.Logges                  : RPC - POST in create_transaction is been fired
+2022-08-22 11:27:16.729 ERROR 19532 --- [main] T.com.bbd.config.Logges                  : Data passed in body was not valid
+2022-08-22 11:27:16.745 ERROR 19532 --- [main] T.com.bbd.config.Logges                  : RPC - GET in standard deviation with from=null and to=null with product id=null
+2022-08-22 11:27:16.761 ERROR 19532 --- [main] T.com.bbd.config.Logges                  : RPC - GET in most common product with from=null and to=null
+2022-08-22 11:27:16.792 ERROR 19532 --- [main] T.com.bbd.config.Logges                  : RPC - GET in newest_transaction with from=Thu Jan 01 00:00:00 IST 1998 and to=Sat Dec 05 00:00:00 IST 1998 with product id=null
+2022-08-22 11:27:16.792 ERROR 19532 --- [main] T.com.bbd.config.Logges                  : RPC - GET in mean with from=null and to=null with product id=null
+2022-08-22 11:27:16.814 ERROR 19532 --- [main] T.com.bbd.config.Logges                  : RPC - GET in mode with from=null and to=null with product id=null
+2022-08-22 11:27:16.830 ERROR 19532 --- [main] T.com.bbd.config.Logges                  : RPC - GET in lest common product with from=null and to=null
+2022-08-22 11:27:16.845 ERROR 19532 --- [main] T.com.bbd.config.Logges                  : RPC - GET in newest_transaction with from=null and to=null with product id=null
+2022-08-22 11:27:16.877 ERROR 19532 --- [main] T.com.bbd.config.Logges                  : RPC - GET in oldest_transaction with from=null and to=null with product id=null
+2022-08-22 11:27:16.877 ERROR 19532 --- [main] T.com.bbd.config.Logges                  : RPC - GET in most common product with from=null and to=null
+2022-08-22 11:27:16.892 ERROR 19532 --- [main] T.com.bbd.config.Logges                  : RPC - GET in variance with from=null and to=null with product id=null
+2022-08-22 11:27:16.914 ERROR 19532 --- [main] T.com.bbd.config.Logges                  : RPC - GET in lest common product with from=null and to=null
+2022-08-22 11:27:16.930 ERROR 19532 --- [main] T.com.bbd.config.Logges                  : RPC - POST in create_transaction is been fired
+2022-08-22 11:27:16.930 ERROR 19532 --- [main] T.com.bbd.config.Logges                  : Data passed in body was not valid :java.text.ParseException: Unparseable date: "1998-01-05"
+2022-08-22 11:27:16.930 ERROR 19532 --- [main] T.com.bbd.config.Logges                  : Data passed in body was not valid index with error is :[0]
+2022-08-22 11:33:42.192  INFO 11408 --- [main] T.c.b.c.RpcTransactionControllerTest     : Starting RpcTransactionControllerTest using Java 17.0.2 on FahimM with PID 11408 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 11:33:42.192  INFO 11408 --- [main] T.c.b.c.RpcTransactionControllerTest     : No active profile set, falling back to default profiles: default
+2022-08-22 11:33:48.810  INFO 11408 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 11:33:49.580  INFO 11408 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 11:33:49.612  INFO 11408 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 11:33:49.659  INFO 11408 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 11:33:49.859  INFO 11408 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 11:33:49.913  INFO 11408 --- [main] T.c.b.c.RpcTransactionControllerTest     : Started RpcTransactionControllerTest in 8.005 seconds (JVM running for 8.954)
+2022-08-22 11:33:50.013 ERROR 11408 --- [main] T.com.bbd.config.Logges                  : RPC - GET in time_delta with from=null and to=null with product id=null

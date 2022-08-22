@@ -19,10 +19,10 @@ import java.util.List;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @SpringBootTest
-class RestTransactionControllerTest {
+public class RpcTransactionControllerTest {
 
     @Autowired
-    private RestTransactionController transactionController;
+    private RpcTransactionController transactionController;
 
     @Autowired
     private TransactionService service;
@@ -40,7 +40,7 @@ class RestTransactionControllerTest {
     void saveTransaction() throws IOException {
         String filepath = ".//TestData";
         File file = new File(filepath);
-        if(file.exists()==true) {
+        if(file.exists()) {
             FileUtils.cleanDirectory(file);
             file.delete();
         }
@@ -168,7 +168,7 @@ class RestTransactionControllerTest {
         Transaction rec35 = new Transaction("1997-12-04T13:00:00.505Z","1997-12-05T13:00:00.510Z",8,3.7F);
         records.add(rec35);
 
-        String actualResult = transactionController.saveTransactions(records,"TestData");
+        String actualResult = transactionController.createTransactions(records,"TestData");
         assertThat(actualResult).isEqualTo("Successfully Inserted");
     }
 
@@ -177,7 +177,7 @@ class RestTransactionControllerTest {
         List<Transaction> records = new ArrayList<Transaction>();
         Transaction  rec = new Transaction("1998-01-05","1998-01-05",1,3001.0F);
         records.add(rec);
-        String actualResult = transactionController.saveTransactions(records,"TestData");
+        String actualResult = transactionController.createTransactions(records,"TestData");
         assertThat(actualResult).isEqualTo("Problem with index value : [0]");
     }
 
@@ -186,14 +186,14 @@ class RestTransactionControllerTest {
         List<Transaction> records = new ArrayList<Transaction>();
         Transaction  rec = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T13:00:00.005Z",1,3001.0F);
         records.add(rec);
-        String actualResult = transactionController.saveTransactions(records,"TestData");
+        String actualResult = transactionController.createTransactions(records,"TestData");
         assertThat(actualResult).isEqualTo("Problem with index value : [0]");
     }
 
     @Test
     void checkOldest() throws IOException, ParseException, CsvException {
         String[] testResult = {"1997-01-01T13:00:00.505Z", "1997-01-01T14:00:00.000Z", "1", "3001.7"};
-        List<String[]> actualResult =transactionController.getTransactions(null,null,true,false,null,"TestData");
+        List<String[]> actualResult =transactionController.oldestTransaction(null,null,null,"TestData");
         assertThat(actualResult.get(0)[0].equals(testResult[0]) && actualResult.get(0)[1].equals(testResult[1]) && actualResult.get(0)[2].equals(testResult[2]) && actualResult.get(0)[3].equals(testResult[3]));
     }
 
@@ -203,24 +203,52 @@ class RestTransactionControllerTest {
         String from ="1998-01-01";
         String to= "1999-01-01";
         String[] testResult = {"1998-01-01T13:00:00.505Z","1998-01-01T14:00:00.000Z", "1","3008.0"};
-        List<String[]> actualResult =transactionController.getTransactions(from,to,true,false,null,"TestData");
+        List<String[]> actualResult =transactionController.oldestTransaction(from,to,null,"TestData");
         assertThat(actualResult.get(0)[0].equals(testResult[0]) && actualResult.get(0)[1].equals(testResult[1]) && actualResult.get(0)[2].equals(testResult[2]) && actualResult.get(0)[3].equals(testResult[3]));
     }
 
     @Test
     void checkNewest() throws IOException, ParseException, CsvException {
         String[] testResult = {"1999-12-04T13:00:00.505Z","1999-12-04T13:00:00.510Z","8","9.0"};
-        List<String[]> actualResult =transactionController.getTransactions(null,null,false,true,null,"TestData");
+        List<String[]> actualResult =transactionController.newestTransaction(null,null,null,"TestData");
         assertThat(actualResult.get(0)[0].equals(testResult[0]) && actualResult.get(0)[1].equals(testResult[1]) && actualResult.get(0)[2].equals(testResult[2]) && actualResult.get(0)[3].equals(testResult[3]));
     }
 
     @Test
     void checkNewestTInRange() throws IOException, ParseException, CsvException {
         String[] testResult={"1998-12-04T13:00:00.505Z","1998-12-04T13:00:00.510Z","2","3.8"};
-        String from ="1998-01-01";
-        String to= "1998-12-05";
-        List<String[]> actualResult =transactionController.getTransactions(from,to,false,true,null,"TestData");
+        String from="1998-01-01";
+        String to = "1998-12-05";
+        List<String[]> actualResult =transactionController.newestTransaction(from,to,null,"TestData");
         assertThat(actualResult.get(0)[0].equals(testResult[0]) && actualResult.get(0)[1].equals(testResult[1]) && actualResult.get(0)[2].equals(testResult[2]) && actualResult.get(0)[3].equals(testResult[3]));
+    }
+
+    @Test
+    void checkMean() throws ParseException, IOException, CsvException {
+        float actualResult=transactionController.meanTransaction(null,null,null,"TestData");
+        float expectedResult=1024.8555F;
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
+    @Test
+    void checkMode() throws ParseException, IOException, CsvException {
+        String actualResult=transactionController.modeTransaction(null,null,null,"TestData");
+        String expectedResult="7.0";
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
+    @Test
+    void checkStandardDeviation() throws ParseException, IOException, CsvException {
+        float actualResult=transactionController.standardDeviationTransaction(null,null,null,"TestData");
+        float expectedResult=32.013363F;
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
+    @Test
+    void checkVariance() throws ParseException, IOException, CsvException {
+        float actualResult=transactionController.varianceTransaction(null,null,null,"TestData");
+        float expectedResult=3302611.5F;
+        assertThat(actualResult).isEqualTo(expectedResult);
     }
 
     @Test
@@ -228,7 +256,7 @@ class RestTransactionControllerTest {
         String[][] actualResult=new String[1][2];
         actualResult[0][0]= "5";
         actualResult[0][1]= "7";
-        assertThat(transactionController.allProducts(null,null,"TestData",true,false)).isEqualTo(actualResult);
+        assertThat(transactionController.mostCommonTransaction(null,null,"TestData")).isEqualTo(actualResult);
     }
 
     @Test
@@ -237,7 +265,7 @@ class RestTransactionControllerTest {
         String[][] testResult=new String[1][2];
         testResult[0][0]= "5";
         testResult[0][1]= "7";
-        assertThat(transactionController.allProducts(null,null,"TestData",true,false)).isEqualTo(testResult);
+        assertThat(transactionController.mostCommonTransaction(null,null,"TestData")).isEqualTo(testResult);
     }
 
     @Test
@@ -245,7 +273,7 @@ class RestTransactionControllerTest {
         String[][] actualResult= new String[1][2];
         actualResult[0][0]= "3";
         actualResult[0][1]= "2";
-        assertThat(transactionController.allProducts(null,null,"TestData",false,true)).isEqualTo(actualResult);
+        assertThat(transactionController.lestCommonTransaction(null,null,"TestData")).isEqualTo(actualResult);
     }
 
     @Test
@@ -254,14 +282,7 @@ class RestTransactionControllerTest {
         String[][] testResult=new String[1][2];
         testResult[0][0]= "3";
         testResult[0][1]= "2";
-        assertThat(transactionController.allProducts(null,null,"TestData",false,true)).isEqualTo(testResult);
-    }
-
-    @Test
-    void transactionValueSummary() throws IOException, ParseException, CsvException {
-        TransactionSummary actualResult = transactionController.getSummary(null, null, null, "TestData");
-        TransactionSummary existingResult = new TransactionSummary(1024.8555F, "7.0", 32.013363F, 3302611.5F);
-        assertThat(actualResult).isEqualTo(existingResult);
+        assertThat(transactionController.lestCommonTransaction(null,null,"TestData")).isEqualTo(testResult);
     }
 
     @Test
@@ -270,12 +291,15 @@ class RestTransactionControllerTest {
         TransactionSummary existingResult = new TransactionSummary(5850274.0F, "1.2002665E7", 5850274.0F, 2.49092147E16F);
         assertThat(actualResult).isEqualTo(existingResult);
     }
+
     @AfterAll
     static void tearDown() throws IOException {
         System.out.println("tearing down");
     }
+
     @AfterEach
     void afterAll() {
         System.out.println("Testing ended");
     }
 }
+
