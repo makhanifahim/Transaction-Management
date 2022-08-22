@@ -59,12 +59,13 @@ public class TransactionTimeDeltaSummaryService {
         long TotalTransaction=0;
         long[] values = new long[transaction.size()];
         for(int t=0;t<transaction.size();t++){
-            String[] row= (String[]) transaction.get(t);
+            String[] row=transaction.get(t);
             Date dateFrom=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(row[0]);
             Date dateTo=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(row[1]);
             TotalProcessMilliSeconds = TotalProcessMilliSeconds+(dateTo.getTime() - dateFrom.getTime());
             TotalTransaction++;
             values[t] = TotalProcessMilliSeconds;
+            System.out.println(dateTo+" - "+dateFrom+" "+(dateTo.getTime()-dateFrom.getTime()));
         }
         float variance = variance(values,TotalProcessMilliSeconds/TotalTransaction,TypeOfData,product_id,from_date,to_date);
         return new TransactionSummary((float) TotalProcessMilliSeconds/TotalTransaction,String.valueOf(mode(values)),(float) TotalProcessMilliSeconds/TotalTransaction, variance);

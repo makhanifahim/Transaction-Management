@@ -27,13 +27,13 @@ import java.util.Objects;
 @ControllerAdvice
 public class RpcTransactionController {
     @Autowired
-    private final TransactionService service=new TransactionService();
+    private TransactionService service;
     @Autowired
-    private final TransactionValueSummaryService valueSummaryService=new TransactionValueSummaryService();
+    private TransactionValueSummaryService valueSummaryService;
     @Autowired
-    private final TransactionTimeDeltaSummaryService timeDeltaSummaryService=new TransactionTimeDeltaSummaryService();
+    private TransactionTimeDeltaSummaryService timeDeltaSummaryService;
     @Autowired
-    private final ProductService productService=new ProductService();
+    private ProductService productService;
 
     private final Logges logges = new Logges();
     String info="INFO";
