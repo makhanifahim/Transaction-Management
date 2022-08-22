@@ -25,7 +25,7 @@ public class TransactionService {
     private final Logges logges = new Logges();
     String error="error";
 
-    private static int getQuarter(int month){
+    private int getQuarter(int month){
         return switch (month) {
             case 1, 2, 3 -> 1;
             case 4, 5, 6 -> 2;
@@ -34,14 +34,14 @@ public class TransactionService {
             default -> 0;
         };
     }
-    private static String conDay(Date date){
+    private String conDay(Date date){
         int d = date.getDate();
         String day = d + "";
         if (d < 10)
             day = 0 + "" + d;
         return day;
     }
-    private static String conMonth(Date date){
+    private String conMonth(Date date){
         int m=date.getMonth() + 1;
         String month;
         if (m < 10) {
@@ -51,7 +51,7 @@ public class TransactionService {
         }
         return month;
     }
-    private static int conYear(Date date){
+    private int conYear(Date date){
         return date.getYear() + 1900;
     }
     private Date configDate(String dateAndTime) throws ParseException {
@@ -63,7 +63,7 @@ public class TransactionService {
     public Date StringTODate(String date) throws ParseException {
         return new SimpleDateFormat("yyyy-MM-dd").parse(date);
     }
-    private static String[] dateFromPath(String DayPath){
+    private String[] dateFromPath(String DayPath){
         SimpleDateFormat fileDate = new SimpleDateFormat("dd-MM-yyyy");
         int indexOfDash = DayPath.indexOf('.');
         String DateFromPath=DayPath.substring(0, indexOfDash);
@@ -107,7 +107,7 @@ public class TransactionService {
     }
 
     //All files in present
-    private static List<String> allFilesInPresent(String TypeOfData) throws IOException {
+    private List<String> allFilesInPresent(String TypeOfData) throws IOException {
         List<String> paths= new ArrayList<String>();
         List listYears = Files.list(Paths.get(".\\"+TypeOfData)).toList();
         for(int year = 0; year< (long) listYears.size(); year++){
@@ -238,7 +238,7 @@ public class TransactionService {
                     int quarter = getQuarter(Integer.parseInt(month));
                     File file = new File(".\\"+typeOfData+"\\" + year + "\\" + quarter);
                     file.mkdirs();
-                    String[] line1 = {transaction.getInit_date(), transaction.getInit_date(), transaction.getProduct_id().toString(), transaction.getValue().toString()};
+                    String[] line1 = {transaction.getInit_date(), transaction.getConclusion_date(), transaction.getProduct_id().toString(), transaction.getValue().toString()};
                     insertDataInFile(init_date,!isFileExist(typeOfData,init_date),typeOfData,line1);
 
                 }

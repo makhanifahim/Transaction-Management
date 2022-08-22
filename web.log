@@ -1,36 +1,335 @@
-2022-08-19 11:17:20.097  INFO 24008 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 24008 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-19 11:17:20.100  INFO 24008 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
-2022-08-19 11:17:21.748  INFO 24008 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-19 11:17:21.748  INFO 24008 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-08-19 11:17:21.870  INFO 24008 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-19 11:17:22.450  INFO 24008 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-19 11:17:22.839  INFO 24008 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-19 11:17:22.871  INFO 24008 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-19 11:17:22.953  INFO 24008 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-19 11:17:23.388  INFO 24008 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
-2022-08-19 11:17:23.621  INFO 24008 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 4.13 seconds (JVM running for 4.751)
-2022-08-19 11:18:33.577  INFO 19252 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 19252 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-19 11:18:33.577  INFO 19252 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
-2022-08-19 11:18:35.014  INFO 19252 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-19 11:18:35.020  INFO 19252 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-08-19 11:18:35.090  INFO 19252 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-19 11:18:35.721  INFO 19252 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-19 11:18:36.081  INFO 19252 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-19 11:18:36.121  INFO 19252 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-19 11:18:36.171  INFO 19252 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-19 11:18:36.354  INFO 19252 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
-2022-08-19 11:18:36.422  INFO 19252 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 3.323 seconds (JVM running for 3.973)
-2022-08-19 11:19:26.568  INFO 19252 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-08-19 11:20:35.025 ERROR 19252 --- [http-nio-8080-exec-5] T.com.bbd.config.Logges                  : RPC - POST in create_transaction is been fired
-2022-08-19 11:20:35.033 ERROR 19252 --- [http-nio-8080-exec-5] T.com.bbd.config.Logges                  : Data passed in body was not valid
-2022-08-19 11:27:14.038  INFO 9424 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 9424 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
-2022-08-19 11:27:14.038  INFO 9424 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
-2022-08-19 11:27:15.691  INFO 9424 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-19 11:27:15.693  INFO 9424 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-08-19 11:27:15.791  INFO 9424 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-19 11:27:16.352  INFO 9424 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-19 11:27:16.792  INFO 9424 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-19 11:27:16.807  INFO 9424 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-19 11:27:16.870  INFO 9424 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-19 11:27:17.097  INFO 9424 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
-2022-08-19 11:27:17.158  INFO 9424 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 3.74 seconds (JVM running for 4.379)
+2022-08-22 06:56:27.091  INFO 15404 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 15404 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 06:56:27.100  INFO 15404 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 06:56:28.681  INFO 15404 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 06:56:29.226  INFO 15404 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 06:56:29.245  INFO 15404 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 06:56:29.289  INFO 15404 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 06:56:29.508  INFO 15404 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 06:56:29.605  INFO 15404 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 2.868 seconds (JVM running for 4.092)
+2022-08-22 06:56:30.057 ERROR 15404 --- [main] T.com.bbd.config.Logges                  : POST in Transaction is been fired
+2022-08-22 06:56:30.057 ERROR 15404 --- [main] T.com.bbd.config.Logges                  : Data passed in body was not valid
+2022-08-22 06:56:30.057 ERROR 15404 --- [main] T.com.bbd.config.Logges                  : GET in Products for Most common product with from="+from+" and to="+to+" with product id="+product_id,info
+2022-08-22 06:56:30.098 ERROR 15404 --- [main] T.com.bbd.config.Logges                  : GET in Products for list common product with from="+from+" and to="+to+" with product id="+product_id,info
+2022-08-22 06:56:30.138 ERROR 15404 --- [main] T.com.bbd.config.Logges                  : GET in Products for Most common product with from="+from+" and to="+to+" with product id="+product_id,info
+2022-08-22 06:56:30.160 ERROR 15404 --- [main] T.com.bbd.config.Logges                  : GET in Products for list common product with from="+from+" and to="+to+" with product id="+product_id,info
+2022-08-22 06:56:30.178 ERROR 15404 --- [main] T.com.bbd.config.Logges                  : Data passed in body was not valid :java.text.ParseException: Unparseable date: "1998-01-05"
+2022-08-22 06:56:30.178 ERROR 15404 --- [main] T.com.bbd.config.Logges                  : Data passed in body was not valid index with error is :[0]
+2022-08-22 06:56:30.180 ERROR 15404 --- [main] T.com.bbd.config.Logges                  : POST in Transaction is been fired
+2022-08-22 06:56:47.978  INFO 32444 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 32444 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 06:56:47.986  INFO 32444 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 06:56:49.584  INFO 32444 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 06:56:50.112  INFO 32444 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 06:56:50.125  INFO 32444 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 06:56:50.177  INFO 32444 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 06:56:50.401  INFO 32444 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 06:56:50.492  INFO 32444 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 2.831 seconds (JVM running for 4.077)
+2022-08-22 06:57:04.107  INFO 4736 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 4736 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 06:57:04.107  INFO 4736 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 06:57:05.681  INFO 4736 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 06:57:06.199  INFO 4736 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 06:57:06.227  INFO 4736 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 06:57:06.268  INFO 4736 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 06:57:06.493  INFO 4736 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 06:57:06.625  INFO 4736 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 2.826 seconds (JVM running for 3.762)
+2022-08-22 06:57:19.358  INFO 30760 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 30760 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 06:57:19.358  INFO 30760 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 06:57:20.861  INFO 30760 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 06:57:21.370  INFO 30760 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 06:57:21.391  INFO 30760 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 06:57:21.447  INFO 30760 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 06:57:21.665  INFO 30760 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 06:57:21.723  INFO 30760 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 2.667 seconds (JVM running for 3.594)
+2022-08-22 06:57:21.828 ERROR 30760 --- [main] T.com.bbd.config.Logges                  : Data passed in body was not valid :java.text.ParseException: Unparseable date: "1998-01-05"
+2022-08-22 06:57:21.828 ERROR 30760 --- [main] T.com.bbd.config.Logges                  : Data passed in body was not valid index with error is :[0]
+2022-08-22 06:58:33.184  INFO 17112 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 17112 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 06:58:33.184  INFO 17112 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 06:58:34.703  INFO 17112 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 06:58:35.261  INFO 17112 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 06:58:35.284  INFO 17112 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 06:58:35.332  INFO 17112 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 06:58:35.577  INFO 17112 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 06:58:35.684  INFO 17112 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 2.796 seconds (JVM running for 3.753)
+2022-08-22 06:59:51.759  INFO 30484 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 30484 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 06:59:51.761  INFO 30484 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 06:59:53.459  INFO 30484 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 06:59:53.967  INFO 30484 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 06:59:53.988  INFO 30484 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 06:59:54.038  INFO 30484 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 06:59:54.261  INFO 30484 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 06:59:54.332  INFO 30484 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 2.933 seconds (JVM running for 4.137)
+2022-08-22 07:01:39.384  INFO 35752 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 35752 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 07:01:39.384  INFO 35752 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 07:01:41.011  INFO 35752 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 07:01:41.606  INFO 35752 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 07:01:41.619  INFO 35752 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 07:01:41.669  INFO 35752 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 07:01:41.874  INFO 35752 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 07:01:41.975  INFO 35752 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 2.85 seconds (JVM running for 3.908)
+2022-08-22 07:01:54.627  INFO 5464 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 5464 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 07:01:54.627  INFO 5464 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
+2022-08-22 07:01:55.900  INFO 5464 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-22 07:01:55.900  INFO 5464 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-08-22 07:01:55.978  INFO 5464 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-22 07:01:56.448  INFO 5464 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 07:01:56.820  INFO 5464 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 07:01:56.835  INFO 5464 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 07:01:56.884  INFO 5464 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 07:01:57.048  INFO 5464 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 07:01:57.102  INFO 5464 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 2.827 seconds (JVM running for 3.509)
+2022-08-22 07:02:10.185  INFO 5464 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-22 07:11:34.553  INFO 19620 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 19620 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 07:11:34.555  INFO 19620 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 07:11:36.259  INFO 19620 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 07:11:36.781  INFO 19620 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 07:11:36.812  INFO 19620 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 07:11:36.887  INFO 19620 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 07:11:37.113  INFO 19620 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 07:11:37.186  INFO 19620 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 2.986 seconds (JVM running for 3.958)
+2022-08-22 07:11:37.344 ERROR 19620 --- [main] T.com.bbd.config.Logges                  : GET in Products for Most common product with from="+from+" and to="+to+" with product id="+product_id,info
+2022-08-22 07:18:14.463  INFO 30724 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 30724 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 07:18:14.463  INFO 30724 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 07:18:15.946  INFO 30724 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 07:18:16.400  INFO 30724 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 07:18:16.416  INFO 30724 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 07:18:16.447  INFO 30724 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 07:18:16.653  INFO 30724 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 07:18:16.715  INFO 30724 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 2.538 seconds (JVM running for 3.414)
+2022-08-22 07:18:16.884 ERROR 30724 --- [main] T.com.bbd.config.Logges                  : GET in Transaction is been fired with oldest=true
+2022-08-22 07:20:15.403  INFO 29356 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 29356 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 07:20:15.403  INFO 29356 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 07:20:17.074  INFO 29356 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 07:20:17.543  INFO 29356 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 07:20:17.559  INFO 29356 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 07:20:17.616  INFO 29356 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 07:20:17.796  INFO 29356 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 07:20:17.875  INFO 29356 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 2.778 seconds (JVM running for 3.803)
+2022-08-22 07:23:09.473  INFO 34448 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 34448 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 07:23:09.478  INFO 34448 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 07:23:11.742  INFO 34448 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 07:23:12.287  INFO 34448 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 07:23:12.311  INFO 34448 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 07:23:12.358  INFO 34448 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 07:23:12.543  INFO 34448 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 07:23:12.617  INFO 34448 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 3.462 seconds (JVM running for 4.372)
+2022-08-22 07:23:12.796 ERROR 34448 --- [main] T.com.bbd.config.Logges                  : GET in Transaction is been fired with oldest=true
+2022-08-22 07:23:29.201  INFO 22344 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 22344 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 07:23:29.201  INFO 22344 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 07:23:30.850  INFO 22344 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 07:23:31.317  INFO 22344 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 07:23:31.337  INFO 22344 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 07:23:31.386  INFO 22344 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 07:23:31.564  INFO 22344 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 07:23:31.654  INFO 22344 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 2.79 seconds (JVM running for 3.794)
+2022-08-22 07:23:42.553  INFO 28572 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 28572 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 07:23:42.553  INFO 28572 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 07:23:44.040  INFO 28572 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 07:23:44.556  INFO 28572 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 07:23:44.572  INFO 28572 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 07:23:44.620  INFO 28572 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 07:23:44.787  INFO 28572 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 07:23:44.856  INFO 28572 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 2.593 seconds (JVM running for 3.625)
+2022-08-22 08:44:30.269 ERROR 5464 --- [http-nio-8080-exec-9] T.com.bbd.config.Logges                  : GET in Transaction Value Summary is been fired with from=null and to=null with product id=null
+2022-08-22 08:49:05.967  INFO 32808 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 32808 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 08:49:05.969  INFO 32808 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 08:49:08.000  INFO 32808 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 08:49:08.666  INFO 32808 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 08:49:08.698  INFO 32808 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 08:49:08.759  INFO 32808 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 08:49:09.081  INFO 32808 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 08:49:09.166  INFO 32808 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 3.57 seconds (JVM running for 4.799)
+2022-08-22 08:49:09.333 ERROR 32808 --- [main] T.com.bbd.config.Logges                  : GET in Transaction Value Summary is been fired with from=null and to=null with product id=null
+2022-08-22 08:49:45.450 ERROR 5464 --- [http-nio-8080-exec-2] T.com.bbd.config.Logges                  : GET in Transaction Value Summary is been fired with from=null and to=null with product id=null
+2022-08-22 08:50:53.988  INFO 27028 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 27028 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 08:50:53.988  INFO 27028 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 08:50:55.920  INFO 27028 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 08:50:56.513  INFO 27028 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 08:50:56.544  INFO 27028 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 08:50:56.592  INFO 27028 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 08:50:56.860  INFO 27028 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 08:50:56.962  INFO 27028 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 3.31 seconds (JVM running for 4.41)
+2022-08-22 08:50:57.069 ERROR 27028 --- [main] T.com.bbd.config.Logges                  : GET in Transaction Value Summary is been fired with from=null and to=null with product id=null
+2022-08-22 08:51:21.409  INFO 27728 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 27728 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 08:51:21.409  INFO 27728 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 08:51:23.318  INFO 27728 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 08:51:23.857  INFO 27728 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 08:51:23.889  INFO 27728 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 08:51:23.920  INFO 27728 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 08:51:24.138  INFO 27728 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 08:51:24.208  INFO 27728 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 3.137 seconds (JVM running for 4.309)
+2022-08-22 08:51:24.335 ERROR 27728 --- [main] T.com.bbd.config.Logges                  : GET in Transaction Value Summary is been fired with from=null and to=null with product id=null
+2022-08-22 08:55:04.726 ERROR 5464 --- [http-nio-8080-exec-6] T.com.bbd.config.Logges                  : GET in transaction_time_delta_summary with from="+from+" and to="+to+" with product id="+product_id,info
+2022-08-22 08:55:28.213 ERROR 5464 --- [http-nio-8080-exec-10] T.com.bbd.config.Logges                  : GET in transaction_time_delta_summary with from="+from+" and to="+to+" with product id="+product_id,info
+2022-08-22 08:58:10.011  INFO 5464 --- [restartedMain] T.com.bbd.config.Logges                  : Application Started
+2022-08-22 08:58:10.064  INFO 5464 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 5464 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 08:58:10.064  INFO 5464 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
+2022-08-22 08:58:10.580  INFO 5464 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-22 08:58:10.580  INFO 5464 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-08-22 08:58:10.627  INFO 5464 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-22 08:58:10.642  INFO 5464 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-08-22 08:58:12.528  INFO 5464 --- [restartedMain] T.com.bbd.config.Logges                  : Application Started
+2022-08-22 08:58:12.572  INFO 5464 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 5464 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 08:58:12.587  INFO 5464 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
+2022-08-22 08:58:13.142  INFO 5464 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-22 08:58:13.144  INFO 5464 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-08-22 08:58:13.196  INFO 5464 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2022-08-22 08:58:13.370  INFO 5464 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 08:58:13.522  INFO 5464 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 08:58:13.523  INFO 5464 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 08:58:13.531  INFO 5464 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 08:58:13.583  INFO 5464 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 1.059 seconds (JVM running for 6984.29)
+2022-08-22 08:58:15.012  INFO 5464 --- [restartedMain] T.com.bbd.config.Logges                  : Application Started
+2022-08-22 08:58:15.048  INFO 5464 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 5464 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 08:58:15.048  INFO 5464 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
+2022-08-22 08:58:15.417  INFO 5464 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-22 08:58:15.417  INFO 5464 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-08-22 08:58:15.457  INFO 5464 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2022-08-22 08:58:15.546  INFO 5464 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 08:58:15.607  INFO 5464 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 08:58:15.607  INFO 5464 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 08:58:15.607  INFO 5464 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 08:58:15.671  INFO 5464 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 08:58:15.711  INFO 5464 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 0.7 seconds (JVM running for 6986.414)
+2022-08-22 08:58:17.641  INFO 28516 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 28516 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 08:58:17.657  INFO 28516 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 08:58:19.420  INFO 28516 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 08:58:20.051  INFO 28516 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 08:58:20.067  INFO 28516 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 08:58:20.134  INFO 28516 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 08:58:20.366  INFO 28516 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 08:58:20.466  INFO 28516 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 3.188 seconds (JVM running for 4.555)
+2022-08-22 08:58:20.581 ERROR 28516 --- [main] T.com.bbd.config.Logges                  : GET in Transaction Value Summary is been fired with from=null and to=null with product id=null
+2022-08-22 08:58:43.823  INFO 30664 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 30664 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 08:58:43.823  INFO 30664 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
+2022-08-22 08:58:45.134  INFO 30664 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-22 08:58:45.134  INFO 30664 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-08-22 08:58:45.220  INFO 30664 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-22 08:58:45.730  INFO 30664 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 08:58:46.105  INFO 30664 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 08:58:46.120  INFO 30664 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 08:58:46.152  INFO 30664 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 08:58:46.320  INFO 30664 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 08:58:46.388  INFO 30664 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 3.021 seconds (JVM running for 3.676)
+2022-08-22 08:58:57.984  INFO 30664 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-22 08:58:58.041 ERROR 30664 --- [http-nio-8080-exec-1] T.com.bbd.config.Logges                  : GET in transaction_time_delta_summary with from="+from+" and to="+to+" with product id="+product_id,info
+2022-08-22 08:59:41.387  INFO 33268 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 33268 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 08:59:41.387  INFO 33268 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
+2022-08-22 08:59:42.837  INFO 33268 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-22 08:59:42.837  INFO 33268 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-08-22 08:59:42.922  INFO 33268 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-22 08:59:43.479  INFO 33268 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 08:59:43.906  INFO 33268 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 08:59:43.922  INFO 33268 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 08:59:43.984  INFO 33268 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 08:59:44.157  INFO 33268 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 08:59:44.254  INFO 33268 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 3.343 seconds (JVM running for 4.125)
+2022-08-22 08:59:52.340  INFO 33268 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-22 08:59:52.394 ERROR 33268 --- [http-nio-8080-exec-1] T.com.bbd.config.Logges                  : GET in transaction_time_delta_summary with from="+from+" and to="+to+" with product id="+product_id,info
+2022-08-22 09:01:53.479  INFO 32832 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 32832 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 09:01:53.479  INFO 32832 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
+2022-08-22 09:01:54.901  INFO 32832 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-22 09:01:54.901  INFO 32832 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-08-22 09:01:54.982  INFO 32832 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-22 09:01:55.567  INFO 32832 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 09:01:55.909  INFO 32832 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 09:01:55.920  INFO 32832 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 09:01:55.983  INFO 32832 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 09:01:56.157  INFO 32832 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 09:01:56.268  INFO 32832 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 3.185 seconds (JVM running for 3.816)
+2022-08-22 09:02:06.419  INFO 32832 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-22 09:02:06.475 ERROR 32832 --- [http-nio-8080-exec-1] T.com.bbd.config.Logges                  : GET in transaction_time_delta_summary with from="+from+" and to="+to+" with product id="+product_id,info
+2022-08-22 09:03:19.626  INFO 27844 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 27844 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 09:03:19.626  INFO 27844 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
+2022-08-22 09:03:20.892  INFO 27844 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-22 09:03:20.907  INFO 27844 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-08-22 09:03:20.975  INFO 27844 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-22 09:03:21.545  INFO 27844 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 09:03:21.862  INFO 27844 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 09:03:21.877  INFO 27844 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 09:03:21.929  INFO 27844 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 09:03:22.247  INFO 27844 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 09:03:22.309  INFO 27844 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 3.175 seconds (JVM running for 3.788)
+2022-08-22 09:03:26.417  INFO 27844 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-22 09:03:26.462 ERROR 27844 --- [http-nio-8080-exec-1] T.com.bbd.config.Logges                  : GET in transaction_time_delta_summary with from="+from+" and to="+to+" with product id="+product_id,info
+2022-08-22 09:06:32.368  INFO 22808 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 22808 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 09:06:32.384  INFO 22808 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 09:06:33.939  INFO 22808 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 09:06:34.460  INFO 22808 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 09:06:34.482  INFO 22808 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 09:06:34.525  INFO 22808 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 09:06:34.703  INFO 22808 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 09:06:34.771  INFO 22808 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 2.798 seconds (JVM running for 3.774)
+2022-08-22 09:06:35.057 ERROR 22808 --- [main] T.com.bbd.config.Logges                  : POST in Transaction is been fired
+2022-08-22 09:08:36.553  INFO 28828 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 28828 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 09:08:36.558  INFO 28828 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 09:08:39.157  INFO 28828 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 09:08:39.689  INFO 28828 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 09:08:39.710  INFO 28828 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 09:08:39.759  INFO 28828 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 09:08:39.973  INFO 28828 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 09:08:40.042  INFO 28828 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 3.899 seconds (JVM running for 5.011)
+2022-08-22 09:08:40.275 ERROR 28828 --- [main] T.com.bbd.config.Logges                  : POST in Transaction is been fired
+2022-08-22 09:10:21.280 ERROR 27844 --- [http-nio-8080-exec-5] T.com.bbd.config.Logges                  : RPC - POST in create_transaction is been fired
+2022-08-22 09:10:21.290 ERROR 27844 --- [http-nio-8080-exec-5] T.com.bbd.config.Logges                  : Data passed in body was not valid
+2022-08-22 09:11:15.821 ERROR 27844 --- [http-nio-8080-exec-6] T.com.bbd.config.Logges                  : RPC - POST in create_transaction is been fired
+2022-08-22 09:13:54.388  INFO 19364 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 19364 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 09:13:54.388  INFO 19364 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
+2022-08-22 09:13:55.751  INFO 19364 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-22 09:13:55.751  INFO 19364 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-08-22 09:13:55.819  INFO 19364 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-22 09:13:56.489  INFO 19364 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 09:13:56.836  INFO 19364 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 09:13:56.852  INFO 19364 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 09:13:56.921  INFO 19364 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 09:13:57.094  INFO 19364 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 09:13:57.157  INFO 19364 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 3.192 seconds (JVM running for 3.676)
+2022-08-22 09:33:33.017  INFO 20760 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 20760 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 09:33:33.021  INFO 20760 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 09:33:35.184  INFO 20760 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 09:33:35.802  INFO 20760 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 09:33:35.832  INFO 20760 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 09:33:35.885  INFO 20760 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 09:33:36.038  INFO 20760 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 09:33:36.144  INFO 20760 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 3.532 seconds (JVM running for 4.841)
+2022-08-22 09:33:36.443 ERROR 20760 --- [main] T.com.bbd.config.Logges                  : POST in Transaction is been fired
+2022-08-22 09:33:48.041  INFO 19364 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-22 09:34:05.078 ERROR 19364 --- [http-nio-8080-exec-3] T.com.bbd.config.Logges                  : GET in Transaction Value Summary is been fired with from=null and to=null with product id=null
+2022-08-22 09:34:13.462 ERROR 19364 --- [http-nio-8080-exec-4] T.com.bbd.config.Logges                  : GET in transaction_time_delta_summary with from="+from+" and to="+to+" with product id="+product_id,info
+2022-08-22 09:37:21.788  INFO 21016 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 21016 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 09:37:21.788  INFO 21016 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 09:37:23.718  INFO 21016 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 09:37:24.275  INFO 21016 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 09:37:24.306  INFO 21016 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 09:37:24.368  INFO 21016 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 09:37:24.583  INFO 21016 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 09:37:24.674  INFO 21016 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 3.192 seconds (JVM running for 4.276)
+2022-08-22 09:37:54.800  INFO 35464 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 35464 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 09:37:54.800  INFO 35464 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 09:37:56.511  INFO 35464 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 09:37:57.129  INFO 35464 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 09:37:57.154  INFO 35464 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 09:37:57.211  INFO 35464 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 09:37:57.552  INFO 35464 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 09:37:57.616  INFO 35464 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 3.196 seconds (JVM running for 4.236)
+2022-08-22 09:37:57.891 ERROR 35464 --- [main] T.com.bbd.config.Logges                  : POST in Transaction is been fired
+2022-08-22 09:38:17.125  INFO 17972 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 17972 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 09:38:17.125  INFO 17972 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
+2022-08-22 09:38:18.899  INFO 17972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-22 09:38:18.899  INFO 17972 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-08-22 09:38:18.992  INFO 17972 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-22 09:38:19.659  INFO 17972 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 09:38:20.131  INFO 17972 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 09:38:20.161  INFO 17972 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 09:38:20.232  INFO 17972 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 09:38:20.475  INFO 17972 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 09:38:20.601  INFO 17972 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Started TransactionMonitorApplication in 3.909 seconds (JVM running for 4.386)
+2022-08-22 09:38:29.624  INFO 17972 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-22 09:38:29.658 ERROR 17972 --- [http-nio-8080-exec-2] T.com.bbd.config.Logges                  : GET in transaction_time_delta_summary with from="+from+" and to="+to+" with product id="+product_id,info
+2022-08-22 09:40:05.893  INFO 15500 --- [main] T.c.b.c.TransactionControllerTest        : Starting TransactionControllerTest using Java 17.0.2 on FahimM with PID 15500 (started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
+2022-08-22 09:40:05.893  INFO 15500 --- [main] T.c.b.c.TransactionControllerTest        : No active profile set, falling back to default profiles: default
+2022-08-22 09:40:07.921  INFO 15500 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-22 09:40:08.576  INFO 15500 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-22 09:40:08.585  INFO 15500 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-22 09:40:08.647  INFO 15500 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-22 09:40:08.928  INFO 15500 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getTimeDeltaSummaryUsingGET_1
+2022-08-22 09:40:09.042  INFO 15500 --- [main] T.c.b.c.TransactionControllerTest        : Started TransactionControllerTest in 3.56 seconds (JVM running for 4.825)
+2022-08-22 09:40:09.196 ERROR 15500 --- [main] T.com.bbd.config.Logges                  : GET in transaction_time_delta_summary with from="+from+" and to="+to+" with product id="+product_id,info
