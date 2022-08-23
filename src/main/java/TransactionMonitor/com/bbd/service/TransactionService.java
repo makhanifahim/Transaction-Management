@@ -260,10 +260,10 @@ public class TransactionService {
         if(from_date==null && to_date==null)
             paths=allFilesInPresent(TypeOfData);
         else if(from_date==null && to_date!=null) {
-            paths = allFilesInBetween(StringTODate(oldestTransaction(TypeOfData,product_id,null,null)[0]),to_date,TypeOfData);
+            paths = allFilesInBetween(StringTODate(oldestTransaction(TypeOfData,product_id,null,null).getInit_date()),to_date,TypeOfData);
         }
         else if(from_date!=null && to_date==null){
-            paths = allFilesInBetween(from_date,StringTODate(newerTransaction(TypeOfData,product_id,null,null)[0]),TypeOfData);
+            paths = allFilesInBetween(from_date,StringTODate(newerTransaction(TypeOfData,product_id,null,null).getInit_date()),TypeOfData);
         }
         else{
             paths = allFilesInBetween(from_date,to_date,TypeOfData);
@@ -282,8 +282,15 @@ public class TransactionService {
         }
         return temp;
     }
+    public List<Transaction> allTransactionInFormat(String TypeOfData,String product_id,Date from_date,Date to_date) throws IOException, ParseException, CsvException {
+        List<String[]> listOfTransaction=allTransaction(TypeOfData,product_id,from_date,to_date);
+        List<Transaction> transactions= new ArrayList<>();
+        for (String[] strings : listOfTransaction)
+            transactions.add(new Transaction(strings[0], strings[1], strings[2], strings[3]));
+        return transactions;
+    }
     //Oldest Transaction
-    public String[] oldestTransaction(String TypeOfData,String product_id, Date from_date, Date to_date) throws IOException, ParseException, CsvException {
+    public Transaction oldestTransaction(String TypeOfData,String product_id, Date from_date, Date to_date) throws IOException, ParseException, CsvException {
         if(Objects.equals(TypeOfData, "") ||TypeOfData==null)
             TypeOfData="Data";
         List<String[]> transaction = allTransaction(TypeOfData,product_id,from_date,to_date);
@@ -297,10 +304,10 @@ public class TransactionService {
                 oldestTransaction = transac;
             }
         }
-        return oldestTransaction;
+        return new Transaction(oldestTransaction[0],oldestTransaction[1],oldestTransaction[2],oldestTransaction[3]);
     }
     //Newest Transaction
-    public String[] newerTransaction(String TypeOfData,String product_id,Date from_date,Date to_date) throws IOException, CsvException, ParseException {
+    public Transaction newerTransaction(String TypeOfData,String product_id,Date from_date,Date to_date) throws IOException, CsvException, ParseException {
         if(Objects.equals(TypeOfData, "") ||TypeOfData==null)
             TypeOfData="Data";
         List<String[]> transaction = allTransaction(TypeOfData,product_id,from_date,to_date);
@@ -314,7 +321,7 @@ public class TransactionService {
                 newestTransaction = strings;
             }
         }
-        return newestTransaction;
+        return  new Transaction(newestTransaction[0],newestTransaction[1],newestTransaction[2],newestTransaction[3]);
     }
 
 }

@@ -15,4 +15,12 @@ public class Transaction {
         this.product_id = product_id;
         this.value = value;
     }
+
+    public Transaction(String init_date, String conclusion_date, String s, String s1) {
+        this.init_date = init_date;
+        this.conclusion_date = conclusion_date;
+        this.product_id = Integer.valueOf(s);
+        this.value = Float.valueOf(s1);
+
+    }
 }
