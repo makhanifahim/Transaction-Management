@@ -3,6 +3,7 @@ package TransactionMonitor.com.bbd.controller;
 import TransactionMonitor.com.bbd.config.Logges;
 import TransactionMonitor.com.bbd.model.Transaction;
 import TransactionMonitor.com.bbd.model.TransactionSummary;
+import TransactionMonitor.com.bbd.model.Product;
 import TransactionMonitor.com.bbd.service.ProductService;
 import TransactionMonitor.com.bbd.service.TransactionService;
 import TransactionMonitor.com.bbd.service.TransactionTimeDeltaSummaryService;
@@ -45,8 +46,41 @@ public class RestTransactionController {
         return service.saveTransaction(transactions, typeOfData);
     }
 
+//    @GetMapping("/transactions")
+//    public List<String[]> getTransactions(@RequestParam (required = false) String from_date,@RequestParam (required = false) String to_date,@RequestParam (required = false) boolean oldest,@RequestParam (required = false) boolean newest,@RequestParam (required = false) String product_id,@RequestParam (required=false) String typeOfData) throws IOException, ParseException, CsvException {
+//        if(Objects.equals(typeOfData, "") ||typeOfData==null)
+//            typeOfData="Data";
+//        Date from=null,to=null;
+//        String p_id=null;
+//        if(from_date!=null){from = new SimpleDateFormat("yyyy-MM-dd").parse(from_date);}
+//        if(to_date!=null) {to = new SimpleDateFormat("yyyy-MM-dd").parse(to_date);}
+//        if(product_id!=null){p_id=product_id;}
+//        if(oldest && newest){
+//            List<String[]> Transact= new ArrayList();
+//            Transact.add(service.oldestTransaction(typeOfData,p_id,from,to));
+//            Transact.add(service.newerTransaction(typeOfData,p_id,from,to));
+//            logges.addInfoLog("GET in Transaction is been fired with oldest && newest = true",info);
+//            return Transact;
+//        }
+//        else if(oldest){
+//            List<String[]> oldestTransact= new ArrayList();
+//            oldestTransact.add(service.oldestTransaction(typeOfData,p_id,from,to));
+//            logges.addInfoLog("GET in Transaction is been fired with oldest=true",info);
+//            return oldestTransact;
+//        }
+//        else if(newest) {
+//            List<String[]> newestTransact = new ArrayList();
+//            newestTransact.add(service.newerTransaction(typeOfData,p_id,from,to));
+//            logges.addInfoLog("GET in Transaction is been fired with newest=true",info);
+//            return newestTransact;
+//        }
+//        else{
+//            logges.addInfoLog("GET in Transaction is been fired for all transaction",info);
+//            return service.allTransaction(typeOfData, p_id,from, to);
+//        }
+//    }
     @GetMapping("/transactions")
-    public List<String[]> getTransactions(@RequestParam (required = false) String from_date,@RequestParam (required = false) String to_date,@RequestParam (required = false) boolean oldest,@RequestParam (required = false) boolean newest,@RequestParam (required = false) String product_id,@RequestParam (required=false) String typeOfData) throws IOException, ParseException, CsvException {
+    public List<Transaction> getTransactions(@RequestParam (required = false) String from_date,@RequestParam (required = false) String to_date,@RequestParam (required = false) boolean oldest,@RequestParam (required = false) boolean newest,@RequestParam (required = false) String product_id,@RequestParam (required=false) String typeOfData) throws IOException, ParseException, CsvException {
         if(Objects.equals(typeOfData, "") ||typeOfData==null)
             typeOfData="Data";
         Date from=null,to=null;
@@ -55,27 +89,27 @@ public class RestTransactionController {
         if(to_date!=null) {to = new SimpleDateFormat("yyyy-MM-dd").parse(to_date);}
         if(product_id!=null){p_id=product_id;}
         if(oldest && newest){
-            List<String[]> Transact= new ArrayList();
+            List<Transaction> Transact= new ArrayList();
             Transact.add(service.oldestTransaction(typeOfData,p_id,from,to));
             Transact.add(service.newerTransaction(typeOfData,p_id,from,to));
             logges.addInfoLog("GET in Transaction is been fired with oldest && newest = true",info);
             return Transact;
         }
         else if(oldest){
-            List<String[]> oldestTransact= new ArrayList();
+            List<Transaction> oldestTransact= new ArrayList();
             oldestTransact.add(service.oldestTransaction(typeOfData,p_id,from,to));
             logges.addInfoLog("GET in Transaction is been fired with oldest=true",info);
             return oldestTransact;
         }
         else if(newest) {
-            List<String[]> newestTransact = new ArrayList();
+            List<Transaction> newestTransact = new ArrayList();
             newestTransact.add(service.newerTransaction(typeOfData,p_id,from,to));
             logges.addInfoLog("GET in Transaction is been fired with newest=true",info);
             return newestTransact;
         }
         else{
             logges.addInfoLog("GET in Transaction is been fired for all transaction",info);
-            return service.allTransaction(typeOfData, p_id,from, to);
+            return service.allTransactionInFormat(typeOfData, p_id,from, to);
         }
     }
 
@@ -91,7 +125,7 @@ public class RestTransactionController {
     }
 
     @GetMapping("/products")
-    public String[][] allProducts(@RequestParam (required = false) String from_date, @RequestParam (required = false) String to_date, @RequestParam (required=false) String typeOfData,@RequestParam (required = false) boolean most_common,@RequestParam (required = false) boolean lest_common) throws IOException, CsvException, ParseException {
+    public List<Product> allPro(@RequestParam (required = false) String from_date, @RequestParam (required = false) String to_date, @RequestParam (required=false) String typeOfData, @RequestParam (required = false) boolean most_common, @RequestParam (required = false) boolean lest_common) throws IOException, CsvException, ParseException {
         if(Objects.equals(typeOfData, "") ||typeOfData==null)
             typeOfData="Data";
         Date from = null,to=null;
@@ -109,7 +143,7 @@ public class RestTransactionController {
             return productService.CommonProduct(typeOfData, from, to, false, true);
         }else {
             logges.addInfoLog("GET in Products list Common products with from=\"+from+\" and to=\"+to+\" with product id=\"+product_id,info",info);
-            return productService.listCommonProd(typeOfData, from, to);
+            return productService.listCommonProduct(typeOfData, from, to);
         }
     }
 

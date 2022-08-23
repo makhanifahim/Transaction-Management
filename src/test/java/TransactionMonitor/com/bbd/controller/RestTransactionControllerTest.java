@@ -1,5 +1,7 @@
 package TransactionMonitor.com.bbd.controller;
 
+
+import TransactionMonitor.com.bbd.model.Product;
 import TransactionMonitor.com.bbd.model.DatesBetween;
 import TransactionMonitor.com.bbd.model.Transaction;
 import TransactionMonitor.com.bbd.model.TransactionSummary;
@@ -40,10 +42,8 @@ class RestTransactionControllerTest {
     void saveTransaction() throws IOException {
         String filepath = ".//TestData";
         File file = new File(filepath);
-        if(file.exists()==true) {
+        if(file.exists()) 
             FileUtils.cleanDirectory(file);
-            file.delete();
-        }
 
         List<Transaction> records = new ArrayList<Transaction>();
         //1998
@@ -192,69 +192,66 @@ class RestTransactionControllerTest {
 
     @Test
     void checkOldest() throws IOException, ParseException, CsvException {
-        String[] testResult = {"1997-01-01T13:00:00.505Z", "1997-01-01T14:00:00.000Z", "1", "3001.7"};
-        List<String[]> actualResult =transactionController.getTransactions(null,null,true,false,null,"TestData");
-        assertThat(actualResult.get(0)[0].equals(testResult[0]) && actualResult.get(0)[1].equals(testResult[1]) && actualResult.get(0)[2].equals(testResult[2]) && actualResult.get(0)[3].equals(testResult[3]));
+        Transaction testResult =new Transaction("1997-01-01T13:00:00.505Z", "1997-01-01T14:00:00.000Z", "1", "3001.7");
+        List<Transaction> actualResult =transactionController.getTransactions(null,null,true,false,null,"TestData");
+        assertThat(actualResult.get(0).getInit_date().equals(testResult.getInit_date()) && actualResult.get(0).getConclusion_date().equals(testResult.getConclusion_date()) && actualResult.get(0).getProduct_id().equals(testResult.getProduct_id()) && actualResult.get(0).getValue().equals(testResult.getValue()));
     }
 
     @Test
     void checkOldestInRange() throws IOException, ParseException, CsvException {
-        DatesBetween dates = new DatesBetween("1998-01-01","1999-01-05");
         String from ="1998-01-01";
         String to= "1999-01-01";
-        String[] testResult = {"1998-01-01T13:00:00.505Z","1998-01-01T14:00:00.000Z", "1","3008.0"};
-        List<String[]> actualResult =transactionController.getTransactions(from,to,true,false,null,"TestData");
-        assertThat(actualResult.get(0)[0].equals(testResult[0]) && actualResult.get(0)[1].equals(testResult[1]) && actualResult.get(0)[2].equals(testResult[2]) && actualResult.get(0)[3].equals(testResult[3]));
+        Transaction testResult = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T14:00:00.000Z", "1","3008.0");
+        List<Transaction> actualResult =transactionController.getTransactions(from,to,true,false,null,"TestData");
+        assertThat(actualResult.get(0).getInit_date().equals(testResult.getInit_date()) && actualResult.get(0).getConclusion_date().equals(testResult.getConclusion_date()) && actualResult.get(0).getProduct_id().equals(testResult.getProduct_id()) && actualResult.get(0).getValue().equals(testResult.getValue()));
     }
 
     @Test
     void checkNewest() throws IOException, ParseException, CsvException {
-        String[] testResult = {"1999-12-04T13:00:00.505Z","1999-12-04T13:00:00.510Z","8","9.0"};
-        List<String[]> actualResult =transactionController.getTransactions(null,null,false,true,null,"TestData");
-        assertThat(actualResult.get(0)[0].equals(testResult[0]) && actualResult.get(0)[1].equals(testResult[1]) && actualResult.get(0)[2].equals(testResult[2]) && actualResult.get(0)[3].equals(testResult[3]));
+        Transaction testResult = new Transaction("1999-12-04T13:00:00.505Z","1999-12-04T13:00:00.510Z","8","9.0");
+        List<Transaction> actualResult =transactionController.getTransactions(null,null,false,true,null,"TestData");
+        assertThat(actualResult.get(0).getInit_date().equals(testResult.getInit_date()) && actualResult.get(0).getConclusion_date().equals(testResult.getConclusion_date()) && actualResult.get(0).getProduct_id().equals(testResult.getProduct_id()) && actualResult.get(0).getValue().equals(testResult.getValue()));
     }
 
     @Test
     void checkNewestTInRange() throws IOException, ParseException, CsvException {
-        String[] testResult={"1998-12-04T13:00:00.505Z","1998-12-04T13:00:00.510Z","2","3.8"};
+        Transaction testResult=new Transaction("1998-12-04T13:00:00.505Z","1998-12-04T13:00:00.510Z","2","3.8");
         String from ="1998-01-01";
         String to= "1998-12-05";
-        List<String[]> actualResult =transactionController.getTransactions(from,to,false,true,null,"TestData");
-        assertThat(actualResult.get(0)[0].equals(testResult[0]) && actualResult.get(0)[1].equals(testResult[1]) && actualResult.get(0)[2].equals(testResult[2]) && actualResult.get(0)[3].equals(testResult[3]));
+        List<Transaction> actualResult =transactionController.getTransactions(from,to,false,true,null,"TestData");
+        assertThat(actualResult.get(0).getInit_date().equals(testResult.getInit_date()) && actualResult.get(0).getConclusion_date().equals(testResult.getConclusion_date()) && actualResult.get(0).getProduct_id().equals(testResult.getProduct_id()) && actualResult.get(0).getValue().equals(testResult.getValue()));
     }
 
     @Test
     void mostCommonProduct() throws IOException, CsvException, ParseException {
-        String[][] actualResult=new String[1][2];
-        actualResult[0][0]= "5";
-        actualResult[0][1]= "7";
-        assertThat(transactionController.allProducts(null,null,"TestData",true,false)).isEqualTo(actualResult);
+        List<Product> actualResult= new ArrayList<Product>();
+        actualResult.add(new Product("5"));
+        assertThat(transactionController.allPro(null,null,"TestData",true,false)).isEqualTo(actualResult);
     }
 
     @Test
     void mostCommonProductInRange() throws IOException, ParseException, CsvException {
-        DatesBetween dates = new DatesBetween("1998-01-01","1999-12-05");
-        String[][] testResult=new String[1][2];
-        testResult[0][0]= "5";
-        testResult[0][1]= "7";
-        assertThat(transactionController.allProducts(null,null,"TestData",true,false)).isEqualTo(testResult);
+        String from_date="1998-01-01";
+        String to_date="1999-12-05";
+        List<Product> testResult= new ArrayList<Product>();
+        testResult.add(new Product("2"));
+        assertThat(transactionController.allPro(from_date,to_date,"TestData",true,false)).isEqualTo(testResult);
     }
 
     @Test
     void lestCommonProduct() throws IOException, CsvException, ParseException {
-        String[][] actualResult= new String[1][2];
-        actualResult[0][0]= "3";
-        actualResult[0][1]= "2";
-        assertThat(transactionController.allProducts(null,null,"TestData",false,true)).isEqualTo(actualResult);
+        List<Product> actualResult= new ArrayList<Product>();
+        actualResult.add(new Product("3"));
+        assertThat(transactionController.allPro(null,null,"TestData",false,true)).isEqualTo(actualResult);
     }
 
     @Test
     void listCommonProductInRange() throws IOException, ParseException, CsvException {
-        DatesBetween dates = new DatesBetween("1998-01-01","1999-12-05");
-        String[][] testResult=new String[1][2];
-        testResult[0][0]= "3";
-        testResult[0][1]= "2";
-        assertThat(transactionController.allProducts(null,null,"TestData",false,true)).isEqualTo(testResult);
+        String from_date="1998-01-01";
+        String to_date="1999-12-05";
+        List<Product> actualResult= new ArrayList<Product>();
+        actualResult.add(new Product("3"));
+        assertThat(transactionController.allPro(null,null,"TestData",false,true)).isEqualTo(actualResult);
     }
 
     @Test
