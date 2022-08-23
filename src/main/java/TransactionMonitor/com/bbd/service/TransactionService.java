@@ -23,7 +23,7 @@ import java.util.*;
 public class TransactionService {
 
     private final Logges logges = new Logges();
-    String error="error";
+    String error="ERROR";
 
     private int getQuarter(int month){
         return switch (month) {

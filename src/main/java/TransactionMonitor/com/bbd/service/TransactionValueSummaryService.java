@@ -14,7 +14,6 @@ import java.util.List;
 public class TransactionValueSummaryService {
     @Autowired
     TransactionService transactionService;
-
     private static String findModel(String[][] values){
         int count=0;
         String mode="";

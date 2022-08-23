@@ -2,7 +2,6 @@ package TransactionMonitor.com.bbd.controller;
 
 
 import TransactionMonitor.com.bbd.model.Product;
-import TransactionMonitor.com.bbd.model.DatesBetween;
 import TransactionMonitor.com.bbd.model.Transaction;
 import TransactionMonitor.com.bbd.model.TransactionSummary;
 import TransactionMonitor.com.bbd.service.TransactionService;
@@ -47,125 +46,125 @@ class RestTransactionControllerTest {
 
         List<Transaction> records = new ArrayList<Transaction>();
         //1998
-        Transaction  rec = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T14:00:00.000Z",1,3008.0F);
+        Transaction  rec = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T14:00:00.000Z","1",3008.0F);
         records.add(rec);
 
-        Transaction rec1 = new Transaction("1998-02-02T13:00:00.505Z","1998-02-03T13:00:00.700Z",2,308.0F);
+        Transaction rec1 = new Transaction("1998-02-02T13:00:00.505Z","1998-02-03T13:00:00.700Z","2",308.0F);
         records.add(rec1);
 
-        Transaction rec2 = new Transaction("1998-03-03T13:00:00.505Z","1998-03-03T13:10:00.500Z",3,38.0F);
+        Transaction rec2 = new Transaction("1998-03-03T13:00:00.505Z","1998-03-03T13:10:00.500Z","3",38.0F);
         records.add(rec2);
 
 
-        Transaction rec3 = new Transaction("1998-04-04T13:00:00.505Z","1998-04-04T13:00:00.900Z",4,7.0F);
+        Transaction rec3 = new Transaction("1998-04-04T13:00:00.505Z","1998-04-04T13:00:00.900Z","4",7.0F);
         records.add(rec3);
 
-        Transaction rec4 = new Transaction("1998-05-01T13:00:00.505Z","1998-05-01T14:00:00.900Z",2,3208.0F);
+        Transaction rec4 = new Transaction("1998-05-01T13:00:00.505Z","1998-05-01T14:00:00.900Z","2",3208.0F);
         records.add(rec4);
 
-        Transaction rec5 = new Transaction("1998-06-02T13:00:00.505Z","1998-06-02T13:00:00.900Z",6,8.0F);
+        Transaction rec5 = new Transaction("1998-06-02T13:00:00.505Z","1998-06-02T13:00:00.900Z","6",8.0F);
         records.add(rec5);
 
 
-        Transaction rec6 = new Transaction("1998-07-03T13:00:00.505Z","1998-07-03T13:10:00.900Z",7,7.0F);
+        Transaction rec6 = new Transaction("1998-07-03T13:00:00.505Z","1998-07-03T13:10:00.900Z","7",7.0F);
         records.add(rec6);
 
-        Transaction rec7 = new Transaction("1998-08-04T13:00:00.505Z","1998-08-04T13:00:00.900Z",2,8.8F);
+        Transaction rec7 = new Transaction("1998-08-04T13:00:00.505Z","1998-08-04T13:00:00.900Z","2",8.8F);
         records.add(rec7);
 
-        Transaction rec8 = new Transaction("1998-09-01T13:00:00.505Z","1998-09-01T14:00:00.900Z",5,1118.0F);
+        Transaction rec8 = new Transaction("1998-09-01T13:00:00.505Z","1998-09-01T14:00:00.900Z","5",1118.0F);
         records.add(rec8);
 
 
-        Transaction rec9 = new Transaction("1998-10-02T13:00:00.505Z","1998-10-02T13:00:00.900Z",2,1108.0F);
+        Transaction rec9 = new Transaction("1998-10-02T13:00:00.505Z","1998-10-02T13:00:00.900Z","2",1108.0F);
         records.add(rec9);
 
-        Transaction rec10 = new Transaction("1998-11-03T13:00:00.505Z","1998-11-03T13:10:00.900Z",7,108.0F);
+        Transaction rec10 = new Transaction("1998-11-03T13:00:00.505Z","1998-11-03T13:10:00.900Z","7",108.0F);
         records.add(rec10);
 
-        Transaction rec11 = new Transaction("1998-12-04T13:00:00.505Z","1998-12-04T13:00:00.900Z",2,3.8F);
+        Transaction rec11 = new Transaction("1998-12-04T13:00:00.505Z","1998-12-04T13:00:00.900Z","2",3.8F);
         records.add(rec11);
 
         //1999
 
-        Transaction rec12 = new Transaction("1999-01-01T13:00:00.505Z","1999-01-01T14:00:00.900Z",1,3001.9F);
+        Transaction rec12 = new Transaction("1999-01-01T13:00:00.505Z","1999-01-01T14:00:00.900Z","1",3001.9F);
         records.add(rec12);
 
-        Transaction rec13 = new Transaction("1999-02-02T13:00:00.505Z","1999-02-02T13:00:00.900Z",2,301.9F);
+        Transaction rec13 = new Transaction("1999-02-02T13:00:00.505Z","1999-02-02T13:00:00.900Z","2",301.9F);
         records.add(rec13);
 
-        Transaction rec14 = new Transaction("1999-03-03T13:00:00.505Z","1999-03-03T13:10:00.500Z",2,31.9F);
+        Transaction rec14 = new Transaction("1999-03-03T13:00:00.505Z","1999-03-03T13:10:00.500Z","2",31.9F);
         records.add(rec14);
 
 
-        Transaction rec15 = new Transaction("1999-04-04T13:00:00.505Z","1999-04-04T13:00:00.900Z",4,9.0F);
+        Transaction rec15 = new Transaction("1999-04-04T13:00:00.505Z","1999-04-04T13:00:00.900Z","4",9.0F);
         records.add(rec15);
 
-        Transaction rec16 = new Transaction("1999-05-01T13:00:00.505Z","1999-05-01T14:00:00.900Z",5,3201.9F);
+        Transaction rec16 = new Transaction("1999-05-01T13:00:00.505Z","1999-05-01T14:00:00.900Z","5",3201.9F);
         records.add(rec16);
 
-        Transaction rec17 = new Transaction("1999-06-02T13:00:00.505Z","1999-06-02T13:00:00.900Z",2,9.0F);
+        Transaction rec17 = new Transaction("1999-06-02T13:00:00.505Z","1999-06-02T13:00:00.900Z","2",9.0F);
         records.add(rec17);
 
 
-        Transaction rec18 = new Transaction("1999-07-03T13:00:00.505Z","1999-07-03T13:10:00.900Z",7,11.9F);
+        Transaction rec18 = new Transaction("1999-07-03T13:00:00.505Z","1999-07-03T13:10:00.900Z","7",11.9F);
         records.add(rec18);
 
-        Transaction rec19 = new Transaction("1999-08-04T13:00:00.505Z","1999-08-04T13:00:00.510Z",2,1.9F);
+        Transaction rec19 = new Transaction("1999-08-04T13:00:00.505Z","1999-08-04T13:00:00.510Z","2",1.9F);
         records.add(rec19);
 
-        Transaction rec20 = new Transaction("1999-09-01T13:00:00.505Z","1999-09-01T14:00:00.900Z",5,1119.0F);
+        Transaction rec20 = new Transaction("1999-09-01T13:00:00.505Z","1999-09-01T14:00:00.900Z","5",1119.0F);
         records.add(rec20);
 
 
-        Transaction rec21 = new Transaction("1999-10-02T13:00:00.505Z","1999-10-02T13:00:00.900Z",6,1109.0F);
+        Transaction rec21 = new Transaction("1999-10-02T13:00:00.505Z","1999-10-02T13:00:00.900Z","6",1109.0F);
         records.add(rec21);
 
-        Transaction rec22 = new Transaction("1999-11-03T13:00:00.505Z","1999-11-03T13:10:00.900Z",7,191.0F);
+        Transaction rec22 = new Transaction("1999-11-03T13:00:00.505Z","1999-11-03T13:10:00.900Z","7",191.0F);
         records.add(rec22);
 
-        Transaction rec23 = new Transaction("1999-12-04T13:00:00.505Z","1999-12-04T13:00:00.900Z",8,9.0F);
+        Transaction rec23 = new Transaction("1999-12-04T13:00:00.505Z","1999-12-04T13:00:00.900Z","8",9.0F);
         records.add(rec23);
 
         //1997
 
-        Transaction rec24 = new Transaction("1997-01-01T13:00:00.505Z","1997-01-01T14:00:00.900Z",1,3001.7F);
+        Transaction rec24 = new Transaction("1997-01-01T13:00:00.505Z","1997-01-01T14:00:00.900Z","1",3001.7F);
         records.add(rec24);
 
-        Transaction rec25 = new Transaction("1997-02-02T13:00:00.505Z","1997-02-02T13:00:00.900Z",5,301.7F);
+        Transaction rec25 = new Transaction("1997-02-02T13:00:00.505Z","1997-02-02T13:00:00.900Z","5",301.7F);
         records.add(rec25);
 
-        Transaction rec26 = new Transaction("1997-03-03T13:00:00.505Z","1997-03-03T13:10:00.900Z",3,31.7F);
+        Transaction rec26 = new Transaction("1997-03-03T13:00:00.505Z","1997-03-03T13:10:00.900Z","3",31.7F);
         records.add(rec26);
 
 
-        Transaction rec27 = new Transaction("1997-04-04T13:00:00.505Z","1997-04-04T13:00:00.900Z",4,7.0F);
+        Transaction rec27 = new Transaction("1997-04-04T13:00:00.505Z","1997-04-04T13:00:00.900Z","4",7.0F);
         records.add(rec27);
 
-        Transaction rec28 = new Transaction("1997-05-01T13:00:00.505Z","1997-05-01T14:00:00.900Z",5,7201.0F);
+        Transaction rec28 = new Transaction("1997-05-01T13:00:00.505Z","1997-05-01T14:00:00.900Z","5",7201.0F);
         records.add(rec28);
 
-        Transaction rec29 = new Transaction("1997-06-02T13:00:00.505Z","1997-06-02T13:00:00.900Z",6,7.0F);
+        Transaction rec29 = new Transaction("1997-06-02T13:00:00.505Z","1997-06-02T13:00:00.900Z","6",7.0F);
         records.add(rec29);
 
 
-        Transaction rec30 = new Transaction("1997-07-03T13:00:00.505Z","1997-07-03T13:10:00.900Z",7,17.0F);
+        Transaction rec30 = new Transaction("1997-07-03T13:00:00.505Z","1997-07-03T13:10:00.900Z","7",17.0F);
         records.add(rec30);
 
-        Transaction rec31 = new Transaction("1997-08-04T13:00:00.505Z","1997-08-04T13:00:00.910Z",8,7.0F);
+        Transaction rec31 = new Transaction("1997-08-04T13:00:00.505Z","1997-08-04T13:00:00.910Z","8",7.0F);
         records.add(rec31);
 
-        Transaction rec32 = new Transaction("1997-09-01T13:00:00.505Z","1997-09-01T14:00:00.000Z",5,7111.0F);
+        Transaction rec32 = new Transaction("1997-09-01T13:00:00.505Z","1997-09-01T14:00:00.000Z","5",7111.0F);
         records.add(rec32);
 
 
-        Transaction rec33 = new Transaction("1997-10-02T13:00:00.505Z","1997-10-02T13:00:00.505Z",6,1171.0F);
+        Transaction rec33 = new Transaction("1997-10-02T13:00:00.505Z","1997-10-02T13:00:00.505Z","6",1171.0F);
         records.add(rec33);
 
-        Transaction rec34 = new Transaction("1997-11-03T13:00:00.505Z","1997-11-03T13:10:00.500Z",5,107.0F);
+        Transaction rec34 = new Transaction("1997-11-03T13:00:00.505Z","1997-11-03T13:10:00.500Z","5",107.0F);
         records.add(rec34);
 
-        Transaction rec35 = new Transaction("1997-12-04T13:00:00.505Z","1997-12-05T13:00:00.510Z",8,3.7F);
+        Transaction rec35 = new Transaction("1997-12-04T13:00:00.505Z","1997-12-05T13:00:00.510Z","8",3.7F);
         records.add(rec35);
 
         String actualResult = transactionController.saveTransactions(records,"TestData");
@@ -173,18 +172,9 @@ class RestTransactionControllerTest {
     }
 
     @Test
-    void wrongDateAndTimeFormat(){
-        List<Transaction> records = new ArrayList<Transaction>();
-        Transaction  rec = new Transaction("1998-01-05","1998-01-05",1,3001.0F);
-        records.add(rec);
-        String actualResult = transactionController.saveTransactions(records,"TestData");
-        assertThat(actualResult).isEqualTo("Problem with index value : [0]");
-    }
-
-    @Test
     void wrongDateAndTime(){
         List<Transaction> records = new ArrayList<Transaction>();
-        Transaction  rec = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T13:00:00.005Z",1,3001.0F);
+        Transaction  rec = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T13:00:00.005Z","1",3001.0F);
         records.add(rec);
         String actualResult = transactionController.saveTransactions(records,"TestData");
         assertThat(actualResult).isEqualTo("Problem with index value : [0]");

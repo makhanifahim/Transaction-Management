@@ -5,12 +5,10 @@ import TransactionMonitor.com.bbd.model.Transaction;
 import TransactionMonitor.com.bbd.model.TransactionSummary;
 import TransactionMonitor.com.bbd.service.TransactionService;
 import com.opencsv.exceptions.CsvException;
-import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -39,7 +37,7 @@ public class RpcTransactionControllerTest {
     @Test
     void wrongDateAndTimeFormat(){
         List<Transaction> records = new ArrayList<Transaction>();
-        Transaction  rec = new Transaction("1998-01-05","1998-01-05",1,3001.0F);
+        Transaction  rec = new Transaction("1998-01-05","1998-01-05","1",3001.0F);
         records.add(rec);
         String actualResult = transactionController.createTransactions(records,"TestData");
         assertThat(actualResult).isEqualTo("Problem with index value : [0]");
@@ -48,7 +46,7 @@ public class RpcTransactionControllerTest {
     @Test
     void wrongDateAndTime(){
         List<Transaction> records = new ArrayList<Transaction>();
-        Transaction  rec = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T13:00:00.005Z",1,3001.0F);
+        Transaction  rec = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T13:00:00.005Z","1",3001.0F);
         records.add(rec);
         String actualResult = transactionController.createTransactions(records,"TestData");
         assertThat(actualResult).isEqualTo("Problem with index value : [0]");

@@ -45,40 +45,6 @@ public class RestTransactionController {
         logges.addInfoLog("POST in Transaction is been fired",info);
         return service.saveTransaction(transactions, typeOfData);
     }
-
-//    @GetMapping("/transactions")
-//    public List<String[]> getTransactions(@RequestParam (required = false) String from_date,@RequestParam (required = false) String to_date,@RequestParam (required = false) boolean oldest,@RequestParam (required = false) boolean newest,@RequestParam (required = false) String product_id,@RequestParam (required=false) String typeOfData) throws IOException, ParseException, CsvException {
-//        if(Objects.equals(typeOfData, "") ||typeOfData==null)
-//            typeOfData="Data";
-//        Date from=null,to=null;
-//        String p_id=null;
-//        if(from_date!=null){from = new SimpleDateFormat("yyyy-MM-dd").parse(from_date);}
-//        if(to_date!=null) {to = new SimpleDateFormat("yyyy-MM-dd").parse(to_date);}
-//        if(product_id!=null){p_id=product_id;}
-//        if(oldest && newest){
-//            List<String[]> Transact= new ArrayList();
-//            Transact.add(service.oldestTransaction(typeOfData,p_id,from,to));
-//            Transact.add(service.newerTransaction(typeOfData,p_id,from,to));
-//            logges.addInfoLog("GET in Transaction is been fired with oldest && newest = true",info);
-//            return Transact;
-//        }
-//        else if(oldest){
-//            List<String[]> oldestTransact= new ArrayList();
-//            oldestTransact.add(service.oldestTransaction(typeOfData,p_id,from,to));
-//            logges.addInfoLog("GET in Transaction is been fired with oldest=true",info);
-//            return oldestTransact;
-//        }
-//        else if(newest) {
-//            List<String[]> newestTransact = new ArrayList();
-//            newestTransact.add(service.newerTransaction(typeOfData,p_id,from,to));
-//            logges.addInfoLog("GET in Transaction is been fired with newest=true",info);
-//            return newestTransact;
-//        }
-//        else{
-//            logges.addInfoLog("GET in Transaction is been fired for all transaction",info);
-//            return service.allTransaction(typeOfData, p_id,from, to);
-//        }
-//    }
     @GetMapping("/transactions")
     public List<Transaction> getTransactions(@RequestParam (required = false) String from_date,@RequestParam (required = false) String to_date,@RequestParam (required = false) boolean oldest,@RequestParam (required = false) boolean newest,@RequestParam (required = false) String product_id,@RequestParam (required=false) String typeOfData) throws IOException, ParseException, CsvException {
         if(Objects.equals(typeOfData, "") ||typeOfData==null)
