@@ -5,10 +5,12 @@ import TransactionMonitor.com.bbd.model.Transaction;
 import TransactionMonitor.com.bbd.model.TransactionSummary;
 import TransactionMonitor.com.bbd.service.TransactionService;
 import com.opencsv.exceptions.CsvException;
+import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -82,7 +84,6 @@ public class RpcTransactionControllerTest {
         List<Transaction> actualResult =transactionController.newestTransaction(from,to,null,"TestData");
         assertThat(actualResult.get(0).getInit_date().equals(testResult.getInit_date()) && actualResult.get(0).getConclusion_date().equals(testResult.getConclusion_date()) && actualResult.get(0).getProduct_id().equals(testResult.getProduct_id()) && actualResult.get(0).getValue().equals(testResult.getValue()));
     }
-
     @Test
     void checkMean() throws ParseException, IOException, CsvException {
         float actualResult=transactionController.meanTransaction(null,null,null,"TestData");
@@ -124,7 +125,7 @@ public class RpcTransactionControllerTest {
         testResult.add(new Product("2"));
         assertThat(transactionController.mostCommonTransaction(from_date,to_date,"TestData")).isEqualTo(testResult);
     }
-
+    
     @Test
     void lestCommonProduct() throws IOException, CsvException, ParseException {
         List<Product> actualResult= new ArrayList<Product>();
@@ -139,7 +140,7 @@ public class RpcTransactionControllerTest {
         actualResult.add(new Product("3"));
         assertThat(transactionController.lestCommonTransaction(null,null,"TestData")).isEqualTo(actualResult);
     }
-
+  
     @Test
     void transactionTimeDeltaSummary() throws IOException, ParseException, CsvException {
         TransactionSummary actualResult = transactionController.getTimeDeltaSummary(null, null, null, "TestData");

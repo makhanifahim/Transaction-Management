@@ -1,6 +1,8 @@
 package TransactionMonitor.com.bbd.controller;
 
+
 import TransactionMonitor.com.bbd.model.Product;
+import TransactionMonitor.com.bbd.model.DatesBetween;
 import TransactionMonitor.com.bbd.model.Transaction;
 import TransactionMonitor.com.bbd.model.TransactionSummary;
 import TransactionMonitor.com.bbd.service.TransactionService;
@@ -40,9 +42,8 @@ class RestTransactionControllerTest {
     void saveTransaction() throws IOException {
         String filepath = ".//TestData";
         File file = new File(filepath);
-        if(file.exists()) {
+        if(file.exists()) 
             FileUtils.cleanDirectory(file);
-        }
 
         List<Transaction> records = new ArrayList<Transaction>();
         //1998

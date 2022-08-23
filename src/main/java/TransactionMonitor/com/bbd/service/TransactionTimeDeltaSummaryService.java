@@ -65,6 +65,7 @@ public class TransactionTimeDeltaSummaryService {
             TotalProcessMilliSeconds = TotalProcessMilliSeconds+(dateTo.getTime() - dateFrom.getTime());
             TotalTransaction++;
             values[t] = TotalProcessMilliSeconds;
+            System.out.println(dateTo+" - "+dateFrom+" "+(dateTo.getTime()-dateFrom.getTime()));
         }
         float variance = variance(values,TotalProcessMilliSeconds/TotalTransaction,TypeOfData,product_id,from_date,to_date);
         return new TransactionSummary((float) TotalProcessMilliSeconds/TotalTransaction,String.valueOf(mode(values)),(float) TotalProcessMilliSeconds/TotalTransaction, variance);

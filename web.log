@@ -1,3 +1,4 @@
+
 2022-08-23 09:33:14.204  INFO 17176 --- [restartedMain] T.com.bbd.config.Logges                  : Application Started
 2022-08-23 09:33:14.288  INFO 17176 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : Starting TransactionMonitorApplication using Java 17.0.2 on FahimM with PID 17176 (C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management\target\classes started by bbdnet10191 in C:\Users\bbdnet10191\Documents\GitHub\Transaction-Management)
 2022-08-23 09:33:14.288  INFO 17176 --- [restartedMain] T.com.bbd.TransactionMonitorApplication  : No active profile set, falling back to default profiles: default
