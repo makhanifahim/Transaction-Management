@@ -1,19 +1,18 @@
 package TransactionMonitor.com.bbd.service;
 
+import TransactionMonitor.com.bbd.model.Transaction;
 import TransactionMonitor.com.bbd.model.TransactionSummary;
 import com.opencsv.exceptions.CsvException;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-@Slf4j
 @Service
 public class TransactionTimeDeltaSummaryService {
 
@@ -41,7 +40,6 @@ public class TransactionTimeDeltaSummaryService {
         float XSeq;
         float TotalXX = 0;
         int TotalTran=0;
-        List<String[]> allTransaction = transactionService.allTransaction(TypeOfData,product_id,from_date,to_date);
         for (int t = 0; t< (long) array.length; t++){
             TotalTran++;
             XSeq=array[t]-mean;
@@ -54,20 +52,19 @@ public class TransactionTimeDeltaSummaryService {
     public TransactionSummary timeDelta(String TypeOfData, String product_id, Date from_date, Date to_date) throws IOException, CsvException, ParseException {
         if(Objects.equals(TypeOfData, "") ||TypeOfData==null)
             TypeOfData="Data";
-        List<String[]> transaction=transactionService.allTransaction(TypeOfData,product_id,from_date,to_date);
-        long TotalProcessMilliSeconds = 0;
+        List<Transaction> transaction=transactionService.allTransaction(TypeOfData,product_id,from_date,to_date);
+        long TotalProcessSeconds = 0;
         long TotalTransaction=0;
         long[] values = new long[transaction.size()];
         for(int t=0;t<transaction.size();t++){
-            String[] row=transaction.get(t);
-            Date dateFrom=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(row[0]);
-            Date dateTo=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(row[1]);
-            TotalProcessMilliSeconds = TotalProcessMilliSeconds+(dateTo.getTime() - dateFrom.getTime());
+            Transaction row=transaction.get(t);
+            ZonedDateTime dateFrom=row.getInit_date();
+            ZonedDateTime dateTo=row.getConclusion_date();
+            TotalProcessSeconds = TotalProcessSeconds+(dateTo.toEpochSecond() - dateFrom.toEpochSecond());
             TotalTransaction++;
-            values[t] = TotalProcessMilliSeconds;
-            System.out.println(dateTo+" - "+dateFrom+" "+(dateTo.getTime()-dateFrom.getTime()));
+            values[t] = TotalProcessSeconds;
         }
-        float variance = variance(values,TotalProcessMilliSeconds/TotalTransaction,TypeOfData,product_id,from_date,to_date);
-        return new TransactionSummary((float) TotalProcessMilliSeconds/TotalTransaction,String.valueOf(mode(values)),(float) TotalProcessMilliSeconds/TotalTransaction, variance);
+        float variance = variance(values,TotalProcessSeconds/TotalTransaction,TypeOfData,product_id,from_date,to_date);
+        return new TransactionSummary((float) TotalProcessSeconds/TotalTransaction,String.valueOf(mode(values)),(float) TotalProcessSeconds/TotalTransaction, variance);
     }
 }

@@ -1,17 +1,16 @@
-package TransactionMonitor.com.bbd.controller;
+package TransactionMonitor.com.bbd.controller.rpc_apis;
 
+import TransactionMonitor.com.bbd.config.Logges;
 import TransactionMonitor.com.bbd.model.Product;
 import TransactionMonitor.com.bbd.model.Transaction;
 import TransactionMonitor.com.bbd.model.TransactionSummary;
-import TransactionMonitor.com.bbd.service.TransactionService;
 import com.opencsv.exceptions.CsvException;
-import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,25 +20,24 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @SpringBootTest
 public class RpcTransactionControllerTest {
 
+    private static Logges logges;
+
     @Autowired
     private RpcTransactionController transactionController;
 
-    @Autowired
-    private TransactionService service;
-
     @BeforeAll
-    static void setUp() throws IOException {
-        System.out.println("Starting test and setting up ");
+    static void beforeAll(){
+        logges.addInfoLog("Starting Test and Setting Up","info");
     }
     @BeforeEach
-    void beforeAll() {
-        System.out.println("test started");
+    void beforeEach() {
+        logges.addInfoLog("Test started","info");
     }
 
     @Test
     void wrongDateAndTimeFormat(){
-        List<Transaction> records = new ArrayList<Transaction>();
-        Transaction  rec = new Transaction("1998-01-05","1998-01-05",1,3001.0F);
+        List<Transaction> records = new ArrayList<>();
+        Transaction  rec = new Transaction("1998-01-05","1998-01-05","1",new BigDecimal("3001.0"));
         records.add(rec);
         String actualResult = transactionController.createTransactions(records,"TestData");
         assertThat(actualResult).isEqualTo("Problem with index value : [0]");
@@ -47,8 +45,8 @@ public class RpcTransactionControllerTest {
 
     @Test
     void wrongDateAndTime(){
-        List<Transaction> records = new ArrayList<Transaction>();
-        Transaction  rec = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T13:00:00.005Z",1,3001.0F);
+        List<Transaction> records = new ArrayList<>();
+        Transaction  rec = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T13:00:00.005Z","1",new BigDecimal("3001.0"));
         records.add(rec);
         String actualResult = transactionController.createTransactions(records,"TestData");
         assertThat(actualResult).isEqualTo("Problem with index value : [0]");
@@ -56,7 +54,7 @@ public class RpcTransactionControllerTest {
 
     @Test
     void checkOldest() throws IOException, ParseException, CsvException {
-        Transaction testResult =new Transaction("1997-01-01T13:00:00.505Z", "1997-01-01T14:00:00.000Z", "1", "3001.7");
+        Transaction testResult =new Transaction("1997-01-01T13:00:00.505Z", "1997-01-01T14:00:00.000Z", "1", new BigDecimal("3001.7"));
         List<Transaction> actualResult =transactionController.oldestTransaction(null,null,null,"TestData");
         assertThat(actualResult.get(0).getInit_date().equals(testResult.getInit_date()) && actualResult.get(0).getConclusion_date().equals(testResult.getConclusion_date()) && actualResult.get(0).getProduct_id().equals(testResult.getProduct_id()) && actualResult.get(0).getValue().equals(testResult.getValue()));
     }
@@ -65,20 +63,20 @@ public class RpcTransactionControllerTest {
     void checkOldestInRange() throws IOException, ParseException, CsvException {
         String from ="1998-01-01";
         String to= "1999-01-01";
-        Transaction testResult = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T14:00:00.000Z", "1","3008.0");
+        Transaction testResult = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T14:00:00.000Z", "1",new BigDecimal("3008.0"));
         List<Transaction> actualResult =transactionController.oldestTransaction(from,to,null,"TestData");
         assertThat(actualResult.get(0).getInit_date().equals(testResult.getInit_date()) && actualResult.get(0).getConclusion_date().equals(testResult.getConclusion_date()) && actualResult.get(0).getProduct_id().equals(testResult.getProduct_id()) && actualResult.get(0).getValue().equals(testResult.getValue()));
     }
 
     @Test
     void checkNewest() throws IOException, ParseException, CsvException {
-        Transaction testResult = new Transaction("1999-12-04T13:00:00.505Z","1999-12-04T13:00:00.510Z","8","9.0");
+        Transaction testResult = new Transaction("1999-12-04T13:00:00.505Z","1999-12-04T13:00:00.510Z","8",new BigDecimal("9.0"));
         List<Transaction> actualResult =transactionController.newestTransaction(null,null,null,"TestData");
         assertThat(actualResult.get(0).getInit_date().equals(testResult.getInit_date()) && actualResult.get(0).getConclusion_date().equals(testResult.getConclusion_date()) && actualResult.get(0).getProduct_id().equals(testResult.getProduct_id()) && actualResult.get(0).getValue().equals(testResult.getValue()));
     }
     @Test
     void checkNewestTInRange() throws IOException, ParseException, CsvException {
-        Transaction testResult=new Transaction("1998-12-04T13:00:00.505Z","1998-12-04T13:00:00.510Z","2","3.8");
+        Transaction testResult=new Transaction("1998-12-04T13:00:00.505Z","1998-12-04T13:00:00.510Z","2",new BigDecimal("3.8"));
         String from ="1998-01-01";
         String to= "1998-12-05";
         List<Transaction> actualResult =transactionController.newestTransaction(from,to,null,"TestData");
@@ -94,7 +92,7 @@ public class RpcTransactionControllerTest {
     @Test
     void checkMode() throws ParseException, IOException, CsvException {
         String actualResult=transactionController.modeTransaction(null,null,null,"TestData");
-        String expectedResult="7.0";
+        String expectedResult="7";
         assertThat(actualResult).isEqualTo(expectedResult);
     }
 
@@ -113,7 +111,7 @@ public class RpcTransactionControllerTest {
     }
     @Test
     void mostCommonProduct() throws IOException, CsvException, ParseException {
-        List<Product> actualResult= new ArrayList<Product>();
+        List<Product> actualResult= new ArrayList<>();
         actualResult.add(new Product("5"));
         assertThat(transactionController.mostCommonTransaction(null,null,"TestData")).isEqualTo(actualResult);
     }
@@ -121,14 +119,14 @@ public class RpcTransactionControllerTest {
     void mostCommonProductInRange() throws IOException, ParseException, CsvException {
         String from_date="1998-01-01";
         String to_date="1999-12-05";
-        List<Product> testResult= new ArrayList<Product>();
+        List<Product> testResult= new ArrayList<>();
         testResult.add(new Product("2"));
         assertThat(transactionController.mostCommonTransaction(from_date,to_date,"TestData")).isEqualTo(testResult);
     }
-    
+
     @Test
     void lestCommonProduct() throws IOException, CsvException, ParseException {
-        List<Product> actualResult= new ArrayList<Product>();
+        List<Product> actualResult= new ArrayList<>();
         actualResult.add(new Product("3"));
         assertThat(transactionController.lestCommonTransaction(null,null,"TestData")).isEqualTo(actualResult);
     }
@@ -136,11 +134,11 @@ public class RpcTransactionControllerTest {
     void listCommonProductInRange() throws IOException, ParseException, CsvException {
         String from_date="1998-01-01";
         String to_date="1999-12-05";
-        List<Product> actualResult= new ArrayList<Product>();
+        List<Product> actualResult= new ArrayList<>();
         actualResult.add(new Product("3"));
-        assertThat(transactionController.lestCommonTransaction(null,null,"TestData")).isEqualTo(actualResult);
+        assertThat(transactionController.lestCommonTransaction(from_date,to_date,"TestData")).isEqualTo(actualResult);
     }
-  
+
     @Test
     void transactionTimeDeltaSummary() throws IOException, ParseException, CsvException {
         TransactionSummary actualResult = transactionController.getTimeDeltaSummary(null, null, null, "TestData");
@@ -149,13 +147,12 @@ public class RpcTransactionControllerTest {
     }
 
     @AfterAll
-    static void tearDown() throws IOException {
-        System.out.println("tearing down");
+    static void tearDown(){
+        logges.addInfoLog("Ending Test and Setting Down","info");
     }
 
     @AfterEach
     void afterAll() {
-        System.out.println("Testing ended");
+        logges.addInfoLog("Test ended","info");
     }
 }
-

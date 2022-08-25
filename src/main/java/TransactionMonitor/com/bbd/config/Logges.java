@@ -6,17 +6,15 @@ import java.util.Objects;
 
 @Slf4j
 public class Logges {
-    public boolean addInfoLog(String message,String logType){
+    public void addInfoLog(String message,String logType){
         try {
-            if(Objects.equals(logType, "info"))
+            if(Objects.equals(logType, "INFO"))
                 log.info(message);
-            else
+            else if(Objects.equals(logType, "ERROR"))
                 log.error(message);
-            return true;
         }
         catch (Exception e){
             log.error(message);
-            return false;
         }
     }
 }

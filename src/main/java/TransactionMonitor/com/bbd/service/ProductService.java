@@ -1,8 +1,8 @@
 package TransactionMonitor.com.bbd.service;
 
 import TransactionMonitor.com.bbd.model.Product;
+import TransactionMonitor.com.bbd.model.Transaction;
 import com.opencsv.exceptions.CsvException;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Objects;
 
 @Service
-@Slf4j
 public class ProductService {
 
     @Autowired
@@ -38,21 +37,21 @@ public class ProductService {
 
     public String[][] listCommonProd(String TypeOfData, Date from_date, Date to_date) throws IOException, CsvException, ParseException {
         int c=0;
-        List<String[]> allTransaction = transactionService.allTransaction(TypeOfData,null,from_date,to_date);
+        List<Transaction> allTransaction = transactionService.allTransaction(TypeOfData,null,from_date,to_date);
         String[][] products = new String[allTransaction.size()][2];
         for (int t = 0; t< (long) allTransaction.size(); t++){
-            String[] row=allTransaction.get(t);
+            Transaction row=allTransaction.get(t);
             int present=0;
             for(int i=0;i<products.length;i++){
                 if(products[i][0]!=null) {
-                    if(products[i][0].equals(row[2])){
+                    if(products[i][0].equals(row.getProduct_id())){
                         present=1;
                         products[i][1]=String.valueOf(Integer.parseInt(products[i][1])+1);
                     }
                 }
             }
             if(present==0){
-                products[c][0] = row[2];
+                products[c][0] = row.getProduct_id();
                 products[c][1] = String.valueOf(0);
                 c++;
             }

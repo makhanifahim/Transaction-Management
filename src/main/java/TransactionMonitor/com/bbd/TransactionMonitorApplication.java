@@ -1,6 +1,5 @@
 package TransactionMonitor.com.bbd;
 
-import TransactionMonitor.com.bbd.config.Logges;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,9 +13,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class TransactionMonitorApplication {
 
 	public static void main(String[] args) {
-		final Logges logges = new Logges();
-		logges.addInfoLog("Application Started","info");
-
 		SpringApplication.run(TransactionMonitorApplication.class, args);
 	}
 }

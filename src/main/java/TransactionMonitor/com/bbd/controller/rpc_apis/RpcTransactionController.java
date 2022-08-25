@@ -1,15 +1,15 @@
-package TransactionMonitor.com.bbd.controller;
+package TransactionMonitor.com.bbd.controller.rpc_apis;
 
 import TransactionMonitor.com.bbd.config.Logges;
+import TransactionMonitor.com.bbd.model.DatesBetween;
+import TransactionMonitor.com.bbd.model.Product;
 import TransactionMonitor.com.bbd.model.Transaction;
 import TransactionMonitor.com.bbd.model.TransactionSummary;
-import TransactionMonitor.com.bbd.model.Product;
 import TransactionMonitor.com.bbd.service.ProductService;
 import TransactionMonitor.com.bbd.service.TransactionService;
 import TransactionMonitor.com.bbd.service.TransactionTimeDeltaSummaryService;
 import TransactionMonitor.com.bbd.service.TransactionValueSummaryService;
 import com.opencsv.exceptions.CsvException;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +23,6 @@ import java.util.Objects;
 
 
 @RequestMapping("/rpc_api")
-@Slf4j
 @RestController
 @ControllerAdvice
 public class RpcTransactionController {
@@ -39,7 +38,7 @@ public class RpcTransactionController {
     private final Logges logges = new Logges();
     String info="INFO";
 
-    @PostMapping("/create_transactions")
+    @PostMapping("/createTransactions")
     public String createTransactions(@RequestBody List<Transaction> transactions, @PathVariable(required=false) String typeOfData) {
         if(Objects.equals(typeOfData, "") ||typeOfData==null)
             typeOfData="Data";
@@ -47,7 +46,7 @@ public class RpcTransactionController {
         return service.saveTransaction(transactions, typeOfData);
     }
 
-    @GetMapping("/oldest_transaction")
+    @GetMapping("/oldestTransaction")
     public List<Transaction> oldestTransaction(@RequestParam (required = false) String from_date,@RequestParam (required = false) String to_date,@RequestParam (required = false) String product_id,@RequestParam (required = false) String typeOfData) throws ParseException, IOException, CsvException {
         if(Objects.equals(typeOfData, "") ||typeOfData==null)
             typeOfData="Data";
@@ -62,7 +61,7 @@ public class RpcTransactionController {
         return oldestTransact;
     }
 
-    @GetMapping("/newest_transaction")
+    @GetMapping("/newestTransaction")
     public List<Transaction> newestTransaction(@RequestParam (required = false) String from_date,@RequestParam (required = false) String to_date,@RequestParam (required = false) String product_id,@RequestParam (required = false) String typeOfData) throws ParseException, IOException, CsvException {
         if(Objects.equals(typeOfData, "") ||typeOfData==null)
             typeOfData="Data";
@@ -103,7 +102,7 @@ public class RpcTransactionController {
         return valueSummaryService.modeOfTransaction(from,to,p_id,typeOfData);
     }
 
-    @GetMapping("/standard_deviation")
+    @GetMapping("/standardDeviation")
     public float standardDeviationTransaction(@RequestParam (required = false) String from_date,@RequestParam (required = false) String to_date,@RequestParam (required = false) String product_id,@RequestParam (required = false) String typeOfData) throws ParseException, IOException, CsvException {
         if(Objects.equals(typeOfData, "") ||typeOfData==null)
             typeOfData="Data";
@@ -129,7 +128,7 @@ public class RpcTransactionController {
         return valueSummaryService.varianceOfTransaction(from,to,p_id,typeOfData);
     }
 
-    @GetMapping("/most_common_product")
+    @GetMapping("/mostCommonProduct")
     public List<Product> mostCommonTransaction(@RequestParam (required = false) String from_date, @RequestParam (required = false) String to_date, @RequestParam (required = false) String typeOfData) throws ParseException, IOException, CsvException {
         if(Objects.equals(typeOfData, "") ||typeOfData==null)
             typeOfData="Data";
@@ -140,7 +139,7 @@ public class RpcTransactionController {
         return productService.CommonProduct(typeOfData,from,to,true,false);
     }
 
-    @GetMapping("/lest_common_product")
+    @GetMapping("/lestCommonProduct")
     public List<Product> lestCommonTransaction(@RequestParam (required = false) String from_date, @RequestParam (required = false) String to_date, @RequestParam (required = false) String typeOfData) throws ParseException, IOException, CsvException {
         if(Objects.equals(typeOfData, "") ||typeOfData==null)
             typeOfData="Data";
@@ -151,7 +150,7 @@ public class RpcTransactionController {
         return productService.CommonProduct(typeOfData,from,to,false,true);
     }
 
-    @GetMapping("/time_delta")
+    @GetMapping("/timeDelta")
     public TransactionSummary getTimeDeltaSummary(@RequestParam (required = false) String from_date, @RequestParam (required = false) String to_date, @RequestParam (required = false) String product_id, @RequestParam (required=false) String typeOfData) throws IOException, ParseException, CsvException {
         if(Objects.equals(typeOfData, "") ||typeOfData==null)
             typeOfData="Data";
@@ -161,4 +160,10 @@ public class RpcTransactionController {
         logges.addInfoLog("RPC - GET in time_delta with from="+from+" and to="+to+" with product id="+product_id,info);
         return timeDeltaSummaryService.timeDelta(typeOfData,product_id,from,to);
     }
+
+    @PostMapping("/try")
+    public DatesBetween getdates(@RequestBody DatesBetween dates){
+        return dates;
+    }
+
 }
