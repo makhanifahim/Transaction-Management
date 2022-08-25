@@ -2,7 +2,6 @@ package TransactionMonitor.com.bbd.service;
 
 import TransactionMonitor.com.bbd.model.TransactionSummary;
 import com.opencsv.exceptions.CsvException;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +12,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-@Slf4j
 @Service
 public class TransactionTimeDeltaSummaryService {
 
@@ -41,7 +39,6 @@ public class TransactionTimeDeltaSummaryService {
         float XSeq;
         float TotalXX = 0;
         int TotalTran=0;
-        List<String[]> allTransaction = transactionService.allTransaction(TypeOfData,product_id,from_date,to_date);
         for (int t = 0; t< (long) array.length; t++){
             TotalTran++;
             XSeq=array[t]-mean;

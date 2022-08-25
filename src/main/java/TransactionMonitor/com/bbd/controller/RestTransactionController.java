@@ -1,15 +1,14 @@
 package TransactionMonitor.com.bbd.controller;
 
 import TransactionMonitor.com.bbd.config.Logges;
+import TransactionMonitor.com.bbd.model.Product;
 import TransactionMonitor.com.bbd.model.Transaction;
 import TransactionMonitor.com.bbd.model.TransactionSummary;
-import TransactionMonitor.com.bbd.model.Product;
 import TransactionMonitor.com.bbd.service.ProductService;
 import TransactionMonitor.com.bbd.service.TransactionService;
 import TransactionMonitor.com.bbd.service.TransactionTimeDeltaSummaryService;
 import TransactionMonitor.com.bbd.service.TransactionValueSummaryService;
 import com.opencsv.exceptions.CsvException;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +22,6 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/rest_api")
-@Slf4j
 public class RestTransactionController {
 
     @Autowired
@@ -39,11 +37,12 @@ public class RestTransactionController {
     String info="INFO";
 
     @PostMapping("/transactions")
-    public String saveTransactions(@RequestBody List<Transaction> transactions,@PathVariable (required=false) String typeOfData) {
+    public String saveTransactions(@RequestBody List<Transaction> transactions, @PathVariable (required=false) String typeOfData) {
         if(Objects.equals(typeOfData, "") ||typeOfData==null)
             typeOfData="Data";
         logges.addInfoLog("POST in Transaction is been fired",info);
-        return service.saveTransaction(transactions, typeOfData);
+        return service.saveTransaction(transactions,typeOfData);
+        //return new ResponseEntity<String>(service.saveTransaction(transactions, typeOfData),HttpStatus.CREATED);
     }
     @GetMapping("/transactions")
     public List<Transaction> getTransactions(@RequestParam (required = false) String from_date,@RequestParam (required = false) String to_date,@RequestParam (required = false) boolean oldest,@RequestParam (required = false) boolean newest,@RequestParam (required = false) String product_id,@RequestParam (required=false) String typeOfData) throws IOException, ParseException, CsvException {

@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,141 +31,141 @@ class RestTransactionControllerTest {
 
     @BeforeAll
     static void setUp() throws IOException {
-        System.out.println("Starting test and setting up ");
+        System.out.println("Starting Test and Setting Up ");
     }
     @BeforeEach
     void beforeAll() {
-        System.out.println("test started");
+        System.out.println("Test started");
     }
 
     @Test
     void saveTransaction() throws IOException {
         String filepath = ".//TestData";
         File file = new File(filepath);
-        if(file.exists()) 
+        if(file.exists())
             FileUtils.cleanDirectory(file);
 
         List<Transaction> records = new ArrayList<Transaction>();
         //1998
-        Transaction  rec = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T14:00:00.000Z","1",3008.0F);
+        Transaction  rec = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T14:00:00.000Z","1", new BigDecimal(3008.0));
         records.add(rec);
 
-        Transaction rec1 = new Transaction("1998-02-02T13:00:00.505Z","1998-02-03T13:00:00.700Z","2",308.0F);
+        Transaction rec1 = new Transaction("1998-02-02T13:00:00.505Z","1998-02-03T13:00:00.700Z","2",new BigDecimal(308.0));
         records.add(rec1);
 
-        Transaction rec2 = new Transaction("1998-03-03T13:00:00.505Z","1998-03-03T13:10:00.500Z","3",38.0F);
+        Transaction rec2 = new Transaction("1998-03-03T13:00:00.505Z","1998-03-03T13:10:00.500Z","3",new BigDecimal(38.0));
         records.add(rec2);
 
 
-        Transaction rec3 = new Transaction("1998-04-04T13:00:00.505Z","1998-04-04T13:00:00.900Z","4",7.0F);
+        Transaction rec3 = new Transaction("1998-04-04T13:00:00.505Z","1998-04-04T13:00:00.900Z","4",new BigDecimal(7.0));
         records.add(rec3);
 
-        Transaction rec4 = new Transaction("1998-05-01T13:00:00.505Z","1998-05-01T14:00:00.900Z","2",3208.0F);
+        Transaction rec4 = new Transaction("1998-05-01T13:00:00.505Z","1998-05-01T14:00:00.900Z","2",new BigDecimal(3208.0));
         records.add(rec4);
 
-        Transaction rec5 = new Transaction("1998-06-02T13:00:00.505Z","1998-06-02T13:00:00.900Z","6",8.0F);
+        Transaction rec5 = new Transaction("1998-06-02T13:00:00.505Z","1998-06-02T13:00:00.900Z","6",new BigDecimal(8.0));
         records.add(rec5);
 
 
-        Transaction rec6 = new Transaction("1998-07-03T13:00:00.505Z","1998-07-03T13:10:00.900Z","7",7.0F);
+        Transaction rec6 = new Transaction("1998-07-03T13:00:00.505Z","1998-07-03T13:10:00.900Z","7",new BigDecimal(7.0));
         records.add(rec6);
 
-        Transaction rec7 = new Transaction("1998-08-04T13:00:00.505Z","1998-08-04T13:00:00.900Z","2",8.8F);
+        Transaction rec7 = new Transaction("1998-08-04T13:00:00.505Z","1998-08-04T13:00:00.900Z","2",new BigDecimal(8.8));
         records.add(rec7);
 
-        Transaction rec8 = new Transaction("1998-09-01T13:00:00.505Z","1998-09-01T14:00:00.900Z","5",1118.0F);
+        Transaction rec8 = new Transaction("1998-09-01T13:00:00.505Z","1998-09-01T14:00:00.900Z","5",new BigDecimal(1118.0));
         records.add(rec8);
 
 
-        Transaction rec9 = new Transaction("1998-10-02T13:00:00.505Z","1998-10-02T13:00:00.900Z","2",1108.0F);
+        Transaction rec9 = new Transaction("1998-10-02T13:00:00.505Z","1998-10-02T13:00:00.900Z","2",new BigDecimal(1108.0));
         records.add(rec9);
 
-        Transaction rec10 = new Transaction("1998-11-03T13:00:00.505Z","1998-11-03T13:10:00.900Z","7",108.0F);
+        Transaction rec10 = new Transaction("1998-11-03T13:00:00.505Z","1998-11-03T13:10:00.900Z","7",new BigDecimal(108.0));
         records.add(rec10);
 
-        Transaction rec11 = new Transaction("1998-12-04T13:00:00.505Z","1998-12-04T13:00:00.900Z","2",3.8F);
+        Transaction rec11 = new Transaction("1998-12-04T13:00:00.505Z","1998-12-04T13:00:00.900Z","2",new BigDecimal(3.8));
         records.add(rec11);
 
         //1999
 
-        Transaction rec12 = new Transaction("1999-01-01T13:00:00.505Z","1999-01-01T14:00:00.900Z","1",3001.9F);
+        Transaction rec12 = new Transaction("1999-01-01T13:00:00.505Z","1999-01-01T14:00:00.900Z","1",new BigDecimal(3001.9));
         records.add(rec12);
 
-        Transaction rec13 = new Transaction("1999-02-02T13:00:00.505Z","1999-02-02T13:00:00.900Z","2",301.9F);
+        Transaction rec13 = new Transaction("1999-02-02T13:00:00.505Z","1999-02-02T13:00:00.900Z","2",new BigDecimal(301.9));
         records.add(rec13);
 
-        Transaction rec14 = new Transaction("1999-03-03T13:00:00.505Z","1999-03-03T13:10:00.500Z","2",31.9F);
+        Transaction rec14 = new Transaction("1999-03-03T13:00:00.505Z","1999-03-03T13:10:00.500Z","2",new BigDecimal(31.9));
         records.add(rec14);
 
 
-        Transaction rec15 = new Transaction("1999-04-04T13:00:00.505Z","1999-04-04T13:00:00.900Z","4",9.0F);
+        Transaction rec15 = new Transaction("1999-04-04T13:00:00.505Z","1999-04-04T13:00:00.900Z","4",new BigDecimal(9.0));
         records.add(rec15);
 
-        Transaction rec16 = new Transaction("1999-05-01T13:00:00.505Z","1999-05-01T14:00:00.900Z","5",3201.9F);
+        Transaction rec16 = new Transaction("1999-05-01T13:00:00.505Z","1999-05-01T14:00:00.900Z","5",new BigDecimal(3201.9));
         records.add(rec16);
 
-        Transaction rec17 = new Transaction("1999-06-02T13:00:00.505Z","1999-06-02T13:00:00.900Z","2",9.0F);
+        Transaction rec17 = new Transaction("1999-06-02T13:00:00.505Z","1999-06-02T13:00:00.900Z","2",new BigDecimal(9.0));
         records.add(rec17);
 
 
-        Transaction rec18 = new Transaction("1999-07-03T13:00:00.505Z","1999-07-03T13:10:00.900Z","7",11.9F);
+        Transaction rec18 = new Transaction("1999-07-03T13:00:00.505Z","1999-07-03T13:10:00.900Z","7",new BigDecimal(11.9));
         records.add(rec18);
 
-        Transaction rec19 = new Transaction("1999-08-04T13:00:00.505Z","1999-08-04T13:00:00.510Z","2",1.9F);
+        Transaction rec19 = new Transaction("1999-08-04T13:00:00.505Z","1999-08-04T13:00:00.510Z","2",new BigDecimal(1.9));
         records.add(rec19);
 
-        Transaction rec20 = new Transaction("1999-09-01T13:00:00.505Z","1999-09-01T14:00:00.900Z","5",1119.0F);
+        Transaction rec20 = new Transaction("1999-09-01T13:00:00.505Z","1999-09-01T14:00:00.900Z","5",new BigDecimal(1119.0));
         records.add(rec20);
 
 
-        Transaction rec21 = new Transaction("1999-10-02T13:00:00.505Z","1999-10-02T13:00:00.900Z","6",1109.0F);
+        Transaction rec21 = new Transaction("1999-10-02T13:00:00.505Z","1999-10-02T13:00:00.900Z","6",new BigDecimal(1109.0));
         records.add(rec21);
 
-        Transaction rec22 = new Transaction("1999-11-03T13:00:00.505Z","1999-11-03T13:10:00.900Z","7",191.0F);
+        Transaction rec22 = new Transaction("1999-11-03T13:00:00.505Z","1999-11-03T13:10:00.900Z","7",new BigDecimal(191.0));
         records.add(rec22);
 
-        Transaction rec23 = new Transaction("1999-12-04T13:00:00.505Z","1999-12-04T13:00:00.900Z","8",9.0F);
+        Transaction rec23 = new Transaction("1999-12-04T13:00:00.505Z","1999-12-04T13:00:00.900Z","8",new BigDecimal(9.0));
         records.add(rec23);
 
         //1997
 
-        Transaction rec24 = new Transaction("1997-01-01T13:00:00.505Z","1997-01-01T14:00:00.900Z","1",3001.7F);
+        Transaction rec24 = new Transaction("1997-01-01T13:00:00.505Z","1997-01-01T14:00:00.900Z","1",new BigDecimal(3001.7));
         records.add(rec24);
 
-        Transaction rec25 = new Transaction("1997-02-02T13:00:00.505Z","1997-02-02T13:00:00.900Z","5",301.7F);
+        Transaction rec25 = new Transaction("1997-02-02T13:00:00.505Z","1997-02-02T13:00:00.900Z","5",new BigDecimal(301.7));
         records.add(rec25);
 
-        Transaction rec26 = new Transaction("1997-03-03T13:00:00.505Z","1997-03-03T13:10:00.900Z","3",31.7F);
+        Transaction rec26 = new Transaction("1997-03-03T13:00:00.505Z","1997-03-03T13:10:00.900Z","3",new BigDecimal(31.7));
         records.add(rec26);
 
 
-        Transaction rec27 = new Transaction("1997-04-04T13:00:00.505Z","1997-04-04T13:00:00.900Z","4",7.0F);
+        Transaction rec27 = new Transaction("1997-04-04T13:00:00.505Z","1997-04-04T13:00:00.900Z","4",new BigDecimal(7.0));
         records.add(rec27);
 
-        Transaction rec28 = new Transaction("1997-05-01T13:00:00.505Z","1997-05-01T14:00:00.900Z","5",7201.0F);
+        Transaction rec28 = new Transaction("1997-05-01T13:00:00.505Z","1997-05-01T14:00:00.900Z","5",new BigDecimal(7201.0));
         records.add(rec28);
 
-        Transaction rec29 = new Transaction("1997-06-02T13:00:00.505Z","1997-06-02T13:00:00.900Z","6",7.0F);
+        Transaction rec29 = new Transaction("1997-06-02T13:00:00.505Z","1997-06-02T13:00:00.900Z","6",new BigDecimal(7.0));
         records.add(rec29);
 
 
-        Transaction rec30 = new Transaction("1997-07-03T13:00:00.505Z","1997-07-03T13:10:00.900Z","7",17.0F);
+        Transaction rec30 = new Transaction("1997-07-03T13:00:00.505Z","1997-07-03T13:10:00.900Z","7",new BigDecimal(17.0));
         records.add(rec30);
 
-        Transaction rec31 = new Transaction("1997-08-04T13:00:00.505Z","1997-08-04T13:00:00.910Z","8",7.0F);
+        Transaction rec31 = new Transaction("1997-08-04T13:00:00.505Z","1997-08-04T13:00:00.910Z","8",new BigDecimal(7.0));
         records.add(rec31);
 
-        Transaction rec32 = new Transaction("1997-09-01T13:00:00.505Z","1997-09-01T14:00:00.000Z","5",7111.0F);
+        Transaction rec32 = new Transaction("1997-09-01T13:00:00.505Z","1997-09-01T14:00:00.000Z","5",new BigDecimal(7111.0));
         records.add(rec32);
 
 
-        Transaction rec33 = new Transaction("1997-10-02T13:00:00.505Z","1997-10-02T13:00:00.505Z","6",1171.0F);
+        Transaction rec33 = new Transaction("1997-10-02T13:00:00.505Z","1997-10-02T13:00:00.505Z","6",new BigDecimal(1171.0));
         records.add(rec33);
 
-        Transaction rec34 = new Transaction("1997-11-03T13:00:00.505Z","1997-11-03T13:10:00.500Z","5",107.0F);
+        Transaction rec34 = new Transaction("1997-11-03T13:00:00.505Z","1997-11-03T13:10:00.500Z","5",new BigDecimal(107.0));
         records.add(rec34);
 
-        Transaction rec35 = new Transaction("1997-12-04T13:00:00.505Z","1997-12-05T13:00:00.510Z","8",3.7F);
+        Transaction rec35 = new Transaction("1997-12-04T13:00:00.505Z","1997-12-05T13:00:00.510Z","8",new BigDecimal(3.7));
         records.add(rec35);
 
         String actualResult = transactionController.saveTransactions(records,"TestData");
@@ -174,7 +175,7 @@ class RestTransactionControllerTest {
     @Test
     void wrongDateAndTime(){
         List<Transaction> records = new ArrayList<Transaction>();
-        Transaction  rec = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T13:00:00.005Z","1",3001.0F);
+        Transaction  rec = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T13:00:00.005Z","1",new BigDecimal(3001.0));
         records.add(rec);
         String actualResult = transactionController.saveTransactions(records,"TestData");
         assertThat(actualResult).isEqualTo("Problem with index value : [0]");
@@ -182,7 +183,7 @@ class RestTransactionControllerTest {
 
     @Test
     void checkOldest() throws IOException, ParseException, CsvException {
-        Transaction testResult =new Transaction("1997-01-01T13:00:00.505Z", "1997-01-01T14:00:00.000Z", "1", "3001.7");
+        Transaction testResult =new Transaction("1997-01-01T13:00:00.505Z", "1997-01-01T14:00:00.000Z", "1", new BigDecimal(3001.7));
         List<Transaction> actualResult =transactionController.getTransactions(null,null,true,false,null,"TestData");
         assertThat(actualResult.get(0).getInit_date().equals(testResult.getInit_date()) && actualResult.get(0).getConclusion_date().equals(testResult.getConclusion_date()) && actualResult.get(0).getProduct_id().equals(testResult.getProduct_id()) && actualResult.get(0).getValue().equals(testResult.getValue()));
     }
@@ -191,21 +192,21 @@ class RestTransactionControllerTest {
     void checkOldestInRange() throws IOException, ParseException, CsvException {
         String from ="1998-01-01";
         String to= "1999-01-01";
-        Transaction testResult = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T14:00:00.000Z", "1","3008.0");
+        Transaction testResult = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T14:00:00.000Z", "1",new BigDecimal(3008.0));
         List<Transaction> actualResult =transactionController.getTransactions(from,to,true,false,null,"TestData");
         assertThat(actualResult.get(0).getInit_date().equals(testResult.getInit_date()) && actualResult.get(0).getConclusion_date().equals(testResult.getConclusion_date()) && actualResult.get(0).getProduct_id().equals(testResult.getProduct_id()) && actualResult.get(0).getValue().equals(testResult.getValue()));
     }
 
     @Test
     void checkNewest() throws IOException, ParseException, CsvException {
-        Transaction testResult = new Transaction("1999-12-04T13:00:00.505Z","1999-12-04T13:00:00.510Z","8","9.0");
+        Transaction testResult = new Transaction("1999-12-04T13:00:00.505Z","1999-12-04T13:00:00.510Z","8",new BigDecimal(9.0));
         List<Transaction> actualResult =transactionController.getTransactions(null,null,false,true,null,"TestData");
         assertThat(actualResult.get(0).getInit_date().equals(testResult.getInit_date()) && actualResult.get(0).getConclusion_date().equals(testResult.getConclusion_date()) && actualResult.get(0).getProduct_id().equals(testResult.getProduct_id()) && actualResult.get(0).getValue().equals(testResult.getValue()));
     }
 
     @Test
     void checkNewestTInRange() throws IOException, ParseException, CsvException {
-        Transaction testResult=new Transaction("1998-12-04T13:00:00.505Z","1998-12-04T13:00:00.510Z","2","3.8");
+        Transaction testResult=new Transaction("1998-12-04T13:00:00.505Z","1998-12-04T13:00:00.510Z","2",new BigDecimal(3.8));
         String from ="1998-01-01";
         String to= "1998-12-05";
         List<Transaction> actualResult =transactionController.getTransactions(from,to,false,true,null,"TestData");

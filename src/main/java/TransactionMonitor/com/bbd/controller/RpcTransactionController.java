@@ -1,15 +1,14 @@
 package TransactionMonitor.com.bbd.controller;
 
 import TransactionMonitor.com.bbd.config.Logges;
+import TransactionMonitor.com.bbd.model.Product;
 import TransactionMonitor.com.bbd.model.Transaction;
 import TransactionMonitor.com.bbd.model.TransactionSummary;
-import TransactionMonitor.com.bbd.model.Product;
 import TransactionMonitor.com.bbd.service.ProductService;
 import TransactionMonitor.com.bbd.service.TransactionService;
 import TransactionMonitor.com.bbd.service.TransactionTimeDeltaSummaryService;
 import TransactionMonitor.com.bbd.service.TransactionValueSummaryService;
 import com.opencsv.exceptions.CsvException;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +22,6 @@ import java.util.Objects;
 
 
 @RequestMapping("/rpc_api")
-@Slf4j
 @RestController
 @ControllerAdvice
 public class RpcTransactionController {
@@ -161,4 +159,7 @@ public class RpcTransactionController {
         logges.addInfoLog("RPC - GET in time_delta with from="+from+" and to="+to+" with product id="+product_id,info);
         return timeDeltaSummaryService.timeDelta(typeOfData,product_id,from,to);
     }
+
+
+
 }

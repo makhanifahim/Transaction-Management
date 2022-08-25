@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,17 +28,17 @@ public class RpcTransactionControllerTest {
 
     @BeforeAll
     static void setUp() throws IOException {
-        System.out.println("Starting test and setting up ");
+        System.out.println("Starting Test and Setting Up ");
     }
     @BeforeEach
     void beforeAll() {
-        System.out.println("test started");
+        System.out.println("Test started");
     }
 
     @Test
     void wrongDateAndTimeFormat(){
         List<Transaction> records = new ArrayList<Transaction>();
-        Transaction  rec = new Transaction("1998-01-05","1998-01-05","1",3001.0F);
+        Transaction  rec = new Transaction("1998-01-05","1998-01-05","1",new BigDecimal(3001.0));
         records.add(rec);
         String actualResult = transactionController.createTransactions(records,"TestData");
         assertThat(actualResult).isEqualTo("Problem with index value : [0]");
@@ -46,7 +47,7 @@ public class RpcTransactionControllerTest {
     @Test
     void wrongDateAndTime(){
         List<Transaction> records = new ArrayList<Transaction>();
-        Transaction  rec = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T13:00:00.005Z","1",3001.0F);
+        Transaction  rec = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T13:00:00.005Z","1",new BigDecimal(3001.0));
         records.add(rec);
         String actualResult = transactionController.createTransactions(records,"TestData");
         assertThat(actualResult).isEqualTo("Problem with index value : [0]");
@@ -54,7 +55,7 @@ public class RpcTransactionControllerTest {
 
     @Test
     void checkOldest() throws IOException, ParseException, CsvException {
-        Transaction testResult =new Transaction("1997-01-01T13:00:00.505Z", "1997-01-01T14:00:00.000Z", "1", "3001.7");
+        Transaction testResult =new Transaction("1997-01-01T13:00:00.505Z", "1997-01-01T14:00:00.000Z", "1", new BigDecimal(3001.7));
         List<Transaction> actualResult =transactionController.oldestTransaction(null,null,null,"TestData");
         assertThat(actualResult.get(0).getInit_date().equals(testResult.getInit_date()) && actualResult.get(0).getConclusion_date().equals(testResult.getConclusion_date()) && actualResult.get(0).getProduct_id().equals(testResult.getProduct_id()) && actualResult.get(0).getValue().equals(testResult.getValue()));
     }
@@ -63,20 +64,20 @@ public class RpcTransactionControllerTest {
     void checkOldestInRange() throws IOException, ParseException, CsvException {
         String from ="1998-01-01";
         String to= "1999-01-01";
-        Transaction testResult = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T14:00:00.000Z", "1","3008.0");
+        Transaction testResult = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T14:00:00.000Z", "1",new BigDecimal(3008.0));
         List<Transaction> actualResult =transactionController.oldestTransaction(from,to,null,"TestData");
         assertThat(actualResult.get(0).getInit_date().equals(testResult.getInit_date()) && actualResult.get(0).getConclusion_date().equals(testResult.getConclusion_date()) && actualResult.get(0).getProduct_id().equals(testResult.getProduct_id()) && actualResult.get(0).getValue().equals(testResult.getValue()));
     }
 
     @Test
     void checkNewest() throws IOException, ParseException, CsvException {
-        Transaction testResult = new Transaction("1999-12-04T13:00:00.505Z","1999-12-04T13:00:00.510Z","8","9.0");
+        Transaction testResult = new Transaction("1999-12-04T13:00:00.505Z","1999-12-04T13:00:00.510Z","8",new BigDecimal(9.0));
         List<Transaction> actualResult =transactionController.newestTransaction(null,null,null,"TestData");
         assertThat(actualResult.get(0).getInit_date().equals(testResult.getInit_date()) && actualResult.get(0).getConclusion_date().equals(testResult.getConclusion_date()) && actualResult.get(0).getProduct_id().equals(testResult.getProduct_id()) && actualResult.get(0).getValue().equals(testResult.getValue()));
     }
     @Test
     void checkNewestTInRange() throws IOException, ParseException, CsvException {
-        Transaction testResult=new Transaction("1998-12-04T13:00:00.505Z","1998-12-04T13:00:00.510Z","2","3.8");
+        Transaction testResult=new Transaction("1998-12-04T13:00:00.505Z","1998-12-04T13:00:00.510Z","2",new BigDecimal(3.8));
         String from ="1998-01-01";
         String to= "1998-12-05";
         List<Transaction> actualResult =transactionController.newestTransaction(from,to,null,"TestData");
