@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -53,19 +53,18 @@ public class TransactionTimeDeltaSummaryService {
         if(Objects.equals(TypeOfData, "") ||TypeOfData==null)
             TypeOfData="Data";
         List<Transaction> transaction=transactionService.allTransaction(TypeOfData,product_id,from_date,to_date);
-        long TotalProcessMilliSeconds = 0;
+        long TotalProcessSeconds = 0;
         long TotalTransaction=0;
         long[] values = new long[transaction.size()];
         for(int t=0;t<transaction.size();t++){
             Transaction row=transaction.get(t);
-            Date dateFrom=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(row.getInit_date());
-            Date dateTo=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(row.getConclusion_date());
-            TotalProcessMilliSeconds = TotalProcessMilliSeconds+(dateTo.getTime() - dateFrom.getTime());
+            ZonedDateTime dateFrom=row.getInit_date();
+            ZonedDateTime dateTo=row.getConclusion_date();
+            TotalProcessSeconds = TotalProcessSeconds+(dateTo.toEpochSecond() - dateFrom.toEpochSecond());
             TotalTransaction++;
-            values[t] = TotalProcessMilliSeconds;
-            System.out.println(dateTo+" - "+dateFrom+" "+(dateTo.getTime()-dateFrom.getTime()));
+            values[t] = TotalProcessSeconds;
         }
-        float variance = variance(values,TotalProcessMilliSeconds/TotalTransaction,TypeOfData,product_id,from_date,to_date);
-        return new TransactionSummary((float) TotalProcessMilliSeconds/TotalTransaction,String.valueOf(mode(values)),(float) TotalProcessMilliSeconds/TotalTransaction, variance);
+        float variance = variance(values,TotalProcessSeconds/TotalTransaction,TypeOfData,product_id,from_date,to_date);
+        return new TransactionSummary((float) TotalProcessSeconds/TotalTransaction,String.valueOf(mode(values)),(float) TotalProcessSeconds/TotalTransaction, variance);
     }
 }

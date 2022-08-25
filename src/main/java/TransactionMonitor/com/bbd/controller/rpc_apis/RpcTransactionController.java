@@ -1,6 +1,7 @@
 package TransactionMonitor.com.bbd.controller.rpc_apis;
 
 import TransactionMonitor.com.bbd.config.Logges;
+import TransactionMonitor.com.bbd.model.DatesBetween;
 import TransactionMonitor.com.bbd.model.Product;
 import TransactionMonitor.com.bbd.model.Transaction;
 import TransactionMonitor.com.bbd.model.TransactionSummary;
@@ -160,6 +161,9 @@ public class RpcTransactionController {
         return timeDeltaSummaryService.timeDelta(typeOfData,product_id,from,to);
     }
 
-
+    @PostMapping("/try")
+    public DatesBetween getdates(@RequestBody DatesBetween dates){
+        return dates;
+    }
 
 }

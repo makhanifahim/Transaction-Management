@@ -16,6 +16,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.ZonedDateTime;
 import java.util.*;
 
 @Service
@@ -33,15 +34,15 @@ public class TransactionService {
             default -> 0;
         };
     }
-    private String conDay(Date date){
-        int d = date.getDate();
+    private String conDay(ZonedDateTime date){
+        int d = date.getDayOfMonth();
         String day = d + "";
         if (d < 10)
             day = 0 + "" + d;
         return day;
     }
-    private String conMonth(Date date){
-        int m=date.getMonth() + 1;
+    private String conMonth(ZonedDateTime date){
+        int m=date.getMonthValue();
         String month;
         if (m < 10) {
             month = "" + 0 + m;
@@ -50,14 +51,8 @@ public class TransactionService {
         }
         return month;
     }
-    private int conYear(Date date){
-        return date.getYear() + 1900;
-    }
-    private Date configDate(String dateAndTime) throws ParseException {
-        Date d = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX").parse(dateAndTime);
-        d.setHours(d.getHours() - 5);
-        d.setMinutes(d.getMinutes() - 30);
-        return d;
+    private int conYear(ZonedDateTime date){
+        return date.getYear();
     }
     public Date StringTODate(String date) throws ParseException {
         return new SimpleDateFormat("yyyy-MM-dd").parse(date);
@@ -67,22 +62,8 @@ public class TransactionService {
         String DateFromPath=DayPath.substring(0, indexOfDash);
         return DateFromPath.split("-", 0);
     }
-    private List<Integer> checkPassedData(List<Transaction> transactions){
-        List<Integer> problem = new ArrayList(transactions.size());
-        transactions.forEach(rec->{
-            try{
-                Date init_date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX").parse(rec.getInit_date());
-                Date Conclusion_date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX").parse(rec.getConclusion_date());
-                if(init_date.compareTo(Conclusion_date)>0){
-                    problem.add(transactions.indexOf(rec));
-                }
-            }catch (ParseException e) {
-                e.printStackTrace();
-            }
-        });
-        return problem;
-    }
-    private boolean isFileExist(String typeOfData,Date init_date){
+
+    private boolean isFileExist(String typeOfData,ZonedDateTime init_date){
         String date = conDay(init_date);
         String month=conMonth(init_date);
         int year = conYear(init_date);
@@ -90,7 +71,7 @@ public class TransactionService {
         File checkFile = new File(".\\"+typeOfData+"\\" + year + "\\" + quarter + "\\" + date + "-" + month + "-" + year + ".csv");
         return checkFile.exists();
     }
-    private void insertDataInFile(Date init_date, boolean isFileNew, String typeOfData, String[] data) throws IOException {
+    private void insertDataInFile(ZonedDateTime init_date, boolean isFileNew, String typeOfData, String[] data) throws IOException {
         String date = conDay(init_date);
         String month=conMonth(init_date);
         int year = conYear(init_date);
@@ -222,35 +203,30 @@ public class TransactionService {
     //Save Transactions
     public String saveTransaction(List<Transaction> transactions, String typeOfData){
         List<Integer> errorIn = new ArrayList(transactions.size());
-        if(checkPassedData(transactions).size()>0){
-            logges.addInfoLog("Data passed in body was not valid",error);
-            return "Problem with index value : "+ Arrays.toString(checkPassedData(transactions).toArray());
-        }
-        else{
-            transactions.forEach(transaction -> {
-                try {
-                    Date init_date=configDate(transaction.getInit_date());
-                    String month=conMonth(init_date);
-                    int year = conYear(init_date);
-                    int quarter = getQuarter(Integer.parseInt(month));
-                    File file = new File(".\\"+typeOfData+"\\" + year + "\\" + quarter);
-                    file.mkdirs();
-                    String[] line1 = {transaction.getInit_date(), transaction.getConclusion_date(), transaction.getProduct_id().toString(), transaction.getValue().toString()};
-                    insertDataInFile(init_date,!isFileExist(typeOfData,init_date),typeOfData,line1);
+        transactions.forEach(transaction -> {
+            try {
+                ZonedDateTime init_date=transaction.getInit_date();
+                String month=conMonth(init_date);
+                int year = conYear(init_date);
+                int quarter = getQuarter(Integer.parseInt(month));
+                File file = new File(".\\"+typeOfData+"\\" + year + "\\" + quarter);
+                file.mkdirs();
+                String[] line1 = {String.valueOf(transaction.getInit_date()), String.valueOf(transaction.getConclusion_date()), transaction.getProduct_id().toString(), transaction.getValue().toString()};
+                insertDataInFile(init_date,!isFileExist(typeOfData,init_date),typeOfData,line1);
 
-                }
-                catch (Exception ex) {
-                    logges.addInfoLog("Data passed in body was not valid :"+ex.toString(),error);
-                    errorIn.add(transactions.indexOf(transaction));
-                }
-            });
-            if(errorIn.size()>0) {
-                logges.addInfoLog("Data passed in body was not valid index with error is :"+Arrays.toString(errorIn.toArray()),error);
-                return "Problem with index value : " + Arrays.toString(errorIn.toArray());
-            }else{
-                return "Successfully Inserted";
             }
+            catch (Exception ex) {
+                logges.addInfoLog("Data passed in body was not valid :"+ex.toString(),error);
+                errorIn.add(transactions.indexOf(transaction));
+            }
+        });
+        if(errorIn.size()>0) {
+            logges.addInfoLog("Data passed in body was not valid index with error is :"+Arrays.toString(errorIn.toArray()),error);
+            return "Problem with index value : " + Arrays.toString(errorIn.toArray());
+        }else{
+            return "Successfully Inserted";
         }
+
     }
     //All Transaction
     public List<Transaction> allTransaction(String TypeOfData,String product_id,Date from_date,Date to_date) throws IOException, ParseException, CsvException {
@@ -258,10 +234,10 @@ public class TransactionService {
         if(from_date==null && to_date==null)
             paths=allFilesInPresent(TypeOfData);
         else if(from_date==null && to_date!=null) {
-            paths = allFilesInBetween(StringTODate(oldestTransaction(TypeOfData,product_id,null,null).getInit_date()),to_date,TypeOfData);
+            paths = allFilesInBetween(StringTODate(oldestTransaction(TypeOfData,product_id,null,null).getInit_date().toString()),to_date,TypeOfData);
         }
         else if(from_date!=null && to_date==null){
-            paths = allFilesInBetween(from_date,StringTODate(newerTransaction(TypeOfData,product_id,null,null).getInit_date()),TypeOfData);
+            paths = allFilesInBetween(from_date,StringTODate(newerTransaction(TypeOfData,product_id,null,null).getInit_date().toString()),TypeOfData);
         }
         else{
             paths = allFilesInBetween(from_date,to_date,TypeOfData);
@@ -285,11 +261,11 @@ public class TransactionService {
         if(Objects.equals(TypeOfData, "") ||TypeOfData==null)
             TypeOfData="Data";
         List<Transaction> transaction = allTransaction(TypeOfData,product_id,from_date,to_date);
-        Date oldestTransactionDate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0).getInit_date());
+        Date oldestTransactionDate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").parse(String.valueOf(transaction.get(0).getInit_date().toOffsetDateTime()));
         Transaction oldestTransaction;
         oldestTransaction=transaction.get(0);
         for (Transaction transact : transaction) {
-            Date dateOfTransaction = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transact.getInit_date());
+            Date dateOfTransaction = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").parse(String.valueOf(transact.getInit_date().toOffsetDateTime()));
             if ((dateOfTransaction.getTime() - oldestTransactionDate.getTime()) < 0) {
                 oldestTransactionDate = dateOfTransaction;
                 oldestTransaction = transact;
@@ -302,13 +278,13 @@ public class TransactionService {
         if(Objects.equals(TypeOfData, "") ||TypeOfData==null)
             TypeOfData="Data";
         List<Transaction> transaction = allTransaction(TypeOfData,product_id,from_date,to_date);
-        Date newestTransactionDate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0).getInit_date());
+        Date newestTransactionDate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").parse(String.valueOf(transaction.get(0).getInit_date().toOffsetDateTime()));
         Transaction newestTransaction=transaction.get(0);
-        for (Transaction strings : transaction) {
-            Date dateOfTransaction = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(strings.getInit_date());
+        for (Transaction tran : transaction) {
+            Date dateOfTransaction = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").parse(String.valueOf(tran.getInit_date().toOffsetDateTime()));
             if ((dateOfTransaction.getTime() - newestTransactionDate.getTime()) > 0) {
                 newestTransactionDate = dateOfTransaction;
-                newestTransaction = strings;
+                newestTransaction = tran;
             }
         }
         return  newestTransaction;
