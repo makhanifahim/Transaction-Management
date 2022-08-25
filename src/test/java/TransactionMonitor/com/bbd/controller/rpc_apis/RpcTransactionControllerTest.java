@@ -1,4 +1,4 @@
-package TransactionMonitor.com.bbd.controller;
+package TransactionMonitor.com.bbd.controller.rpc_apis;
 
 import TransactionMonitor.com.bbd.model.Product;
 import TransactionMonitor.com.bbd.model.Transaction;
@@ -93,7 +93,7 @@ public class RpcTransactionControllerTest {
     @Test
     void checkMode() throws ParseException, IOException, CsvException {
         String actualResult=transactionController.modeTransaction(null,null,null,"TestData");
-        String expectedResult="7.0";
+        String expectedResult="7";
         assertThat(actualResult).isEqualTo(expectedResult);
     }
 
@@ -124,7 +124,7 @@ public class RpcTransactionControllerTest {
         testResult.add(new Product("2"));
         assertThat(transactionController.mostCommonTransaction(from_date,to_date,"TestData")).isEqualTo(testResult);
     }
-    
+
     @Test
     void lestCommonProduct() throws IOException, CsvException, ParseException {
         List<Product> actualResult= new ArrayList<Product>();
@@ -139,7 +139,7 @@ public class RpcTransactionControllerTest {
         actualResult.add(new Product("3"));
         assertThat(transactionController.lestCommonTransaction(null,null,"TestData")).isEqualTo(actualResult);
     }
-  
+
     @Test
     void transactionTimeDeltaSummary() throws IOException, ParseException, CsvException {
         TransactionSummary actualResult = transactionController.getTimeDeltaSummary(null, null, null, "TestData");
@@ -157,4 +157,3 @@ public class RpcTransactionControllerTest {
         System.out.println("Testing ended");
     }
 }
-

@@ -1,4 +1,4 @@
-package TransactionMonitor.com.bbd.controller;
+package TransactionMonitor.com.bbd.controller.rpc_apis;
 
 import TransactionMonitor.com.bbd.config.Logges;
 import TransactionMonitor.com.bbd.model.Product;

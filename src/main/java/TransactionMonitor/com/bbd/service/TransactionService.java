@@ -253,7 +253,7 @@ public class TransactionService {
         }
     }
     //All Transaction
-    public List<String[]> allTransaction(String TypeOfData,String product_id,Date from_date,Date to_date) throws IOException, ParseException, CsvException {
+    public List<Transaction> allTransaction(String TypeOfData,String product_id,Date from_date,Date to_date) throws IOException, ParseException, CsvException {
         List paths;
         if(from_date==null && to_date==null)
             paths=allFilesInPresent(TypeOfData);
@@ -266,60 +266,52 @@ public class TransactionService {
         else{
             paths = allFilesInBetween(from_date,to_date,TypeOfData);
         }
-        ArrayList<String[]> temp = new ArrayList<>();
+        ArrayList<Transaction> temp = new ArrayList<>();
         for (Object path : paths) {
             CSVReader readFile = new CSVReader(new FileReader(path.toString()));
             readFile.readNext();
             List<String[]> rows = readFile.readAll();
             for (String[] row : rows) {
                 if (Objects.equals(row[2], product_id))
-                    temp.add(row);
+                    temp.add(new Transaction(row[0],row[1],row[2],new BigDecimal(row[3])));
                 else if(product_id==null)
-                    temp.add(row);
+                    temp.add(new Transaction(row[0],row[1],row[2],new BigDecimal(row[3])));
             }
         }
-            return temp;
-    }
-    public List<Transaction> allTransactionInFormat(String TypeOfData,String product_id,Date from_date,Date to_date) throws IOException, ParseException, CsvException {
-        List<String[]> listOfTransaction=allTransaction(TypeOfData,product_id,from_date,to_date);
-        List<Transaction> transactions= new ArrayList<>();
-        for (String[] strings : listOfTransaction)
-            transactions.add(new Transaction(strings[0], strings[1], strings[2], new BigDecimal(strings[3])));
-        return transactions;
+        return temp;
     }
     //Oldest Transaction
     public Transaction oldestTransaction(String TypeOfData,String product_id, Date from_date, Date to_date) throws IOException, ParseException, CsvException {
         if(Objects.equals(TypeOfData, "") ||TypeOfData==null)
             TypeOfData="Data";
-        List<String[]> transaction = allTransaction(TypeOfData,product_id,from_date,to_date);
-        Date oldestTransactionDate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
-        String[] oldestTransaction;
+        List<Transaction> transaction = allTransaction(TypeOfData,product_id,from_date,to_date);
+        Date oldestTransactionDate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0).getInit_date());
+        Transaction oldestTransaction;
         oldestTransaction=transaction.get(0);
-        for (String[] transact : transaction) {
-            Date dateOfTransaction = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transact[0]);
+        for (Transaction transact : transaction) {
+            Date dateOfTransaction = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transact.getInit_date());
             if ((dateOfTransaction.getTime() - oldestTransactionDate.getTime()) < 0) {
                 oldestTransactionDate = dateOfTransaction;
                 oldestTransaction = transact;
             }
         }
-        return new Transaction(oldestTransaction[0],oldestTransaction[1],oldestTransaction[2],new BigDecimal(oldestTransaction[3]));
+        return oldestTransaction;
     }
     //Newest Transaction
     public Transaction newerTransaction(String TypeOfData,String product_id,Date from_date,Date to_date) throws IOException, CsvException, ParseException {
         if(Objects.equals(TypeOfData, "") ||TypeOfData==null)
             TypeOfData="Data";
-        List<String[]> transaction = allTransaction(TypeOfData,product_id,from_date,to_date);
-        Date newestTransactionDate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0)[0]);
-        String[] newestTransaction;
-        newestTransaction=transaction.get(0);
-        for (String[] strings : transaction) {
-            Date dateOfTransaction = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(strings[0]);
+        List<Transaction> transaction = allTransaction(TypeOfData,product_id,from_date,to_date);
+        Date newestTransactionDate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(transaction.get(0).getInit_date());
+        Transaction newestTransaction=transaction.get(0);
+        for (Transaction strings : transaction) {
+            Date dateOfTransaction = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(strings.getInit_date());
             if ((dateOfTransaction.getTime() - newestTransactionDate.getTime()) > 0) {
                 newestTransactionDate = dateOfTransaction;
                 newestTransaction = strings;
             }
         }
-        return  new Transaction(newestTransaction[0],newestTransaction[1],newestTransaction[2],new BigDecimal(newestTransaction[3]));
+        return  newestTransaction;
     }
 
 }

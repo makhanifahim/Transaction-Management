@@ -1,4 +1,4 @@
-package TransactionMonitor.com.bbd.controller;
+package TransactionMonitor.com.bbd.controller.rest_apis;
 
 
 import TransactionMonitor.com.bbd.model.Product;
@@ -248,7 +248,7 @@ class RestTransactionControllerTest {
     @Test
     void transactionValueSummary() throws IOException, ParseException, CsvException {
         TransactionSummary actualResult = transactionController.getSummary(null, null, null, "TestData");
-        TransactionSummary existingResult = new TransactionSummary(1024.8555F, "7.0", 32.013363F, 3302611.5F);
+        TransactionSummary existingResult = new TransactionSummary(1024.8555F, "7", 32.013363F, 3302611.5F);
         assertThat(actualResult).isEqualTo(existingResult);
     }
 

@@ -1,5 +1,6 @@
 package TransactionMonitor.com.bbd.service;
 
+import TransactionMonitor.com.bbd.model.Transaction;
 import TransactionMonitor.com.bbd.model.TransactionSummary;
 import com.opencsv.exceptions.CsvException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,14 +52,14 @@ public class TransactionTimeDeltaSummaryService {
     public TransactionSummary timeDelta(String TypeOfData, String product_id, Date from_date, Date to_date) throws IOException, CsvException, ParseException {
         if(Objects.equals(TypeOfData, "") ||TypeOfData==null)
             TypeOfData="Data";
-        List<String[]> transaction=transactionService.allTransaction(TypeOfData,product_id,from_date,to_date);
+        List<Transaction> transaction=transactionService.allTransaction(TypeOfData,product_id,from_date,to_date);
         long TotalProcessMilliSeconds = 0;
         long TotalTransaction=0;
         long[] values = new long[transaction.size()];
         for(int t=0;t<transaction.size();t++){
-            String[] row=transaction.get(t);
-            Date dateFrom=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(row[0]);
-            Date dateTo=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(row[1]);
+            Transaction row=transaction.get(t);
+            Date dateFrom=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(row.getInit_date());
+            Date dateTo=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(row.getConclusion_date());
             TotalProcessMilliSeconds = TotalProcessMilliSeconds+(dateTo.getTime() - dateFrom.getTime());
             TotalTransaction++;
             values[t] = TotalProcessMilliSeconds;

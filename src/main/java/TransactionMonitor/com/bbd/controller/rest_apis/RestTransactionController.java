@@ -1,4 +1,4 @@
-package TransactionMonitor.com.bbd.controller;
+package TransactionMonitor.com.bbd.controller.rest_apis;
 
 import TransactionMonitor.com.bbd.config.Logges;
 import TransactionMonitor.com.bbd.model.Product;
@@ -74,7 +74,7 @@ public class RestTransactionController {
         }
         else{
             logges.addInfoLog("GET in Transaction is been fired for all transaction",info);
-            return service.allTransactionInFormat(typeOfData, p_id,from, to);
+            return service.allTransaction(typeOfData, p_id,from, to);
         }
     }
 
