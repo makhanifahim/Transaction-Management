@@ -26,15 +26,16 @@ class RestTransactionControllerTest {
     @Autowired
     private RestTransactionController transactionController;
 
+    @Autowired
     private static Logges logges;
 
     @BeforeAll
-    static void setUp() {
-        logges.addInfoLog("Starting Test and Setting Up","info");
+    static void BeforeAll() {
+        //logges.addInfoLog("Starting Test and Setting Up","info");
     }
     @BeforeEach
     void beforeAll() {
-        logges.addInfoLog("Test started","info");
+        //logges.addInfoLog("Test started","info");
     }
 
     @Test
@@ -172,15 +173,6 @@ class RestTransactionControllerTest {
     }
 
     @Test
-    void wrongDateAndTime(){
-        List<Transaction> records = new ArrayList<>();
-        Transaction  rec = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T13:00:00.005Z","1",new BigDecimal("3001.0"));
-        records.add(rec);
-        String actualResult = transactionController.saveTransactions(records,"TestData");
-        assertThat(actualResult).isEqualTo("Problem with index value : [0]");
-    }
-
-    @Test
     void checkOldest() throws IOException, ParseException, CsvException {
         Transaction testResult =new Transaction("1997-01-01T13:00:00.505Z", "1997-01-01T14:00:00.000Z", "1", new BigDecimal("3001.7"));
         List<Transaction> actualResult =transactionController.getTransactions(null,null,true,false,null,"TestData");
@@ -247,22 +239,23 @@ class RestTransactionControllerTest {
     @Test
     void transactionValueSummary() throws IOException, ParseException, CsvException {
         TransactionSummary actualResult = transactionController.getSummary(null, null, null, "TestData");
-        TransactionSummary existingResult = new TransactionSummary(1024.8555F, "7", 32.013363F, 3302611.5F);
+        TransactionSummary existingResult = new TransactionSummary(1024.8555F, "7.0", 32.013363F, 3302611.5F);
         assertThat(actualResult).isEqualTo(existingResult);
     }
 
     @Test
     void transactionTimeDeltaSummary() throws IOException, ParseException, CsvException {
         TransactionSummary actualResult = transactionController.getTimeDeltaSummary(null, null, null, "TestData");
-        TransactionSummary existingResult = new TransactionSummary(5850274.0F, "1.2002665E7", 5850274.0F, 2.49092147E16F);
+        TransactionSummary existingResult = new TransactionSummary(5850.0F, "7800.0", 5850.0F, 2.49077166E10F);
         assertThat(actualResult).isEqualTo(existingResult);
     }
     @AfterAll
     static void tearDown(){
-        logges.addInfoLog("Ending Test and Setting Down","info");
+       // logges.addInfoLog("Ending Test and Setting Down","info");
     }
     @AfterEach
     void afterAll() {
-        logges.addInfoLog("Test ended","info");
+
+        //logges.addInfoLog("Test ended","info");
     }
 }

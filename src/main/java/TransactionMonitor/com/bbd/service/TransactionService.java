@@ -261,12 +261,12 @@ public class TransactionService {
         if(Objects.equals(TypeOfData, "") ||TypeOfData==null)
             TypeOfData="Data";
         List<Transaction> transaction = allTransaction(TypeOfData,product_id,from_date,to_date);
-        Date oldestTransactionDate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").parse(String.valueOf(transaction.get(0).getInit_date().toOffsetDateTime()));
+        ZonedDateTime oldestTransactionDate=transaction.get(0).getInit_date();
         Transaction oldestTransaction;
         oldestTransaction=transaction.get(0);
         for (Transaction transact : transaction) {
-            Date dateOfTransaction = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").parse(String.valueOf(transact.getInit_date().toOffsetDateTime()));
-            if ((dateOfTransaction.getTime() - oldestTransactionDate.getTime()) < 0) {
+            ZonedDateTime dateOfTransaction = transact.getInit_date();
+            if ((dateOfTransaction.toEpochSecond() - oldestTransactionDate.toEpochSecond()) < 0) {
                 oldestTransactionDate = dateOfTransaction;
                 oldestTransaction = transact;
             }
@@ -278,11 +278,11 @@ public class TransactionService {
         if(Objects.equals(TypeOfData, "") ||TypeOfData==null)
             TypeOfData="Data";
         List<Transaction> transaction = allTransaction(TypeOfData,product_id,from_date,to_date);
-        Date newestTransactionDate=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").parse(String.valueOf(transaction.get(0).getInit_date().toOffsetDateTime()));
+        ZonedDateTime newestTransactionDate=transaction.get(0).getInit_date();
         Transaction newestTransaction=transaction.get(0);
         for (Transaction tran : transaction) {
-            Date dateOfTransaction = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").parse(String.valueOf(tran.getInit_date().toOffsetDateTime()));
-            if ((dateOfTransaction.getTime() - newestTransactionDate.getTime()) > 0) {
+            ZonedDateTime dateOfTransaction = tran.getInit_date();
+            if ((dateOfTransaction.toEpochSecond() - newestTransactionDate.toEpochSecond()) > 0) {
                 newestTransactionDate = dateOfTransaction;
                 newestTransaction = tran;
             }
