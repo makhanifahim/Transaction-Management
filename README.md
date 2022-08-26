@@ -4,6 +4,7 @@
 ### Quick Start
    * Java : https://www.java.com/en/download/
    * Maven : https://maven.apache.org/download.cgi
+   
 ->Please go through it and download and configer it as per your Operating system 
 
 ->After installing Required this you can run the jar file using command
