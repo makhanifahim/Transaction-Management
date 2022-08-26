@@ -1,10 +1,10 @@
 package TransactionMonitor.com.bbd.controller.rpc_apis;
 
-import TransactionMonitor.com.bbd.config.Logges;
 import TransactionMonitor.com.bbd.model.Product;
 import TransactionMonitor.com.bbd.model.Transaction;
 import TransactionMonitor.com.bbd.model.TransactionSummary;
 import com.opencsv.exceptions.CsvException;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,39 +17,21 @@ import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+@Slf4j
 @SpringBootTest
 public class RpcTransactionControllerTest {
-
-    private static Logges logges;
 
     @Autowired
     private RpcTransactionController transactionController;
 
+
     @BeforeAll
-    static void beforeAll(){
-        logges.addInfoLog("Starting Test and Setting Up","info");
+    static void BeforeAll() {
+        log.info("Starting Test and Setting Up In Rpc");
     }
     @BeforeEach
-    void beforeEach() {
-        logges.addInfoLog("Test started","info");
-    }
-
-    @Test
-    void wrongDateAndTimeFormat(){
-        List<Transaction> records = new ArrayList<>();
-        Transaction  rec = new Transaction("1998-01-05","1998-01-05","1",new BigDecimal("3001.0"));
-        records.add(rec);
-        String actualResult = transactionController.createTransactions(records,"TestData");
-        assertThat(actualResult).isEqualTo("Problem with index value : [0]");
-    }
-
-    @Test
-    void wrongDateAndTime(){
-        List<Transaction> records = new ArrayList<>();
-        Transaction  rec = new Transaction("1998-01-01T13:00:00.505Z","1998-01-01T13:00:00.005Z","1",new BigDecimal("3001.0"));
-        records.add(rec);
-        String actualResult = transactionController.createTransactions(records,"TestData");
-        assertThat(actualResult).isEqualTo("Problem with index value : [0]");
+    void beforeAll() {
+        log.info("Test Started");
     }
 
     @Test
@@ -92,14 +74,14 @@ public class RpcTransactionControllerTest {
     @Test
     void checkMode() throws ParseException, IOException, CsvException {
         String actualResult=transactionController.modeTransaction(null,null,null,"TestData");
-        String expectedResult="7";
+        String expectedResult="7.0";
         assertThat(actualResult).isEqualTo(expectedResult);
     }
 
     @Test
     void checkStandardDeviation() throws ParseException, IOException, CsvException {
         float actualResult=transactionController.standardDeviationTransaction(null,null,null,"TestData");
-        float expectedResult=32.013363F;
+        float expectedResult=32.013363f;
         assertThat(actualResult).isEqualTo(expectedResult);
     }
 
@@ -142,17 +124,16 @@ public class RpcTransactionControllerTest {
     @Test
     void transactionTimeDeltaSummary() throws IOException, ParseException, CsvException {
         TransactionSummary actualResult = transactionController.getTimeDeltaSummary(null, null, null, "TestData");
-        TransactionSummary existingResult = new TransactionSummary(5850274.0F, "1.2002665E7", 5850274.0F, 2.49092147E16F);
+        TransactionSummary existingResult = new TransactionSummary(5850.0F, "7800.0", 5850.0F, 2.49077166E10F);
         assertThat(actualResult).isEqualTo(existingResult);
     }
 
     @AfterAll
     static void tearDown(){
-        logges.addInfoLog("Ending Test and Setting Down","info");
+        log.info("Ending Test and Setting Down");
     }
-
     @AfterEach
     void afterAll() {
-        logges.addInfoLog("Test ended","info");
+        log.info("Test ended");
     }
 }

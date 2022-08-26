@@ -15,7 +15,6 @@ import java.util.Objects;
 
 @Service
 public class TransactionTimeDeltaSummaryService {
-
     @Autowired
     TransactionService transactionService;
     private float mode(long[] array) {
