@@ -10,7 +10,7 @@
 
 ->Open the cmd in location where the file is Downloaded 
 
-->java-<name for jar file>
+->java-(name for jar file)
 ### Following Dependency is been added in maven
 
    ->Basic Dependency
