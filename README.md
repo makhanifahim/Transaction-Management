@@ -1,11 +1,33 @@
 # Transaction-Management
 
-For using this application java jvm is required , this application is based on Java spring boot,
+## For using this application java and maven is required , this application is based on Java spring boot,
+### Quick Start
+   * Java : https://www.java.com/en/download/
+   * Maven : https://maven.apache.org/download.cgi
+-Please go through it and download and configer it as per your Operating system 
+-After installing Required this you can run the jar file using command
+->Open the cmd in location where the file is Downloaded 
+->java-<name for jar file>
+### Following Dependency is been added in maven
 
-
-
-
- 
+   ->Basic Dependency
+   * spring-boot-starter-web
+   * spring-boot-devtools
+   * lombok
+   
+   ->Dependency For Test
+   * spring-boot-starter-test
+   * mockito-core
+   * commons-io
+   
+   ->Dependency For Swagger
+   * springfox-swagger2
+   * springfox-swagger-ui
+   
+   ->Dependency For csv
+   * opencv
+   * commons-lang3
+   
 ## This Application can searve Following Searvicess.
 
  * Service that accepts a list of transactions and stores those transactions to csv files. A transaction consists of (init_date, conclusion_date, product_id, value). 
@@ -13,7 +35,7 @@ For using this application java jvm is required , this application is based on J
  * The csv folder will be serve as a staging ground and follow specific structure year/quarter/date.csv  like example 2022/1/2022-02-21
 
 **To open Swagger (interactive) API documentation, navigate your browser to [YOUR-URL]/swagger-ui.html**
-
+**All Logs will be saved in web.log file
 ### Rest API Endpoints
   - rest_api/transactions
     * POST - Add List of Transactions
