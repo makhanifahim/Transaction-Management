@@ -6,6 +6,7 @@ import TransactionMonitor.com.bbd.model.Product;
 import TransactionMonitor.com.bbd.model.Transaction;
 import TransactionMonitor.com.bbd.model.TransactionSummary;
 import com.opencsv.exceptions.CsvException;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+@Slf4j
 @SpringBootTest
 class RestTransactionControllerTest {
 
@@ -31,11 +33,11 @@ class RestTransactionControllerTest {
 
     @BeforeAll
     static void BeforeAll() {
-        //logges.addInfoLog("Starting Test and Setting Up","info");
+        log.info("Starting Test and Setting Up In Rest");
     }
     @BeforeEach
     void beforeAll() {
-        //logges.addInfoLog("Test started","info");
+        log.info("Test Started");
     }
 
     @Test
@@ -251,11 +253,10 @@ class RestTransactionControllerTest {
     }
     @AfterAll
     static void tearDown(){
-       // logges.addInfoLog("Ending Test and Setting Down","info");
+        log.info("Ending Test and Setting Down");
     }
     @AfterEach
     void afterAll() {
-
-        //logges.addInfoLog("Test ended","info");
+        log.info("Test ended");
     }
 }
