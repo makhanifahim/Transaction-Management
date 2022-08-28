@@ -7,11 +7,12 @@
    
 ->Please go through it and download and configer it as per your Operating system 
 
-->After installing Required this you can run the jar file using command
+->After installing Required files you can run the jar file using command
 
 ->Open the cmd in location where the file is Downloaded 
 
 ->java-(name of jar file)
+
 ### Following Dependency is been added in maven
 
    ->Basic Dependency
@@ -24,9 +25,14 @@
    * mockito-core
    * commons-io
    
-   ->Dependency For Swagger
-   * springfox-swagger2
-   * springfox-swagger-ui
+   ->Dependency For Swagger and Open_Api
+   * springdoc-openapi-ui
+   * springdoc-openapi-webmvc-core
+   
+   ->Dependency For Spring boot Actuator
+   * spring-boot-starter-actuator
+   * micrometer-registry-prometheus
+   * spring-boot-starter-aop
    
    ->Dependency For csv
    * opencv
@@ -48,7 +54,7 @@
 
 ### Rest API Endpoints
 
-- rest_api/transactions
+-> rest_api/transactions
     * POST - Add List of Transactions
     
     * GET - Get list of Transactions
@@ -66,12 +72,12 @@
     * GET ?from_date={value}&to_date={value}&newest=true&product_id={value} - Get newest Transaction in compare to all transaction done in between two dates of perticular product
    
   
-  - rest_api/transaction_value_summary
+-> rest_api/transaction_value_summary
     * GET  -  Returns value summary with mean,mode,standard deviation,variance
 
     * GET ?from_date={value}&to_date={value} - Returns value summary with mean,mode,standard deviation,variance (calculates transaction done in between two dates)  
   
-  - rest_api/products
+-> rest_api/products
     * GET -  Retuns all the products with its count it is been sold
     
     * GET ?from_date={value}&to_date={value} - Returns all Products with its count it is been sold between two dates 
@@ -80,7 +86,7 @@
     * GET ?from_date={value}&to_date={value}?most_common= true - Returns all Products with its count it is been sold between two dates 
     * GET ?from_date={value}&to_date={value}?lest_common - Returns all Products with its count it is been sold between two dates 
     
-  - rest_api/transaction_time_delta_summary
+-> rest_api/transaction_time_delta_summary
     * GET - Returns time Delta summary with mean,mode,standard deviation
     
     * GET ?product_id={value} - Returns time Delta summary of perticulat product with mean,mode,standard deviation
