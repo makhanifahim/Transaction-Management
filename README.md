@@ -38,8 +38,11 @@
 
  * The csv folder will be serve as a staging ground and follow specific structure year/quarter/date.csv  like example 2022/1/2022-02-21
 
-**To open Swagger (interactive) API documentation, navigate your browser to [YOUR-URL]/swagger-ui.html**
+**To open Swagger(interactive) API documentation, navigate your browser to [YOUR-URL]/swagger-ui.html**
+**To open Open API Doc, navigate your browser to [YOUR-URL]/v3/api-docs
+**To open actuator detail | functions health, navigate your browser to [YOUR-URL]/actuator and for custom metrics [YOUR-URL]/actuator/prometheus**
 **All Logs will be saved in web.log file
+
 ### Rest API Endpoints
   - rest_api/transactions
     * POST - Add List of Transactions
