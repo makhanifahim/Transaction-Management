@@ -94,62 +94,62 @@
     * GET ?from_date={value}&to_data={value}&product_id={value} - Returns time Delta summary with mean,mode,standard deviation (calculation is done for all transaction in between two dates)
     
 ### RPC API Endpoints
-  - rpc_api/create_transaction 
+-> rpc_api/create_transaction 
     * POST - Save List of Transactions in files
     
-  - rpc_api/oldest_transaction
+-> rpc_api/oldest_transaction
     * GET  - returns oldest transaction from all the transaction 
     
     * GET ?product_id={value}  - returns oldest transaction of perticular product from all the transaction
     * GET ?from_date={value}&to_date={value} - returns oldest transaction from all the transaction done in between two dates
     * GET ?from_date={value}&to_date={value}&product_id={value} - returns oldest transaction from all the transaction od perticular product done in between two dates 
 
-  - rpc_api/newest_transaction
+-> rpc_api/newest_transaction
     * GET  - returns newest transaction from all the transaction 
     
     * GET ?product_id={value}  - returns newest transaction of perticular product from all the transaction
     * GET ?from_date={value}&to_date={value} - returns newest transaction from all the transaction done in between two dates
     * GET ?from_date={value}&to_date={value}&product_id={value} - returns newest transaction from all the transaction od perticular product done in between two dates 
  
-  - rpc_api/mean
+-> rpc_api/mean
     * GET  - returns mean of all transaction 
     
     * GET ?product_id={value}  - returns mean of all transaction of perticular products
     * GET ?from_date={value}&to_date={value} - returns mean of all transaction done in between two dates
     * GET ?from_date={value}&to_date={value}&product_id={value} - returns mean of all transaction done in between two dates of perticular product
    
-  - rpc_api/mode
+-> rpc_api/mode
     * GET  - returns mode of all transaction 
     
     * GET ?product_id={value}  - returns mode of all transaction of perticular products
     * GET ?from_date={value}&to_date={value} - returns mode of all transaction done in between two dates
     * GET ?from_date={value}&to_date={value}&product_id={value} - returns mode of all transaction done in between two dates of perticular product
     
-  - rpc_api/standard_deviation
+-> rpc_api/standard_deviation
     * GET  - returns standard_deviation of all transaction 
     
     * GET ?product_id={value}  - returns standard_deviation of all transaction of perticular products
     * GET ?from_date={value}&to_date={value} - returns standard_deviation of all transaction done in between two dates
     * GET ?from_date={value}&to_date={value}&product_id={value} - returns standard_deviation of all transaction done in between two dates of perticular product
     
-  - rpc_api/variance
+-> rpc_api/variance
     * GET  - returns variance of all transaction 
     
     * GET ?product_id={value}  - returns variance of all transaction of perticular products
     * GET ?from_date={value}&to_date={value} - returns variance of all transaction done in between two dates
     * GET ?from_date={value}&to_date={value}&product_id={value} - returns variance of all transaction done in between two dates of perticular product
     
-  - rpc_api/most_common_product
+-> rpc_api/most_common_product
     * GET  - returns most_common_product of all transaction 
     
     * GET ?from_date={value}&to_date={value} - returns most_common_product of all transaction done in between two dates
   
-  - rpc_api/lest_common_product
+-> rpc_api/lest_common_product
     * GET  - returns lest_common_product of all transaction 
     
     * GET ?from_date={value}&to_date={value} - returns lest_common_product of all transaction done in between two dates
   
-  - rpc_api/time_delta
+-> rpc_api/time_delta
     * GET  - returns time delta(mean,mode,standard deviation,variance) of all transaction 
     
     * GET ?from_date={value}&to_date={value} - returns time delta(mean,mode,standard deviation,variance) of all transaction done in between two dates
