@@ -11,6 +11,7 @@ import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.ResponseEntity;
 
 import java.io.File;
 import java.io.IOException;
@@ -170,7 +171,7 @@ class RestTransactionControllerTest {
         Transaction rec35 = new Transaction("1997-12-04T13:00:00.505Z","1997-12-05T13:00:00.510Z","8",new BigDecimal("3.7"));
         records.add(rec35);
 
-        String actualResult = transactionController.saveTransactions(records,"TestData");
+        ResponseEntity<String> actualResult = transactionController.saveTransactions(records,"TestData");
         assertThat(actualResult).isEqualTo("Successfully Inserted");
     }
 

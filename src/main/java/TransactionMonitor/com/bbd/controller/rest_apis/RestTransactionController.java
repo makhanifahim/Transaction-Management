@@ -1,5 +1,4 @@
 package TransactionMonitor.com.bbd.controller.rest_apis;
-
 import TransactionMonitor.com.bbd.config.Logges;
 import TransactionMonitor.com.bbd.model.Product;
 import TransactionMonitor.com.bbd.model.Transaction;
@@ -11,6 +10,8 @@ import TransactionMonitor.com.bbd.service.TransactionValueSummaryService;
 import com.opencsv.exceptions.CsvException;
 import io.micrometer.core.annotation.Timed;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -39,12 +40,14 @@ public class RestTransactionController {
 
     @Timed(value = "REST_transaction_post.time", description = "Time taken for rest api POST rest_api/transaction ")
     @PostMapping("/transactions")
-    public String saveTransactions(@RequestBody List<Transaction> transactions, @PathVariable (required=false) String typeOfData) {
+    public ResponseEntity<String> saveTransactions(@RequestBody List<Transaction> transactions, @PathVariable (required=false) String typeOfData) {
         if(Objects.equals(typeOfData, "") ||typeOfData==null)
             typeOfData="Data";
         logges.addInfoLog("POST in Transaction is been fired",info);
-        return service.saveTransaction(transactions,typeOfData);
-        //return new ResponseEntity<String>(service.saveTransaction(transactions, typeOfData),HttpStatus.CREATED);
+        if(service.saveTransaction(transactions,typeOfData)=="Successfully Inserted")
+            return ResponseEntity.status(HttpStatus.CREATED).body(service.saveTransaction(transactions,typeOfData));
+        else
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(service.saveTransaction(transactions,typeOfData));
     }
 
     @Timed(value = "REST_Transaction_get.time", description = "Time taken for rest api GET rest_api/transaction ")
