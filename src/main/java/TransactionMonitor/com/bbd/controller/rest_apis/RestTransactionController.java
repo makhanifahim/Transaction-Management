@@ -38,18 +38,20 @@ public class RestTransactionController {
     private final Logges logges = new Logges();
     String info="INFO";
 
+    //TODO 1 Rest Post /transaction for inserting list of transaction
     @Timed(value = "REST_transaction_post.time", description = "Time taken for rest api POST rest_api/transaction ")
     @PostMapping("/transactions")
     public ResponseEntity<String> saveTransactions(@RequestBody List<Transaction> transactions, @PathVariable (required=false) String typeOfData) {
         if(Objects.equals(typeOfData, "") ||typeOfData==null)
             typeOfData="Data";
         logges.addInfoLog("POST in Transaction is been fired",info);
-        if(service.saveTransaction(transactions,typeOfData)=="Successfully Inserted")
+        if(Objects.equals(service.saveTransaction(transactions, typeOfData), "Successfully Inserted"))
             return ResponseEntity.status(HttpStatus.CREATED).body(service.saveTransaction(transactions,typeOfData));
         else
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(service.saveTransaction(transactions,typeOfData));
     }
 
+    //TODO 2 Get Transactions
     @Timed(value = "REST_Transaction_get.time", description = "Time taken for rest api GET rest_api/transaction ")
     @GetMapping("/transactions")
     public List<Transaction> getTransactions(@RequestParam (required = false) String from_date,@RequestParam (required = false) String to_date,@RequestParam (required = false) boolean oldest,@RequestParam (required = false) boolean newest,@RequestParam (required = false) String product_id,@RequestParam (required=false) String typeOfData) throws IOException, ParseException, CsvException {
@@ -85,6 +87,7 @@ public class RestTransactionController {
         }
     }
 
+    //TODO 3 Get Transactions_value_summary
     @Timed(value = "REST_transaction_value_summary.time", description = "Time taken for rest api GET rest_api/transaction_value_summary")
     @GetMapping("/transaction_value_summary")
     public TransactionSummary getSummary(@RequestParam (required = false) String from_date, @RequestParam (required = false) String to_date, @RequestParam (required = false) String product_id, @RequestParam (required=false) String typeOfData) throws IOException, ParseException, CsvException {
@@ -97,6 +100,7 @@ public class RestTransactionController {
         return new TransactionSummary(valueSummaryService.meanOfTransaction(from,to,product_id,typeOfData),valueSummaryService.modeOfTransaction(from,to,product_id,typeOfData),valueSummaryService.standardDeviationOfTransaction(from,to,product_id,typeOfData),valueSummaryService.varianceOfTransaction(from,to,product_id,typeOfData));
     }
 
+    //TODO 4 GET Products List
     @Timed(value = "REST_Products.time", description = "Time taken for rest api GET rest_api/products")
     @GetMapping("/products")
     public List<Product> allPro(@RequestParam (required = false) String from_date, @RequestParam (required = false) String to_date, @RequestParam (required=false) String typeOfData, @RequestParam (required = false) boolean most_common, @RequestParam (required = false) boolean lest_common) throws IOException, CsvException, ParseException {
@@ -121,6 +125,7 @@ public class RestTransactionController {
         }
     }
 
+    //TODO 5 GET Transactions_time_delta_summary
     @Timed(value = "REST_transaction_time_delta.time", description = "Time taken for rest api GET rest_api/transaction _time_delta_summary")
     @GetMapping("/transaction_time_delta_summary")
     public TransactionSummary getTimeDeltaSummary(@RequestParam (required = false) String from_date, @RequestParam (required = false) String to_date, @RequestParam (required = false) String product_id, @RequestParam (required=false) String typeOfData) throws IOException, ParseException, CsvException {

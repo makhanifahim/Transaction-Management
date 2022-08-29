@@ -42,6 +42,7 @@ public class RpcTransactionController {
     private final Logges logges = new Logges();
     String info="INFO";
 
+    //TODO 6 Insert Transaction
     @PostMapping("/create_transactions")
     @Timed(value = "RPC_create_transaction.time", description = "Time taken for rest api GET rpc_api/create_transaction ")
     public ResponseEntity<String> createTransactions(@RequestBody List<Transaction> transactions, @PathVariable(required=false) String typeOfData) {
@@ -54,6 +55,7 @@ public class RpcTransactionController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(service.saveTransaction(transactions,typeOfData));
     }
 
+    //TODO 7 Get Oldest Transaction
     @Timed(value = "RPC_oldest_transaction.time", description = "Time taken for rest api GET rpc_api/oldest_transaction ")
     @GetMapping("/oldest_transaction")
     public List<Transaction> oldestTransaction(@RequestParam (required = false) String from_date,@RequestParam (required = false) String to_date,@RequestParam (required = false) String product_id,@RequestParam (required = false) String typeOfData) throws ParseException, IOException, CsvException {
@@ -70,6 +72,7 @@ public class RpcTransactionController {
         return oldestTransact;
     }
 
+    //TODO 8 Get Newest Transaction
     @Timed(value = "RPC_newest_transaction.time", description = "Time taken for rest api GET rpc_api/newest_transaction ")
     @GetMapping("/newest_transaction")
     public List<Transaction> newestTransaction(@RequestParam (required = false) String from_date,@RequestParam (required = false) String to_date,@RequestParam (required = false) String product_id,@RequestParam (required = false) String typeOfData) throws ParseException, IOException, CsvException {
@@ -86,6 +89,7 @@ public class RpcTransactionController {
         return newestTransact;
     }
 
+    //TODO 9 Get Mean of Transaction
     @Timed(value = "RPC_transaction_mean.time", description = "Time taken for rest api GET rpc_api/mean ")
     @GetMapping("/mean")
     public float meanTransaction(@RequestParam (required = false) String from_date,@RequestParam (required = false) String to_date,@RequestParam (required = false) String product_id,@RequestParam (required = false) String typeOfData) throws ParseException, IOException, CsvException {
@@ -100,6 +104,7 @@ public class RpcTransactionController {
         return valueSummaryService.meanOfTransaction(from,to,p_id,typeOfData);
     }
 
+    //TODO 10 Get mode Transaction
     @Timed(value = "RPC_transaction_mode.time", description = "Time taken for rest api GET rpc_api/mode ")
     @GetMapping("/mode")
     public String modeTransaction(@RequestParam (required = false) String from_date,@RequestParam (required = false) String to_date,@RequestParam (required = false) String product_id,@RequestParam (required = false) String typeOfData) throws ParseException, IOException, CsvException {
@@ -114,6 +119,7 @@ public class RpcTransactionController {
         return valueSummaryService.modeOfTransaction(from,to,p_id,typeOfData);
     }
 
+    //TODO 11 Get Standard Deviation
     @Timed(value = "RPC_transaction_standard_deviation.time", description = "Time taken for rest api GET rpc_api/standard_deviation")
     @GetMapping("/standard_deviation")
     public float standardDeviationTransaction(@RequestParam (required = false) String from_date,@RequestParam (required = false) String to_date,@RequestParam (required = false) String product_id,@RequestParam (required = false) String typeOfData) throws ParseException, IOException, CsvException {
@@ -128,6 +134,7 @@ public class RpcTransactionController {
         return valueSummaryService.standardDeviationOfTransaction(from,to,p_id,typeOfData);
     }
 
+    //TODO 12 Get Variance
     @Timed(value = "RPC_transaction_variance.time", description = "Time taken for rest api GET rpc_api/variance ")
     @GetMapping("/variance")
     public float varianceTransaction(@RequestParam (required = false) String from_date,@RequestParam (required = false) String to_date,@RequestParam (required = false) String product_id,@RequestParam (required = false) String typeOfData) throws ParseException, IOException, CsvException {
@@ -142,6 +149,7 @@ public class RpcTransactionController {
         return valueSummaryService.varianceOfTransaction(from,to,p_id,typeOfData);
     }
 
+    //TODO 13 Get Most Common Product
     @Timed(value = "RPC_most_common_product.time", description = "Time taken for rest api GET rpc_api/most_common_product ")
     @GetMapping("/most_common_product")
     public List<Product> mostCommonTransaction(@RequestParam (required = false) String from_date, @RequestParam (required = false) String to_date, @RequestParam (required = false) String typeOfData) throws ParseException, IOException, CsvException {
@@ -154,6 +162,7 @@ public class RpcTransactionController {
         return productService.CommonProduct(typeOfData,from,to,true,false);
     }
 
+    //TODO 14 Get Lest Common Product
     @Timed(value = "RPC_lest_common_product.time", description = "Time taken for rest api GET rpc_api/lest_common_product ")
     @GetMapping("/lest_common_product")
     public List<Product> lestCommonTransaction(@RequestParam (required = false) String from_date, @RequestParam (required = false) String to_date, @RequestParam (required = false) String typeOfData) throws ParseException, IOException, CsvException {
@@ -166,6 +175,7 @@ public class RpcTransactionController {
         return productService.CommonProduct(typeOfData,from,to,false,true);
     }
 
+    //TODO 15 Get Time Delta Summary
     @Timed(value = "RPC_time_delta.time", description = "Time taken for rest api GET rpc_api/time_delta ")
     @GetMapping("/time_delta")
     public TransactionSummary getTimeDeltaSummary(@RequestParam (required = false) String from_date, @RequestParam (required = false) String to_date, @RequestParam (required = false) String product_id, @RequestParam (required=false) String typeOfData) throws IOException, ParseException, CsvException {
