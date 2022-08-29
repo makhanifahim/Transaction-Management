@@ -50,20 +50,6 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!--springfox dependencies for api documentations in swagger -->
-<!--		<dependency>-->
-<!--			<groupId>io.springfox</groupId>-->
-<!--			<artifactId>springfox-swagger2</artifactId>-->
-<!--			<version>2.7.0</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>io.springfox</groupId>-->
-<!--			<artifactId>springfox-swagger-ui</artifactId>-->
-<!--			<version>2.7.0</version>-->
-<!--		</dependency>-->
-
-		<!-- Spring boot Stater Test -->
-
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>

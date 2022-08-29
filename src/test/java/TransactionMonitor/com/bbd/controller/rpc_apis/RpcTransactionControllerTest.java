@@ -67,7 +67,7 @@ public class RpcTransactionControllerTest {
     @Test
     void checkMean() throws ParseException, IOException, CsvException {
         float actualResult=transactionController.meanTransaction(null,null,null,"TestData");
-        float expectedResult=1024.8555F;
+        float expectedResult=1024.8553F;
         assertThat(actualResult).isEqualTo(expectedResult);
     }
 
@@ -88,7 +88,7 @@ public class RpcTransactionControllerTest {
     @Test
     void checkVariance() throws ParseException, IOException, CsvException {
         float actualResult=transactionController.varianceTransaction(null,null,null,"TestData");
-        float expectedResult=3302611.5F;
+        float expectedResult=3302613.2F;
         assertThat(actualResult).isEqualTo(expectedResult);
     }
     @Test
@@ -124,7 +124,7 @@ public class RpcTransactionControllerTest {
     @Test
     void transactionTimeDeltaSummary() throws IOException, ParseException, CsvException {
         TransactionSummary actualResult = transactionController.getTimeDeltaSummary(null, null, null, "TestData");
-        TransactionSummary existingResult = new TransactionSummary(5850.0F, "7800.0", 5850.0F, 2.49077166E10F);
+        TransactionSummary existingResult = new TransactionSummary(5850.0F, "15600.0", 5850.0F, 1.01321343E11F);
         assertThat(actualResult).isEqualTo(existingResult);
     }
 

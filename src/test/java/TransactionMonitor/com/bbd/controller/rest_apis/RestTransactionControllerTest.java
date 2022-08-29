@@ -172,7 +172,7 @@ class RestTransactionControllerTest {
         records.add(rec35);
 
         ResponseEntity<String> actualResult = transactionController.saveTransactions(records,"TestData");
-        assertThat(actualResult).isEqualTo("Successfully Inserted");
+        assertThat(actualResult.getBody()).isEqualTo("Successfully Inserted");
     }
 
     @Test
@@ -242,14 +242,14 @@ class RestTransactionControllerTest {
     @Test
     void transactionValueSummary() throws IOException, ParseException, CsvException {
         TransactionSummary actualResult = transactionController.getSummary(null, null, null, "TestData");
-        TransactionSummary existingResult = new TransactionSummary(1024.8555F, "7.0", 32.013363F, 3302611.5F);
+        TransactionSummary existingResult = new TransactionSummary(1024.8553F, "7.0", 32.013363F, 3302613.2F);
         assertThat(actualResult).isEqualTo(existingResult);
     }
 
     @Test
     void transactionTimeDeltaSummary() throws IOException, ParseException, CsvException {
         TransactionSummary actualResult = transactionController.getTimeDeltaSummary(null, null, null, "TestData");
-        TransactionSummary existingResult = new TransactionSummary(5850.0F, "7800.0", 5850.0F, 2.49077166E10F);
+        TransactionSummary existingResult = new TransactionSummary(5850.0F, "15600.0", 5850.0F, 1.01321343E11F);
         assertThat(actualResult).isEqualTo(existingResult);
     }
     @AfterAll
