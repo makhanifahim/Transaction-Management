@@ -22,7 +22,6 @@
    
    ->Dependency For Test
    * spring-boot-starter-test
-   * mockito-core
    * commons-io
    
    ->Dependency For Swagger and Open_Api
