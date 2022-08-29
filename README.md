@@ -26,7 +26,6 @@
    
    ->Dependency For Swagger and Open_Api
    * springdoc-openapi-ui
-   * springdoc-openapi-webmvc-core
    
    ->Dependency For Spring boot Actuator
    * spring-boot-starter-actuator
