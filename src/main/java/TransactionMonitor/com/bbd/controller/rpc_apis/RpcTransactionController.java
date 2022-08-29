@@ -13,6 +13,7 @@ import io.micrometer.core.annotation.Timed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -25,7 +26,8 @@ import java.util.Objects;
 
 
 @RequestMapping("/rpc_api")
-@RestController
+@Controller
+@ResponseBody
 @ControllerAdvice
 public class RpcTransactionController {
     @Autowired
@@ -40,8 +42,8 @@ public class RpcTransactionController {
     private final Logges logges = new Logges();
     String info="INFO";
 
-    @Timed(value = "RPC_create_transaction.time", description = "Time taken for rest api GET rpc_api/create_transaction ")
     @PostMapping("/create_transactions")
+    @Timed(value = "RPC_create_transaction.time", description = "Time taken for rest api GET rpc_api/create_transaction ")
     public ResponseEntity<String> createTransactions(@RequestBody List<Transaction> transactions, @PathVariable(required=false) String typeOfData) {
         if(Objects.equals(typeOfData, "") ||typeOfData==null)
             typeOfData="Data";
