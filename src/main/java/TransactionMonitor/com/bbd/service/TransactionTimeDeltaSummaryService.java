@@ -35,7 +35,7 @@ public class TransactionTimeDeltaSummaryService {
         }
         return 0;
     }
-    private float variance(long[] array, long mean,String TypeOfData,String product_id,Date from_date,Date to_date) throws IOException, ParseException, CsvException {
+    private float variance(long[] array, long mean) {
         float XSeq;
         float TotalXX = 0;
         int TotalTran=0;
@@ -46,7 +46,6 @@ public class TransactionTimeDeltaSummaryService {
             TotalXX=TotalXX+XSeq;
         }
         return TotalXX/TotalTran;
-
     }
     public TransactionSummary timeDelta(String TypeOfData, String product_id, Date from_date, Date to_date) throws IOException, CsvException, ParseException {
         if(Objects.equals(TypeOfData, "") ||TypeOfData==null)
@@ -63,7 +62,7 @@ public class TransactionTimeDeltaSummaryService {
             TotalTransaction++;
             values[t] = TotalProcessSeconds;
         }
-        float variance = variance(values,TotalProcessSeconds/TotalTransaction,TypeOfData,product_id,from_date,to_date);
+        float variance = variance(values,TotalProcessSeconds/TotalTransaction);
         return new TransactionSummary((float) TotalProcessSeconds/TotalTransaction,String.valueOf(mode(values)),(float) TotalProcessSeconds/TotalTransaction, variance);
     }
 }

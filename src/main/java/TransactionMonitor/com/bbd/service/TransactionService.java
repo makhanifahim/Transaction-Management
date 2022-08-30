@@ -13,6 +13,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -87,12 +88,12 @@ public class TransactionService {
 
     //All files in present
     private List<String> allFilesInPresent(String TypeOfData) throws IOException {
-        List<String> paths= new ArrayList<String>();
-        List listYears = Files.list(Paths.get(".\\"+TypeOfData)).toList();
+        List<String> paths= new ArrayList<>();
+        List<Path> listYears = Files.list(Paths.get(".\\"+TypeOfData)).toList();
         for(int year = 0; year< (long) listYears.size(); year++){
-            List listQua = Files.list(Paths.get(listYears.get(year).toString())).toList();
+            List<Path> listQua = Files.list(Paths.get(listYears.get(year).toString())).toList();
             for(int quarter = 0; quarter< (long) listQua.size(); quarter++){
-                List listDailyFile = Files.list(Paths.get(listQua.get(quarter).toString())).toList();
+                List<Path> listDailyFile = Files.list(Paths.get(listQua.get(quarter).toString())).toList();
                 for(int fDay = 0; fDay< (long) listDailyFile.size(); fDay++){
                     paths.add(listDailyFile.get(fDay).toString());
                 }
@@ -153,11 +154,11 @@ public class TransactionService {
                                 String[] TransactDate = dateFromPath(DayPath[d]);
 
                                 if (monthFrom < Integer.parseInt(TransactDate[1])) {
-                                    BetweenFilePath.add(String.valueOf(".//" + TypeOfData + "//" + s + "//" + quarterPath[q] + "//" + DayPath[d]));
+                                    BetweenFilePath.add(".//" + TypeOfData + "//" + s + "//" + quarterPath[q] + "//" + DayPath[d]);
                                 }
                                 if (monthFrom == Integer.parseInt(TransactDate[1]) && yearFrom == Integer.parseInt(TransactDate[2])) {
                                     if (dayFrom <= Integer.parseInt(TransactDate[0])) {
-                                        BetweenFilePath.add(String.valueOf(".//" + TypeOfData + "//" + s + "//" + quarterPath[q] + "//" + DayPath[d]));
+                                        BetweenFilePath.add(".//" + TypeOfData + "//" + s + "//" + quarterPath[q] + "//" + DayPath[d]);
                                     }
                                 }
                             }
@@ -174,11 +175,11 @@ public class TransactionService {
                             for (int d = 0; d < directoryPathDay.list().length; d++) {
                                 String[] TransactDate = dateFromPath(DayPath[d]);
                                 if (monthTo > Integer.parseInt(TransactDate[1])) {
-                                    BetweenFilePath.add(String.valueOf(".//" + TypeOfData + "//" + s + "//" + quarterPath[q] + "//" + DayPath[d]));
+                                    BetweenFilePath.add(".//" + TypeOfData + "//" + s + "//" + quarterPath[q] + "//" + DayPath[d]);
                                 }
                                 if (monthTo == Integer.parseInt(TransactDate[1]) && yearTo == Integer.parseInt(TransactDate[2])) {
                                     if (dayTo >= Integer.parseInt(TransactDate[0])) {
-                                        BetweenFilePath.add(String.valueOf(".//" + TypeOfData + "//" + s + "//" + quarterPath[q] + "//" + DayPath[d]));
+                                        BetweenFilePath.add(".//" + TypeOfData + "//" + s + "//" + quarterPath[q] + "//" + DayPath[d]);
                                     }
                                 }
                             }
@@ -192,7 +193,7 @@ public class TransactionService {
                         File directoryPathDay = new File(".//" + TypeOfData + "//" + s + "//" + quarterPath[q]);
                         String[] dayPath = directoryPathDay.list();
                         for (int d = 0; d < directoryPathDay.list().length; d++) {
-                            BetweenFilePath.add(String.valueOf(".//" + TypeOfData + "//" + s + "//" + quarterPath[q] + "//" + dayPath[d]));
+                            BetweenFilePath.add(".//" + TypeOfData + "//" + s + "//" + quarterPath[q] + "//" + dayPath[d]);
                         }
                     }
                 }
@@ -202,7 +203,7 @@ public class TransactionService {
     }
     //Save Transactions
     public String saveTransaction(List<Transaction> transactions, String typeOfData){
-        List<Integer> errorIn = new ArrayList(transactions.size());
+        List<Integer> errorIn = new ArrayList<>(transactions.size());
         transactions.forEach(transaction -> {
             try {
                 ZonedDateTime init_date=transaction.getInit_date();
@@ -211,12 +212,12 @@ public class TransactionService {
                 int quarter = getQuarter(Integer.parseInt(month));
                 File file = new File(".\\"+typeOfData+"\\" + year + "\\" + quarter);
                 file.mkdirs();
-                String[] line1 = {String.valueOf(transaction.getInit_date()), String.valueOf(transaction.getConclusion_date()), transaction.getProduct_id().toString(), transaction.getValue().toString()};
+                String[] line1 = {String.valueOf(transaction.getInit_date()), String.valueOf(transaction.getConclusion_date()), transaction.getProduct_id(), transaction.getValue().toString()};
                 insertDataInFile(init_date,!isFileExist(typeOfData,init_date),typeOfData,line1);
 
             }
             catch (Exception ex) {
-                logges.addInfoLog("Data passed in body was not valid :"+ex.toString(),error);
+                logges.addInfoLog("Data passed in body was not valid :"+ex,error);
                 errorIn.add(transactions.indexOf(transaction));
             }
         });
@@ -230,7 +231,7 @@ public class TransactionService {
     }
     //All Transaction
     public List<Transaction> allTransaction(String TypeOfData,String product_id,Date from_date,Date to_date) throws IOException, ParseException, CsvException {
-        List paths;
+        List<String> paths;
         if(from_date==null && to_date==null)
             paths=allFilesInPresent(TypeOfData);
         else if(from_date==null && to_date!=null) {
