@@ -60,10 +60,10 @@ public class ProductService {
     }
 
     public List<Product> listCommonProduct(String TypeOfData, Date from_date, Date to_date) throws IOException, ParseException, CsvException {
-        List<Product> productsList = new ArrayList<Product>();
+        List<Product> productsList = new ArrayList<>();
         String[][] products = listCommonProd(TypeOfData,from_date,to_date);
-        for(int p=0;p<products.length;p++){
-            productsList.add(new Product(products[p][0]));
+        for (String[] product : products) {
+            productsList.add(new Product(product[0]));
         }
         return productsList;
     }
@@ -72,7 +72,7 @@ public class ProductService {
         if (Objects.equals(TypeOfData, "") ||TypeOfData==null)
             TypeOfData="Data";
         String[][] products=listCommonProd(TypeOfData,from_date,to_date);
-        List<Product> CommonProduct = new ArrayList<Product>();
+        List<Product> CommonProduct = new ArrayList<>();
         int countM=Integer.parseInt(products[0][1]),countL=Integer.parseInt(products[0][1]);
         String prodM=products[0][0],prodL=products[0][0];
         for(int i=1;i<products.length-1;i++){

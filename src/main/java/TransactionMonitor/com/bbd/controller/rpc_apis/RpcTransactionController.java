@@ -49,7 +49,7 @@ public class RpcTransactionController {
         if(Objects.equals(typeOfData, "") ||typeOfData==null)
             typeOfData="Data";
         logges.addInfoLog("RPC - POST in create_transaction is been fired",info);
-        if(service.saveTransaction(transactions,typeOfData)=="Successfully Inserted")
+        if(Objects.equals(service.saveTransaction(transactions, typeOfData), "Successfully Inserted"))
             return ResponseEntity.status(HttpStatus.CREATED).body(service.saveTransaction(transactions,typeOfData));
         else
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(service.saveTransaction(transactions,typeOfData));
@@ -66,7 +66,7 @@ public class RpcTransactionController {
         if(from_date!=null){from = new SimpleDateFormat("yyyy-MM-dd").parse(from_date);}
         if(to_date!=null) {to = new SimpleDateFormat("yyyy-MM-dd").parse(to_date);}
         if(product_id!=null){p_id=product_id;}
-        List<Transaction> oldestTransact= new ArrayList();
+        List<Transaction> oldestTransact= new ArrayList<>();
         oldestTransact.add(service.oldestTransaction(typeOfData,p_id,from,to));
         logges.addInfoLog("RPC - GET in oldest_transaction with from="+from+" and to="+to+" with product id="+product_id,info);
         return oldestTransact;
@@ -83,7 +83,7 @@ public class RpcTransactionController {
         if(from_date!=null){from = new SimpleDateFormat("yyyy-MM-dd").parse(from_date);}
         if(to_date!=null) {to = new SimpleDateFormat("yyyy-MM-dd").parse(to_date);}
         if(product_id!=null){p_id=product_id;}
-        List<Transaction> newestTransact= new ArrayList();
+        List<Transaction> newestTransact= new ArrayList<>();
         newestTransact.add(service.newerTransaction(typeOfData,p_id,from,to));
         logges.addInfoLog("RPC - GET in newest_transaction with from="+from+" and to="+to+" with product id="+product_id,info);
         return newestTransact;

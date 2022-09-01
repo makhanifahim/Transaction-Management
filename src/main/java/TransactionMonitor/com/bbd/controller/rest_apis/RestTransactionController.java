@@ -63,20 +63,20 @@ public class RestTransactionController {
         if(to_date!=null) {to = new SimpleDateFormat("yyyy-MM-dd").parse(to_date);}
         if(product_id!=null){p_id=product_id;}
         if(oldest && newest){
-            List<Transaction> Transact= new ArrayList();
+            List<Transaction> Transact= new ArrayList<>();
             Transact.add(service.oldestTransaction(typeOfData,p_id,from,to));
             Transact.add(service.newerTransaction(typeOfData,p_id,from,to));
             logges.addInfoLog("GET in Transaction is been fired with oldest && newest = true",info);
             return Transact;
         }
         else if(oldest){
-            List<Transaction> oldestTransact= new ArrayList();
+            List<Transaction> oldestTransact= new ArrayList<>();
             oldestTransact.add(service.oldestTransaction(typeOfData,p_id,from,to));
             logges.addInfoLog("GET in Transaction is been fired with oldest=true",info);
             return oldestTransact;
         }
         else if(newest) {
-            List<Transaction> newestTransact = new ArrayList();
+            List<Transaction> newestTransact = new ArrayList<>();
             newestTransact.add(service.newerTransaction(typeOfData,p_id,from,to));
             logges.addInfoLog("GET in Transaction is been fired with newest=true",info);
             return newestTransact;
