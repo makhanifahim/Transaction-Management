@@ -201,8 +201,22 @@ public class TransactionService {
         }
         return BetweenFilePath;
     }
+    public List<Integer> checkTransact(List<Transaction> transactions){
+        List<Integer> errorIn = new ArrayList<>();
+        for(int i=0;i<transactions.size();i++){
+            if(transactions.get(i).getConclusion_date().toEpochSecond()<transactions.get(i).getInit_date().toEpochSecond()){
+                errorIn.add(i);
+            }
+        }
+        return errorIn;
+    }
     //Save Transactions
     public String saveTransaction(List<Transaction> transactions, String typeOfData){
+        List<Integer> logError = checkTransact(transactions);
+        if(logError.size()>0){
+            logges.addInfoLog("Data passed in body was not valid ,index with error is :"+Arrays.toString(logError.toArray()),error);
+            return "Problem with index value : " + Arrays.toString(logError.toArray());
+        }
         List<Integer> errorIn = new ArrayList<>(transactions.size());
         transactions.forEach(transaction -> {
             try {
@@ -214,7 +228,6 @@ public class TransactionService {
                 file.mkdirs();
                 String[] line1 = {String.valueOf(transaction.getInit_date()), String.valueOf(transaction.getConclusion_date()), transaction.getProduct_id(), transaction.getValue().toString()};
                 insertDataInFile(init_date,!isFileExist(typeOfData,init_date),typeOfData,line1);
-
             }
             catch (Exception ex) {
                 logges.addInfoLog("Data passed in body was not valid :"+ex,error);
