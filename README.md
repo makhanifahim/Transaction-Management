@@ -11,7 +11,7 @@
 
 ->Open the cmd in location where the file is Downloaded 
 
-->java-(name of jar file)
+->java-jar (name of jar file with .jar)
 
 ### Following Dependency is been added in maven
 
