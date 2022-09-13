@@ -63,7 +63,6 @@ public class TransactionService {
         String DateFromPath=DayPath.substring(0, indexOfDash);
         return DateFromPath.split("-", 0);
     }
-
     private boolean isFileExist(String typeOfData,ZonedDateTime init_date){
         String date = conDay(init_date);
         String month=conMonth(init_date);
@@ -101,6 +100,7 @@ public class TransactionService {
         }
         return paths;
     }
+
     //All files in between two dates
     public List<String> allFilesInBetween(Date dateFrom,Date dateTo, String TypeOfData){
         int monthFrom = dateFrom.getMonth()+1;
@@ -303,5 +303,4 @@ public class TransactionService {
         }
         return  newestTransaction;
     }
-
 }
